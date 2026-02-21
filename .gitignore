@@ -37,24 +37,42 @@ yarn-error.log*
 next-env.d.ts
 
 # Progress tracking and temporary documentation files
-*PLAN.md
-*PROGRESS.md
-*STATUS.md
-*SUMMARY.md
-*GUIDE.md
-*TEMPLATE.md
-*INSTRUCTIONS.md
-*COMPARISON.md
-*ANALYSIS.md
-*MAPPING.md
-*TRACKER.md
+*PLAN*.md
+*PROGRESS*.md
+*STATUS*.md
+*SUMMARY*.md
+*GUIDE*.md
+*TEMPLATE*.md
+*INSTRUCTIONS*.md
+*COMPARISON*.md
+*ANALYSIS*.md
+*MAPPING*.md
+*TRACKER*.md
+*UPDATE*.md
+*CHEATSHEET*.md
+*START*.md
+*REPORT*.md
+*OPTIMIZATIONS*.md
+*FIX*.md
+NEXT-*.md
+REMAINING_*.md
 overall.md
 overall2.md
 overall3.md
 
 # Keep only essential docs
 !README.md
-!docs/**/*.md
+!docs/ADMIN_SPEC.md
+!docs/AGENCY_SPEC.md
+!docs/AGENCIES_DESIGN_SPEC.md
+!docs/AGENT_HANDOFF.md
+!docs/API_CONTRACT.md
+!docs/ARCHITECTURE.md
+!docs/PROJECT_CONTEXT.md
+!docs/README.md
+!docs/RUNBOOKS.md
+!docs/SUPERADMIN_SPEC.md
+!docs/PHASE_10_IMPLEMENTATION.md
 
 # IDE
 .vscode/
