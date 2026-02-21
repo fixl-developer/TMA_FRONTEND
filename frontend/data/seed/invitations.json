@@ -1,0 +1,64 @@
+[
+  {
+    "_id": "inv_001",
+    "tenantId": "tenant_001",
+    "email": "newagent@elite-models.com",
+    "roleId": "role_003",
+    "invitedByEmail": "rajesh@elite-models.com",
+    "status": "PENDING",
+    "expiresAt": "2025-03-15T00:00:00.000Z",
+    "createdAt": "2025-02-10T10:00:00.000Z"
+  },
+  {
+    "_id": "inv_002",
+    "tenantId": "tenant_001",
+    "email": "finance@elite-models.com",
+    "roleId": "role_004",
+    "invitedByEmail": "rajesh@elite-models.com",
+    "status": "ACCEPTED",
+    "expiresAt": "2025-03-12T00:00:00.000Z",
+    "acceptedAt": "2025-02-11T09:30:00.000Z",
+    "createdAt": "2025-02-09T14:00:00.000Z"
+  },
+  {
+    "_id": "inv_003",
+    "tenantId": "tenant_002",
+    "email": "judge.candidate@miss-india.com",
+    "roleId": "role_006",
+    "invitedByEmail": "meera@miss-india.com",
+    "status": "PENDING",
+    "expiresAt": "2025-03-18T00:00:00.000Z",
+    "createdAt": "2025-02-12T12:20:00.000Z"
+  },
+  {
+    "_id": "inv_004",
+    "tenantId": "tenant_003",
+    "email": "ops@fashion-forward.com",
+    "roleId": "role_009",
+    "invitedByEmail": "owner@fashion-forward.com",
+    "status": "EXPIRED",
+    "expiresAt": "2025-02-01T00:00:00.000Z",
+    "createdAt": "2025-01-20T08:00:00.000Z"
+  },
+  {
+    "_id": "inv_005",
+    "tenantId": "tenant_004",
+    "email": "coordinator@talent-hub.com",
+    "roleId": "role_010",
+    "invitedByEmail": "arjun@talent-hub.com",
+    "status": "CANCELLED",
+    "cancelledAt": "2025-02-08T11:45:00.000Z",
+    "expiresAt": "2025-03-10T00:00:00.000Z",
+    "createdAt": "2025-02-07T11:15:00.000Z"
+  },
+  {
+    "_id": "inv_006",
+    "tenantId": "tenant_006",
+    "email": "trainer@spotlight-talent.com",
+    "roleId": "role_012",
+    "invitedByEmail": "owner@spotlight-talent.com",
+    "status": "PENDING",
+    "expiresAt": "2025-03-20T00:00:00.000Z",
+    "createdAt": "2025-02-13T16:40:00.000Z"
+  }
+]

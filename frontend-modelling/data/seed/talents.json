@@ -1,0 +1,5 @@
+[
+  { "id": "tal-1", "name": "Priya Sharma", "status": "active", "pipeline": "signed", "bookings": 12, "lastCasting": "2025-02-14" },
+  { "id": "tal-2", "name": "Rahul Verma", "status": "active", "pipeline": "shortlisted", "bookings": 8, "lastCasting": "2025-02-12" },
+  { "id": "tal-3", "name": "Ananya Singh", "status": "pending", "pipeline": "new", "bookings": 0, "lastCasting": null }
+]

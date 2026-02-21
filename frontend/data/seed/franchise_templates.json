@@ -1,0 +1,32 @@
+[
+  {
+    "_id": "tmpl_001",
+    "tenantId": "tenant_001",
+    "name": "Standard Pageant Branch",
+    "description": "Full pageant ops: registration, scoring, results, run-of-show",
+    "includes": ["pageant_engine", "registration", "scoring", "run_of_show", "academy_lite"],
+    "policyDefaults": { "canCustomizeBranding": true, "canOverridePricing": false, "canAddLocalEvents": true },
+    "branchesCount": 3,
+    "createdAt": "2024-01-01T00:00:00.000Z"
+  },
+  {
+    "_id": "tmpl_002",
+    "tenantId": "tenant_001",
+    "name": "Academy-Only Branch",
+    "description": "Learning & courses only, no pageant events",
+    "includes": ["academy_full", "certificates", "enrollments"],
+    "policyDefaults": { "canCustomizeBranding": true, "canOverridePricing": true, "canAddLocalEvents": true },
+    "branchesCount": 1,
+    "createdAt": "2024-08-01T00:00:00.000Z"
+  },
+  {
+    "_id": "tmpl_003",
+    "tenantId": "tenant_001",
+    "name": "Modelling Agency Branch",
+    "description": "Castings, bookings, contracts, no pageant",
+    "includes": ["castings", "bookings", "contracts", "talent_mgmt"],
+    "policyDefaults": { "canCustomizeBranding": true, "canOverridePricing": false, "canAddLocalEvents": false },
+    "branchesCount": 0,
+    "createdAt": "2024-10-01T00:00:00.000Z"
+  }
+]

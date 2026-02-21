@@ -1,0 +1,35 @@
+[
+  {
+    "_id": "key_001",
+    "tenantId": "tenant_001",
+    "name": "Elite Models API",
+    "keyPrefix": "sk_live_****xyz1",
+    "scopes": ["talents:read", "bookings:read", "jobs:write"],
+    "lastUsedAt": "2025-02-16T08:45:00.000Z",
+    "requestsLast30d": 12450,
+    "status": "ACTIVE",
+    "createdAt": "2024-06-01T00:00:00.000Z"
+  },
+  {
+    "_id": "key_002",
+    "tenantId": "tenant_002",
+    "name": "Miss India Integration",
+    "keyPrefix": "sk_live_****abc2",
+    "scopes": ["pageants:read", "pageants:write", "registrations:read"],
+    "lastUsedAt": "2025-02-15T22:00:00.000Z",
+    "requestsLast30d": 8920,
+    "status": "ACTIVE",
+    "createdAt": "2024-08-15T00:00:00.000Z"
+  },
+  {
+    "_id": "key_003",
+    "tenantId": "tenant_004",
+    "name": "Talent Hub Sync",
+    "keyPrefix": "sk_test_****def3",
+    "scopes": ["talents:read", "bookings:read"],
+    "lastUsedAt": "2025-02-10T14:00:00.000Z",
+    "requestsLast30d": 320,
+    "status": "ACTIVE",
+    "createdAt": "2025-01-20T00:00:00.000Z"
+  }
+]

@@ -1,0 +1,58 @@
+[
+  {
+    "_id": "mod_001",
+    "tenantId": "tenant_002",
+    "source": "SHOWCASE",
+    "contentId": "post_004",
+    "category": "OFF_PLATFORM_DEAL",
+    "severity": "HIGH",
+    "status": "OPEN",
+    "reportedBy": "system",
+    "rule": "No off-platform deal circumvention",
+    "summary": "Talent attempted to route brand conversation off-platform using phone/WhatsApp in caption.",
+    "createdAt": "2024-01-18T09:30:00.000Z"
+  },
+  {
+    "_id": "mod_002",
+    "tenantId": "tenant_001",
+    "source": "COMMUNITY",
+    "contentId": "community_post_101",
+    "category": "ABUSIVE_CONTENT",
+    "severity": "MEDIUM",
+    "status": "RESOLVED",
+    "reportedBy": "user",
+    "rule": "No defamatory or abusive content",
+    "summary": "Coordinator used harsh language in internal discussion.",
+    "actionTaken": "Content hidden, warning issued to coordinator.",
+    "createdAt": "2024-01-16T12:10:00.000Z",
+    "resolvedAt": "2024-01-16T13:00:00.000Z"
+  },
+  {
+    "_id": "mod_003",
+    "tenantId": "tenant_003",
+    "source": "SHOWCASE",
+    "contentId": "post_005",
+    "category": "SPAM_PROMOTION",
+    "severity": "LOW",
+    "status": "OPEN",
+    "reportedBy": "system",
+    "rule": "No spam, mass recruiting, or fake jobs",
+    "summary": "Brand repeatedly re-using identical caption and CTA across multiple posts.",
+    "createdAt": "2024-01-19T18:45:00.000Z"
+  },
+  {
+    "_id": "mod_004",
+    "tenantId": "tenant_002",
+    "source": "PAGEANT",
+    "contentId": "pageant_002",
+    "category": "MINOR_PROTECTION",
+    "severity": "HIGH",
+    "status": "ESCALATED",
+    "reportedBy": "system",
+    "rule": "Strict consent & minor-protection rules",
+    "summary": "Teen pageant configured without explicit guardian consent stage.",
+    "actionTaken": "Configuration locked; tenant asked to add consent stage.",
+    "createdAt": "2024-01-17T08:00:00.000Z"
+  }
+]
+

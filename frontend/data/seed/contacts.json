@@ -1,0 +1,7 @@
+[
+  {"_id":"con_001","tenantId":"tenant_001","accountId":"acc_001","name":"Priya Mehta","email":"priya.mehta@luxurycosmetics.in","phone":"+91-9876543210","role":"Marketing Head","isPrimary":true,"createdAt":"2024-01-15T10:00:00Z"},
+  {"_id":"con_002","tenantId":"tenant_001","accountId":"acc_001","name":"Rahul Verma","email":"rahul.verma@luxurycosmetics.in","phone":"+91-9876543215","role":"Brand Manager","isPrimary":false,"createdAt":"2024-02-01T09:00:00Z"},
+  {"_id":"con_003","tenantId":"tenant_001","accountId":"acc_002","name":"Anita Desai","email":"anita@fashionhouse.com","phone":"+91-9876543213","role":"Campaign Director","isPrimary":true,"createdAt":"2024-03-01T11:00:00Z"},
+  {"_id":"con_004","tenantId":"tenant_001","accountId":"acc_003","name":"Suresh Kumar","email":"suresh@wellnessbrand.in","phone":"+91-9876543211","role":"Marketing Lead","isPrimary":true,"createdAt":"2024-06-15T14:30:00Z"},
+  {"_id":"con_005","tenantId":"tenant_001","accountId":"acc_004","name":"Meera Singh","email":"meera@eventpromoter.co","phone":"+91-9876543212","role":"Event Director","isPrimary":true,"createdAt":"2024-05-01T09:00:00Z"}
+]

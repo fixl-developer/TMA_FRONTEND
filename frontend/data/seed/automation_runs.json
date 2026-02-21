@@ -1,0 +1,7 @@
+[
+  {"_id":"run_001","automationId":"auto_001","status":"SUCCESS","triggeredBy":"contract_001","runAt":"2025-02-16T08:30:00.000Z","durationMs":120},
+  {"_id":"run_002","automationId":"auto_001","status":"SUCCESS","triggeredBy":"contract_002","runAt":"2025-02-16T07:00:00.000Z","durationMs":95},
+  {"_id":"run_003","automationId":"auto_002","status":"SUCCESS","triggeredBy":"escrow_001","runAt":"2025-02-16T07:15:00.000Z","durationMs":80},
+  {"_id":"run_004","automationId":"auto_002","status":"FAILED","triggeredBy":"escrow_002","runAt":"2025-02-15T14:00:00.000Z","durationMs":5000,"error":"Notification service timeout"},
+  {"_id":"run_005","automationId":"auto_004","status":"SUCCESS","triggeredBy":"delivery_001","runAt":"2025-02-15T14:00:00.000Z","durationMs":200}
+]

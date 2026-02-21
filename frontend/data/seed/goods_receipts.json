@@ -1,0 +1,10 @@
+[
+  {"_id":"gr_001","tenantId":"tenant_001","poId":"po_001","vendorId":"vnd_001","status":"RECEIVED","receivedAt":"2024-06-16T14:00:00.000Z","receivedByUserId":"user_admin_002","notes":"All deliverables received. Photos and video files uploaded to drive."},
+  {"_id":"gr_002","tenantId":"tenant_001","poId":"po_003","vendorId":"vnd_002","status":"RECEIVED","receivedAt":"2024-04-12T18:00:00.000Z","receivedByUserId":"user_admin_002","notes":"MUA services completed on shoot day. All models covered."},
+  {"_id":"gr_003","tenantId":"tenant_001","poId":"po_002","vendorId":"vnd_004","status":"PENDING","notes":"Awaiting finals day catering service delivery."},
+  {"_id":"gr_004","tenantId":"tenant_001","poId":"po_005","vendorId":"vnd_001","status":"RECEIVED","receivedAt":"2024-04-15T19:00:00.000Z","receivedByUserId":"user_admin_002","notes":"Studio used for full day. Setup and breakdown included."},
+  {"_id":"gr_005","tenantId":"tenant_002","poId":"po_004","vendorId":"vnd_003","status":"RECEIVED","receivedAt":"2024-04-28T22:00:00.000Z","receivedByUserId":"user_admin_001","notes":"Stage dismantled post event. All equipment returned."},
+  {"_id":"gr_006","tenantId":"tenant_002","poId":"po_007","vendorId":"vnd_003","status":"RECEIVED","receivedAt":"2024-04-01T14:00:00.000Z","receivedByUserId":"user_admin_001","notes":"10 trophies + 200 certificates received. All in perfect condition."},
+  {"_id":"gr_007","tenantId":"tenant_001","poId":"po_006","vendorId":"vnd_002","status":"PENDING","notes":"Wardrobe delivery scheduled for 2024-05-10."},
+  {"_id":"gr_008","tenantId":"tenant_001","poId":"po_008","vendorId":"vnd_004","status":"PENDING","notes":"Month 1 of 3 — social media content calendar submitted, awaiting review."}
+]

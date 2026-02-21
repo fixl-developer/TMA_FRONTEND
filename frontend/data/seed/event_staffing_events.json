@@ -1,0 +1,5 @@
+[
+  {"_id":"evt_001","tenantId":"tenant_018","name":"Tech Summit 2025","type":"CONFERENCE","date":"2025-03-15","location":"Convention Center, Bangalore","status":"ACTIVE","shiftsRequired":12,"shiftsFilled":3},
+  {"_id":"evt_002","tenantId":"tenant_018","name":"Fashion Week Gala","type":"GALA","date":"2025-03-22","location":"Grand Hotel, Mumbai","status":"ACTIVE","shiftsRequired":8,"shiftsFilled":2},
+  {"_id":"evt_003","tenantId":"tenant_017","name":"Beauty Launch Event","type":"PRODUCT_LAUNCH","date":"2025-03-18","location":"Luxury Mall, Delhi","status":"ACTIVE","shiftsRequired":5,"shiftsFilled":1}
+]

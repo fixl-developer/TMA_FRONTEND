@@ -1,0 +1,8 @@
+[
+  {"_id":"pkg_001","shipmentId":"ship_001","sku":"SKU-BEAUTY-001","description":"Skincare serum 30ml","qty":2,"weightGrams":200},
+  {"_id":"pkg_002","shipmentId":"ship_001","sku":"SKU-BEAUTY-002","description":"Moisturizer 50ml","qty":1,"weightGrams":150},
+  {"_id":"pkg_003","shipmentId":"ship_002","sku":"SKU-BEAUTY-001","description":"Skincare serum 30ml","qty":3,"weightGrams":300},
+  {"_id":"pkg_004","shipmentId":"ship_003","sku":"WARDROBE-001","description":"Designer dress - Size M","qty":1,"weightGrams":500},
+  {"_id":"pkg_005","shipmentId":"ship_003","sku":"WARDROBE-002","description":"Accessories set","qty":1,"weightGrams":200},
+  {"_id":"pkg_006","shipmentId":"ship_004","sku":"KIT-FASHION-001","description":"Styling kit - 5 items","qty":1,"weightGrams":800}
+]

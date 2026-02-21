@@ -1,0 +1,38 @@
+[
+  {
+    "_id": "post_001",
+    "tenantId": "tenant_001",
+    "authorId": "user_001",
+    "authorName": "Priya Sharma",
+    "content": "Excited to share my latest editorial shoot for Vogue India! Grateful for the opportunity.",
+    "type": "TEXT",
+    "status": "APPROVED",
+    "createdAt": "2025-02-15T10:00:00Z",
+    "likesCount": 24,
+    "commentsCount": 5
+  },
+  {
+    "_id": "post_002",
+    "tenantId": "tenant_001",
+    "authorId": "user_002",
+    "authorName": "Rahul Mehta",
+    "content": "Miss India 2025 registration is now open! Don't miss your chance to shine.",
+    "type": "TEXT",
+    "status": "APPROVED",
+    "createdAt": "2025-02-14T14:30:00Z",
+    "likesCount": 89,
+    "commentsCount": 12
+  },
+  {
+    "_id": "post_003",
+    "tenantId": "tenant_001",
+    "authorId": "user_003",
+    "authorName": "Ananya Singh",
+    "content": "Behind the scenes at the fashion week casting. What an experience!",
+    "type": "TEXT",
+    "status": "PENDING",
+    "createdAt": "2025-02-16T09:00:00Z",
+    "likesCount": 0,
+    "commentsCount": 0
+  }
+]

@@ -1,0 +1,4 @@
+[
+  {"_id":"enroll_001","userId":"user_001","courseId":"course_001","progressPercent":50,"status":"IN_PROGRESS","enrolledAt":"2025-01-10","lastAccessedAt":"2025-02-14"},
+  {"_id":"enroll_002","userId":"user_001","courseId":"course_002","progressPercent":33,"status":"IN_PROGRESS","enrolledAt":"2025-01-20","lastAccessedAt":"2025-02-10"}
+]

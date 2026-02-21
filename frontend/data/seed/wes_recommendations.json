@@ -1,0 +1,5 @@
+[
+  {"_id":"rec_001","tenantId":"tenant_001","period":"2024-06","priority":1,"pillar":"APPROVAL_VELOCITY","title":"Enable parallel approvals","description":"Contract approvals take 36h median. Add backup approver to reduce wait.","impactPts":2,"actionUrl":"/admin/settings"},
+  {"_id":"rec_002","tenantId":"tenant_001","period":"2024-06","priority":2,"pillar":"CCC","title":"Auto-invoice on contract signed","description":"Reduce CCC by auto-creating invoice when contract is signed.","impactPts":3,"actionUrl":"/admin/finance/invoices"},
+  {"_id":"rec_003","tenantId":"tenant_001","period":"2024-06","priority":3,"pillar":"QUEUE_HYGIENE","title":"Daily digest for overdue items","description":"3 items overdue. Enable daily digest to nudge owners.","impactPts":1,"actionUrl":"/admin/settings/notifications"}
+]

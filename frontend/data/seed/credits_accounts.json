@@ -1,0 +1,6 @@
+[
+  {"_id":"cred_001","tenantId":"tenant_001","balance":2500,"currency":"CREDITS","lastActivityAt":"2024-06-15T10:00:00.000Z"},
+  {"_id":"cred_002","tenantId":"tenant_002","balance":1800,"currency":"CREDITS","lastActivityAt":"2024-06-14T14:00:00.000Z"},
+  {"_id":"cred_003","tenantId":"tenant_003","balance":500,"currency":"CREDITS","lastActivityAt":"2024-06-10T09:00:00.000Z"},
+  {"_id":"cred_004","tenantId":"tenant_006","balance":250,"currency":"CREDITS","lastActivityAt":"2024-06-25T14:00:00.000Z"}
+]

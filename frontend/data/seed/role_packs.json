@@ -1,0 +1,12 @@
+[
+  {"_id":"rp_own","code":"OWN","name":"Owner","capabilities":["tenant.manage_settings","users.invite","users.assign_roles","*"]},
+  {"_id":"rp_adm","code":"ADM","name":"Admin","capabilities":["users.invite","users.assign_roles","talents.read","talents.write","jobs.read","jobs.write","audit.read"]},
+  {"_id":"rp_ops","code":"OPS","name":"Operations","capabilities":["jobs.read","jobs.write","bookings.manage","audit.read"]},
+  {"_id":"rp_agent","code":"AGENT","name":"Agent/Booker","capabilities":["talents.read","talents.write","jobs.read","jobs.write","bookings.manage"]},
+  {"_id":"rp_talent_mgr","code":"TALENT_MGR","name":"Talent Manager","capabilities":["talents.read","talents.write","bookings.manage"]},
+  {"_id":"rp_fin","code":"FIN","name":"Finance","capabilities":["wallet.read","ledger.transfer","escrow.release","audit.read"]},
+  {"_id":"rp_legal","code":"LEGAL","name":"Legal","capabilities":["contracts.read","contracts.approve","audit.read"]},
+  {"_id":"rp_casting_dir","code":"CASTING_DIR","name":"Casting Director","capabilities":["casting.manage","shortlist.manage","audition.schedule"]},
+  {"_id":"rp_judge","code":"JUDGE","name":"Judge","capabilities":["scoring.submit","participants.read"]},
+  {"_id":"rp_program_dir","code":"PROGRAM_DIR","name":"Program Director","capabilities":["pageant.manage","judges.manage","scoring.publish"]}
+]

@@ -1,0 +1,10 @@
+[
+  {"_id":"avail_001","talentId":"talent_001","from":"2024-06-20T00:00:00.000Z","to":"2024-06-25T23:59:59.000Z","status":"AVAILABLE","notes":"Open for bookings"},
+  {"_id":"avail_002","talentId":"talent_001","from":"2024-07-01T00:00:00.000Z","to":"2024-07-15T23:59:59.000Z","status":"UNAVAILABLE","notes":"Personal travel"},
+  {"_id":"avail_003","talentId":"talent_002","from":"2024-06-18T00:00:00.000Z","to":"2024-06-30T23:59:59.000Z","status":"AVAILABLE","notes":""},
+  {"_id":"avail_004","talentId":"talent_004","from":"2024-06-20T00:00:00.000Z","to":"2024-07-10T23:59:59.000Z","status":"AVAILABLE","notes":"Flexible"},
+  {"_id":"avail_005","talentId":"talent_006","from":"2025-02-01T00:00:00.000Z","to":"2025-02-28T23:59:59.000Z","status":"AVAILABLE","notes":"Open for castings"},
+  {"_id":"avail_006","talentId":"talent_007","from":"2025-02-15T00:00:00.000Z","to":"2025-03-15T23:59:59.000Z","status":"AVAILABLE","notes":""},
+  {"_id":"avail_007","talentId":"talent_008","from":"2025-03-01T00:00:00.000Z","to":"2025-03-31T23:59:59.000Z","status":"UNAVAILABLE","notes":"Film shoot"},
+  {"_id":"avail_008","talentId":"talent_009","from":"2025-02-10T00:00:00.000Z","to":"2025-02-25T23:59:59.000Z","status":"AVAILABLE","notes":"Production ready"}
+]

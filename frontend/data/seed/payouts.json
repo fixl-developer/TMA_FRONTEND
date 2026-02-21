@@ -1,0 +1,5 @@
+[
+  {"_id":"po_001","tenantId":"tenant_001","talentId":"talent_001","amountMinor":45000,"currency":"INR","status":"PENDING","requestedAt":"2024-06-01","description":"Commission for Spring Lookbook"},
+  {"_id":"po_002","tenantId":"tenant_001","talentId":"talent_002","amountMinor":24000,"currency":"INR","status":"SETTLED","requestedAt":"2024-05-20","settledAt":"2024-05-25","description":"Commission for Skincare Campaign"},
+  {"_id":"po_003","tenantId":"tenant_001","amountMinor":800000,"currency":"INR","status":"PENDING","requestedAt":"2024-06-15","description":"Bulk talent payout · Elite Model Search"}
+]

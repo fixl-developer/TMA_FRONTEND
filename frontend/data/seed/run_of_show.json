@@ -1,0 +1,45 @@
+[
+  {
+    "_id": "ros_001",
+    "eventId": "pageant_001",
+    "tenantId": "tenant_001",
+    "name": "Miss India 2024 Finals",
+    "eventDate": "2024-06-15",
+    "segments": [
+      { "id": "seg_1", "time": "18:00", "title": "Doors open", "duration": "30m", "notes": "VIP seating, sponsor check-in" },
+      { "id": "seg_2", "time": "18:30", "title": "Opening performance", "duration": "10m", "notes": "Dance troupe" },
+      { "id": "seg_3", "time": "18:40", "title": "Introduction & sponsor reel", "duration": "5m", "notes": "Beauty Cosmetics, Fashion House" },
+      { "id": "seg_4", "time": "18:45", "title": "Round 1 - Introduction", "duration": "20m", "notes": "Top 20, self intro" },
+      { "id": "seg_5", "time": "19:05", "title": "Round 2 - Talent", "duration": "25m", "notes": "Top 15" },
+      { "id": "seg_6", "time": "19:30", "title": "Intermission", "duration": "15m", "notes": "Sponsor break" },
+      { "id": "seg_7", "time": "19:45", "title": "Round 3 - Q&A", "duration": "20m", "notes": "Top 10" },
+      { "id": "seg_8", "time": "20:05", "title": "Final walk", "duration": "15m", "notes": "Top 5" },
+      { "id": "seg_9", "time": "20:20", "title": "Results & crowning", "duration": "20m", "notes": "Trophy, sash, photos" }
+    ],
+    "issues": [
+      { "id": "iss_1", "segmentId": "seg_4", "description": "Mic check for intro round", "status": "OPEN", "reportedAt": "2024-06-10T14:00:00.000Z" }
+    ],
+    "checklistId": "chk_002",
+    "createdAt": "2024-04-01T10:00:00.000Z",
+    "updatedAt": "2024-06-10T14:00:00.000Z"
+  },
+  {
+    "_id": "ros_002",
+    "eventId": "pageant_002",
+    "tenantId": "tenant_002",
+    "name": "Teen India 2024 Semi-Finals",
+    "eventDate": "2024-05-10",
+    "segments": [
+      { "id": "seg_1", "time": "14:00", "title": "Registration & check-in", "duration": "30m", "notes": "Guardian sign-in required" },
+      { "id": "seg_2", "time": "14:30", "title": "Briefing", "duration": "15m", "notes": "Rules, sequence" },
+      { "id": "seg_3", "time": "14:45", "title": "Round 1 - Introduction", "duration": "45m", "notes": "All 30 participants" },
+      { "id": "seg_4", "time": "15:30", "title": "Break", "duration": "15m", "notes": "Snacks for participants" },
+      { "id": "seg_5", "time": "15:45", "title": "Round 2 - Talent", "duration": "60m", "notes": "Top 15" },
+      { "id": "seg_6", "time": "16:45", "title": "Results announcement", "duration": "15m", "notes": "Top 10 to finals" }
+    ],
+    "issues": [],
+    "checklistId": "chk_004",
+    "createdAt": "2024-04-15T09:00:00.000Z",
+    "updatedAt": "2024-04-15T09:00:00.000Z"
+  }
+]

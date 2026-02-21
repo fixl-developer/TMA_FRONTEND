@@ -1,0 +1,6 @@
+[
+  {"_id":"score_001","pageantId":"pageant_001","registrationId":"reg_001","stage":"PRELIMS","judgeId":"judge_001","criteriaScores":{"Ramp walk":85,"Q&A":90,"Talent":88,"Personality":82},"total":345,"submittedAt":"2024-05-15T10:00:00.000Z"},
+  {"_id":"score_002","pageantId":"pageant_001","registrationId":"reg_002","stage":"PRELIMS","judgeId":"judge_001","criteriaScores":{"Ramp walk":78,"Q&A":85,"Talent":90,"Personality":80},"total":333,"submittedAt":"2024-05-15T10:15:00.000Z"},
+  {"_id":"score_003","pageantId":"pageant_001","registrationId":"reg_004","stage":"SEMI_FINALS","judgeId":"judge_001","criteriaScores":{"Ramp walk":92,"Q&A":88,"Talent":95,"Personality":90},"total":365,"submittedAt":"2024-05-20T14:00:00.000Z"},
+  {"_id":"score_004","pageantId":"pageant_001","registrationId":"reg_004","stage":"SEMI_FINALS","judgeId":"judge_002","criteriaScores":{"Ramp walk":90,"Q&A":85,"Talent":92,"Personality":88},"total":355,"submittedAt":"2024-05-20T14:10:00.000Z"}
+]

@@ -1,0 +1,42 @@
+[
+  {
+    "_id": "disp_001",
+    "tenantId": "tenant_002",
+    "referenceType": "ESCROW",
+    "referenceId": "escrow_004",
+    "raisedBy": "user_talent_001",
+    "reason": "Delivery rejected unfairly - work was completed",
+    "status": "EVIDENCE",
+    "amountMinor": 250000,
+    "currency": "INR",
+    "createdAt": "2025-02-13T10:00:00.000Z",
+    "assignedTo": null
+  },
+  {
+    "_id": "disp_002",
+    "tenantId": "tenant_001",
+    "referenceType": "BOOKING",
+    "referenceId": "booking_001",
+    "raisedBy": "user_owner_001",
+    "reason": "Talent no-show - requesting refund",
+    "status": "OPEN",
+    "amountMinor": 125000,
+    "currency": "INR",
+    "createdAt": "2025-02-15T14:30:00.000Z",
+    "assignedTo": null
+  },
+  {
+    "_id": "disp_003",
+    "tenantId": "tenant_004",
+    "referenceType": "PAYOUT",
+    "referenceId": "payout_002",
+    "raisedBy": "user_owner_003",
+    "reason": "Payout delayed beyond SLA",
+    "status": "RESOLVED",
+    "amountMinor": 320000,
+    "currency": "INR",
+    "createdAt": "2025-02-08T09:00:00.000Z",
+    "resolvedAt": "2025-02-09T11:00:00.000Z",
+    "resolution": "Payout processed, apology issued"
+  }
+]

@@ -1,0 +1,41 @@
+[
+  {
+    "_id": "report_001",
+    "period": "2025-02",
+    "type": "MONTHLY",
+    "subscriptionRevenue": 2450000,
+    "usageRevenue": 890000,
+    "platformFeeRevenue": 125000,
+    "currency": "INR",
+    "tenantCount": 24,
+    "newTenants": 3,
+    "churnedTenants": 0,
+    "createdAt": "2025-02-16T00:00:00.000Z"
+  },
+  {
+    "_id": "report_002",
+    "period": "2025-01",
+    "type": "MONTHLY",
+    "subscriptionRevenue": 2180000,
+    "usageRevenue": 720000,
+    "platformFeeRevenue": 98000,
+    "currency": "INR",
+    "tenantCount": 21,
+    "newTenants": 2,
+    "churnedTenants": 0,
+    "createdAt": "2025-02-01T00:00:00.000Z"
+  },
+  {
+    "_id": "report_003",
+    "period": "2024-12",
+    "type": "MONTHLY",
+    "subscriptionRevenue": 1950000,
+    "usageRevenue": 540000,
+    "platformFeeRevenue": 72000,
+    "currency": "INR",
+    "tenantCount": 19,
+    "newTenants": 4,
+    "churnedTenants": 1,
+    "createdAt": "2025-01-01T00:00:00.000Z"
+  }
+]

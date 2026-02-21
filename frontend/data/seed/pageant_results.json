@@ -1,0 +1,6 @@
+[
+  {"_id":"res_001","pageantId":"pageant_001","stage":"FINALS","rank":1,"registrationId":"reg_004","contestantName":"Ananya Sharma","title":"Winner","published":false,"publishedAt":null,"approvedBy":null},
+  {"_id":"res_002","pageantId":"pageant_001","stage":"FINALS","rank":2,"registrationId":"reg_001","contestantName":"Meera Krishnan","title":"1st Runner-up","published":false,"publishedAt":null,"approvedBy":null},
+  {"_id":"res_003","pageantId":"pageant_001","stage":"FINALS","rank":3,"registrationId":"reg_002","contestantName":"Divya Nair","title":"2nd Runner-up","published":false,"publishedAt":null,"approvedBy":null},
+  {"_id":"res_004","pageantId":"pageant_001","stage":"FINALS","rank":4,"registrationId":"reg_003","contestantName":"Kavya Menon","title":"Top 5","published":false,"publishedAt":null,"approvedBy":null}
+]

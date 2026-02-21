@@ -1,0 +1,6 @@
+[
+  {"_id":"cs_001","tenantId":"tenant_001","bookingId":"booking_007","content":{"callDate":"2024-06-20","callTime":"08:00","location":"Studio A, Mumbai","wardrobe":"Bring 3 outfits","notes":"Hair & makeup at 07:00"},"status":"PUBLISHED","publishedAt":"2024-06-18T10:00:00.000Z"},
+  {"_id":"cs_002","tenantId":"tenant_001","bookingId":"booking_008","content":{"callDate":"2024-06-25","callTime":"09:30","location":"Beauty Cosmetics Studio","wardrobe":"Provided","notes":"Skincare prep required"},"status":"DRAFT","publishedAt":null},
+  {"_id":"cs_003","tenantId":"tenant_001","bookingId":"booking_009","content":{"callDate":"2024-07-01","callTime":"08:00","location":"Studio B, Mumbai","wardrobe":"Fitting June 28","notes":"2-day shoot"},"status":"PUBLISHED","publishedAt":"2024-06-25T09:00:00.000Z"},
+  {"_id":"cs_004","tenantId":"tenant_006","bookingId":"booking_011","content":{"callDate":"2024-07-20","callTime":"09:00","location":"Film City, Mumbai","wardrobe":"Provided by client","notes":"2-day TVC shoot"},"status":"PUBLISHED","publishedAt":"2024-06-22T10:00:00.000Z"}
+]

@@ -1,0 +1,82 @@
+[
+  {
+    "_id": "msg_001",
+    "threadId": "thread_001",
+    "authorId": "user_agent_001",
+    "authorRole": "AGENT",
+    "body": "Call sheet sent. Please confirm wardrobe fitting on June 28.",
+    "createdAt": "2024-06-01T10:00:00.000Z"
+  },
+  {
+    "_id": "msg_002",
+    "threadId": "thread_001",
+    "authorId": "user_owner_001",
+    "authorRole": "TALENT",
+    "body": "Confirmed. I'll be there at 10am.",
+    "createdAt": "2024-06-01T14:30:00.000Z"
+  },
+  {
+    "_id": "msg_003",
+    "threadId": "thread_001",
+    "authorId": "user_agent_001",
+    "authorRole": "AGENT",
+    "body": "Great. Location: Studio 3, Andheri.",
+    "createdAt": "2024-06-02T09:00:00.000Z"
+  },
+  {
+    "_id": "msg_004",
+    "threadId": "thread_002",
+    "authorId": "user_agent_001",
+    "authorRole": "AGENT",
+    "body": "Luxury Fashion House has submitted an inquiry for Summer Campaign. Dates: Jul 15-18.",
+    "createdAt": "2024-06-01T10:00:00.000Z"
+  },
+  {
+    "_id": "msg_005",
+    "threadId": "thread_002",
+    "authorId": "user_owner_001",
+    "authorRole": "TALENT",
+    "body": "I'm available those dates. What's the rate?",
+    "createdAt": "2024-06-03T11:00:00.000Z"
+  },
+  {
+    "_id": "msg_006",
+    "threadId": "thread_004",
+    "authorId": "user_admin_002",
+    "authorRole": "ADMIN",
+    "body": "Content brief attached. Please review and confirm by June 15.",
+    "createdAt": "2024-06-10T09:00:00.000Z"
+  },
+  {
+    "_id": "msg_007",
+    "threadId": "thread_004",
+    "authorId": "user_owner_002",
+    "authorRole": "TALENT",
+    "body": "Reviewed. One question on usage rights - 6 months or 12?",
+    "createdAt": "2024-06-11T14:00:00.000Z"
+  },
+  {
+    "_id": "msg_008",
+    "threadId": "thread_004",
+    "authorId": "user_admin_002",
+    "authorRole": "ADMIN",
+    "body": "12 months as per contract. Brand confirmed.",
+    "createdAt": "2024-06-12T11:00:00.000Z"
+  },
+  {
+    "_id": "msg_009",
+    "threadId": "thread_007",
+    "authorId": "user_owner_003",
+    "authorRole": "TALENT",
+    "body": "Confirmed availability for Aug 1. Location?",
+    "createdAt": "2024-06-15T10:00:00.000Z"
+  },
+  {
+    "_id": "msg_010",
+    "threadId": "thread_008",
+    "authorId": "user_owner_006",
+    "authorRole": "AGENT",
+    "body": "Call time 9am. Wardrobe at 8:30.",
+    "createdAt": "2024-06-21T16:00:00.000Z"
+  }
+]

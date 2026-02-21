@@ -1,0 +1,23 @@
+{
+  "pageant_002": {
+    "conversionFunnel": [
+      { "stage": "Registration", "count": 12, "rate": 100 }
+    ],
+    "revenue": { "totalMinor": 180000, "currency": "INR", "registrations": 12 },
+    "stageCompletion": []
+  },
+  "pageant_001": {
+    "conversionFunnel": [
+      { "stage": "Registration", "count": 45, "rate": 100 },
+      { "stage": "Prelims", "count": 38, "rate": 84 },
+      { "stage": "Semi-finals", "count": 15, "rate": 39 },
+      { "stage": "Finals", "count": 10, "rate": 67 }
+    ],
+    "revenue": { "totalMinor": 675000, "currency": "INR", "registrations": 45 },
+    "stageCompletion": [
+      { "stage": "Registration", "completed": 45, "total": 45 },
+      { "stage": "Prelims", "completed": 38, "total": 45 },
+      { "stage": "Semi-finals", "completed": 15, "total": 38 }
+    ]
+  }
+}

@@ -1,0 +1,8 @@
+[
+  {"_id":"obl_001","tenantId":"tenant_001","contractId":"contract_001","type":"DELIVERABLE","title":"Final images delivery","dueDate":"2024-06-15","status":"COMPLETED","completedAt":"2024-06-14T16:00:00Z"},
+  {"_id":"obl_002","tenantId":"tenant_001","contractId":"contract_001","type":"PAYMENT","title":"Invoice payment","dueDate":"2024-07-01","status":"COMPLETED","completedAt":"2024-06-28T10:00:00Z"},
+  {"_id":"obl_003","tenantId":"tenant_001","contractId":"contract_002","type":"DELIVERABLE","title":"Campaign content delivery","dueDate":"2024-06-20","status":"COMPLETED","completedAt":"2024-06-18T14:00:00Z"},
+  {"_id":"obl_004","tenantId":"tenant_001","contractId":"contract_003","type":"DELIVERABLE","title":"Digital campaign assets","dueDate":"2024-07-15","status":"PENDING"},
+  {"_id":"obl_005","tenantId":"tenant_001","contractId":"contract_001","type":"RENEWAL","title":"Usage rights renewal option","dueDate":"2025-06-01","status":"PENDING"},
+  {"_id":"obl_006","tenantId":"tenant_001","contractId":"contract_004","type":"PAYMENT","title":"Deposit (30%)","dueDate":"2024-07-01","status":"PENDING"}
+]

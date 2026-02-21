@@ -1,0 +1,6 @@
+[
+  {"_id":"creative_001","campaignId":"ad_001","tenantId":"tenant_001","name":"Hero Banner 1","format":"IMAGE","status":"APPROVED","previewUrl":"/images/mta-logo.png","headline":"Miss India 2025","body":"India's premier pageant platform","cta":"Learn More","createdAt":"2025-01-10T10:00:00.000Z"},
+  {"_id":"creative_002","campaignId":"ad_001","tenantId":"tenant_001","name":"Hero Banner 2","format":"IMAGE","status":"APPROVED","previewUrl":"/images/indias-first-platform.png","headline":"India's First Platform","body":"Join the revolution","cta":"Sign Up","createdAt":"2025-01-11T12:00:00.000Z"},
+  {"_id":"creative_003","campaignId":"ad_002","tenantId":"tenant_001","name":"Fashion Week A","format":"VIDEO","status":"PENDING","previewUrl":"","headline":"Fashion Week","body":"Be part of the show","cta":"Register","createdAt":"2025-01-20T14:30:00.000Z"},
+  {"_id":"creative_004","campaignId":"ad_003","tenantId":"tenant_001","name":"Academy CTA","format":"IMAGE","status":"APPROVED","previewUrl":"","headline":"Learn from the best","body":"Enroll in our academy","cta":"Enroll Now","createdAt":"2024-12-28T09:00:00.000Z"}
+]

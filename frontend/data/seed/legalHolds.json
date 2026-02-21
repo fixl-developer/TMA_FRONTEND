@@ -1,0 +1,20 @@
+[
+  {
+    "_id": "hold_001",
+    "tenantId": "tenant_001",
+    "reason": "Litigation - contract dispute",
+    "entityTypes": ["contracts", "audit_logs", "communications"],
+    "status": "ACTIVE",
+    "createdAt": "2025-02-01T00:00:00.000Z",
+    "expiresAt": "2026-02-01T00:00:00.000Z"
+  },
+  {
+    "_id": "hold_002",
+    "tenantId": "tenant_002",
+    "reason": "Regulatory inquiry",
+    "entityTypes": ["users", "payments", "audit_logs"],
+    "status": "RELEASED",
+    "createdAt": "2024-11-15T00:00:00.000Z",
+    "releasedAt": "2025-01-20T00:00:00.000Z"
+  }
+]

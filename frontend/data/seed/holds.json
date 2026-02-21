@@ -1,0 +1,8 @@
+[
+  {"_id":"hold_001","tenantId":"tenant_001","castingId":"casting_001","talentId":"talent_001","fromTs":"2024-07-15T00:00:00.000Z","toTs":"2024-07-18T23:59:59.000Z","status":"ACTIVE","createdAt":"2024-06-10T10:00:00.000Z"},
+  {"_id":"hold_002","tenantId":"tenant_001","castingId":"casting_002","talentId":"talent_004","fromTs":"2024-07-22T00:00:00.000Z","toTs":"2024-07-22T23:59:59.000Z","status":"ACTIVE","createdAt":"2024-06-12T14:00:00.000Z"},
+  {"_id":"hold_003","tenantId":"tenant_006","castingId":"casting_004","talentId":"talent_007","fromTs":"2024-08-05T00:00:00.000Z","toTs":"2024-08-07T23:59:59.000Z","status":"ACTIVE","createdAt":"2024-06-20T10:00:00.000Z"},
+  {"_id":"hold_004","tenantId":"tenant_007","castingId":"casting_005","talentId":"talent_008","fromTs":"2024-07-20T00:00:00.000Z","toTs":"2024-07-25T23:59:59.000Z","status":"ACTIVE","createdAt":"2024-06-18T09:00:00.000Z"},
+  {"_id":"hold_005","tenantId":"tenant_008","castingId":"casting_006","talentId":"talent_009","fromTs":"2024-08-18T00:00:00.000Z","toTs":"2024-08-20T23:59:59.000Z","status":"ACTIVE","createdAt":"2024-06-22T14:00:00.000Z"},
+  {"_id":"hold_006","tenantId":"tenant_001","castingId":"casting_008","talentId":"talent_001","fromTs":"2024-07-12T00:00:00.000Z","toTs":"2024-07-14T23:59:59.000Z","status":"ACTIVE","createdAt":"2024-06-25T10:00:00.000Z"}
+]

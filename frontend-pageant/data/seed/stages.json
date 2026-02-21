@@ -1,0 +1,6 @@
+[
+  { "id": "s1", "eventId": "ev-1", "name": "Registration", "order": 1, "type": "registration", "status": "closed" },
+  { "id": "s2", "eventId": "ev-1", "name": "Prelims", "order": 2, "type": "scoring", "status": "active" },
+  { "id": "s3", "eventId": "ev-1", "name": "Semi-finals", "order": 3, "type": "scoring", "status": "upcoming" },
+  { "id": "s4", "eventId": "ev-1", "name": "Finals", "order": 4, "type": "scoring", "status": "upcoming" }
+]

@@ -1,0 +1,29 @@
+[
+  {
+    "_id": "dep_001",
+    "version": "v2.4.1",
+    "environment": "production",
+    "status": "SUCCESS",
+    "deployedAt": "2025-02-16T06:00:00.000Z",
+    "duration": 420,
+    "changes": ["Fix payment webhook retry", "Escrow state transition fix"]
+  },
+  {
+    "_id": "dep_002",
+    "version": "v2.4.0",
+    "environment": "production",
+    "status": "SUCCESS",
+    "deployedAt": "2025-02-14T08:00:00.000Z",
+    "duration": 380,
+    "changes": ["Talent showcase social", "Analytics alerts"]
+  },
+  {
+    "_id": "dep_003",
+    "version": "v2.3.9",
+    "environment": "staging",
+    "status": "SUCCESS",
+    "deployedAt": "2025-02-16T09:00:00.000Z",
+    "duration": 180,
+    "changes": ["Phase 5 integrations UI"]
+  }
+]

@@ -1,0 +1,34 @@
+[
+  {
+    "_id": "risk_001",
+    "tenantId": "tenant_001",
+    "type": "HIGH_VOLUME",
+    "severity": "LOW",
+    "description": "Unusual spike in payout volume",
+    "amountMinor": 1250000,
+    "status": "RESOLVED",
+    "createdAt": "2025-02-14T12:00:00.000Z",
+    "resolvedAt": "2025-02-14T14:00:00.000Z"
+  },
+  {
+    "_id": "risk_002",
+    "tenantId": "tenant_002",
+    "type": "CHARGEBACK_RISK",
+    "severity": "MEDIUM",
+    "description": "Multiple refund requests in 24h",
+    "amountMinor": 500000,
+    "status": "OPEN",
+    "createdAt": "2025-02-16T00:00:00.000Z"
+  },
+  {
+    "_id": "risk_003",
+    "tenantId": "tenant_004",
+    "type": "NEW_TENANT",
+    "severity": "LOW",
+    "description": "First payout within 7 days of signup",
+    "amountMinor": 320000,
+    "status": "REVIEWED",
+    "createdAt": "2025-02-08T10:00:00.000Z",
+    "resolvedAt": "2025-02-08T11:30:00.000Z"
+  }
+]

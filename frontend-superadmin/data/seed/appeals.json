@@ -1,0 +1,22 @@
+[
+  {
+    "_id": "app_001",
+    "enforcementId": "enf_001",
+    "userId": "user_suspended_001",
+    "tenantId": "tenant_001",
+    "message": "I believe this was a misunderstanding. The messages were sent to a known contact.",
+    "status": "PENDING",
+    "createdAt": "2025-02-11T08:00:00.000Z"
+  },
+  {
+    "_id": "app_002",
+    "enforcementId": "enf_002",
+    "userId": "user_banned_001",
+    "tenantId": "tenant_002",
+    "message": "Requesting review - payment was delayed by bank, not fraud.",
+    "status": "REJECTED",
+    "createdAt": "2025-02-02T10:00:00.000Z",
+    "reviewedAt": "2025-02-03T14:00:00.000Z",
+    "reviewNotes": "Evidence confirmed fraud. Appeal denied."
+  }
+]

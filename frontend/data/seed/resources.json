@@ -1,0 +1,10 @@
+[
+  {"_id":"res_001","tenantId":"tenant_001","type":"TALENT","refId":"talent_001","name":"Priya Sharma","capacity":"FULL_DAY","maxHoursPerWeek":40,"createdAt":"2024-01-15T10:00:00.000Z"},
+  {"_id":"res_002","tenantId":"tenant_001","type":"TALENT","refId":"talent_002","name":"Rahul Kapoor","capacity":"FULL_DAY","maxHoursPerWeek":40,"createdAt":"2024-02-01T10:00:00.000Z"},
+  {"_id":"res_003","tenantId":"tenant_001","type":"TALENT","refId":"talent_004","name":"Sneha Reddy","capacity":"FULL_DAY","maxHoursPerWeek":40,"createdAt":"2024-03-01T10:00:00.000Z"},
+  {"_id":"res_004","tenantId":"tenant_001","type":"CREW","refId":"crew_001","name":"Sunil Photographer","capacity":"FULL_DAY","skills":["photography","lighting"],"ratePerDay":15000,"createdAt":"2024-02-10T10:00:00.000Z"},
+  {"_id":"res_005","tenantId":"tenant_001","type":"CREW","refId":"crew_002","name":"Maya MUA","capacity":"HALF_DAY","skills":["makeup","hair"],"ratePerDay":8000,"createdAt":"2024-02-15T10:00:00.000Z"},
+  {"_id":"res_006","tenantId":"tenant_001","type":"TRAINER","refId":"staff_004","name":"Sneha Patel","capacity":"FULL_DAY","skills":["grooming","etiquette"],"createdAt":"2024-03-01T10:00:00.000Z"},
+  {"_id":"res_007","tenantId":"tenant_002","type":"TALENT","refId":"talent_003","name":"Ananya Patel","capacity":"FULL_DAY","maxHoursPerWeek":35,"createdAt":"2024-02-10T10:00:00.000Z"},
+  {"_id":"res_008","tenantId":"tenant_002","type":"STAFF","refId":"staff_006","name":"Vikram Reddy","capacity":"FULL_DAY","role":"Coordinator","createdAt":"2024-02-10T10:00:00.000Z"}
+]

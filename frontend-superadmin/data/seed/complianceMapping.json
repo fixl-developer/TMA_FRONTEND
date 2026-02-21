@@ -1,0 +1,14 @@
+{
+  "SOC2": [
+    { "control": "CC6.1", "name": "Access Control", "status": "IMPLEMENTED", "evidence": "RBAC + ABAC" },
+    { "control": "CC6.6", "name": "Tenant Data Isolation", "status": "IMPLEMENTED", "evidence": "RLS + tenant_id" },
+    { "control": "CC7.2", "name": "Immutable Audit Logs", "status": "IMPLEMENTED", "evidence": "Append-only logs" },
+    { "control": "CC7.3", "name": "Monitoring & Alerts", "status": "IMPLEMENTED", "evidence": "SLO dashboards" },
+    { "control": "CC7.4", "name": "Incident Response", "status": "IMPLEMENTED", "evidence": "P0/P1 runbooks" }
+  ],
+  "ISO27001": [
+    { "control": "A.9.1", "name": "Access Control Policy", "status": "IMPLEMENTED", "evidence": "RBAC" },
+    { "control": "A.12.4", "name": "Logging", "status": "IMPLEMENTED", "evidence": "Audit logs" },
+    { "control": "A.16.1", "name": "Incident Management", "status": "IMPLEMENTED", "evidence": "Incident runbooks" }
+  ]
+}

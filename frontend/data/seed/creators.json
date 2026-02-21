@@ -1,0 +1,72 @@
+[
+  {
+    "_id": "creator_001",
+    "talentId": "talent_001",
+    "tenantId": "tenant_001",
+    "stageName": "Priya Sharma",
+    "niche": "Beauty",
+    "platforms": ["instagram", "youtube"],
+    "reach": "250K",
+    "reachMinor": 250000,
+    "rateMinor": 50000,
+    "currency": "INR",
+    "mediaKitUrl": "https://example.com/kit/priya",
+    "avatarUrl": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&h=200&fit=crop"
+  },
+  {
+    "_id": "creator_002",
+    "talentId": "talent_002",
+    "tenantId": "tenant_001",
+    "stageName": "Rahul Kapoor",
+    "niche": "Fashion",
+    "platforms": ["instagram", "tiktok"],
+    "reach": "180K",
+    "reachMinor": 180000,
+    "rateMinor": 40000,
+    "currency": "INR",
+    "mediaKitUrl": "https://example.com/kit/rahul",
+    "avatarUrl": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop"
+  },
+  {
+    "_id": "creator_003",
+    "talentId": "talent_004",
+    "tenantId": "tenant_001",
+    "stageName": "Sneha Reddy",
+    "niche": "Beauty",
+    "platforms": ["instagram", "youtube"],
+    "reach": "420K",
+    "reachMinor": 420000,
+    "rateMinor": 75000,
+    "currency": "INR",
+    "mediaKitUrl": "https://example.com/kit/sneha",
+    "avatarUrl": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&h=200&fit=crop"
+  },
+  {
+    "_id": "creator_004",
+    "talentId": "talent_006",
+    "tenantId": "tenant_006",
+    "stageName": "Aditi Menon",
+    "niche": "Lifestyle",
+    "platforms": ["instagram"],
+    "reach": "95K",
+    "reachMinor": 95000,
+    "rateMinor": 25000,
+    "currency": "INR",
+    "mediaKitUrl": "https://example.com/kit/aditi",
+    "avatarUrl": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&h=200&fit=crop"
+  },
+  {
+    "_id": "creator_005",
+    "talentId": "talent_007",
+    "tenantId": "tenant_006",
+    "stageName": "Karan Oberoi",
+    "niche": "Fitness",
+    "platforms": ["instagram", "youtube"],
+    "reach": "120K",
+    "reachMinor": 120000,
+    "rateMinor": 35000,
+    "currency": "INR",
+    "mediaKitUrl": "https://example.com/kit/karan",
+    "avatarUrl": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop"
+  }
+]

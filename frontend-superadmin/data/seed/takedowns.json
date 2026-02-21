@@ -1,0 +1,34 @@
+[
+  {
+    "_id": "td_001",
+    "tenantId": "tenant_001",
+    "contentId": "post_001",
+    "contentType": "SHOWCASE",
+    "requestedBy": "user_talent_001",
+    "reason": "Image used without consent",
+    "status": "APPROVED",
+    "createdAt": "2025-02-12T09:00:00.000Z",
+    "resolvedAt": "2025-02-12T11:00:00.000Z"
+  },
+  {
+    "_id": "td_002",
+    "tenantId": "tenant_002",
+    "contentId": "post_008",
+    "contentType": "SHOWCASE",
+    "requestedBy": "platform",
+    "reason": "DMCA - copyright claim from rights holder",
+    "status": "PENDING",
+    "createdAt": "2025-02-16T08:00:00.000Z"
+  },
+  {
+    "_id": "td_003",
+    "tenantId": "tenant_003",
+    "contentId": "post_012",
+    "contentType": "COMMUNITY",
+    "requestedBy": "user_admin_003",
+    "reason": "Inappropriate content - policy violation",
+    "status": "APPROVED",
+    "createdAt": "2025-02-14T15:00:00.000Z",
+    "resolvedAt": "2025-02-14T16:30:00.000Z"
+  }
+]

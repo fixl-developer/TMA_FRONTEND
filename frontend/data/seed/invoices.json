@@ -1,0 +1,7 @@
+[
+  {"_id":"inv_001","tenantId":"tenant_001","invoiceNumber":"INV-2024-001","clientName":"Luxury Fashion House","amountMinor":150000,"currency":"INR","status":"PAID","dueDate":"2024-06-15","paidAt":"2024-06-10"},
+  {"_id":"inv_002","tenantId":"tenant_001","invoiceNumber":"INV-2024-002","clientName":"Beauty Cosmetics","amountMinor":80000,"currency":"INR","status":"PENDING","dueDate":"2024-07-01"},
+  {"_id":"inv_003","tenantId":"tenant_001","invoiceNumber":"INV-2024-003","clientName":"Global Fashion Brand","amountMinor":200000,"currency":"INR","status":"DRAFT","dueDate":"2024-07-15"},
+  {"_id":"inv_004","tenantId":"tenant_006","invoiceNumber":"INV-2024-006","clientName":"Ad Agency","amountMinor":180000,"currency":"INR","status":"PAID","dueDate":"2024-07-25","paidAt":"2024-07-20"},
+  {"_id":"inv_005","tenantId":"tenant_009","invoiceNumber":"INV-2024-009","clientName":"Fashion Brand","amountMinor":250000,"currency":"INR","status":"PENDING","dueDate":"2024-08-15"}
+]

@@ -1,0 +1,46 @@
+[
+  {
+    "_id": "deal_001",
+    "campaignId": "camp_001",
+    "talentId": "talent_001",
+    "brandId": "brand_001",
+    "status": "ACTIVE",
+    "feeMinor": 50000,
+    "currency": "INR",
+    "signedAt": "2024-06-05T10:00:00.000Z",
+    "deliverablesCount": 2
+  },
+  {
+    "_id": "deal_002",
+    "campaignId": "camp_001",
+    "talentId": "talent_004",
+    "brandId": "brand_001",
+    "status": "ACTIVE",
+    "feeMinor": 75000,
+    "currency": "INR",
+    "signedAt": "2024-06-10T14:00:00.000Z",
+    "deliverablesCount": 1
+  },
+  {
+    "_id": "deal_003",
+    "campaignId": "camp_002",
+    "talentId": "talent_002",
+    "brandId": "brand_002",
+    "status": "COMPLETED",
+    "feeMinor": 40000,
+    "currency": "INR",
+    "signedAt": "2024-02-01T09:00:00.000Z",
+    "deliverablesCount": 1
+  },
+  {
+    "_id": "deal_004",
+    "campaignId": "camp_003",
+    "talentId": "talent_001",
+    "brandId": "brand_003",
+    "status": "PENDING",
+    "feeMinor": 60000,
+    "currency": "INR",
+    "signedAt": null,
+    "deliverablesCount": 2
+  }
+]

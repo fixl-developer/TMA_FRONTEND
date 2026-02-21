@@ -1,0 +1,7 @@
+[
+  {"_id":"sla_001","tenantId":"tenant_001","objectType":"BOOKING","objectId":"booking_001","stage":"INQUIRY","targetHours":24,"actualHours":18,"status":"MET","createdAt":"2024-06-01T10:00:00.000Z","completedAt":"2024-06-02T04:00:00.000Z"},
+  {"_id":"sla_002","tenantId":"tenant_001","objectType":"BOOKING","objectId":"booking_004","stage":"HOLD","targetHours":48,"actualHours":72,"status":"MISSED","createdAt":"2024-06-01T11:00:00.000Z","completedAt":"2024-06-04T11:00:00.000Z"},
+  {"_id":"sla_003","tenantId":"tenant_001","objectType":"CONTRACT","objectId":"contract_003","stage":"SENT","targetHours":72,"actualHours":48,"status":"MET","createdAt":"2024-06-12T14:00:00.000Z","completedAt":"2024-06-14T14:00:00.000Z"},
+  {"_id":"sla_004","tenantId":"tenant_001","objectType":"APPROVAL","objectId":"apr_001","stage":"PENDING","targetHours":48,"actualHours":null,"status":"OPEN","createdAt":"2024-07-18T10:00:00.000Z"},
+  {"_id":"sla_005","tenantId":"tenant_001","objectType":"CASTING","objectId":"cast_001","stage":"SUBMISSION","targetHours":72,"actualHours":60,"status":"MET","createdAt":"2024-05-15T09:00:00.000Z","completedAt":"2024-05-17T21:00:00.000Z"}
+]

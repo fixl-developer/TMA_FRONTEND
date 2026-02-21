@@ -1,0 +1,7 @@
+[
+  {"_id":"cl_001","tenantId":"tenant_001","name":"Engagement Terms","content":"The Talent agrees to perform the services described in this agreement for the Client on the dates specified. The Talent shall make themselves available for the full duration of the shoot unless otherwise agreed in writing.","category":"ENGAGEMENT","createdAt":"2024-01-05T10:00:00.000Z"},
+  {"_id":"cl_002","tenantId":"tenant_001","name":"Usage Rights","content":"The Client shall have the right to use the images and footage from this shoot for the purposes specified in the project brief. Additional usage rights may be negotiated separately.","category":"USAGE","createdAt":"2024-01-05T10:00:00.000Z"},
+  {"_id":"cl_003","tenantId":"tenant_001","name":"Payment Terms","content":"Payment shall be made within 30 days of invoice date. Late payments may incur interest at 1.5% per month.","category":"PAYMENT","createdAt":"2024-01-05T10:00:00.000Z"},
+  {"_id":"cl_004","tenantId":"tenant_001","name":"Beauty Product Usage","content":"The Talent consents to the use of specified beauty products during the shoot. Any product sensitivities must be disclosed prior to the shoot date.","category":"BEAUTY","createdAt":"2024-02-01T10:00:00.000Z"},
+  {"_id":"cl_005","tenantId":"tenant_001","name":"Cancellation","content":"Either party may cancel this agreement with 7 days written notice. In the event of cancellation by the Client, a cancellation fee may apply as per the rate card.","category":"TERMINATION","createdAt":"2024-01-05T10:00:00.000Z"}
+]

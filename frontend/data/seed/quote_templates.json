@@ -1,0 +1,6 @@
+[
+  {"_id":"qt_001","tenantId":"tenant_001","name":"Model Day Rate + Usage","category":"MODELING","description":"Standard modeling booking with usage rights","rateCardIds":["rc_001","rc_002"],"defaultValidDays":14},
+  {"_id":"qt_002","tenantId":"tenant_001","name":"UGC Bundle","category":"INFLUENCER","description":"Creator content bundle for brand campaigns","rateCardIds":["rc_003","rc_005"],"defaultValidDays":7},
+  {"_id":"qt_003","tenantId":"tenant_001","name":"Event Staffing Package","category":"STAFFING","description":"Event hosts and promoters","rateCardIds":["rc_004"],"defaultValidDays":5},
+  {"_id":"qt_004","tenantId":"tenant_001","name":"Production Services","category":"PRODUCTION","description":"Full production day with deliverables","rateCardIds":["rc_006"],"defaultValidDays":21}
+]

@@ -1,0 +1,55 @@
+[
+  {
+    "_id": "tpl_beauty",
+    "name": "Beauty Pageant",
+    "description": "Classic beauty pageant with registration, prelims, semi-finals, and finals.",
+    "category": "BEAUTY",
+    "stages": [
+      { "id": "reg", "name": "Registration", "order": 1 },
+      { "id": "prelims", "name": "Prelims", "order": 2 },
+      { "id": "semi", "name": "Semi-finals", "order": 3 },
+      { "id": "finals", "name": "Finals", "order": 4 }
+    ],
+    "scoringCriteria": ["Ramp walk", "Q&A", "Talent", "Personality"]
+  },
+  {
+    "_id": "tpl_kids",
+    "name": "Kids Pageant",
+    "description": "Pageant for children with guardian consent and age-appropriate stages.",
+    "category": "KIDS",
+    "stages": [
+      { "id": "reg", "name": "Registration", "order": 1 },
+      { "id": "audition", "name": "Audition", "order": 2 },
+      { "id": "finals", "name": "Finals", "order": 3 }
+    ],
+    "scoringCriteria": ["Confidence", "Talent", "Stage presence"]
+  },
+  {
+    "_id": "tpl_talent",
+    "name": "Talent Hunt",
+    "description": "Talent competition with multiple elimination rounds.",
+    "category": "TALENT",
+    "stages": [
+      { "id": "reg", "name": "Registration", "order": 1 },
+      { "id": "round1", "name": "Round 1", "order": 2 },
+      { "id": "round2", "name": "Round 2", "order": 3 },
+      { "id": "semi", "name": "Semi-finals", "order": 4 },
+      { "id": "finals", "name": "Grand Finals", "order": 5 }
+    ],
+    "scoringCriteria": ["Talent", "Originality", "Presentation", "Audience impact"]
+  },
+  {
+    "_id": "tpl_reality",
+    "name": "Reality Show Format",
+    "description": "Multi-week reality format with weekly eliminations.",
+    "category": "REALITY",
+    "stages": [
+      { "id": "casting", "name": "Casting", "order": 1 },
+      { "id": "bootcamp", "name": "Bootcamp", "order": 2 },
+      { "id": "ep1", "name": "Episode 1", "order": 3 },
+      { "id": "ep2", "name": "Episode 2", "order": 4 },
+      { "id": "finals", "name": "Grand Finale", "order": 5 }
+    ],
+    "scoringCriteria": ["Task performance", "Judges vote", "Public vote"]
+  }
+]

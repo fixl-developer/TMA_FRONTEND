@@ -1,0 +1,4 @@
+[
+  {"_id":"report_001","postId":"post_003","tenantId":"tenant_001","reporterId":"user_001","reason":"Inappropriate content","status":"PENDING","createdAt":"2025-02-16T11:00:00.000Z"},
+  {"_id":"report_002","postId":"post_001","tenantId":"tenant_001","reporterId":"user_002","reason":"Spam","status":"DISMISSED","createdAt":"2025-02-14T09:00:00.000Z","resolvedAt":"2025-02-14T10:00:00.000Z"}
+]

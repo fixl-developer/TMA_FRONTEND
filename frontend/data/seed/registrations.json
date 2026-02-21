@@ -1,0 +1,8 @@
+[
+  {"_id":"reg_001","pageantId":"pageant_001","contestantName":"Meera Krishnan","email":"meera@example.com","status":"CONFIRMED","stage":"PRELIMS","registeredAt":"2024-05-01T10:00:00.000Z"},
+  {"_id":"reg_002","pageantId":"pageant_001","contestantName":"Divya Nair","email":"divya@example.com","status":"CONFIRMED","stage":"PRELIMS","registeredAt":"2024-05-03T14:00:00.000Z"},
+  {"_id":"reg_003","pageantId":"pageant_001","contestantName":"Kavya Menon","email":"kavya@example.com","status":"PENDING","stage":"REGISTRATION","registeredAt":"2024-05-10T09:00:00.000Z"},
+  {"_id":"reg_004","pageantId":"pageant_001","contestantName":"Ananya Sharma","email":"ananya@example.com","status":"CONFIRMED","stage":"SEMI_FINALS","registeredAt":"2024-04-28T11:00:00.000Z"},
+  {"_id":"reg_005","pageantId":"pageant_002","contestantName":"Priya Reddy","email":"priya@example.com","status":"CONFIRMED","stage":"AUDITION","registeredAt":"2024-05-05T09:00:00.000Z"},
+  {"_id":"reg_006","pageantId":"pageant_002","contestantName":"Sneha Patel","email":"sneha@example.com","status":"PENDING","stage":"REGISTRATION","registeredAt":"2024-05-12T14:00:00.000Z"}
+]

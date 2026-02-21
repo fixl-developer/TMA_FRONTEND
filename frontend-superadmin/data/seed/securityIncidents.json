@@ -1,0 +1,31 @@
+[
+  {
+    "_id": "inc_001",
+    "type": "P1",
+    "title": "Payment webhook delay",
+    "module": "payments",
+    "status": "RESOLVED",
+    "createdAt": "2025-02-15T10:00:00.000Z",
+    "resolvedAt": "2025-02-15T11:30:00.000Z",
+    "impact": "Webhook processing lag ~5 min"
+  },
+  {
+    "_id": "inc_002",
+    "type": "P0",
+    "title": "Auth service timeout",
+    "module": "identity",
+    "status": "RESOLVED",
+    "createdAt": "2025-02-10T14:00:00.000Z",
+    "resolvedAt": "2025-02-10T14:25:00.000Z",
+    "impact": "Login failures for 12 minutes"
+  },
+  {
+    "_id": "inc_003",
+    "type": "P1",
+    "title": "Queue backlog",
+    "module": "workers",
+    "status": "OPEN",
+    "createdAt": "2025-02-16T08:00:00.000Z",
+    "impact": "Email queue depth 1200"
+  }
+]

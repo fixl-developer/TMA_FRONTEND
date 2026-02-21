@@ -1,0 +1,10 @@
+[
+  {"_id":"avbl_001","tenantId":"tenant_001","resourceId":"res_001","from":"2024-06-20T00:00:00.000Z","to":"2024-06-25T23:59:59.000Z","status":"AVAILABLE","notes":"Open for bookings"},
+  {"_id":"avbl_002","tenantId":"tenant_001","resourceId":"res_001","from":"2024-07-01T00:00:00.000Z","to":"2024-07-15T23:59:59.000Z","status":"UNAVAILABLE","notes":"Personal travel"},
+  {"_id":"avbl_003","tenantId":"tenant_001","resourceId":"res_002","from":"2024-06-18T00:00:00.000Z","to":"2024-06-30T23:59:59.000Z","status":"AVAILABLE","notes":""},
+  {"_id":"avbl_004","tenantId":"tenant_001","resourceId":"res_003","from":"2024-06-20T00:00:00.000Z","to":"2024-07-10T23:59:59.000Z","status":"AVAILABLE","notes":"Flexible"},
+  {"_id":"avbl_005","tenantId":"tenant_001","resourceId":"res_004","from":"2024-06-01T00:00:00.000Z","to":"2024-06-30T23:59:59.000Z","status":"AVAILABLE","notes":"Mumbai only"},
+  {"_id":"avbl_006","tenantId":"tenant_001","resourceId":"res_005","from":"2024-06-15T00:00:00.000Z","to":"2024-07-15T23:59:59.000Z","status":"AVAILABLE","notes":"Prefer mornings"},
+  {"_id":"avbl_007","tenantId":"tenant_001","resourceId":"res_006","from":"2024-06-01T00:00:00.000Z","to":"2024-06-20T23:59:59.000Z","status":"UNAVAILABLE","notes":"Pageant prep"},
+  {"_id":"avbl_008","tenantId":"tenant_001","resourceId":"res_006","from":"2024-06-21T00:00:00.000Z","to":"2024-07-31T23:59:59.000Z","status":"AVAILABLE","notes":"Academy sessions"}
+]

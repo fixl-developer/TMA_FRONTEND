@@ -1,0 +1,58 @@
+[
+  {
+    "_id": "txn_001",
+    "type": "PAGEANT_FEE",
+    "direction": "INBOUND",
+    "amountMinor": 150000,
+    "currency": "INR",
+    "tenantId": "tenant_002",
+    "description": "Pageant registration · Miss India 2024",
+    "status": "SETTLED",
+    "createdAt": "2024-01-12T09:30:00.000Z"
+  },
+  {
+    "_id": "txn_002",
+    "type": "PAYOUT_TALENT",
+    "direction": "OUTBOUND",
+    "amountMinor": 800000,
+    "currency": "INR",
+    "tenantId": "tenant_001",
+    "description": "Talent payout · Elite Model Search 2024",
+    "status": "PENDING",
+    "createdAt": "2024-01-15T11:15:00.000Z"
+  },
+  {
+    "_id": "txn_003",
+    "type": "CAMPAIGN_BUDGET",
+    "direction": "INBOUND",
+    "amountMinor": 5000000,
+    "currency": "INR",
+    "tenantId": "tenant_003",
+    "description": "Brand campaign budget · Fashion Forward",
+    "status": "SETTLED",
+    "createdAt": "2024-01-16T14:00:00.000Z"
+  },
+  {
+    "_id": "txn_004",
+    "type": "REFUND",
+    "direction": "OUTBOUND",
+    "amountMinor": 200000,
+    "currency": "INR",
+    "tenantId": "tenant_002",
+    "description": "Partial refund · cancelled audition slot",
+    "status": "SETTLED",
+    "createdAt": "2024-01-18T10:45:00.000Z"
+  },
+  {
+    "_id": "txn_005",
+    "type": "COMMISSION",
+    "direction": "INTERNAL",
+    "amountMinor": 350000,
+    "currency": "INR",
+    "tenantId": "tenant_002",
+    "description": "Platform commission share · registrations",
+    "status": "SETTLED",
+    "createdAt": "2024-01-18T10:46:00.000Z"
+  }
+]
+

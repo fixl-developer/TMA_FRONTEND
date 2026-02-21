@@ -1,0 +1,4 @@
+[
+  {"_id":"cert_001","userId":"user_001","courseId":"course_001","courseTitle":"Ramp Walk Basics","issuedAt":"2025-01-15","templateId":"tpl_001","shareUrl":"https://talentos.academy/cert/abc123"},
+  {"_id":"cert_002","userId":"user_001","courseId":"course_002","courseTitle":"Portfolio Photography","issuedAt":"2025-02-01","templateId":"tpl_002","shareUrl":"https://talentos.academy/cert/def456"}
+]

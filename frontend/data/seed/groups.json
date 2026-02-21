@@ -1,0 +1,29 @@
+[
+  {
+    "_id": "group_001",
+    "tenantId": "tenant_001",
+    "name": "Models Elite",
+    "description": "Exclusive group for signed models",
+    "memberCount": 45,
+    "isPrivate": true,
+    "createdAt": "2025-01-10T00:00:00Z"
+  },
+  {
+    "_id": "group_002",
+    "tenantId": "tenant_001",
+    "name": "Pageant Contestants 2025",
+    "description": "Community for Miss India 2025 participants",
+    "memberCount": 120,
+    "isPrivate": false,
+    "createdAt": "2025-02-01T00:00:00Z"
+  },
+  {
+    "_id": "group_003",
+    "tenantId": "tenant_001",
+    "name": "Influencer Network",
+    "description": "Brand collaborations and campaigns",
+    "memberCount": 78,
+    "isPrivate": false,
+    "createdAt": "2025-01-15T00:00:00Z"
+  }
+]

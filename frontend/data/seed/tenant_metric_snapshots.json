@@ -1,0 +1,5 @@
+[
+  {"_id":"tms_001","tenantId":"tenant_001","period":"2024-06","wesTotal":72,"pillars":{"stageFlow":18,"slaCompliance":12,"approvalVelocity":7,"queueHygiene":6,"ccc":14,"disputeRate":8,"utilization":7},"createdAt":"2024-07-01T00:00:00.000Z"},
+  {"_id":"tms_002","tenantId":"tenant_001","period":"2024-05","wesTotal":68,"pillars":{"stageFlow":16,"slaCompliance":11,"approvalVelocity":6,"queueHygiene":5,"ccc":13,"disputeRate":8,"utilization":9},"createdAt":"2024-06-01T00:00:00.000Z"},
+  {"_id":"tms_003","tenantId":"tenant_001","period":"2024-04","wesTotal":65,"pillars":{"stageFlow":15,"slaCompliance":10,"approvalVelocity":5,"queueHygiene":6,"ccc":12,"disputeRate":7,"utilization":10},"createdAt":"2024-05-01T00:00:00.000Z"}
+]

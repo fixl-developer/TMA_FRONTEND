@@ -1,0 +1,32 @@
+[
+  {
+    "_id": "threat_001",
+    "type": "BRUTE_FORCE",
+    "severity": "MEDIUM",
+    "source": "auth",
+    "count": 15,
+    "lastSeenAt": "2025-02-16T07:00:00.000Z",
+    "status": "MITIGATED",
+    "action": "Rate limit applied"
+  },
+  {
+    "_id": "threat_002",
+    "type": "SUSPICIOUS_API",
+    "severity": "LOW",
+    "source": "api",
+    "count": 3,
+    "lastSeenAt": "2025-02-15T22:00:00.000Z",
+    "status": "REVIEWED",
+    "action": "No action - false positive"
+  },
+  {
+    "_id": "threat_003",
+    "type": "CROSS_TENANT_ACCESS",
+    "severity": "HIGH",
+    "source": "policy",
+    "count": 1,
+    "lastSeenAt": "2025-02-14T16:00:00.000Z",
+    "status": "BLOCKED",
+    "action": "Request blocked, user warned"
+  }
+]

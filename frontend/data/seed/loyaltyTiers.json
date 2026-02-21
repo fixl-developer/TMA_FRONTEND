@@ -1,0 +1,6 @@
+[
+  {"_id":"tier_bronze","name":"Bronze","minCredits":0,"maxCredits":499,"benefits":["5% discount on registrations","Early access to events"],"color":"#CD7F32"},
+  {"_id":"tier_silver","name":"Silver","minCredits":500,"maxCredits":1999,"benefits":["10% discount","Priority support","Free media kit upgrade"],"color":"#C0C0C0"},
+  {"_id":"tier_gold","name":"Gold","minCredits":2000,"maxCredits":4999,"benefits":["15% discount","Dedicated account manager","Exclusive workshops"],"color":"#FFD700"},
+  {"_id":"tier_platinum","name":"Platinum","minCredits":5000,"maxCredits":99999,"benefits":["20% discount","VIP event access","Custom branding","Revenue share bonus"],"color":"#E5E4E2"}
+]

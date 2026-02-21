@@ -1,0 +1,4 @@
+[
+  {"tenantId":"tenant_001","organization":{"name":"Elite Models Co","slug":"elite-models","subdomain":"elite.talentos.io"},"branding":{"primaryColor":"#B8860B","logo":"/logo.png"},"features":{"modelling":true,"pageants":false,"academy":true},"updatedAt":"2025-02-16T10:00:00.000Z"},
+  {"tenantId":"tenant_006","organization":{"name":"Spotlight Talent Agency","slug":"spotlight-talent","subdomain":"spotlight.talentos.io"},"branding":{"primaryColor":"#8B4513","logo":"/logos/spotlight.png"},"features":{"modelling":true,"pageants":false,"academy":false},"updatedAt":"2025-02-16T10:00:00.000Z"}
+]

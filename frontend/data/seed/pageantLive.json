@@ -1,0 +1,28 @@
+{
+  "pageant_002": {
+    "pageantId": "pageant_002",
+    "currentStage": "REGISTRATION",
+    "funnel": [
+      { "stage": "REGISTRATION", "count": 12, "label": "Registration" },
+      { "stage": "PRELIMS", "count": 0, "label": "Audition" },
+      { "stage": "SEMI_FINALS", "count": 0, "label": "Semi-finals" },
+      { "stage": "FINALS", "count": 0, "label": "Finals" }
+    ],
+    "participants": []
+  },
+  "pageant_001": {
+    "pageantId": "pageant_001",
+    "currentStage": "PRELIMS",
+    "funnel": [
+      { "stage": "REGISTRATION", "count": 45, "label": "Registration" },
+      { "stage": "PRELIMS", "count": 38, "label": "Prelims" },
+      { "stage": "SEMI_FINALS", "count": 15, "label": "Semi-finals" },
+      { "stage": "FINALS", "count": 10, "label": "Finals" }
+    ],
+    "participants": [
+      { "_id": "reg_001", "contestantName": "Meera Krishnan", "stage": "PRELIMS", "status": "ACTIVE" },
+      { "_id": "reg_002", "contestantName": "Divya Nair", "stage": "PRELIMS", "status": "ACTIVE" },
+      { "_id": "reg_003", "contestantName": "Kavya Menon", "stage": "REGISTRATION", "status": "PENDING" }
+    ]
+  }
+}

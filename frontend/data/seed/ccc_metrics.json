@@ -1,0 +1,5 @@
+[
+  {"_id":"ccc_001","tenantId":"tenant_001","period":"2024-06","cccDays":28,"targetDays":21,"overdueInvoiceRate":0.15,"overdueCount":2,"totalInvoices":12},
+  {"_id":"ccc_002","tenantId":"tenant_001","period":"2024-05","cccDays":32,"targetDays":21,"overdueInvoiceRate":0.2,"overdueCount":3,"totalInvoices":15},
+  {"_id":"ccc_003","tenantId":"tenant_001","period":"2024-04","cccDays":35,"targetDays":21,"overdueInvoiceRate":0.25,"overdueCount":4,"totalInvoices":16}
+]

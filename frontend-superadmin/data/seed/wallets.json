@@ -1,0 +1,31 @@
+[
+  {
+    "scope": "PLATFORM_ESCROW",
+    "currency": "INR",
+    "balanceMinor": 125000000
+  },
+  {
+    "scope": "PLATFORM_REVENUE",
+    "currency": "INR",
+    "balanceMinor": 18500000
+  },
+  {
+    "scope": "TENANT",
+    "tenantId": "tenant_002",
+    "currency": "INR",
+    "balanceMinor": 5600000
+  },
+  {
+    "scope": "TENANT",
+    "tenantId": "tenant_001",
+    "currency": "INR",
+    "balanceMinor": 3200000
+  },
+  {
+    "scope": "TENANT",
+    "tenantId": "tenant_003",
+    "currency": "INR",
+    "balanceMinor": 2100000
+  }
+]
+

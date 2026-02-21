@@ -1,0 +1,5 @@
+[
+  { "id": "b1", "talentId": "tal-1", "title": "Fashion Week Runway", "date": "2025-03-05", "time": "14:00", "location": "Jio World Centre", "status": "confirmed", "callSheet": true },
+  { "id": "b2", "talentId": "tal-1", "title": "Brand A Lookbook", "date": "2025-03-12", "time": "09:00", "location": "Studio A", "status": "confirmed", "callSheet": true },
+  { "id": "b3", "talentId": "tal-2", "title": "TV Commercial Shoot", "date": "2025-03-08", "time": "10:00", "location": "Film City", "status": "pending", "callSheet": false }
+]

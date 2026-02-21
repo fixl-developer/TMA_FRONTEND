@@ -1,0 +1,5 @@
+[
+  { "id": "ac-1", "tenantId": "t-demo", "title": "Introduction to Modelling", "status": "published", "enrolled": 45, "mentorId": "m1" },
+  { "id": "ac-2", "tenantId": "t-demo", "title": "Pageant Etiquette", "status": "published", "enrolled": 32, "mentorId": "m2" },
+  { "id": "ac-3", "tenantId": "t-demo", "title": "Social Media for Influencers", "status": "draft", "enrolled": 0, "mentorId": "m1" }
+]

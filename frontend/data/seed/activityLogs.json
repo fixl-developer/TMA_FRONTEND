@@ -1,0 +1,8 @@
+[
+  {"_id":"act_001","tenantId":"tenant_001","userId":"user_001","type":"REGISTRATION","creditsEarned":100,"description":"Pageant registration completed","createdAt":"2025-02-15T10:00:00.000Z"},
+  {"_id":"act_002","tenantId":"tenant_001","userId":"user_001","type":"REFERRAL","creditsEarned":250,"description":"Referred a new talent","createdAt":"2025-02-14T14:30:00.000Z"},
+  {"_id":"act_003","tenantId":"tenant_001","userId":"user_001","type":"COURSE_COMPLETE","creditsEarned":500,"description":"Completed Academy course","createdAt":"2025-02-12T09:00:00.000Z"},
+  {"_id":"act_004","tenantId":"tenant_001","userId":"user_001","type":"REDEMPTION","creditsSpent":400,"description":"Redeemed 10% discount voucher","createdAt":"2025-02-10T16:00:00.000Z"},
+  {"_id":"act_005","tenantId":"tenant_001","userId":"user_001","type":"MILESTONE","creditsEarned":200,"description":"Reached Silver tier","createdAt":"2025-02-08T11:00:00.000Z"},
+  {"_id":"act_006","tenantId":"tenant_001","userId":"user_002","type":"REGISTRATION","creditsEarned":100,"description":"Event registration","createdAt":"2025-02-14T08:00:00.000Z"}
+]

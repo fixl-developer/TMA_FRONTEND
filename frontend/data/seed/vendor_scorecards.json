@@ -1,0 +1,6 @@
+[
+  {"_id":"vsc_001","tenantId":"tenant_001","vendorId":"vnd_001","period":"2024-Q1","quality":4.5,"delivery":4.8,"communication":4.2,"overall":4.5,"reviewCount":12,"createdAt":"2024-04-01T10:00:00.000Z"},
+  {"_id":"vsc_002","tenantId":"tenant_001","vendorId":"vnd_002","period":"2024-Q1","quality":4.8,"delivery":4.5,"communication":4.7,"overall":4.7,"reviewCount":8,"createdAt":"2024-04-01T10:00:00.000Z"},
+  {"_id":"vsc_003","tenantId":"tenant_001","vendorId":"vnd_004","period":"2024-Q1","quality":4.2,"delivery":4.0,"communication":4.3,"overall":4.2,"reviewCount":5,"createdAt":"2024-04-01T10:00:00.000Z"},
+  {"_id":"vsc_004","tenantId":"tenant_002","vendorId":"vnd_005","period":"2024-Q1","quality":4.6,"delivery":4.4,"communication":4.5,"overall":4.5,"reviewCount":6,"createdAt":"2024-04-01T10:00:00.000Z"}
+]

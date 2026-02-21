@@ -1,0 +1,82 @@
+[
+  {
+    "_id": "thread_001",
+    "tenantId": "tenant_001",
+    "objectType": "BOOKING",
+    "objectId": "booking_007",
+    "subject": "Spring Lookbook 2024 - Coordination",
+    "lastMessageAt": "2024-06-05T14:00:00.000Z",
+    "messageCount": 8,
+    "createdAt": "2024-05-20T10:00:00.000Z"
+  },
+  {
+    "_id": "thread_002",
+    "tenantId": "tenant_001",
+    "objectType": "BOOKING",
+    "objectId": "booking_001",
+    "subject": "Summer Campaign 2024 - Inquiry",
+    "lastMessageAt": "2024-06-10T09:00:00.000Z",
+    "messageCount": 5,
+    "createdAt": "2024-06-01T10:00:00.000Z"
+  },
+  {
+    "_id": "thread_003",
+    "tenantId": "tenant_001",
+    "objectType": "CASTING",
+    "objectId": "cast_001",
+    "subject": "Fashion Week Casting - Q&A",
+    "lastMessageAt": "2024-06-08T16:30:00.000Z",
+    "messageCount": 12,
+    "createdAt": "2024-05-15T09:00:00.000Z"
+  },
+  {
+    "_id": "thread_004",
+    "tenantId": "tenant_001",
+    "objectType": "DEAL",
+    "objectId": "deal_001",
+    "subject": "Summer Beauty Launch - Content Brief",
+    "lastMessageAt": "2024-06-12T11:00:00.000Z",
+    "messageCount": 6,
+    "createdAt": "2024-06-05T10:00:00.000Z"
+  },
+  {
+    "_id": "thread_005",
+    "tenantId": "tenant_001",
+    "objectType": "PROJECT",
+    "objectId": "proj_001",
+    "subject": "Miss India 2024 - Logistics",
+    "lastMessageAt": "2024-06-14T10:00:00.000Z",
+    "messageCount": 15,
+    "createdAt": "2024-03-01T09:00:00.000Z"
+  },
+  {
+    "_id": "thread_006",
+    "tenantId": "tenant_001",
+    "objectType": "EVENT",
+    "objectId": "pageant_001",
+    "subject": "Miss India 2024 Finals - Sponsor Coordination",
+    "lastMessageAt": "2024-06-13T14:00:00.000Z",
+    "messageCount": 4,
+    "createdAt": "2024-04-01T10:00:00.000Z"
+  },
+  {
+    "_id": "thread_007",
+    "tenantId": "tenant_004",
+    "objectType": "BOOKING",
+    "objectId": "booking_010",
+    "subject": "Fitness App Launch - Coordination",
+    "lastMessageAt": "2024-06-18T10:00:00.000Z",
+    "messageCount": 3,
+    "createdAt": "2024-06-14T10:00:00.000Z"
+  },
+  {
+    "_id": "thread_008",
+    "tenantId": "tenant_006",
+    "objectType": "BOOKING",
+    "objectId": "booking_011",
+    "subject": "TV Commercial - Shoot Details",
+    "lastMessageAt": "2024-06-21T16:00:00.000Z",
+    "messageCount": 5,
+    "createdAt": "2024-06-20T10:00:00.000Z"
+  }
+]

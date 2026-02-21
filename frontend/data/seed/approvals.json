@@ -1,0 +1,90 @@
+[
+  {
+    "_id": "apr_001",
+    "tenantId": "tenant_001",
+    "objectType": "CONTENT",
+    "objectId": "del_002",
+    "requestedByUserId": "user_002",
+    "requestedAt": "2024-07-18T10:00:00.000Z",
+    "status": "PENDING",
+    "title": "Stories Pack (5 slides) - Brand approval",
+    "description": "Creator submitted stories for Beauty Cosmetics campaign. Awaiting brand approval.",
+    "dueDate": "2024-07-22"
+  },
+  {
+    "_id": "apr_002",
+    "tenantId": "tenant_001",
+    "objectType": "QUOTE",
+    "objectId": "quo_002",
+    "requestedByUserId": "user_admin_002",
+    "requestedAt": "2024-06-15T09:00:00.000Z",
+    "status": "PENDING",
+    "title": "Quote #002 - Client acceptance",
+    "description": "Digital Campaign quote for Global Fashion Brand. ₹2,00,000.",
+    "dueDate": "2024-06-25"
+  },
+  {
+    "_id": "apr_003",
+    "tenantId": "tenant_001",
+    "objectType": "CONTRACT",
+    "objectId": "contract_003",
+    "requestedByUserId": "user_admin_002",
+    "requestedAt": "2024-06-12T14:00:00.000Z",
+    "status": "APPROVED",
+    "title": "Digital Campaign - E-signature",
+    "description": "Contract sent for signature.",
+    "dueDate": "2024-06-20",
+    "approvedAt": "2024-06-14T10:00:00.000Z",
+    "approvedByUserId": "user_004"
+  },
+  {
+    "_id": "apr_004",
+    "tenantId": "tenant_001",
+    "objectType": "DELIVERABLE",
+    "objectId": "del_001",
+    "requestedByUserId": "user_002",
+    "requestedAt": "2024-07-10T14:00:00.000Z",
+    "status": "APPROVED",
+    "title": "Instagram Reel - Brand approval",
+    "description": "Product showcase reel.",
+    "dueDate": "2024-07-15",
+    "approvedAt": "2024-07-11T09:00:00.000Z",
+    "approvedByUserId": "user_admin_002"
+  },
+  {
+    "_id": "apr_005",
+    "tenantId": "tenant_001",
+    "objectType": "INVOICE",
+    "objectId": "inv_001",
+    "requestedByUserId": "user_agent_001",
+    "requestedAt": "2024-06-08T10:00:00.000Z",
+    "status": "PENDING",
+    "title": "INV-2024-001 - Client payment",
+    "description": "Invoice for Spring Lookbook. ₹1,50,000.",
+    "dueDate": "2024-07-08"
+  },
+  {
+    "_id": "apr_006",
+    "tenantId": "tenant_004",
+    "objectType": "QUOTE",
+    "objectId": "quo_003",
+    "requestedByUserId": "user_owner_003",
+    "requestedAt": "2024-06-20T10:00:00.000Z",
+    "status": "PENDING",
+    "title": "Quote - Fitness App Launch",
+    "description": "Sports Brand fitness shoot. Rs 95,000.",
+    "dueDate": "2024-07-01"
+  },
+  {
+    "_id": "apr_007",
+    "tenantId": "tenant_006",
+    "objectType": "CONTENT",
+    "objectId": "del_003",
+    "requestedByUserId": "user_owner_006",
+    "requestedAt": "2024-06-22T14:00:00.000Z",
+    "status": "PENDING",
+    "title": "TV Commercial - Client approval",
+    "description": "Final cut for Ad Agency. Awaiting sign-off.",
+    "dueDate": "2024-07-05"
+  }
+]

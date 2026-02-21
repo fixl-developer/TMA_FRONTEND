@@ -1,0 +1,18 @@
+[
+  {"_id":"sub_001","tenantId":"tenant_001","castingId":"casting_001","talentId":"talent_001","status":"SHORTLISTED","notes":"Strong portfolio","createdAt":"2024-06-01T10:00:00.000Z"},
+  {"_id":"sub_002","tenantId":"tenant_001","castingId":"casting_001","talentId":"talent_002","status":"SHORTLISTED","notes":"","createdAt":"2024-06-02T11:00:00.000Z"},
+  {"_id":"sub_003","tenantId":"tenant_001","castingId":"casting_001","talentId":"talent_004","status":"SUBMITTED","notes":"","createdAt":"2024-06-03T09:00:00.000Z"},
+  {"_id":"sub_004","tenantId":"tenant_001","castingId":"casting_002","talentId":"talent_001","status":"SHORTLISTED","notes":"","createdAt":"2024-06-05T14:00:00.000Z"},
+  {"_id":"sub_005","tenantId":"tenant_001","castingId":"casting_002","talentId":"talent_004","status":"SUBMITTED","notes":"","createdAt":"2024-06-06T10:00:00.000Z"},
+  {"_id":"sub_006","tenantId":"tenant_006","castingId":"casting_004","talentId":"talent_006","status":"SUBMITTED","notes":"Reel attached","createdAt":"2024-06-15T10:00:00.000Z"},
+  {"_id":"sub_007","tenantId":"tenant_006","castingId":"casting_004","talentId":"talent_007","status":"SUBMITTED","notes":"","createdAt":"2024-06-16T11:00:00.000Z"},
+  {"_id":"sub_008","tenantId":"tenant_007","castingId":"casting_005","talentId":"talent_008","status":"SHORTLISTED","notes":"Strong self-tape","createdAt":"2024-06-18T09:00:00.000Z"},
+  {"_id":"sub_009","tenantId":"tenant_008","castingId":"casting_006","talentId":"talent_009","status":"SUBMITTED","notes":"Dance background","createdAt":"2024-06-20T14:00:00.000Z"},
+  {"_id":"sub_010","tenantId":"tenant_001","castingId":"casting_007","talentId":"talent_002","status":"SHORTLISTED","notes":"","createdAt":"2024-06-22T10:00:00.000Z"},
+  {"_id":"sub_011","tenantId":"tenant_001","castingId":"casting_007","talentId":"talent_004","status":"SUBMITTED","notes":"","createdAt":"2024-06-23T11:00:00.000Z"},
+  {"_id":"sub_012","tenantId":"tenant_001","castingId":"casting_008","talentId":"talent_001","status":"SHORTLISTED","notes":"Perfect fit","createdAt":"2024-06-25T09:00:00.000Z"},
+  {"_id":"sub_013","tenantId":"tenant_001","castingId":"casting_008","talentId":"talent_002","status":"SHORTLISTED","notes":"","createdAt":"2024-06-26T10:00:00.000Z"},
+  {"_id":"sub_014","tenantId":"tenant_006","castingId":"casting_009","talentId":"talent_006","status":"SUBMITTED","notes":"","createdAt":"2024-06-28T14:00:00.000Z"},
+  {"_id":"sub_015","tenantId":"tenant_007","castingId":"casting_010","talentId":"talent_008","status":"SUBMITTED","notes":"","createdAt":"2024-06-30T10:00:00.000Z"},
+  {"_id":"sub_016","tenantId":"tenant_008","castingId":"casting_011","talentId":"talent_009","status":"SHORTLISTED","notes":"Professional","createdAt":"2024-07-01T11:00:00.000Z"}
+]

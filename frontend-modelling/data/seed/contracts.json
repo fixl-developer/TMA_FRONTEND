@@ -1,0 +1,5 @@
+[
+  { "id": "c1", "talentId": "tal-1", "template": "Standard Representation", "status": "signed", "signedAt": "2025-01-20", "expiresAt": "2026-01-20" },
+  { "id": "c2", "talentId": "tal-2", "template": "Standard Representation", "status": "pending", "signedAt": null, "expiresAt": null },
+  { "id": "c3", "talentId": "tal-1", "template": "Project Contract - Fashion Week", "status": "signed", "signedAt": "2025-02-01", "expiresAt": "2025-03-31" }
+]

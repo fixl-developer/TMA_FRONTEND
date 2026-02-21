@@ -1,0 +1,9 @@
+[
+  {"_id":"cr_001","tenantId":"tenant_001","name":"Standard Booking","bookingType":"GENERAL","type":"FLAT","platformPct":15,"tenantPct":70,"talentPct":15,"active":true,"createdAt":"2024-01-01T00:00:00Z"},
+  {"_id":"cr_002","tenantId":"tenant_001","name":"Premium Campaign","bookingType":"CAMPAIGN","type":"TIERED","platformPct":12,"tenantPct":68,"talentPct":20,"active":true,"createdAt":"2024-01-01T00:00:00Z"},
+  {"_id":"cr_003","tenantId":"tenant_001","name":"Pageant Win Bonus","bookingType":"PAGEANT","type":"CONDITIONAL","platformPct":10,"tenantPct":60,"talentPct":30,"active":true,"createdAt":"2024-01-01T00:00:00Z"},
+  {"_id":"cr_004","tenantId":"tenant_001","name":"Brand Deal - Macro","bookingType":"BRAND_DEAL","type":"TIERED","platformPct":15,"tenantPct":55,"talentPct":30,"active":true,"createdAt":"2024-01-01T00:00:00Z"},
+  {"_id":"cr_005","tenantId":"tenant_001","name":"Staffing Shift","bookingType":"SHIFT","type":"FLAT","platformPct":8,"tenantPct":72,"talentPct":20,"active":true,"createdAt":"2024-01-01T00:00:00Z"},
+  {"_id":"cr_006","tenantId":"tenant_001","name":"Casting - Lead Role","bookingType":"CASTING","type":"CONDITIONAL","platformPct":12,"tenantPct":58,"talentPct":30,"active":true,"createdAt":"2024-01-01T00:00:00Z"},
+  {"_id":"cr_007","tenantId":"tenant_001","name":"Marketplace Transaction","bookingType":"MARKETPLACE","type":"FLAT","platformPct":10,"tenantPct":80,"talentPct":10,"active":false,"createdAt":"2024-01-01T00:00:00Z"}
+]

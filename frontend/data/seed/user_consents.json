@@ -1,0 +1,7 @@
+[
+  {"_id":"consent_001","userId":"user_owner_001","tenantId":"tenant_001","type":"MARKETING","status":"GRANTED","grantedAt":"2025-01-10T09:00:00.000Z","version":"1.0"},
+  {"_id":"consent_002","userId":"user_owner_001","tenantId":"tenant_001","type":"ANALYTICS","status":"GRANTED","grantedAt":"2025-01-10T09:00:00.000Z","version":"1.0"},
+  {"_id":"consent_003","userId":"user_talent_001","tenantId":"tenant_001","type":"MARKETING","status":"REVOKED","grantedAt":"2024-12-01T10:00:00.000Z","revokedAt":"2025-02-01T14:00:00.000Z","version":"1.0"},
+  {"_id":"consent_004","userId":"user_talent_001","tenantId":"tenant_001","type":"ESSENTIAL","status":"GRANTED","grantedAt":"2024-12-01T10:00:00.000Z","version":"1.0"},
+  {"_id":"consent_005","userId":"user_admin_003","tenantId":"tenant_002","type":"MARKETING","status":"GRANTED","grantedAt":"2025-02-05T11:30:00.000Z","version":"1.0"}
+]

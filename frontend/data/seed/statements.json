@@ -1,0 +1,6 @@
+[
+  {"_id":"stmt_001","tenantId":"tenant_001","periodStart":"2024-06-01","periodEnd":"2024-06-30","status":"FINALIZED","totalInMinor":350000,"totalOutMinor":200000,"createdAt":"2024-07-01T00:00:00.000Z"},
+  {"_id":"stmt_002","tenantId":"tenant_001","periodStart":"2024-05-01","periodEnd":"2024-05-31","status":"FINALIZED","totalInMinor":450000,"totalOutMinor":180000,"createdAt":"2024-06-01T00:00:00.000Z"},
+  {"_id":"stmt_003","tenantId":"tenant_001","periodStart":"2024-04-01","periodEnd":"2024-04-30","status":"FINALIZED","totalInMinor":280000,"totalOutMinor":95000,"createdAt":"2024-05-01T00:00:00.000Z"},
+  {"_id":"stmt_004","tenantId":"tenant_006","periodStart":"2024-06-01","periodEnd":"2024-06-30","status":"FINALIZED","totalInMinor":680000,"totalOutMinor":0,"createdAt":"2024-07-01T00:00:00.000Z"}
+]

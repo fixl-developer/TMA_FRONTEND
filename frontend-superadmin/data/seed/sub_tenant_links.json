@@ -1,0 +1,5 @@
+[
+  { "groupId": "tenant_023", "subTenantId": "tenant_001", "linkedAt": "2024-01-01T00:00:00.000Z" },
+  { "groupId": "tenant_023", "subTenantId": "tenant_004", "linkedAt": "2024-01-15T00:00:00.000Z" },
+  { "groupId": "tenant_023", "subTenantId": "tenant_006", "linkedAt": "2024-02-01T00:00:00.000Z" }
+]

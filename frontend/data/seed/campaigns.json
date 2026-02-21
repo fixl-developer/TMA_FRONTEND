@@ -1,0 +1,12 @@
+[
+  {"_id":"camp_001","tenantId":"tenant_001","name":"Summer Beauty Launch","brand":"Luxury Cosmetics","status":"ACTIVE","budgetMinor":500000,"currency":"INR","startDate":"2024-06-01","endDate":"2024-08-31"},
+  {"_id":"camp_002","tenantId":"tenant_001","name":"Fashion Week Promo","brand":"Fashion House","status":"COMPLETED","budgetMinor":300000,"currency":"INR","startDate":"2024-03-01","endDate":"2024-03-15"},
+  {"_id":"camp_003","tenantId":"tenant_001","name":"Wellness Campaign","brand":"Wellness Brand","status":"DRAFT","budgetMinor":200000,"currency":"INR","startDate":"2024-09-01","endDate":"2024-10-31"},
+  {"_id":"camp_004","tenantId":"tenant_009","name":"Brand Collab Launch","brand":"Fashion Brand","status":"ACTIVE","budgetMinor":400000,"currency":"INR","startDate":"2024-06-15","endDate":"2024-08-31"},
+  {"_id":"camp_005","tenantId":"tenant_018","name":"Event Staffing Promo","brand":"Event Promoter","status":"ACTIVE","budgetMinor":150000,"currency":"INR","startDate":"2024-07-01","endDate":"2024-07-31"},
+  {"_id":"camp_006","tenantId":"tenant_003","name":"Fashion Forward Launch","brand":"Fashion Forward Brands","status":"ACTIVE","budgetMinor":600000,"currency":"INR","startDate":"2024-06-01","endDate":"2024-09-30"},
+  {"_id":"camp_007","tenantId":"tenant_011","name":"Social Buzz Summer","brand":"Retail Client","status":"ACTIVE","budgetMinor":350000,"currency":"INR","startDate":"2024-06-15","endDate":"2024-08-31"},
+  {"_id":"camp_008","tenantId":"tenant_020","name":"Media Buy Q3","brand":"Tech Client","status":"ACTIVE","budgetMinor":800000,"currency":"INR","startDate":"2024-07-01","endDate":"2024-09-30"},
+  {"_id":"camp_009","tenantId":"tenant_015","name":"Sports Talent Campaign","brand":"Athletic Brand","status":"ACTIVE","budgetMinor":450000,"currency":"INR","startDate":"2024-06-01","endDate":"2024-08-15"},
+  {"_id":"camp_010","tenantId":"tenant_021","name":"Community Creator Program","brand":"Talent Connect","status":"DRAFT","budgetMinor":200000,"currency":"INR","startDate":"2024-09-01","endDate":"2024-11-30"}
+]

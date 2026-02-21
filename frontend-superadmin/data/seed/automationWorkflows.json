@@ -1,0 +1,47 @@
+[
+  {
+    "_id": "auto_001",
+    "name": "Contract signed → Create escrow",
+    "trigger": "contract.signed",
+    "status": "ACTIVE",
+    "runsLast24h": 12,
+    "lastRunAt": "2025-02-16T08:30:00.000Z",
+    "createdAt": "2024-06-01T00:00:00.000Z"
+  },
+  {
+    "_id": "auto_002",
+    "name": "Escrow funded → Notify talent",
+    "trigger": "escrow.funded",
+    "status": "ACTIVE",
+    "runsLast24h": 8,
+    "lastRunAt": "2025-02-16T07:15:00.000Z",
+    "createdAt": "2024-06-15T00:00:00.000Z"
+  },
+  {
+    "_id": "auto_003",
+    "name": "Pageant registration → Send confirmation",
+    "trigger": "pageant.registered",
+    "status": "ACTIVE",
+    "runsLast24h": 45,
+    "lastRunAt": "2025-02-16T09:00:00.000Z",
+    "createdAt": "2024-08-01T00:00:00.000Z"
+  },
+  {
+    "_id": "auto_004",
+    "name": "Delivery approved → Auto-settle (48h)",
+    "trigger": "delivery.approved",
+    "status": "ACTIVE",
+    "runsLast24h": 3,
+    "lastRunAt": "2025-02-15T14:00:00.000Z",
+    "createdAt": "2024-07-01T00:00:00.000Z"
+  },
+  {
+    "_id": "auto_005",
+    "name": "High-value payout → Require approval",
+    "trigger": "payout.requested",
+    "status": "ACTIVE",
+    "runsLast24h": 2,
+    "lastRunAt": "2025-02-14T11:00:00.000Z",
+    "createdAt": "2024-09-01T00:00:00.000Z"
+  }
+]

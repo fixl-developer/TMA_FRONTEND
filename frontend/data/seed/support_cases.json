@@ -1,0 +1,5 @@
+[
+  {"_id":"sup_001","tenantId":"tenant_001","subject":"Payment delay - Payout not received","category":"PAYMENT","status":"OPEN","priority":"HIGH","createdBy":"user_owner_001","createdAt":"2025-02-15T10:00:00.000Z"},
+  {"_id":"sup_002","tenantId":"tenant_002","subject":"Pageant registration issue","category":"TECHNICAL","status":"IN_PROGRESS","priority":"MEDIUM","createdBy":"user_owner_002","createdAt":"2025-02-14T14:30:00.000Z"},
+  {"_id":"sup_003","tenantId":"tenant_001","subject":"Feature request - Bulk export","category":"FEATURE","status":"RESOLVED","priority":"LOW","createdBy":"user_agent_001","createdAt":"2025-02-10T09:00:00.000Z","resolvedAt":"2025-02-12T16:00:00.000Z"}
+]

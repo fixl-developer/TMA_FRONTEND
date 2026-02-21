@@ -1,0 +1,5 @@
+[
+  { "id": "t1", "tenantId": "t-demo", "displayName": "Priya Sharma", "email": "priya@example.com", "status": "active", "verified": true, "createdAt": "2025-01-10" },
+  { "id": "t2", "tenantId": "t-demo", "displayName": "Rahul Verma", "email": "rahul@example.com", "status": "active", "verified": true, "createdAt": "2025-01-15" },
+  { "id": "t3", "tenantId": "t-demo", "displayName": "Ananya Singh", "email": "ananya@example.com", "status": "pending", "verified": false, "createdAt": "2025-02-01" }
+]

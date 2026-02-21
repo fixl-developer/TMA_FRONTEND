@@ -1,0 +1,5 @@
+[
+  {"_id":"session_001","courseId":"course_001","title":"Live Ramp Walk Workshop","scheduledAt":"2025-02-20T14:00:00Z","durationMinutes":60,"status":"UPCOMING","meetingUrl":"https://meet.example.com/ramp1","recordingUrl":null},
+  {"_id":"session_002","courseId":"course_001","title":"Q&A with Industry Experts","scheduledAt":"2025-02-15T10:00:00Z","durationMinutes":45,"status":"RECORDED","meetingUrl":null,"recordingUrl":"https://example.com/recordings/qa1"},
+  {"_id":"session_003","courseId":"course_002","title":"Portfolio Review Session","scheduledAt":"2025-02-22T16:00:00Z","durationMinutes":90,"status":"UPCOMING","meetingUrl":"https://meet.example.com/portfolio1","recordingUrl":null}
+]

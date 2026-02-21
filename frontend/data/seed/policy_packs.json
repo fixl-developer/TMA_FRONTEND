@@ -1,0 +1,12 @@
+[
+  { "code": "OPS", "name": "Operations", "description": "Event ops, run-of-show, logistics", "enabled": true, "policies": ["OPS-01", "OPS-02", "OPS-03", "OPS-04", "OPS-05", "OPS-06", "OPS-07", "OPS-08", "OPS-09", "OPS-10", "OPS-11", "OPS-12"] },
+  { "code": "APR", "name": "Approvals", "description": "Approval workflows, escalation", "enabled": true, "policies": ["APR-01", "APR-02", "APR-03", "APR-04", "APR-05", "APR-06", "APR-07", "APR-08", "APR-09", "APR-10", "APR-11", "APR-12", "APR-13", "APR-14", "APR-15", "APR-16", "APR-17", "APR-18", "APR-19", "APR-20", "APR-21", "APR-22"] },
+  { "code": "FIN", "name": "Finance", "description": "Payments, escrow, settlements", "enabled": true, "policies": ["FIN-01", "FIN-02", "FIN-03", "FIN-04", "FIN-05", "FIN-06", "FIN-07", "FIN-08", "FIN-09", "FIN-10", "FIN-11"] },
+  { "code": "CHG", "name": "Change Management", "description": "Config changes, rollouts", "enabled": false, "policies": ["CHG-01", "CHG-02", "CHG-03", "CHG-04", "CHG-05", "CHG-06"] },
+  { "code": "PRV", "name": "Privacy", "description": "Data handling, consent", "enabled": true, "policies": ["PRV-01", "PRV-02", "PRV-03", "PRV-04", "PRV-05", "PRV-06"] },
+  { "code": "DSP", "name": "Disputes", "description": "Dispute resolution, appeals", "enabled": true, "policies": ["DSP-01", "DSP-02", "DSP-03", "DSP-04", "DSP-05", "DSP-06"] },
+  { "code": "STF", "name": "Staff", "description": "Staff assignments, permissions", "enabled": true, "policies": ["STF-01", "STF-02", "STF-03", "STF-04"] },
+  { "code": "PGI", "name": "Pageant/Event", "description": "Pageant lifecycle, scoring", "enabled": true, "policies": ["PGI-01", "PGI-02", "PGI-03", "PGI-04"] },
+  { "code": "CST", "name": "Customer", "description": "Client portal, communications", "enabled": true, "policies": ["CST-01", "CST-02", "CST-03", "CST-04", "CST-05", "CST-06", "CST-07", "CST-08", "CST-09", "CST-10", "CST-11", "CST-12"] },
+  { "code": "VND", "name": "Vendor", "description": "Vendor onboarding, procurement", "enabled": false, "policies": ["VND-01", "VND-02", "VND-03", "VND-04", "VND-05", "VND-06", "VND-07", "VND-08", "VND-09", "VND-10"] }
+]

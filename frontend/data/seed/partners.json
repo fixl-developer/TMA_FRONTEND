@@ -1,0 +1,26 @@
+[
+  {
+    "_id": "partner_001",
+    "name": "Razorpay",
+    "type": "PAYMENT",
+    "status": "ACTIVE",
+    "tenantCount": 24,
+    "lastSyncAt": "2025-02-16T08:00:00.000Z"
+  },
+  {
+    "_id": "partner_002",
+    "name": "SendGrid",
+    "type": "EMAIL",
+    "status": "ACTIVE",
+    "tenantCount": 24,
+    "lastSyncAt": "2025-02-16T08:05:00.000Z"
+  },
+  {
+    "_id": "partner_003",
+    "name": "AWS S3",
+    "type": "STORAGE",
+    "status": "ACTIVE",
+    "tenantCount": 24,
+    "lastSyncAt": "2025-02-16T07:00:00.000Z"
+  }
+]

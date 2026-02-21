@@ -1,0 +1,5 @@
+[
+  { "id": "aud-1", "castingId": "cast-1", "scheduledAt": "2025-02-20T10:00:00Z", "location": "Studio A", "slots": 10, "booked": 6 },
+  { "id": "aud-2", "castingId": "cast-1", "scheduledAt": "2025-02-21T14:00:00Z", "location": "Studio A", "slots": 10, "booked": 4 },
+  { "id": "aud-3", "castingId": "cast-3", "scheduledAt": "2025-03-10T09:00:00Z", "location": "Studio B", "slots": 8, "booked": 2 }
+]

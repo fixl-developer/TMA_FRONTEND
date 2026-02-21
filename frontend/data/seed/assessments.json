@@ -1,0 +1,5 @@
+[
+  {"_id":"assess_001","courseId":"course_001","title":"Ramp Walk Basics Quiz","type":"QUIZ","passScore":70,"timeLimitMinutes":15,"questions":[{"id":"q1","text":"What is the ideal posture for ramp walk?","options":["Relaxed shoulders","Straight spine, shoulders back","Hunched","Leaning forward"],"correct":1},{"id":"q2","text":"How should you land your feet?","options":["Heel first","Toe first","Flat","Ball of foot first"],"correct":3}]},
+  {"_id":"assess_002","courseId":"course_001","title":"Video Submission: Ramp Walk Demo","type":"VIDEO_SUBMISSION","instructions":"Record a 30-second ramp walk and submit.","maxDurationSeconds":60},
+  {"_id":"assess_003","courseId":"course_002","title":"Portfolio Photography Quiz","type":"QUIZ","passScore":75,"timeLimitMinutes":20,"questions":[{"id":"q1","text":"What lighting setup works best for headshots?","options":["Direct flash","Soft key light with fill","No lighting","Overhead only"],"correct":1}]}
+]

@@ -1,0 +1,42 @@
+[
+  {
+    "_id": "alert_001",
+    "name": "API latency > 300ms",
+    "metric": "api.p95_latency",
+    "threshold": 300,
+    "unit": "ms",
+    "severity": "P1",
+    "enabled": true,
+    "lastTriggeredAt": "2025-02-15T18:00:00.000Z"
+  },
+  {
+    "_id": "alert_002",
+    "name": "Payment failure rate > 1%",
+    "metric": "payments.failure_rate",
+    "threshold": 1,
+    "unit": "%",
+    "severity": "P0",
+    "enabled": true,
+    "lastTriggeredAt": null
+  },
+  {
+    "_id": "alert_003",
+    "name": "Webhook processing lag > 10min",
+    "metric": "webhooks.processing_lag",
+    "threshold": 600,
+    "unit": "seconds",
+    "severity": "P1",
+    "enabled": true,
+    "lastTriggeredAt": "2025-02-15T10:30:00.000Z"
+  },
+  {
+    "_id": "alert_004",
+    "name": "Ledger imbalance",
+    "metric": "ledger.balance_mismatch",
+    "threshold": 0,
+    "unit": "count",
+    "severity": "P0",
+    "enabled": true,
+    "lastTriggeredAt": null
+  }
+]

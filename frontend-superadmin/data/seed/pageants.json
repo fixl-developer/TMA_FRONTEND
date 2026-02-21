@@ -1,0 +1,39 @@
+[
+  {
+    "_id": "pageant_001",
+    "tenantId": "tenant_002",
+    "name": "Miss India 2024",
+    "description": "Premier beauty pageant showcasing India's finest talent.",
+    "status": "ACTIVE",
+    "rules": {
+      "ageRange": { "min": 18, "max": 28 },
+      "eligibility": ["Indian Citizen", "Unmarried", "No criminal record"]
+    },
+    "createdByUserId": "user_admin_001"
+  },
+  {
+    "_id": "pageant_002",
+    "tenantId": "tenant_002",
+    "name": "Teen India 2024",
+    "description": "Pageant for teenagers aged 13-17.",
+    "status": "ACTIVE",
+    "rules": {
+      "ageRange": { "min": 13, "max": 17 },
+      "requiresGuardianConsent": true
+    },
+    "createdByUserId": "user_admin_001"
+  },
+  {
+    "_id": "pageant_003",
+    "tenantId": "tenant_001",
+    "name": "Elite Model Search 2024",
+    "description": "Modeling talent hunt for fashion industry.",
+    "status": "DRAFT",
+    "rules": {
+      "ageRange": { "min": 16, "max": 30 },
+      "categories": ["Fashion", "Commercial", "Plus Size"]
+    },
+    "createdByUserId": "user_admin_002"
+  }
+]
+

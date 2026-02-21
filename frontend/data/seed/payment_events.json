@@ -1,0 +1,7 @@
+[
+  {"_id":"pe_001","tenantId":"tenant_001","psp":"razorpay","eventType":"payment.captured","paymentId":"pay_rzp_abc123","amountMinor":150000,"currency":"INR","invoiceId":"inv_001","status":"SUCCESS","idempotencyKey":"idem_inv001_001","createdAt":"2025-02-16T10:30:00.000Z"},
+  {"_id":"pe_002","tenantId":"tenant_001","psp":"razorpay","eventType":"payment.initiated","paymentId":"pay_rzp_def456","amountMinor":80000,"currency":"INR","invoiceId":"inv_002","status":"PENDING","idempotencyKey":"idem_inv002_001","createdAt":"2025-02-16T09:15:00.000Z"},
+  {"_id":"pe_003","tenantId":"tenant_002","psp":"razorpay","eventType":"payment.captured","paymentId":"pay_rzp_ghi789","amountMinor":15000,"currency":"INR","invoiceId":null,"status":"SUCCESS","idempotencyKey":"idem_pageant_001","metadata":{"source":"pageant_registration"},"createdAt":"2025-02-15T14:00:00.000Z"},
+  {"_id":"pe_004","tenantId":"tenant_001","psp":"razorpay","eventType":"payment.failed","paymentId":"pay_rzp_jkl012","amountMinor":200000,"currency":"INR","invoiceId":"inv_003","status":"FAILED","idempotencyKey":"idem_inv003_001","errorCode":"CARD_DECLINED","createdAt":"2025-02-14T11:00:00.000Z"},
+  {"_id":"pe_005","tenantId":"tenant_001","psp":"razorpay","eventType":"refund.processed","paymentId":"pay_rzp_abc123","amountMinor":150000,"currency":"INR","refundId":"rfnd_001","status":"SUCCESS","createdAt":"2025-02-13T16:30:00.000Z"}
+]

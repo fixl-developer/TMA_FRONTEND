@@ -1,0 +1,6 @@
+[
+  {"_id":"bn_001","tenantId":"tenant_001","objectType":"BOOKING","stage":"HOLD","stageTimeRatio":1.5,"targetHours":48,"medianActualHours":72,"itemCount":4,"period":"2024-06"},
+  {"_id":"bn_002","tenantId":"tenant_001","objectType":"CONTRACT","stage":"SENT","stageTimeRatio":0.8,"targetHours":72,"medianActualHours":58,"itemCount":3,"period":"2024-06"},
+  {"_id":"bn_003","tenantId":"tenant_001","objectType":"APPROVAL","stage":"PENDING","stageTimeRatio":2.2,"targetHours":48,"medianActualHours":105,"itemCount":2,"period":"2024-06"},
+  {"_id":"bn_004","tenantId":"tenant_001","objectType":"INVOICE","stage":"ISSUED","stageTimeRatio":1.8,"targetHours":168,"medianActualHours":302,"itemCount":3,"period":"2024-06"}
+]

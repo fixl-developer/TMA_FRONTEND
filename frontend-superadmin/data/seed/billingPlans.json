@@ -1,0 +1,58 @@
+[
+  {
+    "_id": "plan_starter",
+    "name": "Starter",
+    "slug": "starter",
+    "priceMinor": 499000,
+    "currency": "INR",
+    "interval": "monthly",
+    "tenantLimit": 1,
+    "talentLimit": 50,
+    "pageantLimit": 5,
+    "features": ["Talent CRM", "Basic pageants", "1 admin"],
+    "tenantCount": 12,
+    "status": "ACTIVE"
+  },
+  {
+    "_id": "plan_pro",
+    "name": "Pro",
+    "slug": "pro",
+    "priceMinor": 1499000,
+    "currency": "INR",
+    "interval": "monthly",
+    "tenantLimit": 3,
+    "talentLimit": 200,
+    "pageantLimit": 20,
+    "features": ["Talent CRM", "Pageant Builder", "5 admins", "Sponsor integration"],
+    "tenantCount": 8,
+    "status": "ACTIVE"
+  },
+  {
+    "_id": "plan_studio",
+    "name": "Studio",
+    "slug": "studio",
+    "priceMinor": 3999000,
+    "currency": "INR",
+    "interval": "monthly",
+    "tenantLimit": 10,
+    "talentLimit": 1000,
+    "pageantLimit": 100,
+    "features": ["All Pro", "Custom branding", "API access", "Priority support"],
+    "tenantCount": 3,
+    "status": "ACTIVE"
+  },
+  {
+    "_id": "plan_enterprise",
+    "name": "Enterprise",
+    "slug": "enterprise",
+    "priceMinor": 0,
+    "currency": "INR",
+    "interval": "custom",
+    "tenantLimit": -1,
+    "talentLimit": -1,
+    "pageantLimit": -1,
+    "features": ["Custom limits", "Dedicated support", "SLA"],
+    "tenantCount": 1,
+    "status": "ACTIVE"
+  }
+]

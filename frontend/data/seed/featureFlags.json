@@ -1,0 +1,57 @@
+[
+  {
+    "_id": "flag_001",
+    "key": "pageant_process_builder",
+    "name": "Pageant Process Builder",
+    "description": "Enable visual process builder for pageant stages",
+    "enabled": true,
+    "rolloutPercent": 100,
+    "tenantIds": [],
+    "createdAt": "2024-06-01T00:00:00.000Z",
+    "updatedAt": "2025-02-01T10:00:00.000Z"
+  },
+  {
+    "_id": "flag_002",
+    "key": "sponsored_ads",
+    "name": "Sponsored Ads",
+    "description": "Enable sponsored placements and campaigns",
+    "enabled": false,
+    "rolloutPercent": 0,
+    "tenantIds": ["tenant_002"],
+    "createdAt": "2024-08-15T00:00:00.000Z",
+    "updatedAt": "2025-02-10T14:00:00.000Z"
+  },
+  {
+    "_id": "flag_003",
+    "key": "talent_showcase_social",
+    "name": "Talent Showcase Social",
+    "description": "One-click social media publishing from showcase",
+    "enabled": true,
+    "rolloutPercent": 50,
+    "tenantIds": [],
+    "createdAt": "2024-09-01T00:00:00.000Z",
+    "updatedAt": "2025-02-15T09:00:00.000Z"
+  },
+  {
+    "_id": "flag_004",
+    "key": "influencer_campaigns",
+    "name": "Influencer Campaigns",
+    "description": "Campaign tracking and deliverables for influencer agencies",
+    "enabled": true,
+    "rolloutPercent": 100,
+    "tenantIds": [],
+    "createdAt": "2024-10-01T00:00:00.000Z",
+    "updatedAt": "2025-01-20T00:00:00.000Z"
+  },
+  {
+    "_id": "flag_005",
+    "key": "academy_courses",
+    "name": "Academy Courses",
+    "description": "Video courses and certifications",
+    "enabled": false,
+    "rolloutPercent": 0,
+    "tenantIds": [],
+    "createdAt": "2024-11-01T00:00:00.000Z",
+    "updatedAt": "2025-02-01T00:00:00.000Z"
+  }
+]

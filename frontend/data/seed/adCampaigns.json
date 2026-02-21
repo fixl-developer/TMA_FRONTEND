@@ -1,0 +1,6 @@
+[
+  {"_id":"ad_001","tenantId":"tenant_001","name":"Miss India 2025 Promo","status":"ACTIVE","objective":"AWARENESS","budgetMinor":500000,"spentMinor":125000,"startDate":"2025-01-15","endDate":"2025-03-31","createdAt":"2025-01-10T10:00:00.000Z"},
+  {"_id":"ad_002","tenantId":"tenant_001","name":"Fashion Week Branding","status":"PENDING","objective":"CONVERSIONS","budgetMinor":300000,"spentMinor":0,"startDate":"2025-02-01","endDate":"2025-02-28","createdAt":"2025-01-20T14:30:00.000Z"},
+  {"_id":"ad_003","tenantId":"tenant_001","name":"Academy Enrollment Drive","status":"ACTIVE","objective":"LEADS","budgetMinor":150000,"spentMinor":42000,"startDate":"2025-01-01","endDate":"2025-01-31","createdAt":"2024-12-28T09:00:00.000Z"},
+  {"_id":"ad_004","tenantId":"tenant_002","name":"Talent Showcase Campaign","status":"ACTIVE","objective":"AWARENESS","budgetMinor":200000,"spentMinor":89000,"startDate":"2025-01-01","endDate":"2025-02-28","createdAt":"2024-12-20T11:00:00.000Z"}
+]

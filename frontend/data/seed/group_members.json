@@ -1,0 +1,7 @@
+[
+  {"_id":"gm_001","groupId":"group_001","userId":"user_001","joinedAt":"2025-01-15T00:00:00Z"},
+  {"_id":"gm_002","groupId":"group_001","userId":"user_002","joinedAt":"2025-01-20T00:00:00Z"},
+  {"_id":"gm_003","groupId":"group_002","userId":"user_001","joinedAt":"2025-02-05T00:00:00Z"},
+  {"_id":"gm_004","groupId":"group_002","userId":"user_002","joinedAt":"2025-02-05T00:00:00Z"},
+  {"_id":"gm_005","groupId":"group_002","userId":"user_003","joinedAt":"2025-02-06T00:00:00Z"}
+]

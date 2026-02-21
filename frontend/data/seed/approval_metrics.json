@@ -1,0 +1,5 @@
+[
+  {"_id":"am_001","tenantId":"tenant_001","approvalType":"CONTRACT","period":"2024-06","medianHours":36,"targetHours":48,"bounceRate":0.15,"count":12},
+  {"_id":"am_002","tenantId":"tenant_001","approvalType":"CONTENT","period":"2024-06","medianHours":24,"targetHours":24,"bounceRate":0.25,"count":8},
+  {"_id":"am_003","tenantId":"tenant_001","approvalType":"PAYOUT","period":"2024-06","medianHours":72,"targetHours":48,"bounceRate":0.1,"count":5}
+]

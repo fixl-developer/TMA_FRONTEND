@@ -1,0 +1,35 @@
+[
+  {
+    "_id": "enf_001",
+    "tenantId": "tenant_001",
+    "userId": "user_suspended_001",
+    "actionType": "SUSPEND",
+    "reason": "Spam / abuse reports",
+    "durationDays": 7,
+    "status": "ACTIVE",
+    "createdBy": "user_superadmin",
+    "createdAt": "2025-02-10T12:00:00.000Z"
+  },
+  {
+    "_id": "enf_002",
+    "tenantId": "tenant_002",
+    "userId": "user_banned_001",
+    "actionType": "BAN",
+    "reason": "Fraud / policy violation",
+    "durationDays": null,
+    "status": "ACTIVE",
+    "createdBy": "user_superadmin",
+    "createdAt": "2025-02-01T09:00:00.000Z"
+  },
+  {
+    "_id": "enf_003",
+    "tenantId": "tenant_001",
+    "userId": "user_agent_001",
+    "actionType": "WARNING",
+    "reason": "Minor policy breach - first offense",
+    "durationDays": null,
+    "status": "ACKNOWLEDGED",
+    "createdBy": "user_admin_002",
+    "createdAt": "2025-02-14T16:00:00.000Z"
+  }
+]

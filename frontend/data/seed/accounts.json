@@ -1,0 +1,7 @@
+[
+  {"_id":"acc_001","tenantId":"tenant_001","name":"Luxury Cosmetics India","type":"BRAND","status":"ACTIVE","industry":"Beauty","paymentTerms":"NET_30","ndaStatus":"SIGNED","tags":["beauty","repeat"],"riskFlags":[],"createdAt":"2024-01-15T10:00:00Z","ownerId":"user_001"},
+  {"_id":"acc_002","tenantId":"tenant_001","name":"Fashion House","type":"CLIENT","status":"ACTIVE","industry":"Fashion","paymentTerms":"NET_15","ndaStatus":"SIGNED","tags":["fashion","campaign"],"riskFlags":[],"createdAt":"2024-03-01T11:00:00Z","ownerId":"user_001"},
+  {"_id":"acc_003","tenantId":"tenant_001","name":"Wellness Brand Pvt Ltd","type":"BRAND","status":"PENDING","industry":"Wellness","paymentTerms":"NET_30","ndaStatus":"PENDING","tags":["wellness"],"riskFlags":[],"createdAt":"2024-06-15T14:30:00Z","ownerId":"user_001"},
+  {"_id":"acc_004","tenantId":"tenant_001","name":"Event Promoter Co","type":"PARTNER","status":"ACTIVE","industry":"Events","paymentTerms":"NET_7","ndaStatus":"SIGNED","tags":["events","partner"],"riskFlags":[],"createdAt":"2024-05-01T09:00:00Z","ownerId":"user_002"},
+  {"_id":"acc_005","tenantId":"tenant_001","name":"Production Studio Alpha","type":"PARTNER","status":"ACTIVE","industry":"Production","paymentTerms":"NET_30","ndaStatus":"SIGNED","tags":["production","vendor"],"riskFlags":[],"createdAt":"2024-02-10T08:00:00Z","ownerId":"user_002"}
+]

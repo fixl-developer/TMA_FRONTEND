@@ -1,0 +1,24 @@
+[
+  {
+    "_id": "collab_001",
+    "tenantId": "tenant_001",
+    "partnerTenantId": "tenant_002",
+    "partnerName": "Fashion House Co",
+    "type": "SHARED_CASTING",
+    "status": "ACTIVE",
+    "title": "Spring 2025 Campaign",
+    "revenueSplit": { "tenant_001": 60, "tenant_002": 40 },
+    "createdAt": "2025-02-01T00:00:00Z"
+  },
+  {
+    "_id": "collab_002",
+    "tenantId": "tenant_001",
+    "partnerTenantId": "tenant_003",
+    "partnerName": "Beauty Brand Inc",
+    "type": "INFLUENCER_DEAL",
+    "status": "PENDING",
+    "title": "Lipstick Launch Collaboration",
+    "revenueSplit": { "tenant_001": 50, "tenant_003": 50 },
+    "createdAt": "2025-02-10T00:00:00Z"
+  }
+]

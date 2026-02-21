@@ -1,0 +1,32 @@
+[
+  {
+    "_id": "wh_001",
+    "tenantId": "tenant_001",
+    "url": "https://api.elite-models.com/webhooks/talentos",
+    "events": ["booking.confirmed", "contract.signed"],
+    "status": "ACTIVE",
+    "lastDeliveryAt": "2025-02-16T08:30:00.000Z",
+    "successRate": 99.2,
+    "createdAt": "2024-07-01T00:00:00.000Z"
+  },
+  {
+    "_id": "wh_002",
+    "tenantId": "tenant_002",
+    "url": "https://miss-india.com/hooks/pageant",
+    "events": ["pageant.registered", "round.published", "result.published"],
+    "status": "ACTIVE",
+    "lastDeliveryAt": "2025-02-16T09:00:00.000Z",
+    "successRate": 98.8,
+    "createdAt": "2024-09-01T00:00:00.000Z"
+  },
+  {
+    "_id": "wh_003",
+    "tenantId": "tenant_001",
+    "url": "https://old-endpoint.elite-models.com/deprecated",
+    "events": ["booking.confirmed"],
+    "status": "DISABLED",
+    "lastDeliveryAt": "2025-01-15T10:00:00.000Z",
+    "successRate": 85.0,
+    "createdAt": "2023-06-01T00:00:00.000Z"
+  }
+]

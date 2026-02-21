@@ -1,0 +1,54 @@
+[
+  {
+    "_id": "del_001",
+    "campaignId": "camp_001",
+    "dealId": "deal_001",
+    "talentId": "talent_001",
+    "title": "Instagram Reel - Product Showcase",
+    "type": "REEL",
+    "status": "APPROVED",
+    "dueDate": "2024-07-15",
+    "submittedAt": "2024-07-10T14:00:00.000Z",
+    "contentUrl": "https://example.com/reel1",
+    "notes": "Brand-approved final cut"
+  },
+  {
+    "_id": "del_002",
+    "campaignId": "camp_001",
+    "dealId": "deal_001",
+    "talentId": "talent_001",
+    "title": "Stories Pack (5 slides)",
+    "type": "STORIES",
+    "status": "PENDING_REVIEW",
+    "dueDate": "2024-07-20",
+    "submittedAt": "2024-07-18T10:00:00.000Z",
+    "contentUrl": "https://example.com/stories1",
+    "notes": ""
+  },
+  {
+    "_id": "del_003",
+    "campaignId": "camp_001",
+    "dealId": "deal_002",
+    "talentId": "talent_004",
+    "title": "YouTube Short - Tutorial",
+    "type": "SHORT",
+    "status": "DRAFT",
+    "dueDate": "2024-08-01",
+    "submittedAt": null,
+    "contentUrl": null,
+    "notes": ""
+  },
+  {
+    "_id": "del_004",
+    "campaignId": "camp_002",
+    "dealId": "deal_003",
+    "talentId": "talent_002",
+    "title": "Fashion Week Post",
+    "type": "POST",
+    "status": "APPROVED",
+    "dueDate": "2024-03-10",
+    "submittedAt": "2024-03-08T09:00:00.000Z",
+    "contentUrl": "https://example.com/post1",
+    "notes": "Published"
+  }
+]

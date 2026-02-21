@@ -1,0 +1,38 @@
+[
+  {
+    "id": "tu-1",
+    "tenantId": "t-demo",
+    "email": "owner@demo.com",
+    "displayName": "Demo Owner",
+    "roleId": "role-owner",
+    "status": "active",
+    "lastActiveAt": "2025-02-15T10:00:00Z"
+  },
+  {
+    "id": "tu-2",
+    "tenantId": "t-demo",
+    "email": "admin@demo.com",
+    "displayName": "Admin User",
+    "roleId": "role-admin",
+    "status": "active",
+    "lastActiveAt": "2025-02-14T16:30:00Z"
+  },
+  {
+    "id": "tu-3",
+    "tenantId": "t-demo",
+    "email": "staff@demo.com",
+    "displayName": "Staff Member",
+    "roleId": "role-staff",
+    "status": "active",
+    "lastActiveAt": "2025-02-13T09:00:00Z"
+  },
+  {
+    "id": "tu-4",
+    "tenantId": "t-demo",
+    "email": "pending@demo.com",
+    "displayName": "Pending Invite",
+    "roleId": "role-staff",
+    "status": "pending",
+    "lastActiveAt": null
+  }
+]

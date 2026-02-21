@@ -1,0 +1,22 @@
+/** Reusable banner background images for PageBanner (non-SuperAdmin dashboards) */
+export const BANNER_IMAGES = {
+  admin: "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=1200&q=80",
+  pageant: "https://images.unsplash.com/photo-1519741497674-611481863552?w=1200&q=80",
+  talent: "https://images.unsplash.com/photo-1516979187457-637abb4f9353?w=1200&q=80",
+  academy: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1200&q=80",
+  influencer: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=1200&q=80",
+  ads: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80",
+  rewards: "https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=1200&q=80",
+  wallet: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1200&q=80",
+  users: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&q=80",
+  compliance: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1200&q=80",
+  finance: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1200&q=80",
+  content: "https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=1200&q=80",
+  casting: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=80",
+  judges: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=1200&q=80",
+  process: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&q=80",
+  calendar: "https://images.unsplash.com/photo-1506784983877-45594efa4cbe?w=1200&q=80",
+  contracts: "https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=1200&q=80",
+  courses: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1200&q=80",
+  campaigns: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=1200&q=80",
+} as const

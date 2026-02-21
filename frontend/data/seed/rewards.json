@@ -1,0 +1,5 @@
+[
+  {"_id":"reward_001","tenantId":"tenant_001","userId":"user_001","credits":1250,"tier":"GOLD","milestonesReached":3,"lastActivityAt":"2025-02-15T10:00:00.000Z"},
+  {"_id":"reward_002","tenantId":"tenant_001","userId":"user_002","credits":420,"tier":"SILVER","milestonesReached":1,"lastActivityAt":"2025-02-14T14:30:00.000Z"},
+  {"_id":"reward_003","tenantId":"tenant_001","userId":"user_003","credits":50,"tier":"BRONZE","milestonesReached":0,"lastActivityAt":"2025-02-10T09:00:00.000Z"}
+]

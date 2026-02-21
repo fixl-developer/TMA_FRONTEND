@@ -1,0 +1,5 @@
+[
+  {"_id":"ra_001","tenantId":"tenant_001","shipmentId":"ship_001","reason":"Campaign ended - unused products","status":"APPROVED","requestedAt":"2024-07-01T10:00:00.000Z","approvedAt":"2024-07-02T14:00:00.000Z","notes":"Creator returning 1 unopened serum"},
+  {"_id":"ra_002","tenantId":"tenant_001","shipmentId":"ship_003","reason":"Wardrobe return post-shoot","status":"PENDING","requestedAt":"2024-04-15T09:00:00.000Z","notes":"Standard wardrobe return after Spring Lookbook"},
+  {"_id":"ra_003","tenantId":"tenant_001","shipmentId":"ship_005","reason":"Wrong size received","status":"APPROVED","requestedAt":"2024-05-16T11:00:00.000Z","approvedAt":"2024-05-17T09:00:00.000Z","notes":"Exchange for correct size"}
+]

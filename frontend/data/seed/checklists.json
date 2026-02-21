@@ -1,0 +1,60 @@
+[
+  {
+    "_id": "chk_001",
+    "projectId": "proj_001",
+    "tenantId": "tenant_001",
+    "name": "Pre-Audition Checklist",
+    "description": "Must complete before first audition round.",
+    "items": [
+      { "id": "chk_001_i1", "label": "Venues booked", "done": true },
+      { "id": "chk_001_i2", "label": "Judges confirmed", "done": true },
+      { "id": "chk_001_i3", "label": "Registration closed", "done": false },
+      { "id": "chk_001_i4", "label": "Scoring rubric loaded", "done": true }
+    ],
+    "completionGate": "PAYOUT_UNLOCK",
+    "createdAt": "2024-02-20T10:00:00.000Z"
+  },
+  {
+    "_id": "chk_002",
+    "projectId": "proj_001",
+    "tenantId": "tenant_001",
+    "name": "Finals Day Run-of-Show",
+    "description": "Gate: Must complete before results publish.",
+    "items": [
+      { "id": "chk_002_i1", "label": "Backstage ready", "done": false },
+      { "id": "chk_002_i2", "label": "Sponsor placements verified", "done": false },
+      { "id": "chk_002_i3", "label": "Trophy & certificates on stage", "done": false },
+      { "id": "chk_002_i4", "label": "Livestream tested", "done": false }
+    ],
+    "completionGate": "RESULTS_PUBLISH",
+    "createdAt": "2024-03-01T09:00:00.000Z"
+  },
+  {
+    "_id": "chk_003",
+    "projectId": "proj_002",
+    "tenantId": "tenant_001",
+    "name": "Shoot Day Prep",
+    "description": "Pre-production checklist.",
+    "items": [
+      { "id": "chk_003_i1", "label": "Wardrobe steamed", "done": false },
+      { "id": "chk_003_i2", "label": "Lighting tested", "done": false },
+      { "id": "chk_003_i3", "label": "Catering confirmed", "done": false }
+    ],
+    "completionGate": null,
+    "createdAt": "2024-04-01T11:00:00.000Z"
+  },
+  {
+    "_id": "chk_004",
+    "projectId": "proj_004",
+    "tenantId": "tenant_002",
+    "name": "Teen Pageant Compliance",
+    "description": "Guardian consent and minor safety gates.",
+    "items": [
+      { "id": "chk_004_i1", "label": "All guardian consents collected", "done": false },
+      { "id": "chk_004_i2", "label": "Chaperone assignments", "done": false },
+      { "id": "chk_004_i3", "label": "Parent viewing area reserved", "done": false }
+    ],
+    "completionGate": "ELIGIBILITY_APPROVAL",
+    "createdAt": "2024-03-15T08:00:00.000Z"
+  }
+]

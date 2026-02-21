@@ -1,0 +1,64 @@
+[
+  {
+    "_id": "rule_001",
+    "tenantId": "tenant_001",
+    "name": "Contract signed → Create escrow",
+    "trigger": "contract.signed",
+    "conditions": [{ "field": "contract.status", "op": "eq", "value": "SIGNED" }],
+    "actions": ["create_escrow", "notify_talent"],
+    "status": "ACTIVE",
+    "runsLast24h": 12,
+    "lastRunAt": "2025-02-16T08:30:00.000Z",
+    "createdAt": "2024-06-01T00:00:00.000Z"
+  },
+  {
+    "_id": "rule_002",
+    "tenantId": "tenant_001",
+    "name": "Escrow funded → Notify talent",
+    "trigger": "escrow.funded",
+    "conditions": [{ "field": "escrow.status", "op": "eq", "value": "FUNDED" }],
+    "actions": ["send_email", "update_dashboard"],
+    "status": "ACTIVE",
+    "runsLast24h": 8,
+    "lastRunAt": "2025-02-16T07:15:00.000Z",
+    "createdAt": "2024-06-15T00:00:00.000Z"
+  },
+  {
+    "_id": "rule_003",
+    "tenantId": "tenant_001",
+    "name": "Pageant registered → Send confirmation",
+    "trigger": "pageant.registered",
+    "conditions": [{ "field": "registration.status", "op": "eq", "value": "CONFIRMED" }],
+    "actions": ["send_confirmation_email", "add_to_waitlist"],
+    "status": "ACTIVE",
+    "runsLast24h": 45,
+    "lastRunAt": "2025-02-16T09:00:00.000Z",
+    "createdAt": "2024-08-01T00:00:00.000Z"
+  },
+  {
+    "_id": "rule_004",
+    "tenantId": "tenant_001",
+    "name": "Delivery approved → Auto-settle (48h)",
+    "trigger": "delivery.approved",
+    "conditions": [{ "field": "delivery.approvedAt", "op": "exists", "value": true }],
+    "actions": ["schedule_settlement_48h"],
+    "status": "ACTIVE",
+    "runsLast24h": 3,
+    "lastRunAt": "2025-02-15T14:00:00.000Z",
+    "createdAt": "2024-07-01T00:00:00.000Z"
+  },
+  {
+    "_id": "rule_005",
+    "tenantId": "tenant_001",
+    "name": "High-value payout → Require approval",
+    "trigger": "payout.requested",
+    "conditions": [
+      { "field": "payout.amountMinor", "op": "gte", "value": 100000 }
+    ],
+    "actions": ["hold_payout", "notify_approver"],
+    "status": "INACTIVE",
+    "runsLast24h": 2,
+    "lastRunAt": "2025-02-14T11:00:00.000Z",
+    "createdAt": "2024-09-01T00:00:00.000Z"
+  }
+]

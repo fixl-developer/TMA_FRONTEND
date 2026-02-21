@@ -1,0 +1,9 @@
+[
+  {"_id":"lesson_001","courseId":"course_001","order":1,"title":"Introduction to Ramp Walk","type":"VIDEO","durationMinutes":12,"videoUrl":"https://example.com/v1"},
+  {"_id":"lesson_002","courseId":"course_001","order":2,"title":"Posture and Stance","type":"VIDEO","durationMinutes":15,"videoUrl":"https://example.com/v2"},
+  {"_id":"lesson_003","courseId":"course_001","order":3,"title":"Walking Techniques","type":"VIDEO","durationMinutes":18,"videoUrl":"https://example.com/v3"},
+  {"_id":"lesson_004","courseId":"course_001","order":4,"title":"Practice Session","type":"VIDEO","durationMinutes":20,"videoUrl":"https://example.com/v4"},
+  {"_id":"lesson_005","courseId":"course_002","order":1,"title":"Camera Basics","type":"VIDEO","durationMinutes":10,"videoUrl":"https://example.com/p1"},
+  {"_id":"lesson_006","courseId":"course_002","order":2,"title":"Lighting for Portraits","type":"VIDEO","durationMinutes":22,"videoUrl":"https://example.com/p2"},
+  {"_id":"lesson_007","courseId":"course_002","order":3,"title":"Posing Fundamentals","type":"VIDEO","durationMinutes":16,"videoUrl":"https://example.com/p3"}
+]

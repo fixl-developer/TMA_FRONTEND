@@ -1,0 +1,29 @@
+[
+  {
+    "id": "banner_001",
+    "title": "Summer Fashion Campaign 2024",
+    "subtitle": "Luxury Fashion House · Open casting. Seeking female models, 5'8\"+, age 18-28.",
+    "ctaLabel": "View Casting",
+    "ctaHref": "/modelling/castings",
+    "gradient": "gold",
+    "videoUrl": "https://videos.pexels.com/video-files/35080398/14861091_2560_1440_30fps.mp4"
+  },
+  {
+    "id": "banner_002",
+    "title": "New Client Win: Beauty Cosmetics",
+    "subtitle": "Lipstick launch campaign. Half-day beauty shoot. Makeup artist provided.",
+    "ctaLabel": "View Details",
+    "ctaHref": "/modelling/castings",
+    "gradient": "coral",
+    "videoUrl": "https://videos.pexels.com/video-files/3997798/3997798-hd_1920_1080_25fps.mp4"
+  },
+  {
+    "id": "banner_003",
+    "title": "Featured Talent: Priya Sharma",
+    "subtitle": "Booked for Spring Lookbook 2024. Confirmed · Contract signed.",
+    "ctaLabel": "View Talent",
+    "ctaHref": "/modelling/talent",
+    "gradient": "teal",
+    "videoUrl": "https://videos.pexels.com/video-files/3130284/3130284-hd_1920_1080_25fps.mp4"
+  }
+]

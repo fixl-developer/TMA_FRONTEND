@@ -1,0 +1,5 @@
+[
+  {"_id":"sponsor_001","pageantId":"pageant_001","name":"Luxury Cosmetics Co","tier":"PLATINUM","amountMinor":5000000,"currency":"INR","visibility":"PRIMARY"},
+  {"_id":"sponsor_002","pageantId":"pageant_001","name":"Fashion House India","tier":"GOLD","amountMinor":2000000,"currency":"INR","visibility":"SECONDARY"},
+  {"_id":"sponsor_003","pageantId":"pageant_001","name":"Wellness Brand","tier":"SILVER","amountMinor":500000,"currency":"INR","visibility":"FOOTER"}
+]

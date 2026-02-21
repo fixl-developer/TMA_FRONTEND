@@ -1,0 +1,10 @@
+[
+  {"_id":"rm_001","tenantId":"tenant_001","period":"2024-07","newBookings":45000,"churn":-8000,"reactivations":12000,"expansions":15000,"trialToPaid":0,"seasonal":0},
+  {"_id":"rm_002","tenantId":"tenant_001","period":"2024-08","newBookings":52000,"churn":-5000,"reactivations":8000,"expansions":18000,"trialToPaid":0,"seasonal":0},
+  {"_id":"rm_003","tenantId":"tenant_001","period":"2024-09","newBookings":38000,"churn":-12000,"reactivations":15000,"expansions":22000,"trialToPaid":0,"seasonal":0},
+  {"_id":"rm_004","tenantId":"tenant_001","period":"2024-10","newBookings":61000,"churn":-6000,"reactivations":9000,"expansions":25000,"trialToPaid":0,"seasonal":5000},
+  {"_id":"rm_005","tenantId":"tenant_001","period":"2024-11","newBookings":48000,"churn":-9000,"reactivations":11000,"expansions":28000,"trialToPaid":0,"seasonal":8000},
+  {"_id":"rm_006","tenantId":"tenant_001","period":"2024-12","newBookings":55000,"churn":-7000,"reactivations":13000,"expansions":30000,"trialToPaid":0,"seasonal":12000},
+  {"_id":"rm_007","tenantId":"tenant_001","period":"2025-01","newBookings":62000,"churn":-4000,"reactivations":14000,"expansions":32000,"trialToPaid":15000,"seasonal":0},
+  {"_id":"rm_008","tenantId":"tenant_001","period":"2025-02","newBookings":58000,"churn":-5500,"reactivations":16000,"expansions":35000,"trialToPaid":18000,"seasonal":0}
+]

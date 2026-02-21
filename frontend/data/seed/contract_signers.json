@@ -1,0 +1,12 @@
+[
+  {"_id":"sig_001","tenantId":"tenant_001","contractId":"contract_001","talentId":"talent_001","role":"TALENT","status":"SIGNED","signedAt":"2024-06-01T10:00:00.000Z","order":1},
+  {"_id":"sig_002","tenantId":"tenant_001","contractId":"contract_001","email":"legal@luxuryfashion.com","role":"CLIENT","status":"SIGNED","signedAt":"2024-06-01T11:30:00.000Z","order":2},
+  {"_id":"sig_003","tenantId":"tenant_001","contractId":"contract_002","talentId":"talent_002","role":"TALENT","status":"SIGNED","signedAt":"2024-06-05T14:00:00.000Z","order":1},
+  {"_id":"sig_004","tenantId":"tenant_001","contractId":"contract_002","email":"contracts@beautycosmetics.com","role":"CLIENT","status":"SIGNED","signedAt":"2024-06-05T15:00:00.000Z","order":2},
+  {"_id":"sig_005","tenantId":"tenant_001","contractId":"contract_003","talentId":"talent_004","role":"TALENT","status":"PENDING","signedAt":null,"order":1},
+  {"_id":"sig_006","tenantId":"tenant_001","contractId":"contract_003","email":"legal@globalfashion.com","role":"CLIENT","status":"PENDING","signedAt":null,"order":2},
+  {"_id":"sig_007","tenantId":"tenant_001","contractId":"contract_004","talentId":"talent_001","role":"TALENT","status":"PENDING","signedAt":null,"order":1},
+  {"_id":"sig_008","tenantId":"tenant_001","contractId":"contract_004","email":"legal@luxuryfashion.com","role":"CLIENT","status":"PENDING","signedAt":null,"order":2},
+  {"_id":"sig_009","tenantId":"tenant_006","contractId":"contract_005","talentId":"talent_006","role":"TALENT","status":"SIGNED","signedAt":"2024-06-20T10:00:00.000Z","order":1},
+  {"_id":"sig_010","tenantId":"tenant_006","contractId":"contract_005","email":"legal@adagency.com","role":"CLIENT","status":"SIGNED","signedAt":"2024-06-20T11:00:00.000Z","order":2}
+]

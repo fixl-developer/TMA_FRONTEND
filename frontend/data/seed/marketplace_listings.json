@@ -1,0 +1,7 @@
+[
+  {"_id":"listing_001","tenantId":"tenant_022","vendorId":"vendor_001","title":"Model for E-commerce Shoot","category":"MODELING","description":"Seeking female model for product catalog. 1-day shoot. Rate negotiable.","rate":5000,"currency":"INR","status":"ACTIVE","createdAt":"2025-02-01T10:00:00.000Z"},
+  {"_id":"listing_002","tenantId":"tenant_022","vendorId":"vendor_002","title":"Videographer - Brand Film","category":"VIDEO","description":"Experienced videographer for 2-day brand film. Equipment provided.","rate":25000,"currency":"INR","status":"ACTIVE","createdAt":"2025-02-05T14:00:00.000Z"},
+  {"_id":"listing_003","tenantId":"tenant_022","vendorId":"vendor_003","title":"Event Host / MC","category":"HOSTING","description":"Professional MC for corporate event. 4-hour engagement.","rate":15000,"currency":"INR","status":"ACTIVE","createdAt":"2025-02-08T09:00:00.000Z"},
+  {"_id":"listing_004","tenantId":"tenant_022","vendorId":"vendor_001","title":"Photography - Portrait Session","category":"PHOTOGRAPHY","description":"Studio portrait photography. 2-hour session. Retouching included.","rate":8000,"currency":"INR","status":"ACTIVE","createdAt":"2025-02-10T11:00:00.000Z"},
+  {"_id":"listing_005","tenantId":"tenant_022","vendorId":"vendor_004","title":"Makeup Artist - Fashion Shoot","category":"BEAUTY","description":"Professional MUA for editorial shoot. Full day. Kit provided.","rate":12000,"currency":"INR","status":"ACTIVE","createdAt":"2025-02-12T16:00:00.000Z"}
+]

@@ -1,0 +1,5 @@
+[
+  {"_id":"judge_001","pageantId":"pageant_001","name":"Dr. Anita Desai","role":"Head Judge","category":"Overall","assignedStages":["PRELIMS","SEMI_FINALS","FINALS"]},
+  {"_id":"judge_002","pageantId":"pageant_001","name":"Ravi Kumar","role":"Talent Judge","category":"Talent Round","assignedStages":["SEMI_FINALS","FINALS"]},
+  {"_id":"judge_003","pageantId":"pageant_001","name":"Priya Sharma","role":"Beauty Judge","category":"Q&A","assignedStages":["FINALS"]}
+]

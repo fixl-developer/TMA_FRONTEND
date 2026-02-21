@@ -1,0 +1,5 @@
+[
+  {"_id":"dc_001","tenantId":"tenant_001","code":"EARLY25","type":"PERCENTAGE","value":25,"minOrderMinor":5000,"maxUses":100,"usedCount":42,"validFrom":"2025-01-01","validTo":"2025-03-31","status":"ACTIVE"},
+  {"_id":"dc_002","tenantId":"tenant_001","code":"WELCOME50","type":"FIXED","valueMinor":5000,"minOrderMinor":10000,"maxUses":50,"usedCount":12,"validFrom":"2025-02-01","validTo":"2025-02-28","status":"ACTIVE"},
+  {"_id":"dc_003","tenantId":"tenant_001","code":"VIP20","type":"PERCENTAGE","value":20,"minOrderMinor":0,"maxUses":10,"usedCount":10,"validFrom":"2025-01-15","validTo":"2025-02-15","status":"EXPIRED"}
+]

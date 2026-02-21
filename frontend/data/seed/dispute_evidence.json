@@ -1,0 +1,5 @@
+[
+  {"_id":"ev_001","disputeId":"disp_001","type":"DOCUMENT","description":"Signed delivery confirmation","url":"/placeholder/doc1.pdf","uploadedBy":"user_talent_001","createdAt":"2025-02-13T11:00:00.000Z"},
+  {"_id":"ev_002","disputeId":"disp_001","type":"IMAGE","description":"Work completion screenshot","url":"/placeholder/img1.jpg","uploadedBy":"user_talent_001","createdAt":"2025-02-13T11:30:00.000Z"},
+  {"_id":"ev_003","disputeId":"disp_002","type":"DOCUMENT","description":"No-show incident report","url":"/placeholder/doc2.pdf","uploadedBy":"user_owner_001","createdAt":"2025-02-15T15:00:00.000Z"}
+]

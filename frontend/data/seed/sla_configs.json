@@ -1,0 +1,63 @@
+[
+  {
+    "_id": "sla_001",
+    "tenantId": "tenant_001",
+    "name": "Contract signing SLA",
+    "objectType": "contract",
+    "clockStart": "contract.sent",
+    "targetHours": 72,
+    "escalationSteps": [
+      { "atHours": 48, "action": "send_reminder" },
+      { "atHours": 72, "action": "notify_approver" },
+      { "atHours": 96, "action": "escalate_to_manager" }
+    ],
+    "status": "ACTIVE",
+    "breachesLast30d": 3,
+    "createdAt": "2024-06-01T00:00:00.000Z"
+  },
+  {
+    "_id": "sla_002",
+    "tenantId": "tenant_001",
+    "name": "Approval response SLA",
+    "objectType": "approval",
+    "clockStart": "approval.requested",
+    "targetHours": 24,
+    "escalationSteps": [
+      { "atHours": 12, "action": "send_reminder" },
+      { "atHours": 24, "action": "notify_backup_approver" }
+    ],
+    "status": "ACTIVE",
+    "breachesLast30d": 1,
+    "createdAt": "2024-07-15T00:00:00.000Z"
+  },
+  {
+    "_id": "sla_003",
+    "tenantId": "tenant_001",
+    "name": "Dispute response SLA",
+    "objectType": "dispute",
+    "clockStart": "dispute.opened",
+    "targetHours": 48,
+    "escalationSteps": [
+      { "atHours": 24, "action": "assign_reviewer" },
+      { "atHours": 48, "action": "escalate_to_ops" }
+    ],
+    "status": "ACTIVE",
+    "breachesLast30d": 0,
+    "createdAt": "2024-08-01T00:00:00.000Z"
+  },
+  {
+    "_id": "sla_004",
+    "tenantId": "tenant_002",
+    "name": "Casting application review",
+    "objectType": "casting_submission",
+    "clockStart": "submission.received",
+    "targetHours": 120,
+    "escalationSteps": [
+      { "atHours": 72, "action": "remind_reviewer" },
+      { "atHours": 120, "action": "auto_notify_applicant" }
+    ],
+    "status": "ACTIVE",
+    "breachesLast30d": 5,
+    "createdAt": "2024-10-01T00:00:00.000Z"
+  }
+]

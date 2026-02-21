@@ -1,0 +1,23 @@
+[
+  {
+    "id": "role-owner",
+    "tenantId": "t-demo",
+    "name": "Owner",
+    "description": "Full access to tenant settings and management",
+    "permissions": ["*"]
+  },
+  {
+    "id": "role-admin",
+    "tenantId": "t-demo",
+    "name": "Admin",
+    "description": "Manage users, roles, and compliance",
+    "permissions": ["users:manage", "roles:manage", "compliance:view"]
+  },
+  {
+    "id": "role-staff",
+    "tenantId": "t-demo",
+    "name": "Staff",
+    "description": "Limited access to operations",
+    "permissions": ["talent:view", "events:view"]
+  }
+]

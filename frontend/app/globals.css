@@ -1,0 +1,417 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+    --radius: 0.5rem;
+    /* TalentOS palette - rich colors for dashboards */
+    --gold: 43 96% 56%;
+    --gold-soft: 43 74% 92%;
+    --coral: 12 76% 61%;
+    --coral-soft: 12 76% 95%;
+    --teal: 173 80% 40%;
+    --teal-soft: 173 50% 94%;
+    --violet: 263 70% 58%;
+    --violet-soft: 263 70% 96%;
+    --indigo: 239 84% 67%;
+    --indigo-soft: 239 84% 96%;
+    --emerald: 160 84% 39%;
+    --emerald-soft: 160 60% 95%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 224.3 76.3% 94.1%;
+  }
+}
+
+@layer base {
+  /* Base font 87.5% (14px) – compact UI without needing to zoom out */
+  html {
+    font-size: 87.5%;
+  }
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Custom Scrollbar Styles */
+/* For Webkit browsers (Chrome, Safari, Edge) */
+.scrollbar-thin::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background-color: #d1d5db;
+  border-radius: 3px;
+  transition: background-color 0.2s;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background-color: #9ca3af;
+}
+
+/* Dark mode scrollbar */
+[data-mode="dark"] .scrollbar-thin::-webkit-scrollbar-thumb {
+  background-color: #374151;
+}
+
+[data-mode="dark"] .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background-color: #4b5563;
+}
+
+/* Firefox scrollbar */
+.scrollbar-thin {
+  scrollbar-width: thin;
+  scrollbar-color: #d1d5db transparent;
+}
+
+[data-mode="dark"] .scrollbar-thin {
+  scrollbar-color: #374151 transparent;
+}
+
+/* Pageant dark-mode compatibility layer for legacy utility classes. */
+[data-theme="pageant"][data-mode="dark"] .bg-white {
+  background-color: #111827 !important;
+}
+
+[data-theme="pageant"][data-mode="dark"] [class*="border-slate-200"],
+[data-theme="pageant"][data-mode="dark"] [class*="border-[#E7E5E4]"] {
+  border-color: #334155 !important;
+}
+
+[data-theme="pageant"][data-mode="dark"] .bg-slate-50,
+[data-theme="pageant"][data-mode="dark"] .bg-slate-100 {
+  background-color: #0f172a !important;
+}
+
+[data-theme="pageant"][data-mode="dark"] .text-slate-900,
+[data-theme="pageant"][data-mode="dark"] .text-slate-800 {
+  color: #f8fafc !important;
+}
+
+[data-theme="pageant"][data-mode="dark"] .text-slate-700,
+[data-theme="pageant"][data-mode="dark"] .text-slate-600 {
+  color: #cbd5e1 !important;
+}
+
+[data-theme="pageant"][data-mode="dark"] .text-slate-500,
+[data-theme="pageant"][data-mode="dark"] .text-slate-400 {
+  color: #94a3b8 !important;
+}
+
+
+/* Admin Theme Toggle Support */
+.admin-light-theme {
+  /* Light theme overrides for admin pages */
+  --admin-bg-start: #f8fafc;
+  --admin-bg-mid: #ffffff;
+  --admin-bg-end: #f1f5f9;
+}
+
+.admin-dark-theme {
+  /* Dark theme (default) for admin pages */
+  --admin-bg-start: #1a0b2e;
+  --admin-bg-mid: #3d1f47;
+  --admin-bg-end: #6b2d5c;
+}
+
+/* Smooth transitions for theme switching */
+.admin-light-theme *,
+.admin-dark-theme * {
+  transition-property: background-color, border-color, color;
+  transition-duration: 300ms;
+  transition-timing-function: ease-in-out;
+}
+
+/* Ensure light theme classes have higher specificity */
+html.admin-light-theme,
+html.admin-light-theme body {
+  background: linear-gradient(to bottom right, #f8fafc, #ffffff, #f1f5f9);
+}
+
+html.admin-dark-theme,
+html.admin-dark-theme body {
+  background: linear-gradient(to bottom right, #1a0b2e, #3d1f47, #6b2d5c);
+}
+
+/* Dashboard-specific light mode overrides for legacy dark classes */
+html.admin-light-theme .admin-dashboard {
+  background: linear-gradient(to bottom right, #f8fafc, #ffffff, #f1f5f9) !important;
+}
+
+html.admin-light-theme .admin-dashboard .bg-white\/5 {
+  background-color: rgba(255, 255, 255, 0.92) !important;
+}
+
+html.admin-light-theme .admin-dashboard .bg-white\/10 {
+  background-color: rgba(248, 250, 252, 0.95) !important;
+}
+
+html.admin-light-theme .admin-dashboard .border-white\/10 {
+  border-color: #e2e8f0 !important;
+}
+
+html.admin-light-theme .admin-dashboard .border-white\/20 {
+  border-color: #cbd5e1 !important;
+}
+
+html.admin-light-theme .admin-dashboard .text-white {
+  color: #0f172a !important;
+}
+
+html.admin-light-theme .admin-dashboard .text-white\/70 {
+  color: #334155 !important;
+}
+
+html.admin-light-theme .admin-dashboard .text-white\/60 {
+  color: #475569 !important;
+}
+
+html.admin-light-theme .admin-dashboard .text-white\/50 {
+  color: #64748b !important;
+}
+
+/* Global light mode adaptation for all admin page content */
+html.admin-light-theme .admin-content > .min-h-screen {
+  background: linear-gradient(to bottom right, #f8fafc, #ffffff, #f1f5f9) !important;
+}
+
+html.admin-light-theme .admin-content .bg-white\/5 {
+  background-color: rgba(255, 255, 255, 0.92) !important;
+}
+
+html.admin-light-theme .admin-content .bg-white\/10 {
+  background-color: rgba(248, 250, 252, 0.95) !important;
+}
+
+html.admin-light-theme .admin-content .border-white\/5 {
+  border-color: #e2e8f0 !important;
+}
+
+html.admin-light-theme .admin-content .border-white\/10 {
+  border-color: #e2e8f0 !important;
+}
+
+html.admin-light-theme .admin-content .border-white\/20 {
+  border-color: #cbd5e1 !important;
+}
+
+html.admin-light-theme .admin-content .text-white {
+  color: #0f172a !important;
+}
+
+html.admin-light-theme .admin-content .text-white\/70 {
+  color: #334155 !important;
+}
+
+html.admin-light-theme .admin-content .text-white\/60 {
+  color: #475569 !important;
+}
+
+html.admin-light-theme .admin-content .text-white\/50 {
+  color: #64748b !important;
+}
+
+html.admin-light-theme .admin-content .text-white\/40 {
+  color: #94a3b8 !important;
+}
+
+html.admin-light-theme .admin-content .text-white\/30 {
+  color: #94a3b8 !important;
+}
+
+html.admin-light-theme .admin-content .text-white\/80,
+html.admin-light-theme .admin-content .text-white\/90 {
+  color: #1e293b !important;
+}
+
+/* Global dark mode adaptation for pages built with light palettes */
+html.admin-dark-theme .admin-content .text-slate-900,
+html.admin-dark-theme .admin-content .text-slate-800 {
+  color: #f8fafc !important;
+}
+
+html.admin-dark-theme .admin-content .text-slate-700 {
+  color: #e2e8f0 !important;
+}
+
+html.admin-dark-theme .admin-content .text-slate-600,
+html.admin-dark-theme .admin-content .text-slate-500 {
+  color: #cbd5e1 !important;
+}
+
+html.admin-dark-theme .admin-content .text-slate-400,
+html.admin-dark-theme .admin-content .text-slate-300 {
+  color: #94a3b8 !important;
+}
+
+html.admin-dark-theme .admin-content .border-slate-100,
+html.admin-dark-theme .admin-content .border-slate-200,
+html.admin-dark-theme .admin-content .border-slate-300 {
+  border-color: rgba(255, 255, 255, 0.16) !important;
+}
+
+html.admin-dark-theme .admin-content .border-slate-400 {
+  border-color: rgba(255, 255, 255, 0.22) !important;
+}
+
+html.admin-dark-theme .admin-content .bg-slate-50,
+html.admin-dark-theme .admin-content .bg-slate-100 {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+html.admin-dark-theme .admin-content .bg-slate-200 {
+  background-color: rgba(255, 255, 255, 0.12) !important;
+}
+
+/* Accent text contrast tuning for dark admin pages */
+html.admin-dark-theme .admin-content .text-amber-600,
+html.admin-dark-theme .admin-content .text-amber-700 {
+  color: #fcd34d !important;
+}
+
+html.admin-dark-theme .admin-content .text-yellow-600,
+html.admin-dark-theme .admin-content .text-yellow-700 {
+  color: #fde047 !important;
+}
+
+html.admin-dark-theme .admin-content .text-blue-600,
+html.admin-dark-theme .admin-content .text-blue-700 {
+  color: #93c5fd !important;
+}
+
+html.admin-dark-theme .admin-content .text-indigo-600,
+html.admin-dark-theme .admin-content .text-indigo-700 {
+  color: #a5b4fc !important;
+}
+
+html.admin-dark-theme .admin-content .text-purple-600,
+html.admin-dark-theme .admin-content .text-purple-700 {
+  color: #c4b5fd !important;
+}
+
+html.admin-dark-theme .admin-content .text-pink-600,
+html.admin-dark-theme .admin-content .text-pink-700 {
+  color: #f9a8d4 !important;
+}
+
+html.admin-dark-theme .admin-content .text-emerald-600,
+html.admin-dark-theme .admin-content .text-emerald-700,
+html.admin-dark-theme .admin-content .text-green-600,
+html.admin-dark-theme .admin-content .text-green-700 {
+  color: #6ee7b7 !important;
+}
+
+html.admin-dark-theme .admin-content .text-red-600,
+html.admin-dark-theme .admin-content .text-red-700,
+html.admin-dark-theme .admin-content .text-rose-600,
+html.admin-dark-theme .admin-content .text-rose-700 {
+  color: #fca5a5 !important;
+}
+
+/* Keep light-style chips/cards usable on dark backgrounds */
+html.admin-dark-theme .admin-content .bg-amber-50,
+html.admin-dark-theme .admin-content .bg-amber-100,
+html.admin-dark-theme .admin-content .bg-yellow-50,
+html.admin-dark-theme .admin-content .bg-yellow-100 {
+  background-color: rgba(251, 191, 36, 0.16) !important;
+}
+
+html.admin-dark-theme .admin-content .bg-blue-50,
+html.admin-dark-theme .admin-content .bg-blue-100,
+html.admin-dark-theme .admin-content .bg-indigo-50,
+html.admin-dark-theme .admin-content .bg-indigo-100 {
+  background-color: rgba(59, 130, 246, 0.16) !important;
+}
+
+html.admin-dark-theme .admin-content .bg-purple-50,
+html.admin-dark-theme .admin-content .bg-purple-100,
+html.admin-dark-theme .admin-content .bg-pink-50,
+html.admin-dark-theme .admin-content .bg-pink-100 {
+  background-color: rgba(168, 85, 247, 0.16) !important;
+}
+
+html.admin-dark-theme .admin-content .bg-emerald-50,
+html.admin-dark-theme .admin-content .bg-emerald-100,
+html.admin-dark-theme .admin-content .bg-green-50,
+html.admin-dark-theme .admin-content .bg-green-100 {
+  background-color: rgba(16, 185, 129, 0.16) !important;
+}
+
+html.admin-dark-theme .admin-content .bg-red-50,
+html.admin-dark-theme .admin-content .bg-red-100,
+html.admin-dark-theme .admin-content .bg-rose-50,
+html.admin-dark-theme .admin-content .bg-rose-100 {
+  background-color: rgba(239, 68, 68, 0.16) !important;
+}
+
+html.admin-dark-theme .admin-content .border-amber-200,
+html.admin-dark-theme .admin-content .border-yellow-200 {
+  border-color: rgba(251, 191, 36, 0.28) !important;
+}
+
+html.admin-dark-theme .admin-content .border-blue-200,
+html.admin-dark-theme .admin-content .border-indigo-200 {
+  border-color: rgba(96, 165, 250, 0.28) !important;
+}
+
+html.admin-dark-theme .admin-content .border-purple-200,
+html.admin-dark-theme .admin-content .border-pink-200 {
+  border-color: rgba(196, 181, 253, 0.28) !important;
+}
+
+html.admin-dark-theme .admin-content .border-emerald-200,
+html.admin-dark-theme .admin-content .border-green-200 {
+  border-color: rgba(110, 231, 183, 0.28) !important;
+}
+
+html.admin-dark-theme .admin-content .border-red-200,
+html.admin-dark-theme .admin-content .border-rose-200 {
+  border-color: rgba(252, 165, 165, 0.28) !important;
+}

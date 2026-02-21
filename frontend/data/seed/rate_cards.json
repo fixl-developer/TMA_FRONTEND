@@ -1,0 +1,8 @@
+[
+  {"_id":"rc_001","tenantId":"tenant_001","name":"Model Day Rate","category":"MODELING","unit":"DAY","rateMinor":25000,"currency":"INR","usageRights":"BASIC","notes":"Half-day minimum. Full day 8hrs."},
+  {"_id":"rc_002","tenantId":"tenant_001","name":"Model Day + Extended Usage","category":"MODELING","unit":"DAY","rateMinor":45000,"currency":"INR","usageRights":"EXTENDED","notes":"Includes 12-month digital usage."},
+  {"_id":"rc_003","tenantId":"tenant_001","name":"UGC Bundle (3 posts)","category":"INFLUENCER","unit":"BUNDLE","rateMinor":75000,"currency":"INR","usageRights":"PAID_SOCIAL","notes":"3 Reels/Stories. Instagram + TikTok."},
+  {"_id":"rc_004","tenantId":"tenant_001","name":"Event Staffing - Host","category":"STAFFING","unit":"SHIFT","rateMinor":8000,"currency":"INR","usageRights":"NONE","notes":"6hr shift. Event host/promoter."},
+  {"_id":"rc_005","tenantId":"tenant_001","name":"Influencer Single Post","category":"INFLUENCER","unit":"POST","rateMinor":35000,"currency":"INR","usageRights":"ORGANIC","notes":"Single feed post. 30-day usage."},
+  {"_id":"rc_006","tenantId":"tenant_001","name":"Production Day Rate","category":"PRODUCTION","unit":"DAY","rateMinor":120000,"currency":"INR","usageRights":"CUSTOM","notes":"Full production. Crew + equipment."}
+]

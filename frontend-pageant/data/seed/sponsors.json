@@ -1,0 +1,5 @@
+[
+  { "id": "sp1", "eventId": "ev-1", "name": "Brand A", "tier": "platinum", "visibility": "high", "logoUrl": null },
+  { "id": "sp2", "eventId": "ev-1", "name": "Brand B", "tier": "gold", "visibility": "medium", "logoUrl": null },
+  { "id": "sp3", "eventId": "ev-1", "name": "Brand C", "tier": "silver", "visibility": "low", "logoUrl": null }
+]

@@ -1,0 +1,58 @@
+[
+  {
+    "_id": "escrow_001",
+    "tenantId": "tenant_001",
+    "referenceType": "BOOKING",
+    "referenceId": "booking_001",
+    "amountMinor": 1250000,
+    "currency": "INR",
+    "status": "ESCROW_FUNDED",
+    "createdAt": "2025-02-14T10:00:00.000Z",
+    "fundedAt": "2025-02-14T11:30:00.000Z"
+  },
+  {
+    "_id": "escrow_002",
+    "tenantId": "tenant_002",
+    "referenceType": "PAGEANT_REG",
+    "referenceId": "reg_001",
+    "amountMinor": 500000,
+    "currency": "INR",
+    "status": "DELIVERY_APPROVED",
+    "createdAt": "2025-02-10T09:00:00.000Z",
+    "fundedAt": "2025-02-10T09:15:00.000Z"
+  },
+  {
+    "_id": "escrow_003",
+    "tenantId": "tenant_001",
+    "referenceType": "BOOKING",
+    "referenceId": "booking_002",
+    "amountMinor": 850000,
+    "currency": "INR",
+    "status": "IN_PROGRESS",
+    "createdAt": "2025-02-15T14:00:00.000Z",
+    "fundedAt": "2025-02-15T14:45:00.000Z"
+  },
+  {
+    "_id": "escrow_004",
+    "tenantId": "tenant_002",
+    "referenceType": "PAGEANT_REG",
+    "referenceId": "reg_002",
+    "amountMinor": 250000,
+    "currency": "INR",
+    "status": "IN_DISPUTE",
+    "createdAt": "2025-02-12T08:00:00.000Z",
+    "fundedAt": "2025-02-12T08:30:00.000Z"
+  },
+  {
+    "_id": "escrow_005",
+    "tenantId": "tenant_004",
+    "referenceType": "BOOKING",
+    "referenceId": "booking_003",
+    "amountMinor": 3200000,
+    "currency": "INR",
+    "status": "SETTLED",
+    "createdAt": "2025-02-01T10:00:00.000Z",
+    "fundedAt": "2025-02-01T11:00:00.000Z",
+    "settledAt": "2025-02-05T09:00:00.000Z"
+  }
+]

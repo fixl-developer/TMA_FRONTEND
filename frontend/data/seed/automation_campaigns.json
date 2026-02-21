@@ -1,0 +1,59 @@
+[
+  {
+    "_id": "ac_001",
+    "tenantId": "tenant_001",
+    "name": "Pageant Registration Flow",
+    "status": "ACTIVE",
+    "stages": [
+      { "order": 1, "name": "Registration received", "trigger": "pageant.registered", "actions": ["send_confirmation_email", "add_to_waitlist"] },
+      { "order": 2, "name": "Payment confirmed", "trigger": "payment.completed", "actions": ["issue_ticket", "notify_organizer"] },
+      { "order": 3, "name": "7 days before event", "trigger": "schedule.7d_before", "actions": ["send_reminder", "unlock_content"] }
+    ],
+    "targeting": { "objectTypes": ["pageant_registration"], "eventIds": ["evt_001"] },
+    "runsCount": 156,
+    "lastRunAt": "2025-02-16T09:00:00.000Z",
+    "createdAt": "2024-08-01T00:00:00.000Z"
+  },
+  {
+    "_id": "ac_002",
+    "tenantId": "tenant_001",
+    "name": "Contract → Escrow Pipeline",
+    "status": "ACTIVE",
+    "stages": [
+      { "order": 1, "name": "Contract signed", "trigger": "contract.signed", "actions": ["create_escrow", "notify_talent"] },
+      { "order": 2, "name": "Escrow funded", "trigger": "escrow.funded", "actions": ["notify_talent", "start_delivery_clock"] },
+      { "order": 3, "name": "Delivery approved", "trigger": "delivery.approved", "actions": ["auto_settle_48h"] }
+    ],
+    "targeting": { "objectTypes": ["contract"], "minAmountMinor": 10000 },
+    "runsCount": 42,
+    "lastRunAt": "2025-02-16T08:30:00.000Z",
+    "createdAt": "2024-06-01T00:00:00.000Z"
+  },
+  {
+    "_id": "ac_003",
+    "tenantId": "tenant_001",
+    "name": "High-Value Payout Approval",
+    "status": "INACTIVE",
+    "stages": [
+      { "order": 1, "name": "Payout requested", "trigger": "payout.requested", "actions": ["check_amount", "require_approval_if_high"] }
+    ],
+    "targeting": { "objectTypes": ["payout"], "minAmountMinor": 100000 },
+    "runsCount": 8,
+    "lastRunAt": "2025-02-14T11:00:00.000Z",
+    "createdAt": "2024-09-01T00:00:00.000Z"
+  },
+  {
+    "_id": "ac_004",
+    "tenantId": "tenant_002",
+    "name": "Casting Application Follow-up",
+    "status": "ACTIVE",
+    "stages": [
+      { "order": 1, "name": "Application submitted", "trigger": "casting.applied", "actions": ["acknowledge", "notify_casting_team"] },
+      { "order": 2, "name": "Shortlist decision", "trigger": "casting.shortlisted", "actions": ["send_interview_invite"] }
+    ],
+    "targeting": { "objectTypes": ["casting_submission"] },
+    "runsCount": 89,
+    "lastRunAt": "2025-02-15T16:00:00.000Z",
+    "createdAt": "2024-10-15T00:00:00.000Z"
+  }
+]

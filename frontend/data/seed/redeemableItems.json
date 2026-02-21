@@ -1,0 +1,6 @@
+[
+  {"_id":"ri_001","tenantId":"tenant_001","name":"10% Registration Discount","creditsCost":200,"type":"VOUCHER","description":"Apply 10% off on any pageant or event registration"},
+  {"_id":"ri_002","tenantId":"tenant_001","name":"Media Kit Upgrade","creditsCost":500,"type":"UPGRADE","description":"Premium media kit with professional photos"},
+  {"_id":"ri_003","tenantId":"tenant_001","name":"Workshop Access","creditsCost":750,"type":"ACCESS","description":"One free workshop of your choice"},
+  {"_id":"ri_004","tenantId":"tenant_001","name":"25% Off Next Booking","creditsCost":1000,"type":"VOUCHER","description":"25% discount on your next casting or booking"}
+]

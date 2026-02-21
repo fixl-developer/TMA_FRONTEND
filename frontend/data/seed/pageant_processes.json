@@ -1,0 +1,152 @@
+[
+  {
+    "_id": "proc_001",
+    "pageantId": "pageant_001",
+    "tenantId": "tenant_002",
+    "name": "Miss India 2024 Process",
+    "stages": [
+      {
+        "id": "reg",
+        "name": "Registration",
+        "order": 1,
+        "entryCriteria": "Open to all eligible",
+        "exitCriteria": "Form submitted + payment received",
+        "visibility": "Public",
+        "responsibleRoles": ["Admin", "Pageant Director"],
+        "actions": ["media_upload", "form_submission", "payment_collection"]
+      },
+      {
+        "id": "prelims",
+        "name": "Prelims",
+        "order": 2,
+        "entryCriteria": "Registration confirmed",
+        "exitCriteria": "Scores submitted by judges",
+        "visibility": "Participants + Judges",
+        "responsibleRoles": ["Judge", "Admin"],
+        "actions": ["judge_scoring", "media_upload", "admin_approval"]
+      },
+      {
+        "id": "semi",
+        "name": "Semi-finals",
+        "order": 3,
+        "entryCriteria": "Top 20 from Prelims",
+        "exitCriteria": "Scores + shortlist",
+        "visibility": "Participants + Judges",
+        "responsibleRoles": ["Judge", "Pageant Director"],
+        "actions": ["judge_scoring", "auto_shortlisting", "admin_approval"]
+      },
+      {
+        "id": "finals",
+        "name": "Finals",
+        "order": 4,
+        "entryCriteria": "Top 10 from Semi-finals",
+        "exitCriteria": "Final scores + results published",
+        "visibility": "Participants + Judges + Sponsors",
+        "responsibleRoles": ["Judge", "Pageant Director", "Sponsor"],
+        "actions": ["judge_scoring", "admin_approval", "sponsor_approval"]
+      }
+    ],
+    "scoringCriteria": ["Ramp walk", "Q&A", "Talent", "Personality"],
+    "version": 1
+  },
+  {
+    "_id": "proc_002",
+    "pageantId": "pageant_002",
+    "tenantId": "tenant_002",
+    "name": "Teen India 2024 Process",
+    "stages": [
+      {
+        "id": "reg",
+        "name": "Registration",
+        "order": 1,
+        "entryCriteria": "Age 13–17, guardian consent required",
+        "exitCriteria": "Form + guardian signature",
+        "visibility": "Public",
+        "responsibleRoles": ["Admin"],
+        "actions": ["form_submission", "guardian_consent"]
+      },
+      {
+        "id": "audition",
+        "name": "Audition",
+        "order": 2,
+        "entryCriteria": "Registration approved",
+        "exitCriteria": "Video submitted + scored",
+        "visibility": "Participants + Judges",
+        "responsibleRoles": ["Judge"],
+        "actions": ["media_upload", "judge_scoring"]
+      },
+      {
+        "id": "finals",
+        "name": "Finals",
+        "order": 3,
+        "entryCriteria": "Top 15 from Audition",
+        "exitCriteria": "Live event completed",
+        "visibility": "Participants + Judges",
+        "responsibleRoles": ["Judge", "Pageant Director"],
+        "actions": ["judge_scoring", "admin_approval"]
+      }
+    ],
+    "scoringCriteria": ["Confidence", "Talent", "Stage presence"],
+    "version": 1
+  },
+  {
+    "_id": "proc_003",
+    "pageantId": "pageant_003",
+    "tenantId": "tenant_001",
+    "name": "Elite Model Search 2024 Process",
+    "stages": [
+      {
+        "id": "reg",
+        "name": "Registration",
+        "order": 1,
+        "entryCriteria": "Age 16–30, category selected",
+        "exitCriteria": "Portfolio uploaded",
+        "visibility": "Public",
+        "responsibleRoles": ["Admin"],
+        "actions": ["media_upload", "form_submission"]
+      },
+      {
+        "id": "round1",
+        "name": "Round 1",
+        "order": 2,
+        "entryCriteria": "Registration approved",
+        "exitCriteria": "Photos reviewed",
+        "visibility": "Participants",
+        "responsibleRoles": ["Admin", "Casting Director"],
+        "actions": ["admin_approval", "auto_shortlisting"]
+      },
+      {
+        "id": "round2",
+        "name": "Round 2",
+        "order": 3,
+        "entryCriteria": "Shortlisted from Round 1",
+        "exitCriteria": "Walk + interview scored",
+        "visibility": "Participants + Judges",
+        "responsibleRoles": ["Judge"],
+        "actions": ["judge_scoring", "media_upload"]
+      },
+      {
+        "id": "semi",
+        "name": "Semi-finals",
+        "order": 4,
+        "entryCriteria": "Top 20 from Round 2",
+        "exitCriteria": "Final shortlist",
+        "visibility": "Participants + Judges",
+        "responsibleRoles": ["Judge"],
+        "actions": ["judge_scoring"]
+      },
+      {
+        "id": "finals",
+        "name": "Grand Finals",
+        "order": 5,
+        "entryCriteria": "Top 10 from Semi-finals",
+        "exitCriteria": "Results published",
+        "visibility": "All",
+        "responsibleRoles": ["Judge", "Admin"],
+        "actions": ["judge_scoring", "admin_approval"]
+      }
+    ],
+    "scoringCriteria": ["Talent", "Originality", "Presentation", "Audience impact"],
+    "version": 1
+  }
+]

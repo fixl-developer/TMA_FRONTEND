@@ -1,0 +1,5 @@
+[
+  {"_id":"tpl_001","tenantId":"tenant_001","name":"Standard Talent Agreement","description":"Default agreement for fashion and editorial shoots","clauseIds":["cl_001","cl_002","cl_003"],"createdAt":"2024-01-10T10:00:00.000Z"},
+  {"_id":"tpl_002","tenantId":"tenant_001","name":"Beauty Campaign Contract","description":"Beauty and cosmetics specific terms","clauseIds":["cl_001","cl_002","cl_004"],"createdAt":"2024-02-01T10:00:00.000Z"},
+  {"_id":"tpl_003","tenantId":"tenant_001","name":"Short-Form Commercial","description":"Quick agreement for short commercial projects","clauseIds":["cl_001","cl_003"],"createdAt":"2024-03-15T10:00:00.000Z"}
+]

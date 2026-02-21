@@ -1,0 +1,4 @@
+[
+  {"_id":"unp_001","tenantId":"tenant_001","userId":"user_admin_002","emailDigest":"DAILY","inAppEnabled":true,"pushEnabled":false,"priorityTypes":["CONTRACT","APPROVAL","DISPUTE"],"quietHoursStart":null,"quietHoursEnd":null},
+  {"_id":"unp_002","tenantId":"tenant_001","userId":"user_agent_001","emailDigest":"REALTIME","inAppEnabled":true,"pushEnabled":true,"priorityTypes":["BOOKING","APPROVAL","CONTRACT"],"quietHoursStart":"22:00","quietHoursEnd":"08:00"}
+]

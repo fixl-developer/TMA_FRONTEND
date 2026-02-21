@@ -1,0 +1,5 @@
+[
+  { "id": "p1", "talentId": "t1", "type": "headshot", "url": "/assets/headshot-1.jpg", "status": "approved", "uploadedAt": "2025-01-12" },
+  { "id": "p2", "talentId": "t1", "type": "portfolio", "url": "/assets/portfolio-1.jpg", "status": "approved", "uploadedAt": "2025-01-14" },
+  { "id": "p3", "talentId": "t2", "type": "headshot", "url": "/assets/headshot-2.jpg", "status": "pending", "uploadedAt": "2025-02-10" }
+]

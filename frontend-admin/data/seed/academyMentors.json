@@ -1,0 +1,4 @@
+[
+  { "id": "m1", "tenantId": "t-demo", "name": "Sneha Reddy", "specialty": "Modelling & Runway", "courses": 2, "active": true },
+  { "id": "m2", "tenantId": "t-demo", "name": "Rajesh Kumar", "specialty": "Pageant Coaching", "courses": 1, "active": true }
+]

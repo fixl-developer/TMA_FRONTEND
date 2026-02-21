@@ -1,0 +1,5 @@
+[
+  {"_id":"conf_001","tenantId":"tenant_001","resourceId":"res_001","type":"OVERLAP","assignmentIds":["asgn_001","asgn_010"],"description":"Priya Sharma: Spring Lookbook (Jun 20-22) overlaps with Summer Campaign inquiry (Jun 21-23).","status":"OPEN","detectedAt":"2024-06-10T09:00:00.000Z"},
+  {"_id":"conf_002","tenantId":"tenant_001","resourceId":"res_001","type":"OVERLAP","assignmentIds":["asgn_001","asgn_006"],"description":"Priya Sharma: Confirmed Spring Lookbook (Jun 20-22) and Winter Lookbook hold (Sep 10-12) - resolved as non-overlapping.","status":"RESOLVED","resolvedAt":"2024-06-02T10:00:00.000Z"},
+  {"_id":"conf_003","tenantId":"tenant_001","resourceId":"res_004","type":"UNAVAILABLE","assignmentIds":["asgn_004"],"description":"Sunil Photographer: Assigned Jun 20-22 - verify Mumbai location for shoot.","status":"OPEN","detectedAt":"2024-06-05T14:00:00.000Z"}
+]

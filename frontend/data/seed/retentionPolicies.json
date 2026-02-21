@@ -1,0 +1,23 @@
+[
+  {
+    "_id": "ret_001",
+    "entityType": "AUDIT_LOGS",
+    "retentionMonths": 24,
+    "description": "Audit logs for compliance",
+    "status": "ACTIVE"
+  },
+  {
+    "_id": "ret_002",
+    "entityType": "WEBHOOK_PAYLOADS",
+    "retentionMonths": 3,
+    "description": "Webhook event payloads",
+    "status": "ACTIVE"
+  },
+  {
+    "_id": "ret_003",
+    "entityType": "SOFT_DELETED",
+    "retentionMonths": 90,
+    "description": "Soft-deleted entities before hard delete",
+    "status": "ACTIVE"
+  }
+]

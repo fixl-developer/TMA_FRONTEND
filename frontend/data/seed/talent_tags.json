@@ -1,0 +1,15 @@
+[
+  {"_id":"tag_001","tenantId":"tenant_001","name":"Fashion"},
+  {"_id":"tag_002","tenantId":"tenant_001","name":"Beauty"},
+  {"_id":"tag_003","tenantId":"tenant_001","name":"Editorial"},
+  {"_id":"tag_004","tenantId":"tenant_001","name":"Runway"},
+  {"_id":"tag_005","tenantId":"tenant_002","name":"Pageant"},
+  {"_id":"tag_004b","tenantId":"tenant_004","name":"Model"},
+  {"_id":"tag_006","tenantId":"tenant_006","name":"Commercial"},
+  {"_id":"tag_007","tenantId":"tenant_006","name":"Print"},
+  {"_id":"tag_008","tenantId":"tenant_007","name":"Film"},
+  {"_id":"tag_009","tenantId":"tenant_007","name":"TV"},
+  {"_id":"tag_010","tenantId":"tenant_008","name":"Production"},
+  {"_id":"tag_011","tenantId":"tenant_012","name":"Grooming"},
+  {"_id":"tag_012","tenantId":"tenant_013","name":"Acting"}
+]

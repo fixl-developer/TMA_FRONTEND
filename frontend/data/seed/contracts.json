@@ -1,0 +1,9 @@
+[
+  {"_id":"contract_001","tenantId":"tenant_001","talentId":"talent_001","bookingId":"booking_007","templateId":"tpl_001","clientName":"Luxury Fashion House","projectName":"Spring Lookbook 2024","status":"SIGNED","signedAt":"2024-06-01T10:00:00.000Z","amountMinor":150000,"currency":"INR"},
+  {"_id":"contract_002","tenantId":"tenant_001","talentId":"talent_002","bookingId":"booking_008","templateId":"tpl_002","clientName":"Beauty Cosmetics","projectName":"Skincare Campaign","status":"SIGNED","signedAt":"2024-06-05T14:00:00.000Z","amountMinor":80000,"currency":"INR"},
+  {"_id":"contract_003","tenantId":"tenant_001","talentId":"talent_004","bookingId":"booking_009","quoteId":"quo_002","templateId":"tpl_001","clientName":"Global Fashion Brand","projectName":"Digital Campaign","status":"SENT","amountMinor":200000,"currency":"INR"},
+  {"_id":"contract_004","tenantId":"tenant_001","talentId":"talent_001","bookingId":"booking_004","templateId":"tpl_001","clientName":"Luxury Fashion House","projectName":"Winter Lookbook 2024","status":"DRAFT","amountMinor":120000,"currency":"INR"},
+  {"_id":"contract_005","tenantId":"tenant_006","talentId":"talent_006","bookingId":"booking_011","templateId":"tpl_001","clientName":"Ad Agency","projectName":"TV Commercial","status":"SIGNED","signedAt":"2024-06-20T10:00:00.000Z","amountMinor":180000,"currency":"INR"},
+  {"_id":"contract_006","tenantId":"tenant_004","talentId":"talent_005","bookingId":"booking_010","templateId":"tpl_001","clientName":"Sports Brand","projectName":"Fitness App Launch","status":"SENT","amountMinor":95000,"currency":"INR"},
+  {"_id":"contract_007","tenantId":"tenant_009","talentId":"talent_006","templateId":"tpl_001","clientName":"Fashion Brand","projectName":"Brand Collab Launch","status":"DRAFT","amountMinor":120000,"currency":"INR"}
+]

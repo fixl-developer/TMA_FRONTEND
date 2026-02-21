@@ -1,0 +1,5 @@
+[
+  {"_id":"seg_001","tenantId":"tenant_001","name":"High-value Brands","description":"Brands with budget > 3L","criteria":{"budgetMinMinor":300000,"accountTypes":["BRAND"]},"count":3,"updatedAt":"2024-06-20T12:00:00Z"},
+  {"_id":"seg_002","tenantId":"tenant_001","name":"Active Clients","description":"Accounts with signed NDA and active status","criteria":{"ndaStatus":"SIGNED","status":"ACTIVE"},"count":4,"updatedAt":"2024-06-20T12:00:00Z"},
+  {"_id":"seg_003","tenantId":"tenant_001","name":"Beauty & Fashion","description":"Beauty or Fashion industry","criteria":{"industries":["Beauty","Fashion"]},"count":3,"updatedAt":"2024-06-20T12:00:00Z"}
+]

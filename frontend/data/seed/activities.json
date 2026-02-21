@@ -1,0 +1,7 @@
+[
+  {"_id":"act_001","tenantId":"tenant_001","objectType":"ACCOUNT","objectId":"acc_001","type":"CALL","subject":"Intro call - Summer campaign","outcome":"POSITIVE","notes":"Discussed deliverables. Sent quote.","occurredAt":"2024-06-05T10:00:00Z","actorId":"user_001"},
+  {"_id":"act_002","tenantId":"tenant_001","objectType":"ACCOUNT","objectId":"acc_001","type":"EMAIL","subject":"Quote follow-up","outcome":"PENDING","notes":"Awaiting feedback on pricing.","occurredAt":"2024-06-08T14:00:00Z","actorId":"user_001"},
+  {"_id":"act_003","tenantId":"tenant_001","objectType":"ACCOUNT","objectId":"acc_002","type":"MEETING","subject":"Campaign kickoff","outcome":"POSITIVE","notes":"Fashion Week Promo launched. Creators assigned.","occurredAt":"2024-03-05T11:00:00Z","actorId":"user_001"},
+  {"_id":"act_004","tenantId":"tenant_001","objectType":"LEAD","objectId":"lead_001","type":"CALL","subject":"Qualification call","outcome":"POSITIVE","notes":"Budget confirmed. Category aligned. Moving to qualified.","occurredAt":"2024-06-02T09:30:00Z","actorId":"user_001"},
+  {"_id":"act_005","tenantId":"tenant_001","objectType":"ACCOUNT","objectId":"acc_004","type":"EMAIL","subject":"Partner agreement signed","outcome":"POSITIVE","notes":"NDA and terms agreed. Ready for collaboration.","occurredAt":"2024-05-10T16:00:00Z","actorId":"user_002"}
+]

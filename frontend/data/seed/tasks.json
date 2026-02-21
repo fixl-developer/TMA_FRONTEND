@@ -1,0 +1,99 @@
+[
+  {
+    "_id": "task_001",
+    "projectId": "proj_001",
+    "tenantId": "tenant_001",
+    "title": "Finalize audition venues",
+    "description": "Book and confirm 3 audition venues across Mumbai, Delhi, Bangalore.",
+    "status": "DONE",
+    "priority": "HIGH",
+    "assigneeId": "user_admin_002",
+    "dueDate": "2024-03-15",
+    "completedAt": "2024-03-14T16:00:00.000Z",
+    "order": 1
+  },
+  {
+    "_id": "task_002",
+    "projectId": "proj_001",
+    "tenantId": "tenant_001",
+    "title": "Send judge invitations",
+    "description": "Email and confirm 5 judges for regional rounds.",
+    "status": "IN_PROGRESS",
+    "priority": "HIGH",
+    "assigneeId": "user_admin_002",
+    "dueDate": "2024-03-20",
+    "order": 2
+  },
+  {
+    "_id": "task_003",
+    "projectId": "proj_001",
+    "tenantId": "tenant_001",
+    "title": "Grooming phase curriculum",
+    "description": "Finalize 2-week grooming curriculum with trainers.",
+    "status": "TODO",
+    "priority": "MEDIUM",
+    "assigneeId": null,
+    "dueDate": "2024-04-01",
+    "order": 3
+  },
+  {
+    "_id": "task_004",
+    "projectId": "proj_001",
+    "tenantId": "tenant_001",
+    "title": "Finals venue & stage setup",
+    "description": "Confirm Jio Convention Centre, stage design approval.",
+    "status": "TODO",
+    "priority": "HIGH",
+    "assigneeId": null,
+    "dueDate": "2024-05-15",
+    "order": 4
+  },
+  {
+    "_id": "task_005",
+    "projectId": "proj_002",
+    "tenantId": "tenant_001",
+    "title": "Talent call sheet",
+    "description": "Send call sheet to 8 selected models.",
+    "status": "IN_PROGRESS",
+    "priority": "HIGH",
+    "assigneeId": "user_admin_002",
+    "dueDate": "2024-04-08",
+    "order": 1
+  },
+  {
+    "_id": "task_006",
+    "projectId": "proj_002",
+    "tenantId": "tenant_001",
+    "title": "MUA & stylist booking",
+    "description": "Confirm hair, makeup, styling team for shoot day.",
+    "status": "TODO",
+    "priority": "MEDIUM",
+    "assigneeId": null,
+    "dueDate": "2024-04-09",
+    "order": 2
+  },
+  {
+    "_id": "task_007",
+    "projectId": "proj_003",
+    "tenantId": "tenant_001",
+    "title": "Creator briefs & contracts",
+    "description": "Send briefs to 5 shortlisted creators, get contracts signed.",
+    "status": "TODO",
+    "priority": "HIGH",
+    "assigneeId": null,
+    "dueDate": "2024-04-20",
+    "order": 1
+  },
+  {
+    "_id": "task_008",
+    "projectId": "proj_004",
+    "tenantId": "tenant_002",
+    "title": "Guardian consent forms",
+    "description": "Collect and verify guardian consent for all teen participants.",
+    "status": "IN_PROGRESS",
+    "priority": "HIGH",
+    "assigneeId": "user_admin_001",
+    "dueDate": "2024-04-10",
+    "order": 1
+  }
+]
