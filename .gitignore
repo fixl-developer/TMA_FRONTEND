@@ -36,7 +36,25 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# Keep documentation files - removed *.md exclusion
+# Progress tracking and temporary documentation files
+*PLAN.md
+*PROGRESS.md
+*STATUS.md
+*SUMMARY.md
+*GUIDE.md
+*TEMPLATE.md
+*INSTRUCTIONS.md
+*COMPARISON.md
+*ANALYSIS.md
+*MAPPING.md
+*TRACKER.md
+overall.md
+overall2.md
+overall3.md
+
+# Keep only essential docs
+!README.md
+!docs/**/*.md
 
 # IDE
 .vscode/
