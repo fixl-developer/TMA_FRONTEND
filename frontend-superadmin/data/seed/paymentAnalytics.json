@@ -1,0 +1,29 @@
+{
+  "period": "Last 30 days",
+  "totals": {
+    "transactions": 48230,
+    "volumeMinor": 1245000000,
+    "successRatePercent": 97.6,
+    "refundRatePercent": 1.1,
+    "chargebackRatePercent": 0.3
+  },
+  "byGateway": [
+    {
+      "provider": "razorpay",
+      "name": "Razorpay",
+      "transactions": 32560,
+      "volumeMinor": 845000000,
+      "successRatePercent": 97.9,
+      "refundRatePercent": 1.0
+    },
+    {
+      "provider": "stripe",
+      "name": "Stripe",
+      "transactions": 15670,
+      "volumeMinor": 400000000,
+      "successRatePercent": 97.0,
+      "refundRatePercent": 1.3
+    }
+  ]
+}
+

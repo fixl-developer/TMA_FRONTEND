@@ -1,0 +1,122 @@
+[
+  {
+    "id": "ntpl_001",
+    "name": "Welcome Email",
+    "channel": "email",
+    "subject": "Welcome to TalentOS, {{userName}}!",
+    "body": "Hi {{userName}},\n\nWelcome to TalentOS. Your account is ready.\n\nTenant: {{tenantName}}\n\nBest regards,\nThe TalentOS Team",
+    "variables": ["userName", "tenantName"],
+    "status": "active",
+    "usageCount": 15420,
+    "lastModified": "2024-02-15T10:30:00Z",
+    "tenantScope": "platform"
+  },
+  {
+    "id": "ntpl_002",
+    "name": "Password Reset",
+    "channel": "email",
+    "subject": "Reset your TalentOS password",
+    "body": "Hi {{userName}},\n\nClick the link below to reset your password:\n{{resetLink}}\n\nThis link expires in {{expiryHours}} hours.\n\nIf you didn't request this, ignore this email.",
+    "variables": ["userName", "resetLink", "expiryHours"],
+    "status": "active",
+    "usageCount": 3421,
+    "lastModified": "2024-02-10T14:00:00Z",
+    "tenantScope": "platform"
+  },
+  {
+    "id": "ntpl_003",
+    "name": "Booking Confirmation",
+    "channel": "email",
+    "subject": "Booking confirmed: {{bookingRef}}",
+    "body": "Hi {{recipientName}},\n\nYour booking {{bookingRef}} has been confirmed.\n\nEvent: {{eventName}}\nDate: {{eventDate}}\nLocation: {{location}}\n\nView details: {{bookingLink}}",
+    "variables": ["recipientName", "bookingRef", "eventName", "eventDate", "location", "bookingLink"],
+    "status": "active",
+    "usageCount": 8912,
+    "lastModified": "2024-02-18T09:15:00Z",
+    "tenantScope": "tenant"
+  },
+  {
+    "id": "ntpl_004",
+    "name": "OTP Verification",
+    "channel": "sms",
+    "subject": null,
+    "body": "Your TalentOS verification code is {{otp}}. Valid for 10 minutes.",
+    "variables": ["otp"],
+    "status": "active",
+    "usageCount": 24567,
+    "lastModified": "2024-02-01T08:00:00Z",
+    "tenantScope": "platform"
+  },
+  {
+    "id": "ntpl_005",
+    "name": "Payment Received",
+    "channel": "sms",
+    "subject": null,
+    "body": "Payment of {{amount}} {{currency}} received for {{description}}. Ref: {{txnRef}}",
+    "variables": ["amount", "currency", "description", "txnRef"],
+    "status": "active",
+    "usageCount": 12340,
+    "lastModified": "2024-02-12T11:30:00Z",
+    "tenantScope": "tenant"
+  },
+  {
+    "id": "ntpl_006",
+    "name": "New Message Alert",
+    "channel": "push",
+    "subject": null,
+    "body": "{{senderName}} sent you a message: {{messagePreview}}",
+    "variables": ["senderName", "messagePreview"],
+    "status": "active",
+    "usageCount": 45230,
+    "lastModified": "2024-02-20T16:45:00Z",
+    "tenantScope": "tenant"
+  },
+  {
+    "id": "ntpl_007",
+    "name": "Approval Request",
+    "channel": "push",
+    "subject": null,
+    "body": "Approval required: {{requestType}} from {{requesterName}}",
+    "variables": ["requestType", "requesterName"],
+    "status": "active",
+    "usageCount": 8765,
+    "lastModified": "2024-02-14T13:20:00Z",
+    "tenantScope": "tenant"
+  },
+  {
+    "id": "ntpl_008",
+    "name": "System Maintenance",
+    "channel": "in-app",
+    "subject": "Scheduled maintenance",
+    "body": "Platform maintenance scheduled for {{maintenanceDate}} from {{startTime}} to {{endTime}} UTC. Services may be briefly unavailable.",
+    "variables": ["maintenanceDate", "startTime", "endTime"],
+    "status": "active",
+    "usageCount": 89,
+    "lastModified": "2024-02-22T07:00:00Z",
+    "tenantScope": "platform"
+  },
+  {
+    "id": "ntpl_009",
+    "name": "Escrow Release",
+    "channel": "email",
+    "subject": "Escrow released: {{escrowRef}}",
+    "body": "Hi {{recipientName}},\n\nFunds for escrow {{escrowRef}} have been released.\nAmount: {{amount}} {{currency}}\n\nView transaction: {{link}}",
+    "variables": ["recipientName", "escrowRef", "amount", "currency", "link"],
+    "status": "active",
+    "usageCount": 2340,
+    "lastModified": "2024-02-11T10:00:00Z",
+    "tenantScope": "tenant"
+  },
+  {
+    "id": "ntpl_010",
+    "name": "Dispute Alert",
+    "channel": "email",
+    "subject": "Dispute filed: {{disputeId}}",
+    "body": "A dispute has been filed for {{disputeId}}.\n\nParties: {{parties}}\nAmount: {{amount}}\n\nAction required. View: {{link}}",
+    "variables": ["disputeId", "parties", "amount", "link"],
+    "status": "draft",
+    "usageCount": 0,
+    "lastModified": "2024-02-20T12:00:00Z",
+    "tenantScope": "tenant"
+  }
+]

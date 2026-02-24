@@ -1,0 +1,74 @@
+{
+  "baseCurrency": "INR",
+  "lastUpdated": "2025-02-23T10:30:00.000Z",
+  "source": "RBI + ECB (daily)",
+  "updateFrequency": "daily",
+  "rates": [
+    {
+      "code": "USD",
+      "rate": 0.012,
+      "manualOverride": false,
+      "history": [
+        { "date": "2025-02-18", "rate": 0.0118 },
+        { "date": "2025-02-19", "rate": 0.0119 },
+        { "date": "2025-02-20", "rate": 0.0120 },
+        { "date": "2025-02-21", "rate": 0.0120 },
+        { "date": "2025-02-22", "rate": 0.0121 },
+        { "date": "2025-02-23", "rate": 0.0120 }
+      ]
+    },
+    {
+      "code": "EUR",
+      "rate": 0.011,
+      "manualOverride": false,
+      "history": [
+        { "date": "2025-02-18", "rate": 0.0109 },
+        { "date": "2025-02-19", "rate": 0.0110 },
+        { "date": "2025-02-20", "rate": 0.0111 },
+        { "date": "2025-02-21", "rate": 0.0110 },
+        { "date": "2025-02-22", "rate": 0.0110 },
+        { "date": "2025-02-23", "rate": 0.0110 }
+      ]
+    },
+    {
+      "code": "GBP",
+      "rate": 0.0095,
+      "manualOverride": true,
+      "history": [
+        { "date": "2025-02-18", "rate": 0.0093 },
+        { "date": "2025-02-19", "rate": 0.0094 },
+        { "date": "2025-02-20", "rate": 0.0094 },
+        { "date": "2025-02-21", "rate": 0.0095 },
+        { "date": "2025-02-22", "rate": 0.0096 },
+        { "date": "2025-02-23", "rate": 0.0095 }
+      ]
+    },
+    {
+      "code": "AED",
+      "rate": 0.044,
+      "manualOverride": false,
+      "history": [
+        { "date": "2025-02-18", "rate": 0.0438 },
+        { "date": "2025-02-19", "rate": 0.0439 },
+        { "date": "2025-02-20", "rate": 0.0440 },
+        { "date": "2025-02-21", "rate": 0.0441 },
+        { "date": "2025-02-22", "rate": 0.0441 },
+        { "date": "2025-02-23", "rate": 0.0440 }
+      ]
+    },
+    {
+      "code": "SGD",
+      "rate": 0.016,
+      "manualOverride": false,
+      "history": [
+        { "date": "2025-02-18", "rate": 0.0158 },
+        { "date": "2025-02-19", "rate": 0.0159 },
+        { "date": "2025-02-20", "rate": 0.0160 },
+        { "date": "2025-02-21", "rate": 0.0160 },
+        { "date": "2025-02-22", "rate": 0.0161 },
+        { "date": "2025-02-23", "rate": 0.0160 }
+      ]
+    }
+  ]
+}
+

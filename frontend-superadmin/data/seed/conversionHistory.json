@@ -1,0 +1,55 @@
+[
+  {
+    "_id": "conv_001",
+    "tenantId": "tenant_001",
+    "fromCurrency": "INR",
+    "toCurrency": "USD",
+    "amountFrom": 250000,
+    "amountTo": 3000,
+    "rateUsed": 0.012,
+    "feePercent": 1.5,
+    "feeAmount": 37.5,
+    "createdAt": "2025-02-22T10:15:00.000Z",
+    "context": "Escrow release for campaign CAM-2025-001"
+  },
+  {
+    "_id": "conv_002",
+    "tenantId": "tenant_002",
+    "fromCurrency": "INR",
+    "toCurrency": "EUR",
+    "amountFrom": 180000,
+    "amountTo": 1980,
+    "rateUsed": 0.011,
+    "feePercent": 1.2,
+    "feeAmount": 23.76,
+    "createdAt": "2025-02-21T16:40:00.000Z",
+    "context": "Pageant prize pool distribution"
+  },
+  {
+    "_id": "conv_003",
+    "tenantId": "tenant_004",
+    "fromCurrency": "INR",
+    "toCurrency": "GBP",
+    "amountFrom": 95000,
+    "amountTo": 902.5,
+    "rateUsed": 0.0095,
+    "feePercent": 1.5,
+    "feeAmount": 13.54,
+    "createdAt": "2025-02-20T09:05:00.000Z",
+    "context": "Talent payout for UK agency"
+  },
+  {
+    "_id": "conv_004",
+    "tenantId": "tenant_015",
+    "fromCurrency": "INR",
+    "toCurrency": "AED",
+    "amountFrom": 120000,
+    "amountTo": 5280,
+    "rateUsed": 0.044,
+    "feePercent": 1.0,
+    "feeAmount": 52.8,
+    "createdAt": "2025-02-19T13:20:00.000Z",
+    "context": "Sports talent retainer fee"
+  }
+]
+

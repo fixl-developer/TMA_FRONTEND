@@ -1,0 +1,25 @@
+[
+  {
+    "_id": "pg_razorpay",
+    "name": "Razorpay",
+    "provider": "razorpay",
+    "status": "ACTIVE",
+    "environment": "SANDBOX",
+    "lastHealthCheckAt": "2025-02-23T09:10:00.000Z",
+    "lastIncidentAt": "2025-02-20T14:30:00.000Z",
+    "uptime90dPercent": 99.92,
+    "tenantsUsing": 8
+  },
+  {
+    "_id": "pg_stripe",
+    "name": "Stripe",
+    "provider": "stripe",
+    "status": "ACTIVE",
+    "environment": "SANDBOX",
+    "lastHealthCheckAt": "2025-02-23T09:12:00.000Z",
+    "lastIncidentAt": null,
+    "uptime90dPercent": 99.98,
+    "tenantsUsing": 5
+  }
+]
+

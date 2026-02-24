@@ -38,6 +38,12 @@ import securityThreatsData from "./securityThreats.json"
 import analyticsAlertsData from "./analyticsAlerts.json"
 import complianceMappingData from "./complianceMapping.json"
 import apiKeysData from "./apiKeys.json"
+import apiUsageData from "./apiUsage.json"
+import apiRateLimitsData from "./apiRateLimits.json"
+import apiVersionsData from "./apiVersions.json"
+import financeCurrenciesData from "./financeCurrencies.json"
+import exchangeRatesData from "./exchangeRates.json"
+import conversionHistoryData from "./conversionHistory.json"
 import webhooksData from "./webhooks.json"
 import deploymentsData from "./deployments.json"
 import maintenanceWindowsData from "./maintenanceWindows.json"
@@ -58,6 +64,7 @@ import commissionSettlementsData from "./commissionSettlements.json"
 import rolesData from "./roles.json"
 import policiesData from "./policies.json"
 import permissionMatrixData from "./permissionMatrix.json"
+import rbacAuditData from "./rbacAudit.json"
 import rbacAuditData from "./rbacAudit.json"
 import collaborationRequestsData from "./collaborationRequests.json"
 import collaborationRoomsData from "./collaborationRooms.json"
@@ -82,6 +89,18 @@ import platformAnalyticsData from "./platformAnalytics.json"
 import tenantAnalyticsData from "./tenantAnalytics.json"
 import analyticsReportsData from "./analyticsReports.json"
 import revenueAnalyticsData from "./revenueAnalytics.json"
+import taxConfigData from "./taxConfig.json"
+import gstConfigData from "./gstConfig.json"
+import taxReportsData from "./taxReports.json"
+import paymentGatewaysData from "./paymentGateways.json"
+import paymentAnalyticsData from "./paymentAnalytics.json"
+import notificationTemplatesData from "./notificationTemplates.json"
+import notificationScheduledData from "./notificationScheduled.json"
+import notificationDeliveryData from "./notificationDelivery.json"
+import notificationAnalyticsData from "./notificationAnalytics.json"
+import backupConfigData from "./backupConfig.json"
+import backupJobsData from "./backupJobs.json"
+import backupVerificationData from "./backupVerification.json"
 
 // Type assertions - keep simple for now
 export const seedPageants = pageantsData as any[]
@@ -117,6 +136,12 @@ export const seedSecurityThreats = securityThreatsData as any[]
 export const seedAnalyticsAlerts = analyticsAlertsData as any[]
 export const seedComplianceMapping = complianceMappingData as any
 export const seedApiKeys = apiKeysData as any[]
+export const seedApiUsage = apiUsageData as any
+export const seedApiRateLimits = apiRateLimitsData as any[]
+export const seedApiVersions = apiVersionsData as any[]
+export const seedFinanceCurrencies = financeCurrenciesData as any[]
+export const seedExchangeRates = exchangeRatesData as any
+export const seedConversionHistory = conversionHistoryData as any[]
 export const seedWebhooks = webhooksData as any[]
 export const seedDeployments = deploymentsData as any[]
 export const seedMaintenanceWindows = maintenanceWindowsData as any[]
@@ -137,6 +162,7 @@ export const seedCommissionSettlements = commissionSettlementsData as any[]
 export const seedRoles = rolesData as any[]
 export const seedPolicies = policiesData as any[]
 export const seedPermissionMatrix = permissionMatrixData as any[]
+export const seedRbacAudit = rbacAuditData as any[]
 export const seedRbacAudit = rbacAuditData as any[]
 export const seedCollaborationRequests = collaborationRequestsData as any[]
 export const seedCollaborationRooms = collaborationRoomsData as any[]
@@ -161,6 +187,18 @@ export const seedPlatformAnalytics = platformAnalyticsData as any
 export const seedTenantAnalytics = tenantAnalyticsData as any[]
 export const seedAnalyticsReports = analyticsReportsData as any[]
 export const seedRevenueAnalytics = revenueAnalyticsData as any
+export const seedTaxConfig = taxConfigData as any
+export const seedGstConfig = gstConfigData as any
+export const seedTaxReports = taxReportsData as any[]
+export const seedPaymentGateways = paymentGatewaysData as any[]
+export const seedPaymentAnalytics = paymentAnalyticsData as any
+export const seedNotificationTemplates = notificationTemplatesData as any[]
+export const seedNotificationScheduled = notificationScheduledData as any[]
+export const seedNotificationDelivery = notificationDeliveryData as any[]
+export const seedNotificationAnalytics = notificationAnalyticsData as any
+export const seedBackupConfig = backupConfigData as any
+export const seedBackupJobs = backupJobsData as any[]
+export const seedBackupVerification = backupVerificationData as any[]
 
 export const getAllSeedData = () => ({
   pageants: seedPageants,
@@ -191,6 +229,9 @@ export const getAllSeedData = () => ({
   analyticsAlerts: seedAnalyticsAlerts,
   complianceMapping: seedComplianceMapping,
   apiKeys: seedApiKeys,
+  apiUsage: seedApiUsage,
+  apiRateLimits: seedApiRateLimits,
+  apiVersions: seedApiVersions,
   webhooks: seedWebhooks,
   deployments: seedDeployments,
   maintenanceWindows: seedMaintenanceWindows,

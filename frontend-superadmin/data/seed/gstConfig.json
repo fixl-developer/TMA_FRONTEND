@@ -1,0 +1,22 @@
+{
+  "jurisdiction": "IN",
+  "filingFrequency": "monthly",
+  "nextFilingDue": "2025-03-20",
+  "gstinRegistrations": [
+    {
+      "tenantId": "tenant_001",
+      "tenantName": "Elite Model Management",
+      "gstin": "27ABCDE1234F1Z5",
+      "stateCode": "27",
+      "status": "ACTIVE"
+    },
+    {
+      "tenantId": "tenant_002",
+      "tenantName": "Miss India Pageants",
+      "gstin": "29PQRSX6789L1Z2",
+      "stateCode": "29",
+      "status": "ACTIVE"
+    }
+  ]
+}
+

@@ -6,6 +6,11 @@
 
 import {
   seedApiKeys,
+  seedApiUsage,
+  seedApiRateLimits,
+  seedApiVersions,
+  seedPaymentGateways,
+  seedPaymentAnalytics,
   seedWebhooks,
   seedDeployments,
   seedMaintenanceWindows,
@@ -20,6 +25,31 @@ const delay = (ms: number) => new Promise((r) => setTimeout(r, ms))
 export async function getApiKeys() {
   await delay(200)
   return seedApiKeys
+}
+
+export async function getApiUsage() {
+  await delay(200)
+  return seedApiUsage
+}
+
+export async function getApiRateLimits() {
+  await delay(200)
+  return seedApiRateLimits
+}
+
+export async function getApiVersions() {
+  await delay(200)
+  return seedApiVersions
+}
+
+export async function getPaymentGateways() {
+  await delay(200)
+  return seedPaymentGateways
+}
+
+export async function getPaymentAnalytics() {
+  await delay(200)
+  return seedPaymentAnalytics
 }
 
 export async function getWebhooks() {

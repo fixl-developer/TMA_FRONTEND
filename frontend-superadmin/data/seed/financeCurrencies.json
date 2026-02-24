@@ -1,0 +1,87 @@
+[
+  {
+    "code": "INR",
+    "name": "Indian Rupee",
+    "symbol": "₹",
+    "status": "ACTIVE",
+    "isBase": true,
+    "precision": 2,
+    "region": "India",
+    "tenantsUsing": ["tenant_001", "tenant_002", "tenant_004", "tenant_005", "tenant_006"],
+    "defaultForCountries": ["IN"],
+    "enabledForNewTenants": true
+  },
+  {
+    "code": "USD",
+    "name": "US Dollar",
+    "symbol": "$",
+    "status": "ACTIVE",
+    "isBase": false,
+    "precision": 2,
+    "region": "North America",
+    "tenantsUsing": ["tenant_003", "tenant_009", "tenant_020"],
+    "defaultForCountries": ["US", "CA"],
+    "enabledForNewTenants": true
+  },
+  {
+    "code": "EUR",
+    "name": "Euro",
+    "symbol": "€",
+    "status": "ACTIVE",
+    "isBase": false,
+    "precision": 2,
+    "region": "Europe",
+    "tenantsUsing": ["tenant_008", "tenant_019"],
+    "defaultForCountries": ["DE", "FR", "IT", "ES", "NL"],
+    "enabledForNewTenants": true
+  },
+  {
+    "code": "GBP",
+    "name": "British Pound",
+    "symbol": "£",
+    "status": "ACTIVE",
+    "isBase": false,
+    "precision": 2,
+    "region": "Europe",
+    "tenantsUsing": ["tenant_014"],
+    "defaultForCountries": ["GB"],
+    "enabledForNewTenants": true
+  },
+  {
+    "code": "AED",
+    "name": "UAE Dirham",
+    "symbol": "د.إ",
+    "status": "ACTIVE",
+    "isBase": false,
+    "precision": 2,
+    "region": "Middle East",
+    "tenantsUsing": ["tenant_015", "tenant_018"],
+    "defaultForCountries": ["AE"],
+    "enabledForNewTenants": true
+  },
+  {
+    "code": "SGD",
+    "name": "Singapore Dollar",
+    "symbol": "S$",
+    "status": "BETA",
+    "isBase": false,
+    "precision": 2,
+    "region": "APAC",
+    "tenantsUsing": [],
+    "defaultForCountries": ["SG"],
+    "enabledForNewTenants": false
+  },
+  {
+    "code": "AUD",
+    "name": "Australian Dollar",
+    "symbol": "A$",
+    "status": "PLANNED",
+    "isBase": false,
+    "precision": 2,
+    "region": "APAC",
+    "tenantsUsing": [],
+    "defaultForCountries": ["AU"],
+    "enabledForNewTenants": false
+  }
+]
+

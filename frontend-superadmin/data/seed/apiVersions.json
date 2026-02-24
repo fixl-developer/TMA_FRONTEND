@@ -1,0 +1,30 @@
+[
+  {
+    "_id": "ver_001",
+    "version": "v1",
+    "status": "ACTIVE",
+    "releasedAt": "2024-01-15T00:00:00.000Z",
+    "deprecationAt": null,
+    "sunsetAt": null,
+    "notes": "Stable public API"
+  },
+  {
+    "_id": "ver_002",
+    "version": "v2",
+    "status": "BETA",
+    "releasedAt": "2025-01-10T00:00:00.000Z",
+    "deprecationAt": null,
+    "sunsetAt": null,
+    "notes": "Adds advanced filtering & webhooks signatures"
+  },
+  {
+    "_id": "ver_003",
+    "version": "v0",
+    "status": "DEPRECATED",
+    "releasedAt": "2023-04-01T00:00:00.000Z",
+    "deprecationAt": "2024-06-01T00:00:00.000Z",
+    "sunsetAt": "2024-12-01T00:00:00.000Z",
+    "notes": "Legacy endpoints (to be removed)"
+  }
+]
+

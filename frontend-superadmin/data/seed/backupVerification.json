@@ -1,0 +1,43 @@
+[
+  {
+    "_id": "verif_2025_02_23",
+    "snapshotId": "snap_2025_02_23",
+    "performedAt": "2025-02-23T05:30:00.000Z",
+    "type": "INTEGRITY_CHECK",
+    "status": "PASSED",
+    "durationSeconds": 220,
+    "issuesFound": 0,
+    "notes": "Checksum and manifest validation completed"
+  },
+  {
+    "_id": "verif_2025_02_18",
+    "snapshotId": "snap_2025_02_16_manual",
+    "performedAt": "2025-02-18T06:00:00.000Z",
+    "type": "TEST_RESTORE",
+    "status": "PASSED_WITH_WARNINGS",
+    "durationSeconds": 640,
+    "issuesFound": 2,
+    "notes": "Non-critical analytics tables skipped; within RPO"
+  },
+  {
+    "_id": "verif_2025_02_10",
+    "snapshotId": "snap_2025_02_09",
+    "performedAt": "2025-02-10T06:00:00.000Z",
+    "type": "COMPLIANCE_REPORT",
+    "status": "PASSED",
+    "durationSeconds": 310,
+    "issuesFound": 0,
+    "notes": "Meets internal RPO/RTO targets; GDPR / DPDP evidence archived"
+  },
+  {
+    "_id": "verif_2025_02_05",
+    "snapshotId": "snap_2025_02_05",
+    "performedAt": "2025-02-05T06:00:00.000Z",
+    "type": "TEST_RESTORE",
+    "status": "FAILED",
+    "durationSeconds": 120,
+    "issuesFound": 1,
+    "notes": "Restore validation failed for payments ledger; investigation opened"
+  }
+]
+

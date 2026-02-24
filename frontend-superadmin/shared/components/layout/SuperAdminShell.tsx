@@ -23,6 +23,7 @@ import {
   Flag,
   Workflow,
   Plug2,
+  PlugZap,
   Menu,
   ChevronRight,
   Settings,
@@ -33,6 +34,11 @@ import {
   Shield,
   Activity,
   Megaphone,
+  Bell,
+  BarChart3,
+  Gauge,
+  GitBranch,
+  KeyRound,
   TrendingUp,
   Layers,
   FileStack,
@@ -43,6 +49,7 @@ import {
   ShieldCheck,
   Clock,
   Scale,
+  Globe2,
 } from "lucide-react"
 import { Button } from "@/shared/components/ui/button"
 import { GlobalSearchBar } from "@/shared/components/search/GlobalSearchBar"
@@ -216,7 +223,13 @@ const navSections: NavSection[] = [
     items: [
       { label: "Pageants", href: "/pageants", icon: Crown },
       { label: "Talent Showcase", href: "/talent-showcase", icon: PlaySquare },
+  {
+    label: "Content & Events",
+    items: [
+      { label: "Pageants", href: "/pageants", icon: Crown },
+      { label: "Talent Showcase", href: "/talent-showcase", icon: PlaySquare },
       { label: "Announcements", href: "/announcements", icon: Megaphone },
+      { label: "Notifications", href: "/notifications", icon: Bell },
     ],
   },
   {
@@ -254,12 +267,44 @@ const navSections: NavSection[] = [
         icon: Plug2,
         children: [
           { label: "Overview", href: "/integrations" },
-          { label: "APIs", href: "/integrations/api/usage" },
+          { label: "API Usage", href: "/integrations/api/usage" },
+          { label: "API Rate Limits", href: "/integrations/api/rate-limits" },
+          { label: "API Versions", href: "/integrations/api/versions" },
+          { label: "API Keys", href: "/integrations/api/keys" },
           { label: "Webhooks", href: "/integrations/webhooks" },
           { label: "Payments", href: "/integrations/payments" },
         ]
       },
       { label: "CLM", href: "/clm", icon: FileText },
+      { 
+        label: "Configuration", 
+        icon: Settings,
+        children: [
+          { label: "Global Settings", href: "/config/global" },
+          { label: "Feature Flags", href: "/config/features" },
+          { label: "Environments", href: "/config/environments" },
+          { label: "Deployments", href: "/config/deployments" },
+        ]
+      },
+      { 
+        label: "Backup & Recovery", 
+        icon: Shield,
+        children: [
+          { label: "Configuration", href: "/backup/config" },
+          { label: "Schedule", href: "/backup/schedule" },
+          { label: "Restore", href: "/backup/restore" },
+          { label: "Verification", href: "/backup/verification" },
+        ]
+      },
+      { 
+        label: "Onboarding", 
+        icon: Gauge,
+        children: [
+          { label: "Wizard", href: "/onboarding/wizard" },
+          { label: "Progress", href: "/onboarding/progress" },
+          { label: "Verification", href: "/onboarding/verification" },
+        ]
+      },
     ],
   },
 ]
