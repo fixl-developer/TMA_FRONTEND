@@ -1,0 +1,94 @@
+[
+  {
+    "id": "signal-001",
+    "type": "velocity_check",
+    "severity": "high",
+    "entityType": "user",
+    "entityId": "user-1234",
+    "entityName": "Rajesh Kumar",
+    "description": "Unusual transaction velocity: 15 bookings in 2 hours",
+    "detectedAt": "2024-02-20T14:30:00Z",
+    "status": "investigating",
+    "riskScore": 85,
+    "metadata": {
+      "transactionCount": 15,
+      "timeWindow": "2 hours",
+      "normalAverage": "2 per day",
+      "ipAddress": "103.45.67.89",
+      "deviceFingerprint": "fp_abc123xyz"
+    }
+  },
+  {
+    "id": "signal-002",
+    "type": "device_fingerprint",
+    "severity": "medium",
+    "entityType": "user",
+    "entityId": "user-5678",
+    "entityName": "Priya Sharma",
+    "description": "Multiple accounts from same device",
+    "detectedAt": "2024-02-20T10:15:00Z",
+    "status": "resolved",
+    "riskScore": 65,
+    "metadata": {
+      "deviceFingerprint": "fp_def456uvw",
+      "accountCount": 4,
+      "ipAddress": "182.76.23.45",
+      "resolution": "Verified as family members using shared device"
+    }
+  },
+  {
+    "id": "signal-003",
+    "type": "behavior_anomaly",
+    "severity": "high",
+    "entityType": "tenant",
+    "entityId": "tenant-003",
+    "entityName": "Star Pageants",
+    "description": "Sudden spike in failed payment attempts",
+    "detectedAt": "2024-02-19T18:45:00Z",
+    "status": "flagged",
+    "riskScore": 78,
+    "metadata": {
+      "failedAttempts": 23,
+      "timeWindow": "24 hours",
+      "normalAverage": "2-3 per week",
+      "affectedUsers": 12
+    }
+  },
+  {
+    "id": "signal-004",
+    "type": "geo_anomaly",
+    "severity": "critical",
+    "entityType": "user",
+    "entityId": "user-9012",
+    "entityName": "Amit Patel",
+    "description": "Impossible travel: Login from Mumbai and London within 1 hour",
+    "detectedAt": "2024-02-20T08:20:00Z",
+    "status": "blocked",
+    "riskScore": 95,
+    "metadata": {
+      "location1": "Mumbai, India",
+      "location2": "London, UK",
+      "timeDifference": "45 minutes",
+      "distance": "7200 km",
+      "action": "Account temporarily locked"
+    }
+  },
+  {
+    "id": "signal-005",
+    "type": "payment_pattern",
+    "severity": "medium",
+    "entityType": "user",
+    "entityId": "user-3456",
+    "entityName": "Sneha Reddy",
+    "description": "Multiple small transactions followed by large withdrawal",
+    "detectedAt": "2024-02-20T12:00:00Z",
+    "status": "monitoring",
+    "riskScore": 58,
+    "metadata": {
+      "smallTransactions": 8,
+      "totalSmallAmount": 12000,
+      "largeWithdrawal": 95000,
+      "pattern": "Potential card testing"
+    }
+  }
+]

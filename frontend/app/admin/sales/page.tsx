@@ -2,10 +2,17 @@
 
 import { useEffect, useState } from "react"
 import Link from "next/link"
-import { Button } from "@/shared/components/ui/button"
 import { getQuotes, getRateCards, getQuoteTemplates, formatCurrency } from "@/shared/services/salesService"
 import { useTenant } from "@/shared/context/TenantContext"
 import { FileText, DollarSign, LayoutTemplate, ChevronRight, Plus } from "lucide-react"
+import { AdminPageWrapper } from "@/shared/components/layout/AdminPageWrapper"
+import {
+  AdminPageLayout,
+  AdminStatsGrid,
+  AdminStatCard,
+  AdminCard,
+  AdminButton,
+} from "@/shared/components/admin/AdminPageLayout"
 
 export default function SalesPage() {
   const { tenantId } = useTenant()
@@ -29,91 +36,62 @@ export default function SalesPage() {
   const acceptedQuotes = quotes.filter((q) => q.status === "ACCEPTED")
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#1a0b2e] via-[#3d1f47] to-[#6b2d5c] p-4 sm:p-6 lg:p-8">
-      <div className="mx-auto max-w-[1600px]">
-        {/* Header */}
-        <div className="mb-8">
-          <h1 className="text-4xl font-bold text-white">Sales</h1>
-          <p className="mt-2 text-base text-white/60">Quotes, rate cards, and templates</p>
-        </div>
+    <AdminPageWrapper>
+      <AdminPageLayout
+        title="Sales"
+        subtitle="Quotes, rate cards, and templates"
+        actions={
+          <>
+            <Link href="/admin/sales/quotes/create">
+              <AdminButton>
+                <Plus className="h-4 w-4" />
+                Create quote
+              </AdminButton>
+            </Link>
+          </>
+        }
+      >
 
-        {/* Stats Cards */}
-        <div className="mb-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          <div className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-md transition-all hover:border-white/20 hover:bg-white/10">
-            <div className="absolute right-0 top-0 h-32 w-32 -translate-y-8 translate-x-8 rounded-full bg-gradient-to-br from-purple-400/20 to-pink-400/20 blur-2xl" />
-            <div className="relative">
-              <div className="mb-4 flex items-start justify-between">
-                <div>
-                  <p className="text-xs font-medium uppercase tracking-wide text-white/50">Quotes</p>
-                  <p className="mt-1 text-sm text-white/60">{sentQuotes.length} sent</p>
-                </div>
-                <div className="rounded-lg bg-purple-500/10 p-2">
-                  <FileText className="h-5 w-5 text-purple-400" />
-                </div>
-              </div>
-              <p className="text-3xl font-bold text-white">{loading ? "—" : quotes.length}</p>
-            </div>
-          </div>
+        <AdminStatsGrid columns={4}>
+          <AdminStatCard
+            label="Quotes"
+            value={loading ? "—" : quotes.length}
+            subtitle={`${sentQuotes.length} sent`}
+            icon={FileText}
+            color="purple"
+          />
+          <AdminStatCard
+            label="Accepted"
+            value={loading ? "—" : acceptedQuotes.length}
+            subtitle="Ready for contract"
+            icon={DollarSign}
+            color="green"
+          />
+          <AdminStatCard
+            label="Rate cards"
+            value={loading ? "—" : rateCards.length}
+            subtitle="Pricing library"
+            icon={DollarSign}
+            color="blue"
+          />
+          <AdminStatCard
+            label="Templates"
+            value={loading ? "—" : templates.length}
+            subtitle="Quote templates"
+            icon={LayoutTemplate}
+            color="yellow"
+          />
+        </AdminStatsGrid>
 
-          <div className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-md transition-all hover:border-white/20 hover:bg-white/10">
-            <div className="absolute right-0 top-0 h-32 w-32 -translate-y-8 translate-x-8 rounded-full bg-gradient-to-br from-emerald-400/20 to-green-400/20 blur-2xl" />
-            <div className="relative">
-              <div className="mb-4 flex items-start justify-between">
-                <div>
-                  <p className="text-xs font-medium uppercase tracking-wide text-white/50">Accepted</p>
-                  <p className="mt-1 text-sm text-white/60">Ready for contract</p>
-                </div>
-                <div className="rounded-lg bg-emerald-500/10 p-2">
-                  <DollarSign className="h-5 w-5 text-emerald-400" />
-                </div>
-              </div>
-              <p className="text-3xl font-bold text-white">{loading ? "—" : acceptedQuotes.length}</p>
-            </div>
-          </div>
-
-          <div className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-md transition-all hover:border-white/20 hover:bg-white/10">
-            <div className="absolute right-0 top-0 h-32 w-32 -translate-y-8 translate-x-8 rounded-full bg-gradient-to-br from-blue-400/20 to-cyan-400/20 blur-2xl" />
-            <div className="relative">
-              <div className="mb-4 flex items-start justify-between">
-                <div>
-                  <p className="text-xs font-medium uppercase tracking-wide text-white/50">Rate cards</p>
-                  <p className="mt-1 text-sm text-white/60">Pricing library</p>
-                </div>
-                <div className="rounded-lg bg-blue-500/10 p-2">
-                  <DollarSign className="h-5 w-5 text-blue-400" />
-                </div>
-              </div>
-              <p className="text-3xl font-bold text-white">{loading ? "—" : rateCards.length}</p>
-            </div>
-          </div>
-
-          <div className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-md transition-all hover:border-white/20 hover:bg-white/10">
-            <div className="absolute right-0 top-0 h-32 w-32 -translate-y-8 translate-x-8 rounded-full bg-gradient-to-br from-amber-400/20 to-yellow-400/20 blur-2xl" />
-            <div className="relative">
-              <div className="mb-4 flex items-start justify-between">
-                <div>
-                  <p className="text-xs font-medium uppercase tracking-wide text-white/50">Templates</p>
-                  <p className="mt-1 text-sm text-white/60">Quote templates</p>
-                </div>
-                <div className="rounded-lg bg-amber-500/10 p-2">
-                  <LayoutTemplate className="h-5 w-5 text-amber-400" />
-                </div>
-              </div>
-              <p className="text-3xl font-bold text-white">{loading ? "—" : templates.length}</p>
-            </div>
-          </div>
-        </div>
-
-        {/* Main Content */}
-        <div className="mb-6 grid gap-6 lg:grid-cols-2">
-          {/* Recent Quotes */}
-          <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-md">
-            <div className="mb-6 flex items-center justify-between">
-              <h3 className="text-lg font-bold text-white">Recent quotes</h3>
-              <Button asChild size="sm" variant="outline" className="border-white/20 bg-white/5 text-white hover:bg-white/10">
-                <Link href="/admin/sales/quotes">View all</Link>
-              </Button>
-            </div>
+        <div className="grid gap-6 lg:grid-cols-2">
+          <AdminCard
+            title="Recent quotes"
+            actions={
+              <Link href="/admin/sales/quotes">
+                <AdminButton variant="secondary" size="sm">View all</AdminButton>
+              </Link>
+            }
+          >
             {loading ? (
               <div className="space-y-3">
                 {[1, 2, 3, 4, 5].map((i) => (
@@ -153,16 +131,16 @@ export default function SalesPage() {
                 ))}
               </div>
             )}
-          </div>
+          </AdminCard>
 
-          {/* Rate Cards */}
-          <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-md">
-            <div className="mb-6 flex items-center justify-between">
-              <h3 className="text-lg font-bold text-white">Rate cards</h3>
-              <Button asChild size="sm" variant="outline" className="border-white/20 bg-white/5 text-white hover:bg-white/10">
-                <Link href="/admin/sales/rate-cards">View all</Link>
-              </Button>
-            </div>
+          <AdminCard
+            title="Rate cards"
+            actions={
+              <Link href="/admin/sales/rate-cards">
+                <AdminButton variant="secondary" size="sm">View all</AdminButton>
+              </Link>
+            }
+          >
             {loading ? (
               <div className="space-y-3">
                 {[1, 2, 3, 4, 5].map((i) => (
@@ -191,28 +169,21 @@ export default function SalesPage() {
                 ))}
               </div>
             )}
-          </div>
+          </AdminCard>
         </div>
 
-        {/* Action Buttons */}
         <div className="flex flex-wrap gap-3">
-          <Button asChild className="bg-[#d4ff00] text-black hover:bg-[#b8e600]">
-            <Link href="/admin/sales/quotes/create">
-              <Plus className="mr-2 h-4 w-4" />
-              Create quote
-            </Link>
-          </Button>
-          <Button asChild variant="outline" className="border-white/20 bg-white/5 text-white hover:bg-white/10">
-            <Link href="/admin/sales/quotes">Quotes</Link>
-          </Button>
-          <Button asChild variant="outline" className="border-white/20 bg-white/5 text-white hover:bg-white/10">
-            <Link href="/admin/sales/rate-cards">Rate cards</Link>
-          </Button>
-          <Button asChild variant="outline" className="border-white/20 bg-white/5 text-white hover:bg-white/10">
-            <Link href="/admin/sales/templates">Templates</Link>
-          </Button>
+          <Link href="/admin/sales/quotes">
+            <AdminButton variant="secondary">Quotes</AdminButton>
+          </Link>
+          <Link href="/admin/sales/rate-cards">
+            <AdminButton variant="secondary">Rate cards</AdminButton>
+          </Link>
+          <Link href="/admin/sales/templates">
+            <AdminButton variant="secondary">Templates</AdminButton>
+          </Link>
         </div>
-      </div>
-    </div>
+      </AdminPageLayout>
+    </AdminPageWrapper>
   )
 }

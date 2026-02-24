@@ -1,0 +1,15 @@
+{
+  "todayVolume": 2847500,
+  "todayTransactions": 1247,
+  "matchedPercentage": 97.8,
+  "matchedCount": 1220,
+  "totalCount": 1247,
+  "discrepancyCount": 27,
+  "discrepancyAmount": 45800,
+  "activeChargebacks": 18,
+  "chargebackAmount": 127500,
+  "monthlyVolume": 78450000,
+  "monthlyReconciled": 98.2,
+  "monthlyChargebacks": 142,
+  "chargebackWinRate": 73
+}

@@ -3,24 +3,19 @@
 import { useEffect, useState } from "react"
 import { useParams } from "next/navigation"
 import Link from "next/link"
-import { PageBanner } from "@/shared/components/ui/PageBanner"
-import { Card, CardHeader, CardTitle, CardContent } from "@/shared/components/ui/card"
-import { Button } from "@/shared/components/ui/button"
 import { getContractById, getContractTemplateById, getClauses, getSignersByContract, getObligationsByContract, formatCurrency } from "@/shared/services/contractService"
-import { FileSignature, User, AlertCircle } from "lucide-react"
-import { AgenciesPage } from "@/shared/components/layout/AgenciesPage"
-import { useDashboardTheme } from "@/shared/context/DashboardThemeContext"
-
-const statusColors: Record<string, string> = {
-  DRAFT: "bg-slate-100 text-slate-700",
-  SENT: "bg-blue-100 text-blue-700",
-  SIGNED: "bg-emerald-100 text-emerald-700",
-}
+import { FileSignature, User, AlertCircle, ArrowLeft } from "lucide-react"
+import {
+  AdminPageWrapper,
+  AdminCard,
+  AdminSectionHeader,
+  AdminButton,
+  AdminBadge,
+} from "@/shared/components/layout/AdminPageWrapper"
 
 export default function ContractDetailPage() {
   const params = useParams()
   const id = params?.id as string
-  const { page } = useDashboardTheme()
   const [contract, setContract] = useState<any>(null)
   const [template, setTemplate] = useState<any>(null)
   const [clauses, setClauses] = useState<any[]>([])
@@ -45,129 +40,119 @@ export default function ContractDetailPage() {
 
   if (loading || !contract) {
     return (
-      <AgenciesPage>
+      <AdminPageWrapper>
         <div className="flex min-h-[200px] items-center justify-center">
-          <p className="text-slate-500">Loading contract…</p>
+          <p className="text-white/60">Loading contract…</p>
         </div>
-      </AgenciesPage>
+      </AdminPageWrapper>
     )
   }
 
   return (
-    <AgenciesPage>
-      <PageBanner
+    <AdminPageWrapper>
+      <AdminSectionHeader
         title={contract.projectName}
         subtitle={contract.clientName}
-        variant="admin"
-        backgroundImage="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1200&q=80"
+        action={
+          <div className="flex gap-2">
+            <Link href="/admin/contracts">
+              <AdminButton variant="ghost" size="sm">
+                <ArrowLeft className="h-4 w-4" />
+                Contracts
+              </AdminButton>
+            </Link>
+            {contract.quoteId && (
+              <Link href={`/admin/sales/quotes/${contract.quoteId}`}>
+                <AdminButton variant="secondary" size="sm">View quote</AdminButton>
+              </Link>
+            )}
+            {(contract.status === "DRAFT" || contract.status === "SENT") && (
+              <Link href={`/admin/contracts/${id}/sign`}>
+                <AdminButton variant="primary">Sign</AdminButton>
+              </Link>
+            )}
+          </div>
+        }
       />
-      <div className="mt-6 flex flex-wrap gap-3">
-        <Link href="/admin/contracts">
-          <Button variant="ghost" size="sm">← Contracts</Button>
-        </Link>
-        {contract.quoteId && (
-          <Link href={`/admin/sales/quotes/${contract.quoteId}`}>
-            <Button variant="outline" size="sm">View quote</Button>
-          </Link>
-        )}
-        {(contract.status === "DRAFT" || contract.status === "SENT") && (
-          <Button asChild className="bg-amber-500 text-slate-900 hover:bg-amber-400">
-            <Link href={`/admin/contracts/${id}/sign`}>Sign</Link>
-          </Button>
-        )}
+
+      <div className="grid gap-6 lg:grid-cols-2 mb-6">
+        <AdminCard>
+          <div className="mb-4 flex items-center gap-2">
+            <FileSignature className="h-5 w-5 text-white/60" />
+            <h2 className="text-lg font-semibold text-white">Contract details</h2>
+          </div>
+          <div className="space-y-3">
+            <AdminBadge variant={
+              contract.status === "SIGNED" ? "success" :
+              contract.status === "SENT" ? "info" : "default"
+            }>
+              {contract.status}
+            </AdminBadge>
+            <p className="text-sm text-white/70">Amount: {formatCurrency(contract.amountMinor, contract.currency)}</p>
+            {template && <p className="text-sm text-white/70">Template: {template.name}</p>}
+            {contract.signedAt && <p className="text-sm text-emerald-400">Signed: {new Date(contract.signedAt).toLocaleString()}</p>}
+          </div>
+        </AdminCard>
+
+        <AdminCard>
+          <div className="mb-4 flex items-center gap-2">
+            <User className="h-5 w-5 text-white/60" />
+            <h2 className="text-lg font-semibold text-white">Signers</h2>
+          </div>
+          <div className="space-y-3">
+            {signers.map((s) => (
+              <div key={s._id} className="flex items-center justify-between rounded-xl border border-white/10 bg-white/5 p-3">
+                <div>
+                  <p className="font-medium text-white">{s.role}</p>
+                  <p className="text-sm text-white/60">{s.email ?? `Talent ${s.talentId}`}</p>
+                </div>
+                <AdminBadge variant={s.status === "SIGNED" ? "success" : "warning"}>
+                  {s.status}
+                </AdminBadge>
+              </div>
+            ))}
+          </div>
+        </AdminCard>
       </div>
 
-      <div className="mt-6 grid min-w-0 gap-6 lg:grid-cols-2">
-        <Card style={{ borderColor: page.border }}>
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2">
-              <FileSignature className="h-5 w-5" />
-              Contract details
-            </CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-3">
-            <div className="flex items-center gap-2">
-              <span className={`rounded-full px-2 py-0.5 text-xs font-medium ${statusColors[contract.status] ?? "bg-slate-100"}`}>
-                {contract.status}
-              </span>
-            </div>
-            <p className="text-sm text-slate-600">Amount: {formatCurrency(contract.amountMinor, contract.currency)}</p>
-            {template && <p className="text-sm text-slate-600">Template: {template.name}</p>}
-            {contract.signedAt && <p className="text-sm text-emerald-600">Signed: {new Date(contract.signedAt).toLocaleString()}</p>}
-          </CardContent>
-        </Card>
-
-        <Card style={{ borderColor: page.border }}>
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2">
-              <User className="h-5 w-5" />
-              Signers
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="space-y-3">
-              {signers.map((s) => (
-                <div key={s._id} className="flex items-center justify-between rounded-lg border p-3" style={{ borderColor: page.border }}>
-                  <div>
-                    <p className="font-medium">{s.role}</p>
-                    <p className="text-sm text-slate-500">{s.email ?? `Talent ${s.talentId}`}</p>
-                  </div>
-                  <span className={`rounded-full px-2 py-0.5 text-xs ${s.status === "SIGNED" ? "bg-emerald-100 text-emerald-700" : "bg-amber-100 text-amber-700"}`}>
-                    {s.status}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </CardContent>
-        </Card>
-      </div>
-
-      <Card className="mt-6" style={{ borderColor: page.border }}>
-        <CardHeader>
-          <CardTitle>Clauses</CardTitle>
-        </CardHeader>
-        <CardContent>
-          {clauses.length === 0 ? (
-            <p className="text-sm text-slate-500">No clauses in template.</p>
-          ) : (
-            <div className="space-y-4">
-              {clauses.map((cl) => (
-                <div key={cl._id} className="rounded-lg border p-4" style={{ borderColor: page.border }}>
-                  <p className="font-medium" style={{ color: page.text }}>{cl.name}</p>
-                  <p className="text-sm text-slate-600 mt-1">{cl.content}</p>
-                  <span className="mt-2 inline-block rounded bg-slate-100 px-2 py-0.5 text-xs">{cl.category}</span>
-                </div>
-              ))}
-            </div>
-          )}
-        </CardContent>
-      </Card>
+      <AdminCard className="mb-6">
+        <h2 className="mb-4 text-lg font-semibold text-white">Clauses</h2>
+        {clauses.length === 0 ? (
+          <p className="text-sm text-white/60">No clauses in template.</p>
+        ) : (
+          <div className="space-y-4">
+            {clauses.map((cl) => (
+              <div key={cl._id} className="rounded-xl border border-white/10 bg-white/5 p-4">
+                <p className="font-medium text-white">{cl.name}</p>
+                <p className="text-sm text-white/70 mt-1">{cl.content}</p>
+                <span className="mt-2 inline-block rounded-full bg-white/10 px-2 py-0.5 text-xs text-white/70">{cl.category}</span>
+              </div>
+            ))}
+          </div>
+        )}
+      </AdminCard>
 
       {obligations.length > 0 && (
-        <Card className="mt-6" style={{ borderColor: page.border }}>
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2">
-              <AlertCircle className="h-5 w-5" />
-              Obligations
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="space-y-3">
-              {obligations.map((o) => (
-                <div key={o._id} className="flex items-center justify-between rounded-lg border p-3" style={{ borderColor: page.border }}>
-                  <div>
-                    <p className="font-medium">{o.title}</p>
-                    <p className="text-sm text-slate-500">{o.type} · Due {o.dueDate}</p>
-                  </div>
-                  <span className={`rounded-full px-2 py-0.5 text-xs ${o.status === "COMPLETED" ? "bg-emerald-100 text-emerald-700" : "bg-amber-100 text-amber-700"}`}>
-                    {o.status}
-                  </span>
+        <AdminCard>
+          <div className="mb-4 flex items-center gap-2">
+            <AlertCircle className="h-5 w-5 text-white/60" />
+            <h2 className="text-lg font-semibold text-white">Obligations</h2>
+          </div>
+          <div className="space-y-3">
+            {obligations.map((o) => (
+              <div key={o._id} className="flex items-center justify-between rounded-xl border border-white/10 bg-white/5 p-3">
+                <div>
+                  <p className="font-medium text-white">{o.title}</p>
+                  <p className="text-sm text-white/60">{o.type} · Due {o.dueDate}</p>
                 </div>
-              ))}
-            </div>
-          </CardContent>
-        </Card>
+                <AdminBadge variant={o.status === "COMPLETED" ? "success" : "warning"}>
+                  {o.status}
+                </AdminBadge>
+              </div>
+            ))}
+          </div>
+        </AdminCard>
       )}
-    </AgenciesPage>
+    </AdminPageWrapper>
   )
 }

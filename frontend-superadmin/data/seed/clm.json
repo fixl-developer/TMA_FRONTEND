@@ -1,0 +1,530 @@
+{
+  "contractTemplates": [
+    {
+      "_id": "template_001",
+      "name": "Standard Talent Agreement",
+      "category": "TALENT",
+      "blueprintType": "PAGEANT",
+      "version": "2.1",
+      "status": "ACTIVE",
+      "description": "Standard contract for pageant talent participation",
+      "clauses": [
+        "Participation terms and conditions",
+        "Payment and commission structure",
+        "Intellectual property rights",
+        "Confidentiality agreement",
+        "Termination conditions"
+      ],
+      "variables": ["talent_name", "pageant_name", "fee_amount", "commission_rate", "start_date", "end_date"],
+      "approvalRequired": true,
+      "legalReviewDate": "2024-01-15",
+      "usageCount": 145,
+      "createdAt": "2023-06-01T00:00:00Z",
+      "updatedAt": "2024-01-15T00:00:00Z"
+    },
+    {
+      "_id": "template_002",
+      "name": "Brand Partnership Agreement",
+      "category": "BRAND",
+      "blueprintType": "ALL",
+      "version": "1.8",
+      "status": "ACTIVE",
+      "description": "Contract for brand partnerships and sponsorships",
+      "clauses": [
+        "Sponsorship terms",
+        "Deliverables and timeline",
+        "Payment schedule",
+        "Brand usage rights",
+        "Performance metrics",
+        "Cancellation policy"
+      ],
+      "variables": ["brand_name", "campaign_name", "budget", "duration", "deliverables", "payment_terms"],
+      "approvalRequired": true,
+      "legalReviewDate": "2024-02-01",
+      "usageCount": 89,
+      "createdAt": "2023-08-15T00:00:00Z",
+      "updatedAt": "2024-02-01T00:00:00Z"
+    },
+    {
+      "_id": "template_003",
+      "name": "Casting Director Agreement",
+      "category": "SERVICE_PROVIDER",
+      "blueprintType": "CASTING",
+      "version": "1.5",
+      "status": "ACTIVE",
+      "description": "Service agreement for casting directors",
+      "clauses": [
+        "Scope of services",
+        "Compensation structure",
+        "Confidentiality",
+        "Non-compete clause",
+        "Liability limitations"
+      ],
+      "variables": ["director_name", "project_name", "fee", "duration", "exclusivity"],
+      "approvalRequired": true,
+      "legalReviewDate": "2023-12-10",
+      "usageCount": 67,
+      "createdAt": "2023-05-20T00:00:00Z",
+      "updatedAt": "2023-12-10T00:00:00Z"
+    },
+    {
+      "_id": "template_004",
+      "name": "Model Agency Agreement",
+      "category": "AGENCY",
+      "blueprintType": "MODELLING",
+      "version": "3.0",
+      "status": "ACTIVE",
+      "description": "Representation agreement for modeling agencies",
+      "clauses": [
+        "Exclusive representation terms",
+        "Commission structure (15-20%)",
+        "Booking and payment procedures",
+        "Portfolio development",
+        "Contract duration and renewal"
+      ],
+      "variables": ["model_name", "agency_name", "commission_rate", "territory", "term_length"],
+      "approvalRequired": true,
+      "legalReviewDate": "2024-01-20",
+      "usageCount": 234,
+      "createdAt": "2023-04-01T00:00:00Z",
+      "updatedAt": "2024-01-20T00:00:00Z"
+    },
+    {
+      "_id": "template_005",
+      "name": "Venue Rental Agreement",
+      "category": "VENUE",
+      "blueprintType": "ALL",
+      "version": "2.3",
+      "status": "ACTIVE",
+      "description": "Contract for event venue rental",
+      "clauses": [
+        "Rental terms and duration",
+        "Payment schedule",
+        "Cancellation policy",
+        "Liability and insurance",
+        "Equipment and services included"
+      ],
+      "variables": ["venue_name", "event_date", "rental_fee", "deposit", "capacity", "services"],
+      "approvalRequired": false,
+      "legalReviewDate": "2024-02-05",
+      "usageCount": 178,
+      "createdAt": "2023-07-10T00:00:00Z",
+      "updatedAt": "2024-02-05T00:00:00Z"
+    },
+    {
+      "_id": "template_006",
+      "name": "NDA - Standard",
+      "category": "LEGAL",
+      "blueprintType": "ALL",
+      "version": "1.2",
+      "status": "ACTIVE",
+      "description": "Non-disclosure agreement for all parties",
+      "clauses": [
+        "Definition of confidential information",
+        "Obligations of receiving party",
+        "Exclusions from confidentiality",
+        "Term and termination",
+        "Remedies for breach"
+      ],
+      "variables": ["party_name", "effective_date", "term_length"],
+      "approvalRequired": false,
+      "legalReviewDate": "2023-11-30",
+      "usageCount": 456,
+      "createdAt": "2023-03-01T00:00:00Z",
+      "updatedAt": "2023-11-30T00:00:00Z"
+    },
+    {
+      "_id": "template_007",
+      "name": "Photographer Services Agreement",
+      "category": "SERVICE_PROVIDER",
+      "blueprintType": "ALL",
+      "version": "1.9",
+      "status": "ACTIVE",
+      "description": "Contract for photography services",
+      "clauses": [
+        "Services and deliverables",
+        "Usage rights and licensing",
+        "Payment terms",
+        "Cancellation policy",
+        "Copyright and ownership"
+      ],
+      "variables": ["photographer_name", "shoot_date", "fee", "deliverables", "usage_rights"],
+      "approvalRequired": false,
+      "legalReviewDate": "2024-01-10",
+      "usageCount": 312,
+      "createdAt": "2023-06-15T00:00:00Z",
+      "updatedAt": "2024-01-10T00:00:00Z"
+    },
+    {
+      "_id": "template_008",
+      "name": "Subscription Agreement - Enterprise",
+      "category": "SUBSCRIPTION",
+      "blueprintType": "ALL",
+      "version": "2.0",
+      "status": "ACTIVE",
+      "description": "Enterprise subscription terms",
+      "clauses": [
+        "Service level agreement",
+        "Pricing and payment terms",
+        "Data protection and privacy",
+        "Support and maintenance",
+        "Termination and renewal"
+      ],
+      "variables": ["tenant_name", "plan_tier", "monthly_fee", "user_limit", "start_date"],
+      "approvalRequired": true,
+      "legalReviewDate": "2024-02-10",
+      "usageCount": 45,
+      "createdAt": "2023-09-01T00:00:00Z",
+      "updatedAt": "2024-02-10T00:00:00Z"
+    }
+  ],
+  "activeContracts": [
+    {
+      "_id": "contract_001",
+      "templateId": "template_001",
+      "templateName": "Standard Talent Agreement",
+      "tenantId": "tenant_pageant_001",
+      "tenantName": "Glamour Pageants",
+      "partyA": "Glamour Pageants Pvt Ltd",
+      "partyB": "Priya Sharma (Talent)",
+      "status": "ACTIVE",
+      "signedDate": "2024-01-15T00:00:00Z",
+      "effectiveDate": "2024-01-20T00:00:00Z",
+      "expiryDate": "2025-01-20T00:00:00Z",
+      "value": 250000,
+      "currency": "INR",
+      "autoRenewal": true,
+      "renewalNoticeDays": 30,
+      "nextReviewDate": "2024-10-20T00:00:00Z",
+      "complianceStatus": "COMPLIANT",
+      "keyTerms": {
+        "commission_rate": "15%",
+        "payment_schedule": "Monthly",
+        "exclusivity": "Non-exclusive"
+      },
+      "documents": [
+        { "name": "Signed_Contract.pdf", "uploadedAt": "2024-01-15T10:30:00Z" },
+        { "name": "ID_Proof.pdf", "uploadedAt": "2024-01-15T10:32:00Z" }
+      ],
+      "milestones": [
+        { "name": "Contract signed", "date": "2024-01-15", "status": "COMPLETED" },
+        { "name": "First payment", "date": "2024-02-01", "status": "COMPLETED" },
+        { "name": "Mid-term review", "date": "2024-07-20", "status": "PENDING" }
+      ]
+    },
+    {
+      "_id": "contract_002",
+      "templateId": "template_002",
+      "templateName": "Brand Partnership Agreement",
+      "tenantId": "tenant_casting_001",
+      "tenantName": "Casting Pro",
+      "partyA": "Casting Pro Studios",
+      "partyB": "Luxury Fashion Brand Ltd",
+      "status": "ACTIVE",
+      "signedDate": "2024-02-01T00:00:00Z",
+      "effectiveDate": "2024-02-15T00:00:00Z",
+      "expiryDate": "2024-08-15T00:00:00Z",
+      "value": 1500000,
+      "currency": "INR",
+      "autoRenewal": false,
+      "renewalNoticeDays": 60,
+      "nextReviewDate": "2024-06-15T00:00:00Z",
+      "complianceStatus": "COMPLIANT",
+      "keyTerms": {
+        "campaign_duration": "6 months",
+        "deliverables": "4 campaigns, 20 castings",
+        "payment_terms": "50% upfront, 50% on completion"
+      },
+      "documents": [
+        { "name": "Partnership_Agreement.pdf", "uploadedAt": "2024-02-01T14:20:00Z" },
+        { "name": "Brand_Guidelines.pdf", "uploadedAt": "2024-02-01T14:25:00Z" }
+      ],
+      "milestones": [
+        { "name": "Contract signed", "date": "2024-02-01", "status": "COMPLETED" },
+        { "name": "First campaign", "date": "2024-03-01", "status": "COMPLETED" },
+        { "name": "Second campaign", "date": "2024-04-15", "status": "IN_PROGRESS" }
+      ]
+    },
+    {
+      "_id": "contract_003",
+      "templateId": "template_004",
+      "templateName": "Model Agency Agreement",
+      "tenantId": "tenant_modelling_001",
+      "tenantName": "Elite Models",
+      "partyA": "Elite Models Agency",
+      "partyB": "Rahul Verma (Model)",
+      "status": "ACTIVE",
+      "signedDate": "2023-11-10T00:00:00Z",
+      "effectiveDate": "2023-11-15T00:00:00Z",
+      "expiryDate": "2025-11-15T00:00:00Z",
+      "value": 800000,
+      "currency": "INR",
+      "autoRenewal": true,
+      "renewalNoticeDays": 45,
+      "nextReviewDate": "2024-05-15T00:00:00Z",
+      "complianceStatus": "REVIEW_REQUIRED",
+      "keyTerms": {
+        "commission_rate": "20%",
+        "territory": "India & Southeast Asia",
+        "exclusivity": "Exclusive"
+      },
+      "documents": [
+        { "name": "Agency_Agreement.pdf", "uploadedAt": "2023-11-10T09:15:00Z" },
+        { "name": "Portfolio_Rights.pdf", "uploadedAt": "2023-11-10T09:20:00Z" }
+      ],
+      "milestones": [
+        { "name": "Contract signed", "date": "2023-11-10", "status": "COMPLETED" },
+        { "name": "Portfolio shoot", "date": "2023-12-01", "status": "COMPLETED" },
+        { "name": "Annual review", "date": "2024-11-15", "status": "PENDING" }
+      ]
+    },
+    {
+      "_id": "contract_004",
+      "templateId": "template_008",
+      "templateName": "Subscription Agreement - Enterprise",
+      "tenantId": "tenant_pageant_002",
+      "tenantName": "Beauty Pageant Co",
+      "partyA": "Platform Provider",
+      "partyB": "Beauty Pageant Co Ltd",
+      "status": "ACTIVE",
+      "signedDate": "2024-01-01T00:00:00Z",
+      "effectiveDate": "2024-01-01T00:00:00Z",
+      "expiryDate": "2025-01-01T00:00:00Z",
+      "value": 359880,
+      "currency": "INR",
+      "autoRenewal": true,
+      "renewalNoticeDays": 30,
+      "nextReviewDate": "2024-07-01T00:00:00Z",
+      "complianceStatus": "COMPLIANT",
+      "keyTerms": {
+        "plan_tier": "Enterprise",
+        "monthly_fee": "29990",
+        "user_limit": "Unlimited"
+      },
+      "documents": [
+        { "name": "Subscription_Agreement.pdf", "uploadedAt": "2024-01-01T00:00:00Z" }
+      ],
+      "milestones": [
+        { "name": "Subscription activated", "date": "2024-01-01", "status": "COMPLETED" },
+        { "name": "Quarterly review", "date": "2024-04-01", "status": "COMPLETED" },
+        { "name": "Mid-year review", "date": "2024-07-01", "status": "PENDING" }
+      ]
+    },
+    {
+      "_id": "contract_005",
+      "templateId": "template_005",
+      "templateName": "Venue Rental Agreement",
+      "tenantId": "tenant_pageant_001",
+      "tenantName": "Glamour Pageants",
+      "partyA": "Glamour Pageants Pvt Ltd",
+      "partyB": "Grand Convention Center",
+      "status": "PENDING_SIGNATURE",
+      "signedDate": null,
+      "effectiveDate": "2024-03-15T00:00:00Z",
+      "expiryDate": "2024-03-17T00:00:00Z",
+      "value": 450000,
+      "currency": "INR",
+      "autoRenewal": false,
+      "renewalNoticeDays": 0,
+      "nextReviewDate": null,
+      "complianceStatus": "PENDING",
+      "keyTerms": {
+        "event_date": "March 15-17, 2024",
+        "capacity": "500 guests",
+        "deposit": "150000"
+      },
+      "documents": [
+        { "name": "Draft_Agreement.pdf", "uploadedAt": "2024-02-20T11:00:00Z" }
+      ],
+      "milestones": [
+        { "name": "Draft sent", "date": "2024-02-20", "status": "COMPLETED" },
+        { "name": "Awaiting signature", "date": "2024-02-25", "status": "IN_PROGRESS" }
+      ]
+    },
+    {
+      "_id": "contract_006",
+      "templateId": "template_003",
+      "templateName": "Casting Director Agreement",
+      "tenantId": "tenant_casting_001",
+      "tenantName": "Casting Pro",
+      "partyA": "Casting Pro Studios",
+      "partyB": "Anjali Mehta (Director)",
+      "status": "EXPIRED",
+      "signedDate": "2023-03-01T00:00:00Z",
+      "effectiveDate": "2023-03-01T00:00:00Z",
+      "expiryDate": "2024-02-29T00:00:00Z",
+      "value": 600000,
+      "currency": "INR",
+      "autoRenewal": false,
+      "renewalNoticeDays": 30,
+      "nextReviewDate": null,
+      "complianceStatus": "EXPIRED",
+      "keyTerms": {
+        "fee": "50000/month",
+        "duration": "12 months",
+        "exclusivity": "Non-exclusive"
+      },
+      "documents": [
+        { "name": "Director_Agreement.pdf", "uploadedAt": "2023-03-01T10:00:00Z" }
+      ],
+      "milestones": [
+        { "name": "Contract signed", "date": "2023-03-01", "status": "COMPLETED" },
+        { "name": "Contract expired", "date": "2024-02-29", "status": "COMPLETED" }
+      ]
+    }
+  ],
+  "renewalPipeline": [
+    {
+      "_id": "renewal_001",
+      "contractId": "contract_001",
+      "contractName": "Standard Talent Agreement - Priya Sharma",
+      "tenantId": "tenant_pageant_001",
+      "currentExpiryDate": "2025-01-20T00:00:00Z",
+      "renewalDueDate": "2024-12-21T00:00:00Z",
+      "daysUntilExpiry": 334,
+      "status": "UPCOMING",
+      "autoRenewal": true,
+      "currentValue": 250000,
+      "proposedValue": 275000,
+      "renewalProbability": "HIGH",
+      "ownerEmail": "admin@glamourpageants.com",
+      "notes": "Talent performance excellent, likely to renew with 10% increase"
+    },
+    {
+      "_id": "renewal_002",
+      "contractId": "contract_002",
+      "contractName": "Brand Partnership - Luxury Fashion Brand",
+      "tenantId": "tenant_casting_001",
+      "currentExpiryDate": "2024-08-15T00:00:00Z",
+      "renewalDueDate": "2024-06-16T00:00:00Z",
+      "daysUntilExpiry": 176,
+      "status": "NEGOTIATION",
+      "autoRenewal": false,
+      "currentValue": 1500000,
+      "proposedValue": 1800000,
+      "renewalProbability": "MEDIUM",
+      "ownerEmail": "admin@castingpro.com",
+      "notes": "Brand satisfied with results, discussing expanded scope for renewal"
+    },
+    {
+      "_id": "renewal_003",
+      "contractId": "contract_003",
+      "contractName": "Model Agency Agreement - Rahul Verma",
+      "tenantId": "tenant_modelling_001",
+      "currentExpiryDate": "2025-11-15T00:00:00Z",
+      "renewalDueDate": "2025-10-01T00:00:00Z",
+      "daysUntilExpiry": 633,
+      "status": "UPCOMING",
+      "autoRenewal": true,
+      "currentValue": 800000,
+      "proposedValue": 900000,
+      "renewalProbability": "HIGH",
+      "ownerEmail": "admin@elitemodels.com",
+      "notes": "Model career progressing well, early renewal discussions positive"
+    },
+    {
+      "_id": "renewal_004",
+      "contractId": "contract_004",
+      "contractName": "Enterprise Subscription - Beauty Pageant Co",
+      "tenantId": "tenant_pageant_002",
+      "currentExpiryDate": "2025-01-01T00:00:00Z",
+      "renewalDueDate": "2024-12-02T00:00:00Z",
+      "daysUntilExpiry": 315,
+      "status": "UPCOMING",
+      "autoRenewal": true,
+      "currentValue": 359880,
+      "proposedValue": 359880,
+      "renewalProbability": "HIGH",
+      "ownerEmail": "admin@beautypageant.com",
+      "notes": "High platform usage, renewal expected at same rate"
+    },
+    {
+      "_id": "renewal_005",
+      "contractId": "contract_006",
+      "contractName": "Casting Director Agreement - Anjali Mehta",
+      "tenantId": "tenant_casting_001",
+      "currentExpiryDate": "2024-02-29T00:00:00Z",
+      "renewalDueDate": "2024-01-30T00:00:00Z",
+      "daysUntilExpiry": -7,
+      "status": "EXPIRED",
+      "autoRenewal": false,
+      "currentValue": 600000,
+      "proposedValue": 650000,
+      "renewalProbability": "LOW",
+      "ownerEmail": "admin@castingpro.com",
+      "notes": "Contract expired, director moved to competitor. No renewal."
+    }
+  ],
+  "complianceChecks": [
+    {
+      "_id": "compliance_001",
+      "contractId": "contract_001",
+      "checkType": "ANNUAL_REVIEW",
+      "scheduledDate": "2024-10-20T00:00:00Z",
+      "status": "PENDING",
+      "priority": "MEDIUM",
+      "assignedTo": "legal@platform.com",
+      "checkpoints": [
+        "Verify payment compliance",
+        "Review performance metrics",
+        "Update contact information",
+        "Confirm insurance coverage"
+      ]
+    },
+    {
+      "_id": "compliance_002",
+      "contractId": "contract_003",
+      "checkType": "COMPLIANCE_REVIEW",
+      "scheduledDate": "2024-03-01T00:00:00Z",
+      "status": "OVERDUE",
+      "priority": "HIGH",
+      "assignedTo": "legal@platform.com",
+      "checkpoints": [
+        "Verify commission payments",
+        "Review exclusivity terms",
+        "Check territory restrictions",
+        "Update portfolio rights"
+      ]
+    },
+    {
+      "_id": "compliance_003",
+      "contractId": "contract_002",
+      "checkType": "MID_TERM_REVIEW",
+      "scheduledDate": "2024-06-15T00:00:00Z",
+      "status": "SCHEDULED",
+      "priority": "MEDIUM",
+      "assignedTo": "legal@platform.com",
+      "checkpoints": [
+        "Review deliverables progress",
+        "Verify payment schedule adherence",
+        "Assess brand satisfaction",
+        "Discuss renewal terms"
+      ]
+    }
+  ],
+  "analytics": {
+    "totalActiveContracts": 4,
+    "totalContractValue": 3009880,
+    "averageContractValue": 752470,
+    "contractsByStatus": {
+      "ACTIVE": 4,
+      "PENDING_SIGNATURE": 1,
+      "EXPIRED": 1,
+      "TERMINATED": 0
+    },
+    "contractsByCategory": {
+      "TALENT": 1,
+      "BRAND": 1,
+      "AGENCY": 1,
+      "SUBSCRIPTION": 1,
+      "VENUE": 1,
+      "SERVICE_PROVIDER": 1
+    },
+    "renewalRate": 0.85,
+    "averageContractDuration": 365,
+    "complianceRate": 0.75,
+    "upcomingRenewals30Days": 0,
+    "upcomingRenewals90Days": 0,
+    "upcomingRenewals180Days": 1
+  }
+}

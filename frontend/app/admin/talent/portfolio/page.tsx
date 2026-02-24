@@ -208,7 +208,7 @@ export default function TalentPortfolioStudio() {
 
       {/* Add Item Dialog */}
       <Dialog open={addOpen} onOpenChange={setAddOpen}>
-        <DialogContent className="border border-white/10 bg-slate-900 text-white">
+        <DialogContent className="border admin-light-theme:border-slate-200 admin-light-theme:bg-white admin-dark-theme:border-white/10 admin-dark-theme:bg-slate-900 admin-light-theme:text-slate-900 admin-dark-theme:text-white">
           <DialogHeader>
             <DialogTitle>Add Portfolio Item — {currentTalent?.stageName}</DialogTitle>
           </DialogHeader>

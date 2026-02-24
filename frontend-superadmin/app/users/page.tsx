@@ -24,9 +24,9 @@ import { RechartsPie } from "@/shared/components/charts/RechartsPie"
 type TabId = "identity" | "roles" | "abuse"
 
 const statusColors: Record<UserStatus, string> = {
-  ACTIVE: "bg-emerald-100 text-emerald-800 border-emerald-200",
-  SUSPENDED: "bg-amber-100 text-amber-800 border-amber-200",
-  BANNED: "bg-rose-100 text-rose-800 border-rose-200",
+  ACTIVE: "bg-[#dff6dd] text-[#107c10] border-[#107c10]",
+  SUSPENDED: "bg-[#fff4ce] text-[#797673] border-[#797673]",
+  BANNED: "bg-[#fde7e9] text-[#a80000] border-[#a80000]",
 }
 
 const roleLabels: Record<string, string> = {
@@ -96,8 +96,8 @@ export default function UsersPage() {
         title="Users"
         description="Platform-level user identity, roles, and abuse management. Cross-tenant view."
         badge={
-          <span className="inline-flex items-center gap-1.5 rounded-md border border-slate-200 bg-white px-2.5 py-1 text-xs font-medium text-slate-600">
-            <UserCircle2 className="h-3.5 w-3.5 text-blue-500" />
+          <span className="inline-flex items-center gap-1.5 rounded border border-[#e1e1e1] bg-white px-2.5 py-1 text-xs font-medium text-[#605e5c]">
+            <UserCircle2 className="h-3.5 w-3.5 text-[#0078d4]" />
             Platform
           </span>
         }
@@ -108,7 +108,7 @@ export default function UsersPage() {
               placeholder="Search users..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm text-slate-800 placeholder:text-slate-400 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+              className="rounded border border-[#8a8886] bg-white px-3 py-2 text-sm text-[#323130] placeholder:text-[#a19f9d] focus:border-[#0078d4] focus:outline-none focus:ring-1 focus:ring-[#0078d4]"
             />
           </div>
         }
@@ -121,10 +121,10 @@ export default function UsersPage() {
               <CardTitle>Total users</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-3xl font-semibold text-slate-800">
+              <p className="text-3xl font-semibold text-[#323130]">
                 {loading ? "—" : metrics.total}
               </p>
-              <p className="mt-1 text-[11px] text-slate-500">
+              <p className="mt-1 text-[11px] text-[#605e5c]">
                 Cross-tenant platform users.
               </p>
             </CardContent>
@@ -134,10 +134,10 @@ export default function UsersPage() {
               <CardTitle>Active</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-3xl font-semibold text-emerald-600">
+              <p className="text-3xl font-semibold text-[#107c10]">
                 {loading ? "—" : metrics.active}
               </p>
-              <p className="mt-1 text-[11px] text-slate-500">
+              <p className="mt-1 text-[11px] text-[#605e5c]">
                 Users in good standing.
               </p>
             </CardContent>
@@ -147,10 +147,10 @@ export default function UsersPage() {
               <CardTitle>Suspended / Banned</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-3xl font-semibold text-amber-600">
+              <p className="text-3xl font-semibold text-[#ffb900]">
                 {loading ? "—" : metrics.suspended + metrics.banned}
               </p>
-              <p className="mt-1 text-[11px] text-slate-500">
+              <p className="mt-1 text-[11px] text-[#605e5c]">
                 Users under restriction.
               </p>
             </CardContent>
@@ -160,10 +160,10 @@ export default function UsersPage() {
               <CardTitle>Abuse pending</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-3xl font-semibold text-rose-600">
+              <p className="text-3xl font-semibold text-[#d13438]">
                 {loading ? "—" : metrics.pendingAbuse}
               </p>
-              <p className="mt-1 text-[11px] text-slate-500">
+              <p className="mt-1 text-[11px] text-[#605e5c]">
                 Reports awaiting review.
               </p>
             </CardContent>
@@ -172,16 +172,16 @@ export default function UsersPage() {
       </PageSection>
 
       {/* Tabs */}
-      <div className="mb-4 flex gap-1 rounded-lg border border-slate-200 bg-white p-1">
+      <div className="mb-4 flex gap-1 rounded border border-[#e1e1e1] bg-white p-1">
         {tabs.map((tab) => (
           <button
             key={tab.id}
             type="button"
             onClick={() => setActiveTab(tab.id)}
-            className={`flex items-center gap-2 rounded-md px-4 py-2 text-sm font-medium transition-colors ${
+            className={`flex items-center gap-2 rounded px-4 py-2 text-sm font-semibold transition-colors ${
               activeTab === tab.id
-                ? "bg-blue-600 text-white"
-                : "text-slate-600 hover:bg-slate-100 hover:text-slate-900"
+                ? "bg-[#f3f2f1] text-[#0078d4] border-l-2 border-[#0078d4]"
+                : "text-[#605e5c] hover:bg-[#faf9f8]"
             }`}
           >
             {tab.icon}
@@ -202,33 +202,35 @@ export default function UsersPage() {
             </CardHeader>
             <CardContent>
               {loading ? (
-                <p className="text-slate-500">Loading…</p>
+                <p className="text-[#605e5c]">Loading…</p>
               ) : filteredUsers.length === 0 ? (
-                <p className="text-slate-500">No users match your search.</p>
+                <p className="text-[#605e5c]">No users match your search.</p>
               ) : (
                 <div className="overflow-x-auto">
                   <table className="w-full text-sm">
                     <thead>
-                      <tr className="border-b border-slate-200 text-left text-slate-500">
-                        <th className="pb-3 pr-4 font-medium">User</th>
-                        <th className="pb-3 pr-4 font-medium">Email</th>
-                        <th className="pb-3 pr-4 font-medium">Status</th>
-                        <th className="pb-3 pr-4 font-medium">Role</th>
-                        <th className="pb-3 pr-4 font-medium">Tenants</th>
-                        <th className="pb-3 font-medium">Last login</th>
+                      <tr className="border-b border-[#e1e1e1] bg-[#faf9f8] text-left text-[#323130]">
+                        <th className="pb-3 pr-4 font-semibold">User</th>
+                        <th className="pb-3 pr-4 font-semibold">Email</th>
+                        <th className="pb-3 pr-4 font-semibold">Status</th>
+                        <th className="pb-3 pr-4 font-semibold">Role</th>
+                        <th className="pb-3 pr-4 font-semibold">Tenants</th>
+                        <th className="pb-3 font-semibold">Last login</th>
                       </tr>
                     </thead>
                     <tbody>
-                      {filteredUsers.map((u) => (
+                      {filteredUsers.map((u, idx) => (
                         <tr
                           key={u._id}
-                          className="border-b border-slate-100 hover:bg-slate-50/50"
+                          className={`border-b border-[#e1e1e1] transition-colors ${
+                            idx % 2 === 0 ? "bg-white hover:bg-[#f3f2f1]" : "bg-[#faf9f8] hover:bg-[#f3f2f1]"
+                          }`}
                         >
                           <td className="py-3 pr-4">
-                            <span className="font-medium text-slate-800">{u.name}</span>
-                            <p className="text-[11px] text-slate-400">{u._id}</p>
+                            <span className="font-medium text-[#323130]">{u.name}</span>
+                            <p className="text-[11px] text-[#a19f9d]">{u._id}</p>
                           </td>
-                          <td className="py-3 pr-4 text-slate-600">{u.email}</td>
+                          <td className="py-3 pr-4 text-[#605e5c]">{u.email}</td>
                           <td className="py-3 pr-4">
                             <span
                               className={`inline-flex rounded border px-2 py-0.5 text-xs font-medium ${statusColors[u.status]}`}
@@ -236,15 +238,15 @@ export default function UsersPage() {
                               {u.status}
                             </span>
                           </td>
-                          <td className="py-3 pr-4 text-slate-600">
+                          <td className="py-3 pr-4 text-[#605e5c]">
                             {roleLabels[u.role] ?? u.role}
                           </td>
-                          <td className="py-3 pr-4 text-slate-600">
+                          <td className="py-3 pr-4 text-[#605e5c]">
                             {u.tenantIds.length === 0
                               ? "—"
                               : u.tenantIds.map(getTenantName).join(", ")}
                           </td>
-                          <td className="py-3 text-slate-500">
+                          <td className="py-3 text-[#605e5c]">
                             {u.lastLoginAt
                               ? new Date(u.lastLoginAt).toLocaleDateString()
                               : "—"}
@@ -331,63 +333,65 @@ export default function UsersPage() {
             </CardHeader>
             <CardContent>
               {loading ? (
-                <p className="text-slate-500">Loading…</p>
+                <p className="text-[#605e5c]">Loading…</p>
               ) : abuseReports.length === 0 ? (
-                <p className="text-slate-500">No abuse reports in seed.</p>
+                <p className="text-[#605e5c]">No abuse reports in seed.</p>
               ) : (
                 <div className="overflow-x-auto">
                   <table className="w-full text-sm">
                     <thead>
-                      <tr className="border-b border-slate-200 text-left text-slate-500">
-                        <th className="pb-3 pr-4 font-medium">Report</th>
-                        <th className="pb-3 pr-4 font-medium">User</th>
-                        <th className="pb-3 pr-4 font-medium">Tenant</th>
-                        <th className="pb-3 pr-4 font-medium">Reason</th>
-                        <th className="pb-3 pr-4 font-medium">Status</th>
-                        <th className="pb-3 font-medium">Date</th>
+                      <tr className="border-b border-[#e1e1e1] bg-[#faf9f8] text-left text-[#323130]">
+                        <th className="pb-3 pr-4 font-semibold">Report</th>
+                        <th className="pb-3 pr-4 font-semibold">User</th>
+                        <th className="pb-3 pr-4 font-semibold">Tenant</th>
+                        <th className="pb-3 pr-4 font-semibold">Reason</th>
+                        <th className="pb-3 pr-4 font-semibold">Status</th>
+                        <th className="pb-3 font-semibold">Date</th>
                       </tr>
                     </thead>
                     <tbody>
-                      {abuseReports.map((r) => {
+                      {abuseReports.map((r, idx) => {
                         const user = users.find((u) => u._id === r.userId)
                         return (
                           <tr
                             key={r._id}
-                            className="border-b border-slate-100 hover:bg-slate-50/50"
+                            className={`border-b border-[#e1e1e1] transition-colors ${
+                              idx % 2 === 0 ? "bg-white hover:bg-[#f3f2f1]" : "bg-[#faf9f8] hover:bg-[#f3f2f1]"
+                            }`}
                           >
                             <td className="py-3 pr-4">
-                              <span className="font-medium text-slate-800">{r._id}</span>
+                              <span className="font-medium text-[#323130]">{r._id}</span>
                             </td>
                             <td className="py-3 pr-4">
                               {user ? (
                                 <>
-                                  <span className="text-slate-800">{user.name}</span>
-                                  <p className="text-[11px] text-slate-400">{user.email}</p>
+                                  <span className="text-[#323130]">{user.name}</span>
+                                  <p className="text-[11px] text-[#a19f9d]">{user.email}</p>
                                 </>
                               ) : (
                                 r.userId
                               )}
                             </td>
-                            <td className="py-3 pr-4 text-slate-600">
+                            <td className="py-3 pr-4 text-[#605e5c]">
                               {getTenantName(r.tenantId)}
                             </td>
-                            <td className="py-3 pr-4 text-slate-600 max-w-[200px] truncate">
+                            <td className="py-3 pr-4 text-[#605e5c] max-w-[200px] truncate">
                               {r.reason}
                             </td>
                             <td className="py-3 pr-4">
                               <span
                                 className={`inline-flex rounded border px-2 py-0.5 text-xs font-medium ${
                                   r.status === "PENDING"
-                                    ? "bg-amber-100 text-amber-800 border-amber-200"
+                                    ? "bg-[#fff4ce] text-[#797673] border-[#797673]"
                                     : r.status === "ACTION_TAKEN"
-                                    ? "bg-rose-100 text-rose-800 border-rose-200"
-                                    : "bg-slate-100 text-slate-700 border-slate-200"
+                                    ? "bg-[#fde7e9] text-[#a80000] border-[#a80000]"
+                                    : "bg-[#f3f2f1] text-[#323130] border-[#8a8886]"
                                 }`}
                               >
                                 {r.status}
                               </span>
                             </td>
-                            <td className="py-3 text-slate-500">
+                            <td className="py-3 text-[#605e5c]">
                               {new Date(r.createdAt).toLocaleDateString()}
                             </td>
                           </tr>

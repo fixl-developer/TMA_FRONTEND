@@ -155,7 +155,7 @@ export function SuperAdminShell({ children }: SuperAdminShellProps) {
       {/* Sidebar - professional left nav */}
       <aside
         className={cn(
-          "fixed left-0 top-0 z-30 flex h-screen flex-col border-r border-slate-200 bg-white shadow-sm transition-[width] duration-200",
+          "fixed left-0 top-0 z-30 flex h-screen flex-col border-r border-slate-800 bg-[#0f172a] shadow-sm transition-[width] duration-200",
           isNarrow ? "w-[72px]" : "w-64"
         )}
         aria-label="Main navigation"
@@ -170,10 +170,10 @@ export function SuperAdminShell({ children }: SuperAdminShellProps) {
             </div>
             {showFullNav && (
               <div className="min-w-0">
-                <p className="truncate text-xs font-semibold tracking-wide text-slate-800">
+                <p className="truncate text-xs font-semibold tracking-wide text-white">
                   TalentOS
                 </p>
-                <p className="truncate text-[10px] text-slate-500">
+                <p className="truncate text-[10px] text-slate-400">
                   Super Admin
                 </p>
               </div>
@@ -201,7 +201,7 @@ export function SuperAdminShell({ children }: SuperAdminShellProps) {
                   <button
                     type="button"
                     onClick={() => toggleSection(section.label)}
-                    className="flex w-full items-center justify-between px-4 py-2 text-left text-[11px] font-semibold uppercase tracking-wider text-slate-500 hover:bg-slate-50 hover:text-slate-700"
+                    className="flex w-full items-center justify-between px-4 py-2 text-left text-[11px] font-semibold uppercase tracking-wider text-slate-400 hover:bg-slate-800 hover:text-slate-200"
                   >
                     {section.label}
                     <ChevronRight
@@ -228,8 +228,8 @@ export function SuperAdminShell({ children }: SuperAdminShellProps) {
                             className={cn(
                               "group flex items-center gap-3 rounded-lg px-4 py-2 text-sm transition-colors",
                               active
-                                ? "bg-blue-50 font-medium text-blue-700"
-                                : "text-slate-600 hover:bg-slate-100 hover:text-slate-900"
+                                ? "bg-[#bef264] font-medium text-black"
+                                : "text-slate-400 hover:bg-slate-800 hover:text-slate-100"
                             )}
                             aria-current={active ? "page" : undefined}
                           >
@@ -237,8 +237,8 @@ export function SuperAdminShell({ children }: SuperAdminShellProps) {
                               className={cn(
                                 "flex h-8 w-8 shrink-0 items-center justify-center rounded-lg",
                                 active
-                                  ? "bg-blue-600 text-white"
-                                  : "bg-slate-100 text-slate-600 group-hover:bg-slate-200 group-hover:text-slate-700"
+                                  ? "bg-black/10 text-black"
+                                  : "bg-slate-800 text-slate-400 group-hover:bg-slate-700 group-hover:text-slate-200"
                               )}
                             >
                               <Icon className="h-4 w-4" />
@@ -260,7 +260,7 @@ export function SuperAdminShell({ children }: SuperAdminShellProps) {
         {/* Footer */}
         <div className="shrink-0 border-t border-slate-200 px-4 py-3">
           {showFullNav && (
-            <div className="flex items-center gap-2 text-[11px] text-slate-500">
+            <div className="flex items-center gap-2 text-[11px] text-slate-400">
               <Settings className="h-3.5 w-3.5" />
               <span>Settings</span>
             </div>
@@ -302,31 +302,31 @@ export function SuperAdminShell({ children }: SuperAdminShellProps) {
               <HelpCircle className="mr-2 h-4 w-4" />
               Help
             </Button>
-          <div className="flex items-center gap-3 border-l border-slate-200 pl-3">
-            <div className="hidden text-right sm:block">
-              <p className="text-sm font-medium text-slate-800">{user?.name ?? "Super Admin"}</p>
-              <p className="text-xs text-slate-500">Platform owner</p>
+            <div className="flex items-center gap-3 border-l border-slate-200 pl-3">
+              <div className="hidden text-right sm:block">
+                <p className="text-sm font-medium text-slate-800">{user?.name ?? "Super Admin"}</p>
+                <p className="text-xs text-slate-500">Platform owner</p>
+              </div>
+              <Button
+                variant="ghost"
+                size="sm"
+                className="text-slate-600 hover:bg-slate-100"
+                onClick={() => {
+                  logout()
+                  router.push("/login")
+                }}
+                title="Logout"
+              >
+                <LogOut className="h-4 w-4 mr-1.5" />
+                Logout
+              </Button>
+              <div
+                className="flex h-9 w-9 items-center justify-center rounded-full bg-blue-600 text-sm font-semibold text-white"
+                aria-label="User avatar"
+              >
+                SA
+              </div>
             </div>
-            <Button
-              variant="ghost"
-              size="sm"
-              className="text-slate-600 hover:bg-slate-100"
-              onClick={() => {
-                logout()
-                router.push("/login")
-              }}
-              title="Logout"
-            >
-              <LogOut className="h-4 w-4 mr-1.5" />
-              Logout
-            </Button>
-            <div
-              className="flex h-9 w-9 items-center justify-center rounded-full bg-blue-600 text-sm font-semibold text-white"
-              aria-label="User avatar"
-            >
-              SA
-            </div>
-          </div>
           </div>
         </header>
 

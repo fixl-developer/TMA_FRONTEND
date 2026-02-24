@@ -5,18 +5,20 @@ import Link from "next/link"
 import { getCollaborations } from "@/shared/services/collaborationService"
 import type { Collaboration } from "@/shared/services/collaborationService"
 import { useToast } from "@/shared/components/ui/toast"
-import { Link2, Plus, Users2, CheckCircle, Clock, XCircle, Download } from "lucide-react"
+import { Link2, Plus, CheckCircle, Clock } from "lucide-react"
+import { AdminPageWrapper } from "@/shared/components/layout/AdminPageWrapper"
 import {
-  AdminPageWrapper,
-  AdminCard,
-  AdminSectionHeader,
+  AdminPageLayout,
+  AdminStatsGrid,
   AdminStatCard,
+  AdminCard,
   AdminTable,
   AdminTableRow,
   AdminButton,
   AdminBadge,
   AdminEmptyState,
-} from "@/shared/components/layout/AdminPageWrapper"
+  AdminLoading,
+} from "@/shared/components/admin/AdminPageLayout"
 import { format } from "date-fns"
 
 const DEMO_TENANT = "tenant_001"
@@ -68,34 +70,36 @@ export default function CollaborationsPage() {
 
   return (
     <AdminPageWrapper>
-      <AdminSectionHeader
+      <AdminPageLayout
         title="Collaborations"
         subtitle="Cross-tenant deals and revenue splits"
-        action={
-          <div className="flex gap-2">
-            <Link href="/admin/collaboration/initiate">
-              <AdminButton>
-                <Plus className="mr-2 h-4 w-4" />
-                Initiate
-              </AdminButton>
-            </Link>
-          </div>
-        }
-      />
+        actions={
+        <Link href="/admin/collaboration/initiate">
+          <AdminButton>
+            <Plus className="h-4 w-4" />
+            Initiate
+          </AdminButton>
+        </Link>
+      }
+    >
+      <AdminStatsGrid columns={4}>
+        <AdminStatCard label="Total" value={collabs.length} subtitle="All collaborations" icon={Link2} color="purple" />
+        <AdminStatCard label="Active" value={activeCount} subtitle="In progress" icon={CheckCircle} color="green" />
+        <AdminStatCard label="Pending" value={pendingCount} subtitle="Awaiting action" icon={Clock} color="yellow" />
+        <AdminStatCard label="Completed" value={collabs.filter((c) => c.status === "COMPLETED").length} subtitle="Finished" icon={CheckCircle} color="blue" />
+      </AdminStatsGrid>
 
-      <div className="mb-8 grid grid-cols-1 gap-4 sm:grid-cols-3">
-        <AdminStatCard title="Total" value={collabs.length} subtitle="All collaborations" icon={Link2} color="purple" />
-        <AdminStatCard title="Active" value={activeCount} subtitle="In progress" icon={CheckCircle} color="green" />
-        <AdminStatCard title="Pending" value={pendingCount} subtitle="Awaiting action" icon={Clock} color="yellow" />
-      </div>
-
-      <AdminCard>
+      <AdminCard title="All Collaborations" subtitle={`${filtered.length} of ${collabs.length} collaborations`}>
         <div className="mb-4 flex flex-wrap gap-2">
           {["ALL", ...types].map((t) => (
             <button
               key={t}
               onClick={() => setTypeFilter(t)}
-              className={`rounded-full px-3 py-1 text-xs font-semibold transition-all ${typeFilter === t ? "bg-purple-500 text-white" : "bg-white/10 text-white/50 hover:text-white"}`}
+              className={`rounded border px-3 py-1 text-xs font-semibold transition-all ${
+                typeFilter === t
+                  ? "border-[#8764b8] bg-[#f4f0ff] text-[#8764b8]"
+                  : "border-[#edebe9] bg-white text-[#605e5c] hover:bg-[#f3f2f1]"
+              }`}
             >
               {t.replace("_", " ")}
             </button>
@@ -103,20 +107,28 @@ export default function CollaborationsPage() {
         </div>
 
         {loading ? (
-          <div className="space-y-3">{[1,2,3].map((i) => <div key={i} className="h-16 animate-pulse rounded-lg bg-white/5" />)}</div>
+          <AdminLoading rows={3} />
         ) : filtered.length === 0 ? (
-          <AdminEmptyState icon={Link2} title="No collaborations" action={<Link href="/admin/collaboration/initiate"><AdminButton>Initiate Collaboration</AdminButton></Link>} />
+          <AdminEmptyState
+            icon={Link2}
+            title="No collaborations"
+            action={
+              <Link href="/admin/collaboration/initiate">
+                <AdminButton>Initiate Collaboration</AdminButton>
+              </Link>
+            }
+          />
         ) : (
           <AdminTable headers={["Title", "Partner", "Type", "Revenue Split", "Status", "Actions"]}>
             {filtered.map((c) => (
               <AdminTableRow key={c._id}>
                 <td className="px-6 py-4">
                   <Link href={`/admin/collaboration/${c._id}`}>
-                    <p className="font-medium text-white hover:text-purple-300 transition-colors">{c.title}</p>
-                    {c.createdAt && <p className="text-xs text-white/40">{format(new Date(c.createdAt), "MMM d, yyyy")}</p>}
+                    <p className="text-xs font-semibold text-[#0078d4] hover:underline">{c.title}</p>
+                    {c.createdAt && <p className="text-xs text-[#a19f9d]">{format(new Date(c.createdAt), "MMM d, yyyy")}</p>}
                   </Link>
                 </td>
-                <td className="px-6 py-4 text-sm text-white/70">{c.partnerName}</td>
+                <td className="px-6 py-4 text-xs text-[#605e5c]">{c.partnerName}</td>
                 <td className="px-6 py-4">
                   <AdminBadge variant="default">{c.type?.replace("_", " ")}</AdminBadge>
                 </td>
@@ -125,8 +137,8 @@ export default function CollaborationsPage() {
                     <div className="space-y-0.5 text-xs">
                       {Object.entries(c.revenueSplit).map(([tid, pct]) => (
                         <div key={tid} className="flex gap-2">
-                          <span className="text-white/40">{tid === DEMO_TENANT ? "Us" : c.partnerName}:</span>
-                          <span className="font-semibold text-white">{pct}%</span>
+                          <span className="text-[#a19f9d]">{tid === DEMO_TENANT ? "Us" : c.partnerName}:</span>
+                          <span className="font-semibold text-[#323130]">{pct}%</span>
                         </div>
                       ))}
                     </div>
@@ -138,10 +150,14 @@ export default function CollaborationsPage() {
                 <td className="px-6 py-4">
                   <div className="flex gap-1">
                     {c.status === "PENDING" && (
-                      <AdminButton size="sm" variant="secondary" onClick={() => handleStatusChange(c._id, "ACTIVE")}>Activate</AdminButton>
+                      <AdminButton size="sm" variant="secondary" onClick={() => handleStatusChange(c._id, "ACTIVE")}>
+                        Activate
+                      </AdminButton>
                     )}
                     {c.status === "ACTIVE" && (
-                      <AdminButton size="sm" variant="danger" onClick={() => handleStatusChange(c._id, "TERMINATED")}>Terminate</AdminButton>
+                      <AdminButton size="sm" variant="danger" onClick={() => handleStatusChange(c._id, "TERMINATED")}>
+                        Terminate
+                      </AdminButton>
                     )}
                     <Link href={`/admin/collaboration/${c._id}`}>
                       <AdminButton size="sm" variant="ghost">View</AdminButton>
@@ -153,6 +169,7 @@ export default function CollaborationsPage() {
           </AdminTable>
         )}
       </AdminCard>
+      </AdminPageLayout>
     </AdminPageWrapper>
   )
 }

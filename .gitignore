@@ -54,11 +54,22 @@ next-env.d.ts
 *REPORT*.md
 *OPTIMIZATIONS*.md
 *FIX*.md
+*CONVERSION*.md
+*REDESIGN*.md
+*IMPLEMENTATION*.md
 NEXT-*.md
 REMAINING_*.md
 overall.md
 overall2.md
 overall3.md
+work.md
+updated.md
+microsoft.md
+
+# Temporary images
+*.png
+!public/**/*.png
+!**/public/**/*.png
 
 # Keep only essential docs
 !README.md

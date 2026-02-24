@@ -23,6 +23,11 @@ import billingPlansData from "./billingPlans.json"
 import revenueReportsData from "./revenueReports.json"
 import escrowAccountsData from "./escrowAccounts.json"
 import paymentRiskFlagsData from "./paymentRiskFlags.json"
+import blueprintsData from "./blueprints.json"
+import templatesData from "./templates.json"
+import workflowsData from "./workflows.json"
+import workflowExecutionsData from "./workflowExecutions.json"
+import workflowAnalyticsData from "./workflowAnalytics.json"
 import disputesData from "./disputes.json"
 import enforcementActionsData from "./enforcementActions.json"
 import appealsData from "./appeals.json"
@@ -41,6 +46,19 @@ import legalHoldsData from "./legalHolds.json"
 import dsrRequestsData from "./dsrRequests.json"
 import partnersData from "./partners.json"
 import subTenantLinksData from "./sub_tenant_links.json"
+import automationPacksData from "./automationPacks.json"
+import automationRulesData from "./automationRules.json"
+import automationLogsData from "./automationLogs.json"
+import automationAnalyticsData from "./automationAnalytics.json"
+import walletsListData from "./walletsList.json"
+import ledgerAccountsData from "./ledgerAccounts.json"
+import ledgerEntriesData from "./ledgerEntries.json"
+import commissionRulesData from "./commissionRules.json"
+import commissionSettlementsData from "./commissionSettlements.json"
+import rolesData from "./roles.json"
+import policiesData from "./policies.json"
+import permissionMatrixData from "./permissionMatrix.json"
+import rbacAuditData from "./rbacAudit.json"
 
 // Type assertions - keep simple for now
 export const seedPageants = pageantsData as any[]
@@ -61,6 +79,11 @@ export const seedBillingPlans = billingPlansData as any[]
 export const seedRevenueReports = revenueReportsData as any[]
 export const seedEscrowAccounts = escrowAccountsData as any[]
 export const seedPaymentRiskFlags = paymentRiskFlagsData as any[]
+export const seedBlueprints = blueprintsData as any[]
+export const seedTemplates = templatesData as any[]
+export const seedWorkflows = workflowsData as any[]
+export const seedWorkflowExecutions = workflowExecutionsData as any[]
+export const seedWorkflowAnalytics = workflowAnalyticsData as any[]
 export const seedDisputes = disputesData as any[]
 export const seedEnforcementActions = enforcementActionsData as any[]
 export const seedAppeals = appealsData as any[]
@@ -79,6 +102,19 @@ export const seedLegalHolds = legalHoldsData as any[]
 export const seedDsrRequests = dsrRequestsData as any[]
 export const seedPartners = partnersData as any[]
 export const seedSubTenantLinks = subTenantLinksData as { groupId: string; subTenantId: string; linkedAt: string }[]
+export const seedAutomationPacks = automationPacksData as any[]
+export const seedAutomationRules = automationRulesData as any[]
+export const seedAutomationLogs = automationLogsData as any[]
+export const seedAutomationAnalytics = automationAnalyticsData as any
+export const seedWalletsList = walletsListData as any[]
+export const seedLedgerAccounts = ledgerAccountsData as any[]
+export const seedLedgerEntries = ledgerEntriesData as any[]
+export const seedCommissionRules = commissionRulesData as any[]
+export const seedCommissionSettlements = commissionSettlementsData as any[]
+export const seedRoles = rolesData as any[]
+export const seedPolicies = policiesData as any[]
+export const seedPermissionMatrix = permissionMatrixData as any[]
+export const seedRbacAudit = rbacAuditData as any[]
 
 export const getAllSeedData = () => ({
   pageants: seedPageants,

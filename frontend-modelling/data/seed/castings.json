@@ -1,5 +1,0 @@
-[
-  { "id": "cast-1", "title": "Fashion Week Campaign", "client": "Brand A", "status": "open", "submissions": 12, "shortlisted": 3, "deadline": "2025-03-01" },
-  { "id": "cast-2", "title": "TV Commercial - Brand X", "client": "Brand X", "status": "closed", "submissions": 8, "shortlisted": 2, "deadline": "2025-02-10" },
-  { "id": "cast-3", "title": "Magazine Cover Shoot", "client": "Vogue India", "status": "open", "submissions": 5, "shortlisted": 0, "deadline": "2025-03-15" }
-]

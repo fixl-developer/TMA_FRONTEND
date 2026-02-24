@@ -17,7 +17,7 @@ export function PageLayout({ children, className }: PageLayoutProps) {
   return (
     <main
       className={cn(
-        "min-h-full bg-slate-50",
+        "min-h-full bg-[#f5f5f5]",
         className
       )}
     >
@@ -54,11 +54,11 @@ export function PageHeader({
         {badge && (
           <div className="mb-2">{badge}</div>
         )}
-        <h1 className="text-xl font-semibold tracking-tight text-slate-900 sm:text-2xl">
+        <h1 className="text-xl font-semibold text-[#323130] sm:text-2xl">
           {title}
         </h1>
         {description && (
-          <p className="max-w-2xl text-sm text-slate-500">
+          <p className="max-w-2xl text-sm text-[#605e5c]">
             {description}
           </p>
         )}
@@ -90,12 +90,12 @@ export function PageSection({
       {(title || description) && (
         <div className="mb-4">
           {title && (
-            <h2 className="text-sm font-semibold text-slate-800 sm:text-base">
+            <h2 className="text-sm font-semibold text-[#323130] sm:text-base">
               {title}
             </h2>
           )}
           {description && (
-            <p className="mt-1 text-sm text-slate-500">{description}</p>
+            <p className="mt-1 text-sm text-[#605e5c]">{description}</p>
           )}
         </div>
       )}

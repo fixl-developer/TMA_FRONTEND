@@ -1,0 +1,57 @@
+[
+  {
+    "id": "rule-001",
+    "category": "Booking Management",
+    "name": "Auto-confirm bookings with verified clients",
+    "description": "Automatically confirm bookings from clients with 5+ successful past bookings",
+    "impact": "high",
+    "adoptionRate": 78,
+    "avgTimeSaved": 15,
+    "enabled": true,
+    "blueprints": ["modelling", "talent-management"]
+  },
+  {
+    "id": "rule-002",
+    "category": "Payment Processing",
+    "name": "Auto-release escrow on milestone completion",
+    "description": "Release escrow funds automatically when all parties mark milestone as complete",
+    "impact": "high",
+    "adoptionRate": 85,
+    "avgTimeSaved": 30,
+    "enabled": true,
+    "blueprints": ["modelling", "pageant", "talent-management"]
+  },
+  {
+    "id": "rule-003",
+    "category": "Communication",
+    "name": "Auto-send booking reminders 24h before",
+    "description": "Send automated reminders to talent and clients 24 hours before booking",
+    "impact": "medium",
+    "adoptionRate": 92,
+    "avgTimeSaved": 10,
+    "enabled": true,
+    "blueprints": ["modelling", "pageant", "talent-management", "event-staffing"]
+  },
+  {
+    "id": "rule-004",
+    "category": "Compliance",
+    "name": "Auto-verify document expiry dates",
+    "description": "Automatically check and flag expiring documents (contracts, licenses, permits)",
+    "impact": "high",
+    "adoptionRate": 68,
+    "avgTimeSaved": 20,
+    "enabled": true,
+    "blueprints": ["modelling", "pageant", "talent-management"]
+  },
+  {
+    "id": "rule-005",
+    "category": "Talent Management",
+    "name": "Auto-match talent to casting calls",
+    "description": "Use AI to automatically match talent profiles to new casting requirements",
+    "impact": "high",
+    "adoptionRate": 72,
+    "avgTimeSaved": 45,
+    "enabled": true,
+    "blueprints": ["modelling", "talent-management"]
+  }
+]

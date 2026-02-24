@@ -5,13 +5,14 @@ import { ShieldCheck, Smartphone, Copy, Check, KeyRound, Shield, Lock, AlertTria
 import { useToast } from "@/shared/components/ui/toast"
 import { Input } from "@/shared/components/ui/input"
 import { Label } from "@/shared/components/ui/label"
+import { AdminPageWrapper } from "@/shared/components/layout/AdminPageWrapper"
 import {
-  AdminPageWrapper,
-  AdminCard,
-  AdminSectionHeader,
+  AdminPageLayout,
+  AdminStatsGrid,
   AdminStatCard,
+  AdminCard,
   AdminButton,
-} from "@/shared/components/layout/AdminPageWrapper"
+} from "@/shared/components/admin/AdminPageLayout"
 
 type MfaStep = "overview" | "qr" | "verify" | "recovery" | "done"
 
@@ -55,64 +56,52 @@ export default function AdminSecurityPage() {
 
   return (
     <AdminPageWrapper>
-      <AdminSectionHeader
+      <AdminPageLayout
         title="Security"
         subtitle="Multi-factor authentication and account security"
-      />
-
-      {/* Stats */}
-      <div className="mb-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      >
+      <AdminStatsGrid columns={4}>
         <AdminStatCard
-          title="MFA Status"
+          label="MFA Status"
           value={mfaEnabled ? "Enabled" : "Disabled"}
           subtitle="Two-factor auth"
           icon={ShieldCheck}
           color={mfaEnabled ? "green" : "yellow"}
         />
         <AdminStatCard
-          title="Security Level"
+          label="Security Level"
           value={mfaEnabled ? "High" : "Medium"}
           subtitle="Protection level"
           icon={Shield}
           color={mfaEnabled ? "green" : "yellow"}
         />
         <AdminStatCard
-          title="Sessions"
+          label="Sessions"
           value="3"
           subtitle="Active sessions"
           icon={Lock}
           color="blue"
         />
         <AdminStatCard
-          title="Last Login"
+          label="Last Login"
           value="Today"
           subtitle="Recent activity"
           icon={AlertTriangle}
           color="purple"
         />
-      </div>
+      </AdminStatsGrid>
 
       {/* MFA Configuration */}
-      <AdminCard>
-        <div className="mb-6 flex items-center gap-3">
-          <div className="rounded-lg bg-emerald-500/10 p-3">
-            <ShieldCheck className="h-6 w-6 text-emerald-400" />
-          </div>
-          <div>
-            <h3 className="text-lg font-bold text-white">Multi-factor Authentication (MFA)</h3>
-            <p className="text-sm text-white/60">Add an extra layer of security to your account</p>
-          </div>
-        </div>
-
+      <AdminCard title="Multi-factor Authentication (MFA)" subtitle="Add an extra layer of security to your account">
         {mfaEnabled ? (
-          <div className="flex items-center justify-between rounded-xl border border-emerald-500/20 bg-emerald-500/10 p-4 backdrop-blur-sm">
+          <div className="flex items-center justify-between rounded border border-[#107c10] bg-green-50 p-4">
             <div className="flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-emerald-500/20">
-                <ShieldCheck className="h-5 w-5 text-emerald-400" />
+              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-green-600 text-white">
+                <ShieldCheck className="h-5 w-5" />
               </div>
               <div>
-                <p className="font-semibold text-emerald-400">MFA is enabled</p>
-                <p className="text-sm text-emerald-400/70">Your account is protected with TOTP.</p>
+                <p className="text-xs font-semibold text-green-600">MFA is enabled</p>
+                <p className="text-xs text-gray-600">Your account is protected with TOTP.</p>
               </div>
             </div>
             <AdminButton variant="danger" size="sm" onClick={handleDisableMfa}>
@@ -121,26 +110,26 @@ export default function AdminSecurityPage() {
           </div>
         ) : mfaStep === "overview" ? (
           <div className="space-y-4">
-            <p className="text-white/70">
+            <p className="text-xs text-gray-600">
               Add an extra layer of security with TOTP (Time-based One-Time Password). Use an
               authenticator app like Google Authenticator or Authy.
             </p>
             <AdminButton onClick={handleEnableMfa}>
-              <Smartphone className="mr-2 h-4 w-4" />
+              <Smartphone className="h-4 w-4" />
               Enable MFA
             </AdminButton>
           </div>
         ) : mfaStep === "qr" ? (
           <div className="space-y-4">
-            <p className="text-sm text-white/70">Scan this QR code with your authenticator app:</p>
-            <div className="flex justify-center rounded-xl border-2 border-dashed border-white/20 bg-white/5 p-8 backdrop-blur-sm">
-              <div className="flex h-40 w-40 items-center justify-center rounded-lg bg-white text-center text-xs text-slate-400">
+            <p className="text-xs text-gray-600">Scan this QR code with your authenticator app:</p>
+            <div className="flex justify-center rounded border-2 border-dashed border-gray-200 bg-gray-50 p-8">
+              <div className="flex h-40 w-40 items-center justify-center rounded bg-white text-center text-xs text-gray-400">
                 [QR Code placeholder]
               </div>
             </div>
-            <p className="text-xs text-white/50">
+            <p className="text-xs text-gray-600">
               Or enter this secret manually:{" "}
-              <code className="rounded bg-white/10 px-2 py-1 font-mono text-white/70">
+              <code className="rounded bg-gray-50 px-2 py-1 font-mono text-gray-900">
                 JBSWY3DPEHPK3PXP
               </code>
             </p>
@@ -153,11 +142,11 @@ export default function AdminSecurityPage() {
           </div>
         ) : mfaStep === "verify" ? (
           <div className="space-y-4">
-            <p className="text-sm text-white/70">
+            <p className="text-xs text-gray-600">
               Enter the 6-digit code from your authenticator app:
             </p>
             <div className="space-y-2">
-              <Label htmlFor="mfa-code" className="text-white/70">
+              <Label htmlFor="mfa-code" className="text-xs text-gray-600">
                 Verification code
               </Label>
               <Input
@@ -168,7 +157,7 @@ export default function AdminSecurityPage() {
                 placeholder="000000"
                 value={verifyCode}
                 onChange={(e) => setVerifyCode(e.target.value.replace(/\D/g, ""))}
-                className="border-white/20 bg-white/5 font-mono text-lg tracking-widest text-white backdrop-blur-sm"
+                className="border-gray-200 bg-white font-mono text-lg tracking-widest text-gray-900"
               />
             </div>
             <div className="flex gap-2">
@@ -182,15 +171,15 @@ export default function AdminSecurityPage() {
           </div>
         ) : mfaStep === "recovery" ? (
           <div className="space-y-4">
-            <p className="text-sm text-white/70">
+            <p className="text-xs text-gray-600">
               Save these recovery codes in a secure place. Each code can be used once if you lose
               access to your authenticator.
             </p>
-            <div className="grid gap-2 rounded-xl border border-white/10 bg-white/5 p-4 backdrop-blur-sm">
+            <div className="grid gap-2 rounded border border-gray-200 bg-gray-50 p-4">
               {MOCK_RECOVERY_CODES.map((code, idx) => (
                 <div
                   key={idx}
-                  className="flex items-center justify-between rounded-lg border border-white/10 bg-white/5 px-3 py-2 font-mono text-sm text-white backdrop-blur-sm"
+                  className="flex items-center justify-between rounded border border-gray-200 bg-white px-3 py-2 font-mono text-xs text-gray-900"
                 >
                   <span>{code}</span>
                   <AdminButton
@@ -199,7 +188,7 @@ export default function AdminSecurityPage() {
                     onClick={() => handleCopyRecoveryCode(code, idx)}
                   >
                     {copiedIndex === idx ? (
-                      <Check className="h-4 w-4 text-emerald-400" />
+                      <Check className="h-4 w-4 text-green-600" />
                     ) : (
                       <Copy className="h-4 w-4" />
                     )}
@@ -208,12 +197,13 @@ export default function AdminSecurityPage() {
               ))}
             </div>
             <AdminButton onClick={handleFinishMfa} className="w-full">
-              <KeyRound className="mr-2 h-4 w-4" />
+              <KeyRound className="h-4 w-4" />
               I&apos;ve saved my recovery codes
             </AdminButton>
           </div>
         ) : null}
       </AdminCard>
+      </AdminPageLayout>
     </AdminPageWrapper>
   )
 }

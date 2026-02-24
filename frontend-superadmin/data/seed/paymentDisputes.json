@@ -1,0 +1,167 @@
+[
+  {
+    "id": "disp_001",
+    "disputeId": "DSP-2024-1247",
+    "tenant": "Elite Models Agency",
+    "type": "Payment Delay",
+    "priority": "high",
+    "amount": 15600,
+    "status": "open",
+    "filedDate": "2024-02-20",
+    "assignedTo": "Sarah Chen"
+  },
+  {
+    "id": "disp_002",
+    "disputeId": "DSP-2024-1246",
+    "tenant": "Miss Universe Pageant",
+    "type": "Incorrect Amount",
+    "priority": "critical",
+    "amount": 28900,
+    "status": "investigating",
+    "filedDate": "2024-02-19",
+    "assignedTo": "Michael Torres"
+  },
+  {
+    "id": "disp_003",
+    "disputeId": "DSP-2024-1245",
+    "tenant": "Fashion Week Productions",
+    "type": "Unauthorized Transaction",
+    "priority": "critical",
+    "amount": 42300,
+    "status": "escalated",
+    "filedDate": "2024-02-18",
+    "assignedTo": "Emily Rodriguez"
+  },
+  {
+    "id": "disp_004",
+    "disputeId": "DSP-2024-1244",
+    "tenant": "Talent Connect Agency",
+    "type": "Refund Not Received",
+    "priority": "medium",
+    "amount": 8700,
+    "status": "investigating",
+    "filedDate": "2024-02-17",
+    "assignedTo": "David Kim"
+  },
+  {
+    "id": "disp_005",
+    "disputeId": "DSP-2024-1243",
+    "tenant": "Global Pageant Network",
+    "type": "Payment Delay",
+    "priority": "low",
+    "amount": 5400,
+    "status": "resolved",
+    "filedDate": "2024-02-15",
+    "assignedTo": "Sarah Chen"
+  },
+  {
+    "id": "disp_006",
+    "disputeId": "DSP-2024-1242",
+    "tenant": "Premier Casting Co",
+    "type": "Duplicate Charge",
+    "priority": "high",
+    "amount": 12800,
+    "status": "open",
+    "filedDate": "2024-02-16",
+    "assignedTo": "Michael Torres"
+  },
+  {
+    "id": "disp_007",
+    "disputeId": "DSP-2024-1241",
+    "tenant": "Star Talent Management",
+    "type": "Incorrect Amount",
+    "priority": "medium",
+    "amount": 9200,
+    "status": "investigating",
+    "filedDate": "2024-02-14",
+    "assignedTo": "Emily Rodriguez"
+  },
+  {
+    "id": "disp_008",
+    "disputeId": "DSP-2024-1240",
+    "tenant": "Runway Models Inc",
+    "type": "Service Not Rendered",
+    "priority": "high",
+    "amount": 18500,
+    "status": "resolved",
+    "filedDate": "2024-02-12",
+    "assignedTo": "David Kim"
+  },
+  {
+    "id": "disp_009",
+    "disputeId": "DSP-2024-1239",
+    "tenant": "Elite Models Agency",
+    "type": "Payment Delay",
+    "priority": "low",
+    "amount": 6700,
+    "status": "resolved",
+    "filedDate": "2024-02-11",
+    "assignedTo": "Sarah Chen"
+  },
+  {
+    "id": "disp_010",
+    "disputeId": "DSP-2024-1238",
+    "tenant": "Miss Universe Pageant",
+    "type": "Unauthorized Transaction",
+    "priority": "critical",
+    "amount": 35600,
+    "status": "investigating",
+    "filedDate": "2024-02-13",
+    "assignedTo": "Michael Torres"
+  },
+  {
+    "id": "disp_011",
+    "disputeId": "DSP-2024-1237",
+    "tenant": "Fashion Week Productions",
+    "type": "Refund Not Received",
+    "priority": "medium",
+    "amount": 11400,
+    "status": "open",
+    "filedDate": "2024-02-10",
+    "assignedTo": "Emily Rodriguez"
+  },
+  {
+    "id": "disp_012",
+    "disputeId": "DSP-2024-1236",
+    "tenant": "Talent Connect Agency",
+    "type": "Duplicate Charge",
+    "priority": "high",
+    "amount": 14900,
+    "status": "rejected",
+    "filedDate": "2024-02-08",
+    "assignedTo": "David Kim"
+  },
+  {
+    "id": "disp_013",
+    "disputeId": "DSP-2024-1235",
+    "tenant": "Global Pageant Network",
+    "type": "Incorrect Amount",
+    "priority": "medium",
+    "amount": 7800,
+    "status": "resolved",
+    "filedDate": "2024-02-09",
+    "assignedTo": "Sarah Chen"
+  },
+  {
+    "id": "disp_014",
+    "disputeId": "DSP-2024-1234",
+    "tenant": "Premier Casting Co",
+    "type": "Service Not Rendered",
+    "priority": "high",
+    "amount": 22100,
+    "status": "investigating",
+    "filedDate": "2024-02-07",
+    "assignedTo": "Michael Torres"
+  },
+  {
+    "id": "disp_015",
+    "disputeId": "DSP-2024-1233",
+    "tenant": "Star Talent Management",
+    "type": "Payment Delay",
+    "priority": "low",
+    "amount": 4500,
+    "status": "resolved",
+    "filedDate": "2024-02-06",
+    "assignedTo": "Emily Rodriguez"
+  }
+]

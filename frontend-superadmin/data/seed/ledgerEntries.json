@@ -1,0 +1,7 @@
+[
+  { "id": "ent_001", "accountId": "acc_platform_escrow", "type": "CREDIT", "amountMinor": 1250000, "currency": "INR", "description": "Escrow funding booking_001", "referenceId": "escrow_001", "createdAt": "2025-02-14T11:30:00.000Z" },
+  { "id": "ent_002", "accountId": "acc_platform_revenue", "type": "CREDIT", "amountMinor": 62500, "currency": "INR", "description": "Platform fee booking_001", "referenceId": "txn_001", "createdAt": "2025-02-14T12:00:00.000Z" },
+  { "id": "ent_003", "accountId": "acc_tenant_001", "type": "DEBIT", "amountMinor": 800000, "currency": "INR", "description": "Talent payout", "referenceId": "txn_002", "createdAt": "2025-02-15T11:15:00.000Z" },
+  { "id": "ent_004", "accountId": "acc_platform_escrow", "type": "DEBIT", "amountMinor": 500000, "currency": "INR", "description": "Escrow release reg_001", "referenceId": "escrow_002", "createdAt": "2025-02-10T14:00:00.000Z" },
+  { "id": "ent_005", "accountId": "acc_settlement", "type": "CREDIT", "amountMinor": 150000, "currency": "INR", "description": "Pageant fee settlement", "referenceId": "txn_001", "createdAt": "2025-02-12T09:30:00.000Z" }
+]

@@ -1,4 +1,0 @@
-[
-  { "id": "ev-1", "tenantId": "t-demo", "title": "Miss India Prelims 2025", "type": "pageant", "status": "live", "startDate": "2025-03-01", "endDate": "2025-03-05", "registrations": 120 },
-  { "id": "ev-2", "tenantId": "t-demo", "title": "Fashion Week Gala", "type": "event", "status": "draft", "startDate": "2025-04-10", "endDate": "2025-04-12", "registrations": 0 }
-]

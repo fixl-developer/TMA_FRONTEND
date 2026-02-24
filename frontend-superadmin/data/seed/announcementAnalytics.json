@@ -1,0 +1,143 @@
+{
+  "overview": {
+    "totalViews": 43815,
+    "viewsGrowth": 15.3,
+    "ctr": 18.7,
+    "ctrGrowth": 3.2,
+    "uniqueUsers": 12847,
+    "usersGrowth": 8.9,
+    "avgEngagement": 24.5,
+    "engagementChange": 2.1
+  },
+  "topPerforming": [
+    {
+      "id": "ann_003",
+      "title": "Security Update Required",
+      "views": 12456,
+      "clicks": 4567,
+      "ctr": 36.7
+    },
+    {
+      "id": "ann_001",
+      "title": "Platform Maintenance Scheduled",
+      "views": 8547,
+      "clicks": 342,
+      "ctr": 4.0
+    },
+    {
+      "id": "ann_006",
+      "title": "Mobile App Update Available",
+      "views": 6789,
+      "clicks": 1234,
+      "ctr": 18.2
+    },
+    {
+      "id": "ann_002",
+      "title": "New Feature: Advanced Analytics Dashboard",
+      "views": 5234,
+      "clicks": 892,
+      "ctr": 17.0
+    },
+    {
+      "id": "ann_011",
+      "title": "System Performance Optimization",
+      "views": 4521,
+      "clicks": 234,
+      "ctr": 5.2
+    }
+  ],
+  "engagementByType": [
+    {
+      "type": "Security",
+      "engagement": 36.7,
+      "count": 1,
+      "totalViews": 12456
+    },
+    {
+      "type": "Feature",
+      "engagement": 17.6,
+      "count": 3,
+      "totalViews": 16544
+    },
+    {
+      "type": "Maintenance",
+      "engagement": 4.0,
+      "count": 1,
+      "totalViews": 8547
+    },
+    {
+      "type": "Warning",
+      "engagement": 23.8,
+      "count": 1,
+      "totalViews": 2847
+    },
+    {
+      "type": "Info",
+      "engagement": 8.3,
+      "count": 2,
+      "totalViews": 7842
+    }
+  ],
+  "audienceEngagement": [
+    {
+      "audience": "All Users",
+      "views": 28347,
+      "clicks": 5329,
+      "ctr": 18.8,
+      "engagement": 64.7
+    },
+    {
+      "audience": "Tenant Owners",
+      "views": 8081,
+      "clicks": 2126,
+      "ctr": 26.3,
+      "engagement": 18.4
+    },
+    {
+      "audience": "Admins Only",
+      "views": 5694,
+      "clicks": 1356,
+      "ctr": 23.8,
+      "engagement": 13.0
+    },
+    {
+      "audience": "Specific Groups",
+      "views": 1693,
+      "clicks": 258,
+      "ctr": 15.2,
+      "engagement": 3.9
+    }
+  ],
+  "monthlyTrends": [
+    {
+      "month": "February 2024",
+      "announcements": 6,
+      "views": 43815,
+      "engagement": 24.5
+    },
+    {
+      "month": "January 2024",
+      "announcements": 8,
+      "views": 38094,
+      "engagement": 22.3
+    },
+    {
+      "month": "December 2023",
+      "announcements": 5,
+      "views": 31247,
+      "engagement": 19.8
+    },
+    {
+      "month": "November 2023",
+      "announcements": 7,
+      "views": 35621,
+      "engagement": 21.4
+    },
+    {
+      "month": "October 2023",
+      "announcements": 6,
+      "views": 29834,
+      "engagement": 20.1
+    }
+  ]
+}

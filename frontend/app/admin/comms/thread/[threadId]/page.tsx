@@ -3,9 +3,6 @@
 import { useEffect, useState } from "react"
 import { useParams } from "next/navigation"
 import Link from "next/link"
-import { PageBanner } from "@/shared/components/ui/PageBanner"
-import { Card, CardHeader, CardTitle, CardContent } from "@/shared/components/ui/card"
-import { Button } from "@/shared/components/ui/button"
 import {
   getThreadById,
   getMessagesByThread,
@@ -13,14 +10,13 @@ import {
   getUserById,
 } from "@/shared/services/commsService"
 import { MessageSquare, User } from "lucide-react"
-import { AgenciesPage } from "@/shared/components/layout/AgenciesPage"
-import { useDashboardTheme } from "@/shared/context/DashboardThemeContext"
+import { AdminPageWrapper } from "@/shared/components/layout/AdminPageWrapper"
+import { AdminPageLayout, AdminCard, AdminButton } from "@/shared/components/admin/AdminPageLayout"
 import { format } from "date-fns"
 
 export default function ThreadDetailPage() {
   const params = useParams()
   const threadId = params?.threadId as string
-  const { page } = useDashboardTheme()
   const [thread, setThread] = useState<any>(null)
   const [messages, setMessages] = useState<any[]>([])
   const [users, setUsers] = useState<Record<string, any>>({})
@@ -45,40 +41,32 @@ export default function ThreadDetailPage() {
 
   if (loading || !thread) {
     return (
-      <AgenciesPage>
+      <AdminPageWrapper>
         <div className="flex min-h-[200px] items-center justify-center">
-          <p className="text-slate-500">Loading thread…</p>
+          <p className="text-white/60">Loading thread…</p>
         </div>
-      </AgenciesPage>
+      </AdminPageWrapper>
     )
   }
 
   return (
-    <AgenciesPage>
-      <PageBanner
+    <AdminPageWrapper>
+      <AdminPageLayout
         title={thread.subject}
         subtitle={`${getObjectTypeLabel(thread.objectType)} · ${thread.objectId}`}
-        variant="admin"
-        backgroundImage="https://images.unsplash.com/photo-1557804506-669a67965ba0?w=1200&q=80"
-      />
-      <div className="mt-6 flex flex-wrap gap-3">
-        <Link href="/admin/comms">
-          <Button variant="ghost" size="sm">
-            ← Threads
-          </Button>
-        </Link>
-      </div>
-
-      <Card className="mt-6" style={{ borderColor: page.border }}>
-        <CardHeader>
-          <CardTitle className="flex items-center gap-2">
-            <MessageSquare className="h-5 w-5" />
-            Messages ({messages.length})
-          </CardTitle>
-        </CardHeader>
-        <CardContent>
+        actions={
+          <Link href="/admin/comms">
+            <AdminButton variant="outline">← Threads</AdminButton>
+          </Link>
+        }
+      >
+        <AdminCard>
+          <div className="flex items-center gap-2 mb-4">
+            <MessageSquare className="h-5 w-5 text-[#d4ff00]" />
+            <h3 className="text-lg font-semibold text-white">Messages ({messages.length})</h3>
+          </div>
           {messages.length === 0 ? (
-            <p className="py-8 text-center text-slate-500">No messages yet.</p>
+            <p className="py-8 text-center text-white/60">No messages yet.</p>
           ) : (
             <div className="space-y-4">
               {messages.map((m) => {
@@ -86,39 +74,38 @@ export default function ThreadDetailPage() {
                 return (
                   <div
                     key={m._id}
-                    className="flex gap-3 rounded-lg border p-3"
-                    style={{ borderColor: page.border }}
+                    className="flex gap-3 rounded-lg border border-white/10 bg-white/5 p-3"
                   >
-                    <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-amber-100">
-                      <User className="h-4 w-4 text-amber-600" />
+                    <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#d4ff00]/20">
+                      <User className="h-4 w-4 text-[#d4ff00]" />
                     </div>
                     <div className="min-w-0 flex-1">
                       <div className="flex items-center gap-2">
-                        <span className="font-medium text-sm" style={{ color: page.text }}>
+                        <span className="font-medium text-sm text-white">
                           {author?.name ?? m.authorId}
                         </span>
-                        <span className="rounded bg-slate-100 px-1.5 py-0.5 text-xs text-slate-600">
+                        <span className="rounded bg-white/10 px-1.5 py-0.5 text-xs text-white/60">
                           {m.authorRole}
                         </span>
-                        <span className="text-xs text-slate-400">
+                        <span className="text-xs text-white/40">
                           {m.createdAt && format(new Date(m.createdAt), "MMM d, HH:mm")}
                         </span>
                       </div>
-                      <p className="mt-1 text-sm text-slate-600">{m.body}</p>
+                      <p className="mt-1 text-sm text-white/60">{m.body}</p>
                     </div>
                   </div>
                 )
               })}
             </div>
           )}
-        </CardContent>
-      </Card>
+        </AdminCard>
 
-      <div className="mt-6">
-        <Button variant="outline" disabled>
-          Add message (coming soon)
-        </Button>
-      </div>
-    </AgenciesPage>
+        <div className="mt-6">
+          <AdminButton variant="outline" disabled>
+            Add message (coming soon)
+          </AdminButton>
+        </div>
+      </AdminPageLayout>
+    </AdminPageWrapper>
   )
 }

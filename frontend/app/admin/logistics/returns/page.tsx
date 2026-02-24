@@ -2,23 +2,26 @@
 
 import { useEffect, useState } from "react"
 import Link from "next/link"
-import { PageBanner } from "@/shared/components/ui/PageBanner"
-import { Card, CardHeader, CardTitle, CardContent } from "@/shared/components/ui/card"
-import { Button } from "@/shared/components/ui/button"
 import {
   getReturnAuthorizations,
   getShipmentById,
-  getReturnStatusColor,
 } from "@/shared/services/logisticsService"
 import { useTenant } from "@/shared/context/TenantContext"
-import { Package, RotateCcw } from "lucide-react"
-import { AgenciesPage } from "@/shared/components/layout/AgenciesPage"
-import { useDashboardTheme } from "@/shared/context/DashboardThemeContext"
+import { Package, RotateCcw, ArrowLeft } from "lucide-react"
 import { format } from "date-fns"
+import {
+  AdminPageWrapper,
+  AdminCard,
+  AdminSectionHeader,
+  AdminStatCard,
+  AdminButton,
+  AdminBadge,
+  AdminEmptyState,
+  AdminTableSkeleton,
+} from "@/shared/components/layout/AdminPageWrapper"
 
 export default function ReturnsPage() {
   const { tenantId } = useTenant()
-  const { page } = useDashboardTheme()
   const [returns, setReturns] = useState<any[]>([])
   const [shipments, setShipments] = useState<Record<string, any>>({})
   const [loading, setLoading] = useState(true)
@@ -41,102 +44,82 @@ export default function ReturnsPage() {
   const approvedCount = returns.filter((r) => r.status === "APPROVED").length
 
   return (
-    <AgenciesPage>
-      <PageBanner
+    <AdminPageWrapper>
+      <AdminSectionHeader
         title="Return Authorizations"
         subtitle="Return requests and approvals"
-        variant="admin"
-        backgroundImage="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1200&q=80"
+        action={
+          <Link href="/admin/logistics/shipments">
+            <AdminButton variant="ghost" size="sm">
+              <ArrowLeft className="h-4 w-4" />
+              Shipments
+            </AdminButton>
+          </Link>
+        }
       />
-      <div className="mt-6 flex flex-wrap gap-3">
-        <Link href="/admin/logistics/shipments">
-          <Button variant="ghost" size="sm">
-            ← Shipments
-          </Button>
-        </Link>
+
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 mb-6">
+        <AdminStatCard title="Pending" value={pendingCount} icon={RotateCcw} color="yellow" />
+        <AdminStatCard title="Approved" value={approvedCount} icon={Package} color="green" />
       </div>
 
-      <div className="mb-6 mt-6 grid min-w-0 gap-4 sm:grid-cols-2">
-        <Card style={{ borderColor: page.border }}>
-          <CardHeader>
-            <CardTitle className="text-sm">Pending</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p className="text-2xl font-bold text-amber-600">{pendingCount}</p>
-          </CardContent>
-        </Card>
-        <Card style={{ borderColor: page.border }}>
-          <CardHeader>
-            <CardTitle className="text-sm">Approved</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p className="text-2xl font-bold text-emerald-600">{approvedCount}</p>
-          </CardContent>
-        </Card>
-      </div>
-
-      <Card style={{ borderColor: page.border }}>
-        <CardHeader>
-          <CardTitle className="flex items-center gap-2">
-            <RotateCcw className="h-5 w-5" />
-            Return authorizations
-          </CardTitle>
-        </CardHeader>
-        <CardContent>
-          {loading ? (
-            <p className="py-8 text-center text-slate-500">Loading…</p>
-          ) : returns.length === 0 ? (
-            <p className="py-8 text-center text-slate-500">
-              No return authorizations.
-            </p>
-          ) : (
-            <div className="space-y-4">
-              {returns.map((r) => {
-                const ship = shipments[r.shipmentId]
-                return (
-                  <div
-                    key={r._id}
-                    className="flex items-center justify-between rounded-lg border p-4"
-                    style={{ borderColor: page.border }}
-                  >
-                    <div className="flex items-center gap-3">
-                      <Package className="h-5 w-5 text-slate-400" />
-                      <div>
-                        <p className="font-medium" style={{ color: page.text }}>
-                          {ship?.trackingNumber ?? r.shipmentId}
-                        </p>
-                        <p className="text-sm text-slate-500">{r.reason}</p>
-                        <p className="text-xs text-slate-400">
-                          Requested{" "}
-                          {r.requestedAt &&
-                            format(new Date(r.requestedAt), "MMM d, yyyy")}
-                          {r.approvedAt &&
-                            ` · Approved ${format(new Date(r.approvedAt), "MMM d, yyyy")}`}
-                        </p>
-                        {r.notes && (
-                          <p className="mt-1 text-xs text-slate-500">{r.notes}</p>
-                        )}
-                      </div>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <span
-                        className={`rounded-full border px-2 py-0.5 text-xs ${getReturnStatusColor(r.status)}`}
-                      >
-                        {r.status}
-                      </span>
-                      {r.status === "PENDING" && (
-                        <Button size="sm" variant="outline" disabled>
-                          Approve
-                        </Button>
+      <AdminCard>
+        <div className="mb-4 flex items-center gap-2">
+          <RotateCcw className="h-5 w-5 text-white/60" />
+          <h2 className="text-lg font-semibold text-white">Return authorizations</h2>
+        </div>
+        {loading ? (
+          <AdminTableSkeleton rows={5} cols={3} />
+        ) : returns.length === 0 ? (
+          <AdminEmptyState
+            icon={RotateCcw}
+            title="No return authorizations"
+            description="No return requests found."
+          />
+        ) : (
+          <div className="space-y-4">
+            {returns.map((r) => {
+              const ship = shipments[r.shipmentId]
+              return (
+                <div
+                  key={r._id}
+                  className="flex items-center justify-between rounded-xl border border-white/10 bg-white/5 p-4"
+                >
+                  <div className="flex items-center gap-3">
+                    <Package className="h-5 w-5 text-white/40" />
+                    <div>
+                      <p className="font-medium text-white">
+                        {ship?.trackingNumber ?? r.shipmentId}
+                      </p>
+                      <p className="text-sm text-white/60">{r.reason}</p>
+                      <p className="text-xs text-white/40">
+                        Requested{" "}
+                        {r.requestedAt &&
+                          format(new Date(r.requestedAt), "MMM d, yyyy")}
+                        {r.approvedAt &&
+                          ` · Approved ${format(new Date(r.approvedAt), "MMM d, yyyy")}`}
+                      </p>
+                      {r.notes && (
+                        <p className="mt-1 text-xs text-white/50">{r.notes}</p>
                       )}
                     </div>
                   </div>
-                )
-              })}
-            </div>
-          )}
-        </CardContent>
-      </Card>
-    </AgenciesPage>
+                  <div className="flex items-center gap-2">
+                    <AdminBadge variant={r.status === "PENDING" ? "warning" : r.status === "APPROVED" ? "success" : "default"}>
+                      {r.status}
+                    </AdminBadge>
+                    {r.status === "PENDING" && (
+                      <AdminButton size="sm" variant="secondary" disabled>
+                        Approve
+                      </AdminButton>
+                    )}
+                  </div>
+                </div>
+              )
+            })}
+          </div>
+        )}
+      </AdminCard>
+    </AdminPageWrapper>
   )
 }

@@ -7,9 +7,10 @@
 
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import './globals.css'
-import { SuperAdminShell } from '@/shared/components/layout/SuperAdminShell'
-import { ToastProvider } from '@/shared/components/ui/toast'
+import "./globals.css"
+import { SuperAdminShell } from "@/shared/components/layout/SuperAdminShell"
+import { ToastProvider } from "@/shared/components/ui/toast"
+import { ReduxProvider } from "@/shared/state/provider"
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -28,9 +29,11 @@ export default function RootLayout({
       <body
         className={`${inter.className} bg-background text-foreground min-h-screen`}
       >
-        <ToastProvider>
-          <SuperAdminShell>{children}</SuperAdminShell>
-        </ToastProvider>
+        <ReduxProvider>
+          <ToastProvider>
+            <SuperAdminShell>{children}</SuperAdminShell>
+          </ToastProvider>
+        </ReduxProvider>
       </body>
     </html>
   )

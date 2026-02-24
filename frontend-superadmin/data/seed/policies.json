@@ -1,0 +1,252 @@
+[
+  {
+    "id": "POL-001",
+    "name": "Financial Data Access Policy",
+    "description": "Restrict financial data access to authorized roles only",
+    "type": "deny",
+    "blueprint": "all",
+    "status": "active",
+    "priority": 1,
+    "conditions": [
+      {
+        "field": "resource_type",
+        "operator": "equals",
+        "value": "financial_data"
+      },
+      {
+        "field": "user_role",
+        "operator": "not_in",
+        "value": "finance_manager,agency_manager,superadmin"
+      }
+    ],
+    "actions": ["view", "edit", "export"],
+    "resources": ["transactions", "earnings", "commissions", "payouts"],
+    "appliedToRoles": ["all_except_finance"],
+    "createdAt": "2024-01-10T09:00:00Z",
+    "updatedAt": "2024-02-05T14:30:00Z"
+  },
+  {
+    "id": "POL-002",
+    "name": "Contestant PII Protection",
+    "description": "Protect contestant personally identifiable information",
+    "type": "conditional",
+    "blueprint": "pageant",
+    "status": "active",
+    "priority": 2,
+    "conditions": [
+      {
+        "field": "data_classification",
+        "operator": "equals",
+        "value": "PII"
+      },
+      {
+        "field": "user_role",
+        "operator": "in",
+        "value": "pageant_director,pageant_coordinator"
+      }
+    ],
+    "actions": ["view", "edit"],
+    "resources": ["contestant_profiles", "contact_information"],
+    "appliedToRoles": ["pageant_director", "pageant_coordinator"],
+    "createdAt": "2024-01-12T10:00:00Z",
+    "updatedAt": "2024-01-28T11:15:00Z"
+  },
+  {
+    "id": "POL-003",
+    "name": "Talent Submission Access",
+    "description": "Allow talent to submit to casting calls",
+    "type": "allow",
+    "blueprint": "casting",
+    "status": "active",
+    "priority": 5,
+    "conditions": [
+      {
+        "field": "user_role",
+        "operator": "equals",
+        "value": "talent"
+      },
+      {
+        "field": "casting_call_status",
+        "operator": "equals",
+        "value": "open"
+      }
+    ],
+    "actions": ["submit", "view"],
+    "resources": ["casting_calls", "submissions"],
+    "appliedToRoles": ["talent"],
+    "createdAt": "2024-01-15T11:00:00Z",
+    "updatedAt": "2024-02-01T09:30:00Z"
+  },
+  {
+    "id": "POL-004",
+    "name": "Score Finalization Lock",
+    "description": "Prevent score changes after finalization",
+    "type": "deny",
+    "blueprint": "pageant",
+    "status": "active",
+    "priority": 1,
+    "conditions": [
+      {
+        "field": "scoring_status",
+        "operator": "equals",
+        "value": "finalized"
+      }
+    ],
+    "actions": ["edit", "delete"],
+    "resources": ["scores"],
+    "appliedToRoles": ["judge", "head_judge"],
+    "createdAt": "2024-01-18T14:00:00Z",
+    "updatedAt": "2024-01-18T14:00:00Z"
+  },
+  {
+    "id": "POL-005",
+    "name": "Contract Approval Workflow",
+    "description": "Require manager approval for contracts above threshold",
+    "type": "conditional",
+    "blueprint": "talent_agency",
+    "status": "active",
+    "priority": 3,
+    "conditions": [
+      {
+        "field": "contract_value",
+        "operator": "greater_than",
+        "value": "500000"
+      },
+      {
+        "field": "user_role",
+        "operator": "equals",
+        "value": "talent_agent"
+      }
+    ],
+    "actions": ["create", "finalize"],
+    "resources": ["contracts"],
+    "appliedToRoles": ["talent_agent"],
+    "createdAt": "2024-01-20T10:00:00Z",
+    "updatedAt": "2024-02-10T15:45:00Z"
+  },
+  {
+    "id": "POL-006",
+    "name": "Audit Log Access",
+    "description": "Restrict audit log access to compliance and admin roles",
+    "type": "deny",
+    "blueprint": "all",
+    "status": "active",
+    "priority": 1,
+    "conditions": [
+      {
+        "field": "resource_type",
+        "operator": "equals",
+        "value": "audit_logs"
+      },
+      {
+        "field": "user_role",
+        "operator": "not_in",
+        "value": "superadmin,compliance_officer"
+      }
+    ],
+    "actions": ["view", "export"],
+    "resources": ["audit_logs"],
+    "appliedToRoles": ["all_except_admin"],
+    "createdAt": "2024-01-22T09:00:00Z",
+    "updatedAt": "2024-01-22T09:00:00Z"
+  },
+  {
+    "id": "POL-007",
+    "name": "Model Portfolio Upload",
+    "description": "Allow models to upload portfolio content",
+    "type": "allow",
+    "blueprint": "model_management",
+    "status": "active",
+    "priority": 5,
+    "conditions": [
+      {
+        "field": "user_role",
+        "operator": "in",
+        "value": "model,model_manager"
+      }
+    ],
+    "actions": ["upload", "edit", "delete"],
+    "resources": ["portfolio_images", "portfolio_videos"],
+    "appliedToRoles": ["model", "model_manager"],
+    "createdAt": "2024-01-25T11:00:00Z",
+    "updatedAt": "2024-02-08T10:20:00Z"
+  },
+  {
+    "id": "POL-008",
+    "name": "Event Budget Management",
+    "description": "Restrict budget modifications to event managers and finance",
+    "type": "deny",
+    "blueprint": "event_management",
+    "status": "active",
+    "priority": 2,
+    "conditions": [
+      {
+        "field": "resource_type",
+        "operator": "equals",
+        "value": "event_budget"
+      },
+      {
+        "field": "user_role",
+        "operator": "not_in",
+        "value": "event_manager,finance_manager"
+      }
+    ],
+    "actions": ["edit", "approve"],
+    "resources": ["event_budgets"],
+    "appliedToRoles": ["all_except_managers"],
+    "createdAt": "2024-01-28T13:00:00Z",
+    "updatedAt": "2024-02-12T14:15:00Z"
+  },
+  {
+    "id": "POL-009",
+    "name": "Cross-Blueprint Data Access",
+    "description": "Prevent access to data from other blueprints",
+    "type": "deny",
+    "blueprint": "all",
+    "status": "active",
+    "priority": 1,
+    "conditions": [
+      {
+        "field": "data_blueprint",
+        "operator": "not_equals",
+        "value": "user_blueprint"
+      },
+      {
+        "field": "user_role",
+        "operator": "not_equals",
+        "value": "superadmin"
+      }
+    ],
+    "actions": ["view", "edit", "delete"],
+    "resources": ["all_resources"],
+    "appliedToRoles": ["all_except_superadmin"],
+    "createdAt": "2024-02-01T09:00:00Z",
+    "updatedAt": "2024-02-01T09:00:00Z"
+  },
+  {
+    "id": "POL-010",
+    "name": "Inactive User Access Revocation",
+    "description": "Automatically revoke access for inactive users",
+    "type": "deny",
+    "blueprint": "all",
+    "status": "active",
+    "priority": 1,
+    "conditions": [
+      {
+        "field": "user_status",
+        "operator": "equals",
+        "value": "inactive"
+      },
+      {
+        "field": "last_login",
+        "operator": "older_than",
+        "value": "90_days"
+      }
+    ],
+    "actions": ["all"],
+    "resources": ["all_resources"],
+    "appliedToRoles": ["all"],
+    "createdAt": "2024-02-05T10:00:00Z",
+    "updatedAt": "2024-02-05T10:00:00Z"
+  }
+]

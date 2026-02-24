@@ -40,10 +40,10 @@ const statusLabels: Record<ContentStatus, string> = {
 }
 
 const statusBadgeClasses: Record<ContentStatus, string> = {
-  PENDING: "bg-amber-100 text-amber-800 border border-amber-200",
-  LIVE: "bg-emerald-100 text-emerald-800 border border-emerald-200",
-  EXPIRED: "bg-slate-100 text-slate-600 border border-slate-200",
-  REJECTED: "bg-rose-100 text-rose-800 border border-rose-200",
+  PENDING: "bg-[#fff4ce] text-[#797673] border border-[#797673]",
+  LIVE: "bg-[#dff6dd] text-[#107c10] border border-[#107c10]",
+  EXPIRED: "bg-[#f3f2f1] text-[#605e5c] border border-[#605e5c]",
+  REJECTED: "bg-[#fde7e9] text-[#a80000] border border-[#a80000]",
 }
 
 type FilterOption = "ALL" | ContentStatus
@@ -194,8 +194,8 @@ export default function TalentShowcaseDashboard() {
         title="Talent Showcase"
         description="Monitor showcase content across tenants. Powered by seed data for this phase."
         badge={
-          <span className="inline-flex items-center gap-1.5 rounded-md border border-slate-200 bg-white px-2.5 py-1 text-xs font-medium text-slate-600">
-            <Sparkles className="h-3.5 w-3.5 text-rose-500" />
+          <span className="inline-flex items-center gap-1.5 rounded border border-[#edebe9] bg-white px-2.5 py-1 text-xs font-medium text-[#605e5c]">
+            <Sparkles className="h-3.5 w-3.5 text-[#d13438]" />
             Content and Events
           </span>
         }
@@ -207,10 +207,10 @@ export default function TalentShowcaseDashboard() {
               <CardTitle>Total showcase posts</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-3xl font-semibold text-slate-800">
+              <p className="text-3xl font-semibold text-[#323130]">
                 {loading ? "—" : metrics.total}
               </p>
-              <p className="mt-1 text-[11px] text-slate-500">
+              <p className="mt-1 text-xs text-[#605e5c]">
                 Across all tenants in this environment.
               </p>
             </CardContent>
@@ -220,10 +220,10 @@ export default function TalentShowcaseDashboard() {
               <CardTitle>Live</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-3xl font-semibold text-emerald-300">
+              <p className="text-3xl font-semibold text-[#107c10]">
                 {loading ? "—" : metrics.live}
               </p>
-              <p className="mt-1 text-[11px] text-slate-500">
+              <p className="mt-1 text-xs text-[#605e5c]">
                 Currently visible in tenant-facing showcases.
               </p>
             </CardContent>
@@ -233,10 +233,10 @@ export default function TalentShowcaseDashboard() {
               <CardTitle>Pending approvals</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-3xl font-semibold text-amber-200">
+              <p className="text-3xl font-semibold text-[#ffb900]">
                 {loading ? "—" : metrics.pending}
               </p>
-              <p className="mt-1 text-[11px] text-slate-500">
+              <p className="mt-1 text-xs text-[#605e5c]">
                 Awaiting tenant & platform moderation.
               </p>
             </CardContent>
@@ -246,10 +246,10 @@ export default function TalentShowcaseDashboard() {
               <CardTitle>Tenants with content</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-3xl font-semibold text-sky-200">
+              <p className="text-3xl font-semibold text-[#0078d4]">
                 {loading ? "—" : metrics.tenantsWithContent}
               </p>
-              <p className="mt-1 text-[11px] text-slate-500">
+              <p className="mt-1 text-xs text-[#605e5c]">
                 Tenants who have at least one showcase post.
               </p>
             </CardContent>
@@ -262,29 +262,29 @@ export default function TalentShowcaseDashboard() {
             <CardHeader>
               <CardTitle>Format mix</CardTitle>
             </CardHeader>
-            <CardContent className="flex items-center gap-4 text-[11px] text-slate-700">
-              <div className="flex flex-1 items-center gap-2 rounded-xl border border-slate-200/80 bg-slate-50/80 px-3 py-2">
-                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-slate-100">
-                  <Film className="h-4 w-4 text-cyan-300" />
+            <CardContent className="flex items-center gap-4 text-xs text-[#323130]">
+              <div className="flex flex-1 items-center gap-2 rounded border border-[#edebe9] bg-[#faf9f8] px-3 py-2">
+                <div className="flex h-8 w-8 items-center justify-center rounded bg-[#f3f2f1]">
+                  <Film className="h-4 w-4 text-[#0078d4]" />
                 </div>
                 <div className="space-y-0.5">
-                  <p className="text-[11px] font-semibold text-slate-800">
+                  <p className="text-xs font-semibold text-[#323130]">
                     Video posts
                   </p>
-                  <p className="text-[11px] text-slate-500">
+                  <p className="text-xs text-[#605e5c]">
                     {loading ? "—" : metrics.videos}
                   </p>
                 </div>
               </div>
-              <div className="flex flex-1 items-center gap-2 rounded-xl border border-slate-200/80 bg-slate-50/80 px-3 py-2">
-                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-slate-100">
-                  <ImageIcon className="h-4 w-4 text-rose-300" />
+              <div className="flex flex-1 items-center gap-2 rounded border border-[#edebe9] bg-[#faf9f8] px-3 py-2">
+                <div className="flex h-8 w-8 items-center justify-center rounded bg-[#f3f2f1]">
+                  <ImageIcon className="h-4 w-4 text-[#d13438]" />
                 </div>
                 <div className="space-y-0.5">
-                  <p className="text-[11px] font-semibold text-slate-800">
+                  <p className="text-xs font-semibold text-[#323130]">
                     Image posts
                   </p>
-                  <p className="text-[11px] text-slate-500">
+                  <p className="text-xs text-[#605e5c]">
                     {loading ? "—" : metrics.images}
                   </p>
                 </div>
@@ -295,22 +295,22 @@ export default function TalentShowcaseDashboard() {
             <CardHeader>
               <CardTitle>Attention and demand</CardTitle>
             </CardHeader>
-            <CardContent className="space-y-2 text-[11px] text-slate-700">
+            <CardContent className="space-y-2 text-xs text-[#323130]">
               <p>
                 Estimated views:{" "}
-                <span className="font-semibold text-sky-200">
+                <span className="font-semibold text-[#0078d4]">
                   {loading ? "—" : metrics.totalViews.toLocaleString("en-IN")}
                 </span>
               </p>
               <p>
                 Applications driven:{" "}
-                <span className="font-semibold text-emerald-200">
+                <span className="font-semibold text-[#107c10]">
                   {loading
                     ? "—"
                     : metrics.totalApplications.toLocaleString("en-IN")}
                 </span>
               </p>
-              <p className="text-[10px] text-slate-500">
+              <p className="text-[11px] text-[#605e5c]">
                 All numbers are mocked from seed analytics; in production this
                 panel would be powered by ContentAnalytics.
               </p>
@@ -320,7 +320,7 @@ export default function TalentShowcaseDashboard() {
             <CardHeader>
               <CardTitle>Filter by status</CardTitle>
             </CardHeader>
-            <CardContent className="flex flex-wrap gap-2 text-[11px]">
+            <CardContent className="flex flex-wrap gap-2 text-xs">
               {([
                 { key: "ALL", label: "All" },
                 { key: "LIVE", label: "Live" },
@@ -334,8 +334,8 @@ export default function TalentShowcaseDashboard() {
                   variant={filter === opt.key ? "default" : "outline"}
                   className={
                     filter === opt.key
-                      ? "h-8 px-3 text-[11px]"
-                      : "h-8 px-3 text-[11px] bg-slate-50/70"
+                      ? "h-8 px-3 text-xs"
+                      : "h-8 px-3 text-xs bg-[#faf9f8]"
                   }
                   onClick={() => setFilter(opt.key)}
                 >
@@ -377,7 +377,7 @@ export default function TalentShowcaseDashboard() {
                   size="sm"
                   variant="outline"
                   onClick={handleBulkDelete}
-                  className="h-8 px-3 text-[11px] bg-rose-950/70 border-rose-800/70 text-rose-200 hover:bg-rose-900/70"
+                  className="h-8 px-3 text-xs bg-[#fde7e9] border-[#a80000] text-[#a80000] hover:bg-[#f4c3c7]"
                 >
                   <Trash2 className="h-3.5 w-3.5 mr-1.5" />
                   Delete ({selectedRows.length})
@@ -386,19 +386,19 @@ export default function TalentShowcaseDashboard() {
             </div>
           </div>
 
-          <div className="rounded-2xl border border-slate-200/80 bg-slate-50/70 p-3 shadow-[0_18px_45px_rgba(15,23,42,0.9)] backdrop-blur">
+          <div className="rounded border border-[#edebe9] bg-white p-3">
             {loading ? (
-              <div className="flex items-center justify-center py-14 text-slate-600">
+              <div className="flex items-center justify-center py-14 text-[#605e5c]">
                 <span className="text-sm">Loading showcase posts from seed…</span>
               </div>
             ) : filteredPosts.length === 0 ? (
-              <div className="flex flex-col items-center justify-center gap-2 py-14 text-center text-slate-600">
+              <div className="flex flex-col items-center justify-center gap-2 py-14 text-center text-[#605e5c]">
                 <p className="text-sm font-medium">
                   No posts match this filter in the current seed.
                 </p>
-                <p className="max-w-md text-[11px] text-slate-500">
+                <p className="max-w-md text-xs text-[#605e5c]">
                   Update{" "}
-                  <code className="rounded bg-slate-100 px-1.5 py-0.5 text-[10px]">
+                  <code className="rounded bg-[#f3f2f1] px-1.5 py-0.5 text-[11px]">
                     data/seed/contentPosts.json
                   </code>{" "}
                   to simulate different showcase patterns.
@@ -409,48 +409,47 @@ export default function TalentShowcaseDashboard() {
                 {filteredPosts.map((post) => (
                   <article
                     key={post._id}
-                    className="group relative overflow-hidden rounded-2xl border border-slate-200/80 bg-slate-50/85 p-[1px]"
+                    className="group relative overflow-hidden rounded border border-[#edebe9] bg-[#faf9f8] hover:bg-[#f3f2f1] transition-colors"
                   >
-                    <div className="absolute inset-0 -z-10 bg-gradient-to-br from-rose-500/15 via-slate-50 to-blue-500/12 opacity-0 blur-2xl transition-opacity duration-300 group-hover:opacity-100" />
-                    <div className="relative flex h-full flex-col rounded-[1.05rem] bg-slate-50/95 px-4 py-3 sm:px-5 sm:py-4">
+                    <div className="relative flex h-full flex-col px-4 py-3 sm:px-5 sm:py-4">
                       <div className="mb-2 flex items-start justify-between gap-2">
                         <div className="space-y-0.5">
-                          <h3 className="text-sm font-semibold text-slate-800 sm:text-[15px]">
+                          <h3 className="text-sm font-semibold text-[#323130] sm:text-[15px]">
                             {post.title}
                           </h3>
-                          <p className="text-[11px] text-slate-500">
+                          <p className="text-xs text-[#605e5c]">
                             Tenant{" "}
-                            <span className="font-mono text-slate-600">
+                            <span className="font-mono text-[#323130]">
                               {post.tenantId}
                             </span>{" "}
                             · Owner {post.ownerType.toLowerCase()}{" "}
-                            <span className="font-mono text-slate-600">
+                            <span className="font-mono text-[#323130]">
                               {post.ownerId}
                             </span>
                           </p>
                         </div>
                         <span
-                          className={`rounded-full px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide ${statusBadgeClasses[post.status]}`}
+                          className={`rounded px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide ${statusBadgeClasses[post.status]}`}
                         >
                           {statusLabels[post.status]}
                         </span>
                       </div>
 
-                      <div className="mb-2 flex items-center gap-2 text-[10px] text-slate-500">
-                        <span className="inline-flex items-center gap-1 rounded-full bg-slate-100/80 px-2 py-0.5">
+                      <div className="mb-2 flex items-center gap-2 text-[10px] text-[#605e5c]">
+                        <span className="inline-flex items-center gap-1 rounded bg-[#f3f2f1] px-2 py-0.5">
                           {post.type === "VIDEO" ? (
-                            <Film className="h-3 w-3 text-cyan-300" />
+                            <Film className="h-3 w-3 text-[#0078d4]" />
                           ) : (
-                            <ImageIcon className="h-3 w-3 text-rose-300" />
+                            <ImageIcon className="h-3 w-3 text-[#d13438]" />
                           )}
                           <span className="uppercase tracking-wide">
                             {post.type.toLowerCase()}
                           </span>
                         </span>
                         {post.linkedPageantId && (
-                          <span className="rounded-full bg-slate-100/80 px-2 py-0.5">
+                          <span className="rounded bg-[#f3f2f1] px-2 py-0.5">
                             Linked pageant:{" "}
-                            <span className="font-mono text-slate-600">
+                            <span className="font-mono text-[#323130]">
                               {post.linkedPageantId}
                             </span>
                           </span>
@@ -458,11 +457,11 @@ export default function TalentShowcaseDashboard() {
                       </div>
 
                       {post.tags && post.tags.length > 0 && (
-                        <div className="mb-2 flex flex-wrap gap-1.5 text-[10px] text-slate-600">
+                        <div className="mb-2 flex flex-wrap gap-1.5 text-[10px] text-[#323130]">
                           {post.tags.map((tag) => (
                             <span
                               key={tag}
-                              className="rounded-full bg-slate-100 px-2 py-0.5"
+                              className="rounded bg-[#f3f2f1] px-2 py-0.5"
                             >
                               #{tag}
                             </span>
@@ -471,24 +470,24 @@ export default function TalentShowcaseDashboard() {
                       )}
 
                       {post.analytics && (
-                        <div className="mt-auto flex flex-wrap items-center justify-between gap-2 border-t border-slate-200/80 pt-2 text-[10px] text-slate-600">
+                        <div className="mt-auto flex flex-wrap items-center justify-between gap-2 border-t border-[#edebe9] pt-2 text-[10px] text-[#605e5c]">
                           <div className="flex flex-wrap gap-3">
                             <span>
                               Views:{" "}
-                              <span className="font-semibold text-sky-200">
+                              <span className="font-semibold text-[#0078d4]">
                                 {post.analytics.views.toLocaleString("en-IN")}
                               </span>
                             </span>
                             <span>
                               Applications:{" "}
-                              <span className="font-semibold text-emerald-200">
+                              <span className="font-semibold text-[#107c10]">
                                 {post.analytics.applications.toLocaleString(
                                   "en-IN"
                                 )}
                               </span>
                             </span>
                           </div>
-                          <span className="text-slate-800">
+                          <span className="text-[#323130]">
                             {post.createdAt
                               ? new Date(post.createdAt).toLocaleDateString(
                                   "en-IN",
@@ -503,12 +502,12 @@ export default function TalentShowcaseDashboard() {
                         </div>
                       )}
 
-                      <div className="mt-2 flex items-center gap-2 border-t border-slate-200/80 pt-2">
+                      <div className="mt-2 flex items-center gap-2 border-t border-[#edebe9] pt-2">
                         <Button
                           size="sm"
                           variant="ghost"
                           onClick={() => handlePreview(post)}
-                          className="h-7 px-2 text-[10px] text-sky-200 hover:bg-sky-500/10 flex-1"
+                          className="h-7 px-2 text-[10px] text-[#0078d4] hover:bg-[#f3f2f1] flex-1"
                         >
                           <Eye className="h-3 w-3 mr-1.5" />
                           Preview
@@ -519,7 +518,7 @@ export default function TalentShowcaseDashboard() {
                               size="sm"
                               variant="ghost"
                               onClick={() => handleApprove(post)}
-                              className="h-7 px-2 text-[10px] text-emerald-200 hover:bg-emerald-500/10"
+                              className="h-7 px-2 text-[10px] text-[#107c10] hover:bg-[#f3f2f1]"
                             >
                               <CheckCircle2 className="h-3 w-3" />
                             </Button>
@@ -527,7 +526,7 @@ export default function TalentShowcaseDashboard() {
                               size="sm"
                               variant="ghost"
                               onClick={() => handleReject(post)}
-                              className="h-7 px-2 text-[10px] text-rose-200 hover:bg-rose-500/10"
+                              className="h-7 px-2 text-[10px] text-[#a80000] hover:bg-[#f3f2f1]"
                             >
                               <XCircle className="h-3 w-3" />
                             </Button>
@@ -556,32 +555,32 @@ export default function TalentShowcaseDashboard() {
                 </SheetDescription>
               </SheetHeader>
 
-              <SheetBody className="space-y-4 text-sm text-slate-700">
+              <SheetBody className="space-y-4 text-sm text-[#323130]">
                   {/* Content Preview */}
-                  <div className="rounded-lg border border-slate-200/80 bg-slate-50/80 p-4">
-                    <p className="mb-2 text-[10px] font-semibold uppercase tracking-wide text-slate-500">
+                  <div className="rounded border border-[#edebe9] bg-[#faf9f8] p-4">
+                    <p className="mb-2 text-[11px] font-semibold uppercase tracking-wide text-[#605e5c]">
                       Content Preview
                     </p>
                     {selectedPost.type === "VIDEO" ? (
-                      <div className="flex h-64 items-center justify-center rounded-lg bg-slate-100/70 border border-slate-200">
+                      <div className="flex h-64 items-center justify-center rounded bg-[#f3f2f1] border border-[#edebe9]">
                         <div className="text-center">
-                          <Film className="mx-auto h-12 w-12 text-slate-800" />
-                          <p className="mt-2 text-sm text-slate-500">
+                          <Film className="mx-auto h-12 w-12 text-[#323130]" />
+                          <p className="mt-2 text-sm text-[#605e5c]">
                             Video preview (seed data only)
                           </p>
-                          <p className="mt-1 text-[10px] text-slate-800">
+                          <p className="mt-1 text-xs text-[#323130]">
                             In production, this would show the actual video player
                           </p>
                         </div>
                       </div>
                     ) : (
-                      <div className="flex h-64 items-center justify-center rounded-lg bg-slate-100/70 border border-slate-200">
+                      <div className="flex h-64 items-center justify-center rounded bg-[#f3f2f1] border border-[#edebe9]">
                         <div className="text-center">
-                          <ImageIcon className="mx-auto h-12 w-12 text-slate-800" />
-                          <p className="mt-2 text-sm text-slate-500">
+                          <ImageIcon className="mx-auto h-12 w-12 text-[#323130]" />
+                          <p className="mt-2 text-sm text-[#605e5c]">
                             Image preview (seed data only)
                           </p>
-                          <p className="mt-1 text-[10px] text-slate-800">
+                          <p className="mt-1 text-xs text-[#323130]">
                             In production, this would show the actual image
                           </p>
                         </div>
@@ -591,53 +590,53 @@ export default function TalentShowcaseDashboard() {
 
                   {/* Details */}
                   <div className="grid gap-4 md:grid-cols-2">
-                    <div className="rounded-lg border border-slate-200/80 bg-slate-50/80 px-3 py-2.5">
-                      <p className="text-[10px] font-semibold uppercase tracking-wide text-slate-500">
+                    <div className="rounded border border-[#edebe9] bg-[#faf9f8] px-3 py-2.5">
+                      <p className="text-[11px] font-semibold uppercase tracking-wide text-[#605e5c]">
                         Post Info
                       </p>
-                      <div className="mt-2 space-y-1 text-sm text-slate-800">
+                      <div className="mt-2 space-y-1 text-sm text-[#323130]">
                         <p>
-                          <span className="text-slate-500">Tenant:</span>{" "}
+                          <span className="text-[#605e5c]">Tenant:</span>{" "}
                           <span className="font-mono">{selectedPost.tenantId}</span>
                         </p>
                         <p>
-                          <span className="text-slate-500">Owner:</span>{" "}
+                          <span className="text-[#605e5c]">Owner:</span>{" "}
                           {selectedPost.ownerType} ({selectedPost.ownerId})
                         </p>
                         <p>
-                          <span className="text-slate-500">Type:</span>{" "}
+                          <span className="text-[#605e5c]">Type:</span>{" "}
                           {selectedPost.type}
                         </p>
                         {selectedPost.linkedPageantId && (
                           <p>
-                            <span className="text-slate-500">Linked Pageant:</span>{" "}
+                            <span className="text-[#605e5c]">Linked Pageant:</span>{" "}
                             <span className="font-mono">{selectedPost.linkedPageantId}</span>
                           </p>
                         )}
                       </div>
                     </div>
 
-                    <div className="rounded-lg border border-slate-200/80 bg-slate-50/80 px-3 py-2.5">
-                      <p className="text-[10px] font-semibold uppercase tracking-wide text-slate-500">
+                    <div className="rounded border border-[#edebe9] bg-[#faf9f8] px-3 py-2.5">
+                      <p className="text-[11px] font-semibold uppercase tracking-wide text-[#605e5c]">
                         Analytics
                       </p>
                       {selectedPost.analytics ? (
-                        <div className="mt-2 space-y-2 text-sm text-slate-800">
+                        <div className="mt-2 space-y-2 text-sm text-[#323130]">
                           <div>
-                            <span className="text-slate-500">Views:</span>{" "}
-                            <span className="font-semibold text-sky-200">
+                            <span className="text-[#605e5c]">Views:</span>{" "}
+                            <span className="font-semibold text-[#0078d4]">
                               {selectedPost.analytics.views.toLocaleString("en-IN")}
                             </span>
                           </div>
                           <div>
-                            <span className="text-slate-500">Applications:</span>{" "}
-                            <span className="font-semibold text-emerald-200">
+                            <span className="text-[#605e5c]">Applications:</span>{" "}
+                            <span className="font-semibold text-[#107c10]">
                               {selectedPost.analytics.applications.toLocaleString("en-IN")}
                             </span>
                           </div>
                         </div>
                       ) : (
-                        <p className="mt-2 text-sm text-slate-500">
+                        <p className="mt-2 text-sm text-[#605e5c]">
                           No analytics data available
                         </p>
                       )}
@@ -646,26 +645,26 @@ export default function TalentShowcaseDashboard() {
 
                   {/* Description & Tags */}
                   {selectedPost.description && (
-                    <div className="rounded-lg border border-slate-200/80 bg-slate-50/80 px-3 py-2.5">
-                      <p className="text-[10px] font-semibold uppercase tracking-wide text-slate-500">
+                    <div className="rounded border border-[#edebe9] bg-[#faf9f8] px-3 py-2.5">
+                      <p className="text-[11px] font-semibold uppercase tracking-wide text-[#605e5c]">
                         Description
                       </p>
-                      <p className="mt-1 text-sm text-slate-700">
+                      <p className="mt-1 text-sm text-[#323130]">
                         {selectedPost.description}
                       </p>
                     </div>
                   )}
 
                   {selectedPost.tags && selectedPost.tags.length > 0 && (
-                    <div className="rounded-lg border border-slate-200/80 bg-slate-50/80 px-3 py-2.5">
-                      <p className="text-[10px] font-semibold uppercase tracking-wide text-slate-500">
+                    <div className="rounded border border-[#edebe9] bg-[#faf9f8] px-3 py-2.5">
+                      <p className="text-[11px] font-semibold uppercase tracking-wide text-[#605e5c]">
                         Tags
                       </p>
                       <div className="mt-2 flex flex-wrap gap-2">
                         {selectedPost.tags.map((tag) => (
                           <span
                             key={tag}
-                            className="rounded-full bg-slate-100 px-2 py-1 text-[10px] text-slate-700"
+                            className="rounded bg-[#f3f2f1] px-2 py-1 text-[10px] text-[#323130]"
                           >
                             #{tag}
                           </span>

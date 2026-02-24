@@ -1,0 +1,230 @@
+[
+  {
+    "id": "SVC-001",
+    "name": "API Gateway",
+    "category": "core",
+    "status": "operational",
+    "uptime": 99.99,
+    "uptimeDays": 89,
+    "lastCheck": "2024-02-21T10:45:00Z",
+    "responseTime": 85,
+    "errorRate": 0.05,
+    "version": "v2.4.1",
+    "region": "ap-south-1",
+    "dependencies": ["Auth Service", "Load Balancer"],
+    "healthChecks": [
+      { "name": "HTTP", "status": "pass", "lastRun": "2024-02-21T10:45:00Z" },
+      { "name": "SSL", "status": "pass", "lastRun": "2024-02-21T10:45:00Z" },
+      { "name": "Rate Limit", "status": "pass", "lastRun": "2024-02-21T10:45:00Z" }
+    ]
+  },
+  {
+    "id": "SVC-002",
+    "name": "Authentication Service",
+    "category": "core",
+    "status": "operational",
+    "uptime": 99.98,
+    "uptimeDays": 89,
+    "lastCheck": "2024-02-21T10:45:00Z",
+    "responseTime": 120,
+    "errorRate": 0.08,
+    "version": "v3.1.0",
+    "region": "ap-south-1",
+    "dependencies": ["Database", "Redis Cache"],
+    "healthChecks": [
+      { "name": "Login", "status": "pass", "lastRun": "2024-02-21T10:45:00Z" },
+      { "name": "Token Validation", "status": "pass", "lastRun": "2024-02-21T10:45:00Z" },
+      { "name": "Session Store", "status": "pass", "lastRun": "2024-02-21T10:45:00Z" }
+    ]
+  },
+  {
+    "id": "SVC-003",
+    "name": "Database Primary",
+    "category": "data",
+    "status": "operational",
+    "uptime": 100.0,
+    "uptimeDays": 89,
+    "lastCheck": "2024-02-21T10:45:00Z",
+    "responseTime": 45,
+    "errorRate": 0.0,
+    "version": "PostgreSQL 15.2",
+    "region": "ap-south-1",
+    "dependencies": ["Database Replica"],
+    "healthChecks": [
+      { "name": "Connection", "status": "pass", "lastRun": "2024-02-21T10:45:00Z" },
+      { "name": "Replication", "status": "pass", "lastRun": "2024-02-21T10:45:00Z" },
+      { "name": "Disk Space", "status": "pass", "lastRun": "2024-02-21T10:45:00Z" }
+    ]
+  },
+  {
+    "id": "SVC-004",
+    "name": "Cache Layer (Redis)",
+    "category": "data",
+    "status": "operational",
+    "uptime": 99.95,
+    "uptimeDays": 89,
+    "lastCheck": "2024-02-21T10:45:00Z",
+    "responseTime": 12,
+    "errorRate": 0.02,
+    "version": "Redis 7.0",
+    "region": "ap-south-1",
+    "dependencies": [],
+    "healthChecks": [
+      { "name": "Ping", "status": "pass", "lastRun": "2024-02-21T10:45:00Z" },
+      { "name": "Memory", "status": "pass", "lastRun": "2024-02-21T10:45:00Z" },
+      { "name": "Persistence", "status": "pass", "lastRun": "2024-02-21T10:45:00Z" }
+    ]
+  },
+  {
+    "id": "SVC-005",
+    "name": "File Storage",
+    "category": "storage",
+    "status": "degraded",
+    "uptime": 98.5,
+    "uptimeDays": 89,
+    "lastCheck": "2024-02-21T10:45:00Z",
+    "responseTime": 450,
+    "errorRate": 1.2,
+    "version": "S3 Compatible",
+    "region": "ap-south-1",
+    "dependencies": ["CDN"],
+    "healthChecks": [
+      { "name": "Upload", "status": "pass", "lastRun": "2024-02-21T10:45:00Z" },
+      { "name": "Download", "status": "fail", "lastRun": "2024-02-21T10:45:00Z" },
+      { "name": "Quota", "status": "pass", "lastRun": "2024-02-21T10:45:00Z" }
+    ]
+  },
+  {
+    "id": "SVC-006",
+    "name": "Email Service",
+    "category": "communication",
+    "status": "operational",
+    "uptime": 99.92,
+    "uptimeDays": 89,
+    "lastCheck": "2024-02-21T10:45:00Z",
+    "responseTime": 230,
+    "errorRate": 0.15,
+    "version": "v1.8.3",
+    "region": "ap-south-1",
+    "dependencies": ["SMTP Gateway"],
+    "healthChecks": [
+      { "name": "Send", "status": "pass", "lastRun": "2024-02-21T10:45:00Z" },
+      { "name": "Queue", "status": "pass", "lastRun": "2024-02-21T10:45:00Z" },
+      { "name": "Bounce Rate", "status": "pass", "lastRun": "2024-02-21T10:45:00Z" }
+    ]
+  },
+  {
+    "id": "SVC-007",
+    "name": "Payment Gateway",
+    "category": "financial",
+    "status": "operational",
+    "uptime": 99.97,
+    "uptimeDays": 89,
+    "lastCheck": "2024-02-21T10:45:00Z",
+    "responseTime": 180,
+    "errorRate": 0.06,
+    "version": "v4.2.0",
+    "region": "ap-south-1",
+    "dependencies": ["Razorpay API", "Database"],
+    "healthChecks": [
+      { "name": "Payment", "status": "pass", "lastRun": "2024-02-21T10:45:00Z" },
+      { "name": "Refund", "status": "pass", "lastRun": "2024-02-21T10:45:00Z" },
+      { "name": "Webhook", "status": "pass", "lastRun": "2024-02-21T10:45:00Z" }
+    ]
+  },
+  {
+    "id": "SVC-008",
+    "name": "Search Engine",
+    "category": "core",
+    "status": "operational",
+    "uptime": 99.88,
+    "uptimeDays": 89,
+    "lastCheck": "2024-02-21T10:45:00Z",
+    "responseTime": 95,
+    "errorRate": 0.18,
+    "version": "Elasticsearch 8.5",
+    "region": "ap-south-1",
+    "dependencies": ["Database"],
+    "healthChecks": [
+      { "name": "Query", "status": "pass", "lastRun": "2024-02-21T10:45:00Z" },
+      { "name": "Index", "status": "pass", "lastRun": "2024-02-21T10:45:00Z" },
+      { "name": "Cluster", "status": "pass", "lastRun": "2024-02-21T10:45:00Z" }
+    ]
+  },
+  {
+    "id": "SVC-009",
+    "name": "Notification Service",
+    "category": "communication",
+    "status": "operational",
+    "uptime": 99.85,
+    "uptimeDays": 89,
+    "lastCheck": "2024-02-21T10:45:00Z",
+    "responseTime": 145,
+    "errorRate": 0.22,
+    "version": "v2.1.5",
+    "region": "ap-south-1",
+    "dependencies": ["Firebase", "Database"],
+    "healthChecks": [
+      { "name": "Push", "status": "pass", "lastRun": "2024-02-21T10:45:00Z" },
+      { "name": "SMS", "status": "pass", "lastRun": "2024-02-21T10:45:00Z" },
+      { "name": "In-App", "status": "pass", "lastRun": "2024-02-21T10:45:00Z" }
+    ]
+  },
+  {
+    "id": "SVC-010",
+    "name": "Analytics Engine",
+    "category": "analytics",
+    "status": "operational",
+    "uptime": 99.75,
+    "uptimeDays": 89,
+    "lastCheck": "2024-02-21T10:45:00Z",
+    "responseTime": 320,
+    "errorRate": 0.35,
+    "version": "v1.5.2",
+    "region": "ap-south-1",
+    "dependencies": ["Data Warehouse", "Cache"],
+    "healthChecks": [
+      { "name": "Ingestion", "status": "pass", "lastRun": "2024-02-21T10:45:00Z" },
+      { "name": "Processing", "status": "pass", "lastRun": "2024-02-21T10:45:00Z" },
+      { "name": "Query", "status": "pass", "lastRun": "2024-02-21T10:45:00Z" }
+    ]
+  },
+  {
+    "id": "SVC-011",
+    "name": "Background Jobs",
+    "category": "processing",
+    "status": "operational",
+    "uptime": 99.82,
+    "uptimeDays": 89,
+    "lastCheck": "2024-02-21T10:45:00Z",
+    "responseTime": 0,
+    "errorRate": 0.28,
+    "version": "v3.0.1",
+    "region": "ap-south-1",
+    "dependencies": ["Redis Queue", "Database"],
+    "healthChecks": [
+      { "name": "Queue Size", "status": "pass", "lastRun": "2024-02-21T10:45:00Z" },
+      { "name": "Workers", "status": "pass", "lastRun": "2024-02-21T10:45:00Z" },
+      { "name": "Failed Jobs", "status": "pass", "lastRun": "2024-02-21T10:45:00Z" }
+    ]
+  },
+  {
+    "id": "SVC-012",
+    "name": "CDN",
+    "category": "storage",
+    "status": "operational",
+    "uptime": 99.99,
+    "uptimeDays": 89,
+    "lastCheck": "2024-02-21T10:45:00Z",
+    "responseTime": 35,
+    "errorRate": 0.01,
+    "version": "CloudFront",
+    "region": "global",
+    "dependencies": ["File Storage"],
+    "healthChecks": [
+      { "name": "Edge Nodes", "status": "pass", "lastRun": "2024-02-21T10:45:00Z" },
+      { "name": "Cache Hit", "status": "pass", "lastRun": "2024-02-21T10:45:00Z" },
+      { "name": "SSL", "status": "pass", "lastRun": "2024-02-21T10:45:00Z" }
+    ]
+  }
+]

@@ -3,21 +3,21 @@
 import { useEffect, useState } from "react"
 import { useParams } from "next/navigation"
 import Link from "next/link"
-import { PageBanner } from "@/shared/components/ui/PageBanner"
-import { Card, CardHeader, CardTitle, CardContent } from "@/shared/components/ui/card"
-import { Button } from "@/shared/components/ui/button"
 import {
   getProjectById,
   getTasksByProject,
   getChecklistsByProject,
-  getProjectStatusColor,
-  getTaskStatusColor,
 } from "@/shared/services/projectService"
-import { FolderKanban, ListTodo, CheckSquare, ChevronRight } from "lucide-react"
-import { AgenciesPage } from "@/shared/components/layout/AgenciesPage"
-import { useDashboardTheme } from "@/shared/context/DashboardThemeContext"
+import { FolderKanban, ListTodo, CheckSquare, ArrowLeft } from "lucide-react"
 import { getCreatorName, getOwnerName } from "@/shared/lib/creator"
 import { CapabilityGate } from "@/shared/components/ui/CapabilityGate"
+import {
+  AdminPageWrapper,
+  AdminCard,
+  AdminSectionHeader,
+  AdminButton,
+  AdminBadge,
+} from "@/shared/components/layout/AdminPageWrapper"
 
 const typeLabels: Record<string, string> = {
   PAGEANT: "Pageant",
@@ -41,7 +41,6 @@ function formatDateTime(iso?: string | null) {
 export default function ProjectDetailPage() {
   const params = useParams()
   const id = params?.id as string
-  const { page } = useDashboardTheme()
   const [project, setProject] = useState<any>(null)
   const [tasks, setTasks] = useState<any[]>([])
   const [checklists, setChecklists] = useState<any[]>([])
@@ -63,11 +62,11 @@ export default function ProjectDetailPage() {
 
   if (loading || !project) {
     return (
-      <AgenciesPage>
+      <AdminPageWrapper>
         <div className="flex min-h-[200px] items-center justify-center">
-          <p className="text-slate-500">Loading project…</p>
+          <p className="text-white/60">Loading project…</p>
         </div>
-      </AgenciesPage>
+      </AdminPageWrapper>
     )
   }
 
@@ -75,37 +74,34 @@ export default function ProjectDetailPage() {
   const inProgressTasks = tasks.filter((t) => t.status === "IN_PROGRESS").length
 
   return (
-    <AgenciesPage>
-      <PageBanner
+    <AdminPageWrapper>
+      <AdminSectionHeader
         title={project.name}
         subtitle={`${typeLabels[project.type] ?? project.type} · ${project.startDate} – ${project.endDate}`}
-        variant="admin"
-        backgroundImage="https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?w=1200&q=80"
+        action={
+          <div className="flex gap-2">
+            <Link href="/admin/projects">
+              <AdminButton variant="ghost" size="sm">
+                <ArrowLeft className="h-4 w-4" />
+                Projects
+              </AdminButton>
+            </Link>
+            {project.eventId && (
+              <Link href={`/admin/events/${project.eventId}/run-of-show`}>
+                <AdminButton variant="secondary" size="sm">Run-of-show</AdminButton>
+              </Link>
+            )}
+          </div>
+        }
       />
-      <div className="mt-6 flex flex-wrap gap-3">
-        <Link href="/admin/projects">
-          <Button variant="ghost" size="sm">
-            ← Projects
-          </Button>
-        </Link>
-        {project.eventId && (
-          <Link href={`/admin/events/${project.eventId}/run-of-show`}>
-            <Button variant="outline" size="sm">
-              Run-of-show
-            </Button>
-          </Link>
-        )}
-      </div>
 
       {project.description && (
-        <p className="mt-6 text-sm text-slate-600">{project.description}</p>
+        <p className="mb-6 text-sm text-white/70">{project.description}</p>
       )}
 
-      <Card className="mt-6" style={{ borderColor: page.border }}>
-        <CardHeader>
-          <CardTitle className="text-sm">Ownership & attribution</CardTitle>
-        </CardHeader>
-        <CardContent className="space-y-1 text-sm text-slate-600">
+      <AdminCard className="mb-6">
+        <h3 className="mb-3 text-sm font-semibold text-white">Ownership & attribution</h3>
+        <div className="space-y-1 text-sm text-white/70">
           <p>
             Owner:{" "}
             {getOwnerName(project.ownerId) ?? project.ownerId ?? "—"}
@@ -120,106 +116,99 @@ export default function ProjectDetailPage() {
           <p>
             Created: {formatDateTime(project.createdAt)} · Updated: {formatDateTime(project.updatedAt)}
           </p>
-        </CardContent>
-      </Card>
+        </div>
+      </AdminCard>
 
-      <div className="mt-6 grid min-w-0 gap-6 lg:grid-cols-2">
-        <Card style={{ borderColor: page.border }}>
-          <CardHeader className="flex flex-row items-center justify-between">
-            <CardTitle className="flex items-center gap-2">
-              <ListTodo className="h-5 w-5" />
-              Tasks ({tasks.length})
-            </CardTitle>
+      <div className="grid gap-6 lg:grid-cols-2 mb-6">
+        <AdminCard>
+          <div className="mb-4 flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <ListTodo className="h-5 w-5 text-white/60" />
+              <h2 className="text-lg font-semibold text-white">Tasks ({tasks.length})</h2>
+            </div>
             <CapabilityGate capability="jobs.read">
-              <Button asChild size="sm" variant="outline">
-                <Link href={`/admin/projects/${id}/tasks`}>View all</Link>
-              </Button>
+              <Link href={`/admin/projects/${id}/tasks`}>
+                <AdminButton size="sm" variant="secondary">View all</AdminButton>
+              </Link>
             </CapabilityGate>
-          </CardHeader>
-          <CardContent>
-            {tasks.length === 0 ? (
-              <p className="py-4 text-center text-slate-500">No tasks yet.</p>
-            ) : (
-              <div className="space-y-2">
-                {tasks.slice(0, 4).map((t) => (
-                  <div
-                    key={t._id}
-                    className="flex items-center justify-between rounded border px-3 py-2"
-                    style={{ borderColor: page.border }}
-                  >
-                    <p className="text-sm font-medium" style={{ color: page.text }}>
-                      {t.title}
-                    </p>
-                    <span
-                      className={`rounded-full border px-2 py-0.5 text-xs ${getTaskStatusColor(t.status)}`}
-                    >
-                      {t.status.replace("_", " ")}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            )}
-            <p className="mt-3 text-xs text-slate-500">
-              {doneTasks} done · {inProgressTasks} in progress
-            </p>
-          </CardContent>
-        </Card>
+          </div>
+          {tasks.length === 0 ? (
+            <p className="py-4 text-center text-white/60">No tasks yet.</p>
+          ) : (
+            <div className="space-y-2">
+              {tasks.slice(0, 4).map((t) => (
+                <div
+                  key={t._id}
+                  className="flex items-center justify-between rounded-xl border border-white/10 bg-white/5 px-3 py-2"
+                >
+                  <p className="text-sm font-medium text-white">
+                    {t.title}
+                  </p>
+                  <AdminBadge variant={
+                    t.status === "DONE" ? "success" :
+                    t.status === "IN_PROGRESS" ? "info" : "default"
+                  }>
+                    {t.status.replace("_", " ")}
+                  </AdminBadge>
+                </div>
+              ))}
+            </div>
+          )}
+          <p className="mt-3 text-xs text-white/50">
+            {doneTasks} done · {inProgressTasks} in progress
+          </p>
+        </AdminCard>
 
-        <Card style={{ borderColor: page.border }}>
-          <CardHeader className="flex flex-row items-center justify-between">
-            <CardTitle className="flex items-center gap-2">
-              <CheckSquare className="h-5 w-5" />
-              Checklists ({checklists.length})
-            </CardTitle>
+        <AdminCard>
+          <div className="mb-4 flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <CheckSquare className="h-5 w-5 text-white/60" />
+              <h2 className="text-lg font-semibold text-white">Checklists ({checklists.length})</h2>
+            </div>
             <CapabilityGate capability="jobs.read">
-              <Button asChild size="sm" variant="outline">
-                <Link href={`/admin/projects/${id}/checklists`}>View all</Link>
-              </Button>
+              <Link href={`/admin/projects/${id}/checklists`}>
+                <AdminButton size="sm" variant="secondary">View all</AdminButton>
+              </Link>
             </CapabilityGate>
-          </CardHeader>
-          <CardContent>
-            {checklists.length === 0 ? (
-              <p className="py-4 text-center text-slate-500">No checklists yet.</p>
-            ) : (
-              <div className="space-y-2">
-                {checklists.map((c) => {
-                  const items = c.items ?? []
-                  const done = items.filter((i: any) => i.done).length
-                  const total = items.length
-                  return (
-                    <Link key={c._id} href={`/admin/projects/${id}/checklists`}>
-                      <div
-                        className="flex items-center justify-between rounded border px-3 py-2 transition-colors hover:bg-slate-50"
-                        style={{ borderColor: page.border }}
-                      >
-                        <p className="text-sm font-medium" style={{ color: page.text }}>
-                          {c.name}
-                        </p>
-                        <span className="text-xs text-slate-500">
-                          {done}/{total}
-                        </span>
-                      </div>
-                    </Link>
-                  )
-                })}
-              </div>
-            )}
-          </CardContent>
-        </Card>
+          </div>
+          {checklists.length === 0 ? (
+            <p className="py-4 text-center text-white/60">No checklists yet.</p>
+          ) : (
+            <div className="space-y-2">
+              {checklists.map((c) => {
+                const items = c.items ?? []
+                const done = items.filter((i: any) => i.done).length
+                const total = items.length
+                return (
+                  <Link key={c._id} href={`/admin/projects/${id}/checklists`}>
+                    <div className="flex items-center justify-between rounded-xl border border-white/10 bg-white/5 px-3 py-2 transition hover:bg-white/10">
+                      <p className="text-sm font-medium text-white">
+                        {c.name}
+                      </p>
+                      <span className="text-xs text-white/60">
+                        {done}/{total}
+                      </span>
+                    </div>
+                  </Link>
+                )
+              })}
+            </div>
+          )}
+        </AdminCard>
       </div>
 
-      <div className="mt-6 flex flex-wrap gap-3">
+      <div className="flex flex-wrap gap-3">
         <CapabilityGate capability="jobs.read">
-          <Button asChild variant="outline">
-            <Link href={`/admin/projects/${id}/tasks`}>Tasks</Link>
-          </Button>
+          <Link href={`/admin/projects/${id}/tasks`}>
+            <AdminButton variant="secondary">Tasks</AdminButton>
+          </Link>
         </CapabilityGate>
         <CapabilityGate capability="jobs.read">
-          <Button asChild variant="outline">
-            <Link href={`/admin/projects/${id}/checklists`}>Checklists</Link>
-          </Button>
+          <Link href={`/admin/projects/${id}/checklists`}>
+            <AdminButton variant="secondary">Checklists</AdminButton>
+          </Link>
         </CapabilityGate>
       </div>
-    </AgenciesPage>
+    </AdminPageWrapper>
   )
 }

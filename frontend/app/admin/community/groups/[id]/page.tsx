@@ -3,9 +3,6 @@
 import { useEffect, useState } from "react"
 import { useParams } from "next/navigation"
 import Link from "next/link"
-import { PageBanner } from "@/shared/components/ui/PageBanner"
-import { Card, CardHeader, CardTitle, CardContent } from "@/shared/components/ui/card"
-import { Button } from "@/shared/components/ui/button"
 import {
   getGroupById,
   getGroupMembers,
@@ -15,15 +12,14 @@ import {
   type CommunityGroup,
 } from "@/shared/services/communityService"
 import { Users2, Lock, LogIn, LogOut } from "lucide-react"
-import { AgenciesPage } from "@/shared/components/layout/AgenciesPage"
-import { useDashboardTheme } from "@/shared/context/DashboardThemeContext"
+import { AdminPageWrapper } from "@/shared/components/layout/AdminPageWrapper"
+import { AdminPageLayout, AdminCard, AdminButton } from "@/shared/components/admin/AdminPageLayout"
 import { useTenant } from "@/shared/context/TenantContext"
 
 const DEMO_USER = "user_001"
 
 export default function GroupDetailPage() {
   const params = useParams()
-  const { page } = useDashboardTheme()
   const { tenantId } = useTenant()
   const id = params.id as string
   const [group, setGroup] = useState<CommunityGroup | null>(null)
@@ -62,73 +58,59 @@ export default function GroupDetailPage() {
 
   if (loading || !group) {
     return (
-      <AgenciesPage>
-        <p className="py-12 text-center text-slate-500">Loading…</p>
-      </AgenciesPage>
+      <AdminPageWrapper>
+        <p className="py-12 text-center text-white/60">Loading…</p>
+      </AdminPageWrapper>
     )
   }
 
   return (
-    <AgenciesPage>
-      <div className="mb-6">
-        <Link
-          href="/admin/community/groups"
-          className="text-sm font-medium hover:opacity-90"
-          style={{ color: page.accent }}
-        >
-          ← Back to Groups
-        </Link>
-      </div>
-      <PageBanner
+    <AdminPageWrapper>
+      <AdminPageLayout
         title={group.name}
         subtitle={group.description}
-        variant="admin"
-        backgroundImage="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&q=80"
-      />
-      <section className="mt-8 min-w-0">
-        <Card style={{ borderColor: page.border }}>
-          <CardHeader className="flex flex-row items-center justify-between">
-            <div className="flex items-center gap-2">
-              <Users2 className="h-5 w-5" style={{ color: page.accent }} />
-              <CardTitle>{group.name}</CardTitle>
-              {group.isPrivate && (
-                <span className="flex items-center gap-1 rounded-full bg-slate-100 px-2 py-0.5 text-xs text-slate-600">
-                  <Lock className="h-3 w-3" /> Private
-                </span>
-              )}
-            </div>
+        actions={
+          <div className="flex gap-2">
+            <Link href="/admin/community/groups">
+              <AdminButton variant="outline">← Back to Groups</AdminButton>
+            </Link>
             {isMember ? (
-              <Button
+              <AdminButton
                 variant="outline"
-                size="sm"
-                className="border-red-200 text-red-600 hover:bg-red-50"
+                className="border-red-500/30 text-red-300 hover:bg-red-500/20"
                 onClick={handleLeave}
               >
                 <LogOut className="mr-1.5 h-4 w-4" /> Leave group
-              </Button>
+              </AdminButton>
             ) : (
-              <Button
-                size="sm"
-                onClick={handleJoin}
-                style={{ backgroundColor: page.accent, color: "#1C1917" }}
-              >
+              <AdminButton onClick={handleJoin}>
                 <LogIn className="mr-1.5 h-4 w-4" /> Join group
-              </Button>
+              </AdminButton>
             )}
-          </CardHeader>
-          <CardContent>
-            <p className="text-sm text-slate-600">{group.description}</p>
-            <p className="mt-4 text-sm text-slate-500">
-              {members.length} members
-              {isMember && (
-                <span className="ml-2 rounded-full bg-emerald-100 px-2 py-0.5 text-xs text-emerald-700">
-                  You are a member
-                </span>
-              )}
-            </p>
-          </CardContent>
-        </Card>
-      </section>
-    </AgenciesPage>
+          </div>
+        }
+      >
+        <AdminCard>
+          <div className="flex items-center gap-2 mb-4">
+            <Users2 className="h-5 w-5 text-[#d4ff00]" />
+            <h3 className="text-lg font-semibold text-white">{group.name}</h3>
+            {group.isPrivate && (
+              <span className="flex items-center gap-1 rounded-full bg-white/10 px-2 py-0.5 text-xs text-white/60">
+                <Lock className="h-3 w-3" /> Private
+              </span>
+            )}
+          </div>
+          <p className="text-sm text-white/60 mb-4">{group.description}</p>
+          <p className="text-sm text-white/60">
+            {members.length} members
+            {isMember && (
+              <span className="ml-2 rounded-full bg-emerald-500/20 px-2 py-0.5 text-xs text-emerald-300">
+                You are a member
+              </span>
+            )}
+          </p>
+        </AdminCard>
+      </AdminPageLayout>
+    </AdminPageWrapper>
   )
 }

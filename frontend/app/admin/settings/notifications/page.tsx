@@ -2,20 +2,21 @@
 
 import { useEffect, useState } from "react"
 import Link from "next/link"
-import { PageBanner } from "@/shared/components/ui/PageBanner"
-import { Card, CardHeader, CardTitle, CardContent } from "@/shared/components/ui/card"
-import { Button } from "@/shared/components/ui/button"
 import { getNotificationPreferences } from "@/shared/services/commsService"
 import { useAuth } from "@/shared/context/AuthContext"
 import { useTenant } from "@/shared/context/TenantContext"
-import { Bell, Mail, Smartphone } from "lucide-react"
-import { AgenciesPage } from "@/shared/components/layout/AgenciesPage"
-import { useDashboardTheme } from "@/shared/context/DashboardThemeContext"
+import { Bell, Mail, Smartphone, ArrowLeft } from "lucide-react"
+import {
+  AdminPageWrapper,
+  AdminCard,
+  AdminSectionHeader,
+  AdminButton,
+  AdminTableSkeleton,
+} from "@/shared/components/layout/AdminPageWrapper"
 
 export default function NotificationsSettingsPage() {
   const { user } = useAuth()
   const { tenantId } = useTenant()
-  const { page } = useDashboardTheme()
   const [prefs, setPrefs] = useState<any>(null)
   const [loading, setLoading] = useState(true)
 
@@ -28,108 +29,99 @@ export default function NotificationsSettingsPage() {
   }, [user?.id, tenantId])
 
   return (
-    <AgenciesPage>
-      <PageBanner
+    <AdminPageWrapper>
+      <AdminSectionHeader
         title="Notification Preferences"
         subtitle="Digest, priority routing, quiet hours"
-        variant="admin"
-        backgroundImage="https://images.unsplash.com/photo-1557804506-669a67965ba0?w=1200&q=80"
+        action={
+          <Link href="/admin/settings">
+            <AdminButton variant="ghost" size="sm">
+              <ArrowLeft className="h-4 w-4" />
+              Settings
+            </AdminButton>
+          </Link>
+        }
       />
-      <div className="mt-6 flex flex-wrap gap-3">
-        <Link href="/admin/settings">
-          <Button variant="ghost" size="sm">
-            ← Settings
-          </Button>
-        </Link>
-      </div>
 
-      <Card className="mt-6" style={{ borderColor: page.border }}>
-        <CardHeader>
-          <CardTitle className="flex items-center gap-2">
-            <Bell className="h-5 w-5" />
-            Preferences
-          </CardTitle>
-        </CardHeader>
-        <CardContent>
-          {loading ? (
-            <div className="space-y-3 py-8">
-              {[1, 2, 3].map((i) => (
-                <div key={i} className="h-16 animate-pulse rounded-lg bg-slate-200/50" />
-              ))}
+      <AdminCard>
+        <div className="mb-4 flex items-center gap-2">
+          <Bell className="h-5 w-5 text-white/60" />
+          <h2 className="text-lg font-semibold text-white">Preferences</h2>
+        </div>
+        {loading ? (
+          <AdminTableSkeleton rows={3} cols={2} />
+        ) : prefs ? (
+          <div className="space-y-4">
+            <div className="flex items-center justify-between rounded-xl border border-white/10 bg-white/5 p-3">
+              <div className="flex items-center gap-3">
+                <Mail className="h-5 w-5 text-white/40" />
+                <div>
+                  <p className="font-medium text-sm text-white">
+                    Email digest
+                  </p>
+                  <p className="text-xs text-white/60">{prefs.emailDigest}</p>
+                </div>
+              </div>
             </div>
-          ) : prefs ? (
-            <div className="space-y-4">
-              <div className="flex items-center justify-between rounded border p-3" style={{ borderColor: page.border }}>
-                <div className="flex items-center gap-3">
-                  <Mail className="h-5 w-5 text-slate-400" />
-                  <div>
-                    <p className="font-medium text-sm" style={{ color: page.text }}>
-                      Email digest
-                    </p>
-                    <p className="text-xs text-slate-500">{prefs.emailDigest}</p>
-                  </div>
+            <div className="flex items-center justify-between rounded-xl border border-white/10 bg-white/5 p-3">
+              <div className="flex items-center gap-3">
+                <Bell className="h-5 w-5 text-white/40" />
+                <div>
+                  <p className="font-medium text-sm text-white">
+                    In-app notifications
+                  </p>
+                  <p className="text-xs text-white/60">
+                    {prefs.inAppEnabled ? "Enabled" : "Disabled"}
+                  </p>
                 </div>
               </div>
-              <div className="flex items-center justify-between rounded border p-3" style={{ borderColor: page.border }}>
-                <div className="flex items-center gap-3">
-                  <Bell className="h-5 w-5 text-slate-400" />
-                  <div>
-                    <p className="font-medium text-sm" style={{ color: page.text }}>
-                      In-app notifications
-                    </p>
-                    <p className="text-xs text-slate-500">
-                      {prefs.inAppEnabled ? "Enabled" : "Disabled"}
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div className="flex items-center justify-between rounded border p-3" style={{ borderColor: page.border }}>
-                <div className="flex items-center gap-3">
-                  <Smartphone className="h-5 w-5 text-slate-400" />
-                  <div>
-                    <p className="font-medium text-sm" style={{ color: page.text }}>
-                      Push notifications
-                    </p>
-                    <p className="text-xs text-slate-500">
-                      {prefs.pushEnabled ? "Enabled" : "Disabled"}
-                    </p>
-                  </div>
-                </div>
-              </div>
-              {prefs.priorityTypes?.length > 0 && (
-                <div className="rounded border p-3" style={{ borderColor: page.border }}>
-                  <p className="font-medium text-sm" style={{ color: page.text }}>
-                    Priority types
-                  </p>
-                  <p className="text-xs text-slate-500">
-                    {prefs.priorityTypes.join(", ")}
-                  </p>
-                </div>
-              )}
-              {prefs.quietHoursStart && prefs.quietHoursEnd && (
-                <div className="rounded border p-3" style={{ borderColor: page.border }}>
-                  <p className="font-medium text-sm" style={{ color: page.text }}>
-                    Quiet hours
-                  </p>
-                  <p className="text-xs text-slate-500">
-                    {prefs.quietHoursStart} – {prefs.quietHoursEnd}
-                  </p>
-                </div>
-              )}
             </div>
-          ) : (
-            <p className="py-8 text-center text-slate-500">
-              No preferences set. Using defaults.
-            </p>
-          )}
-        </CardContent>
-      </Card>
+            <div className="flex items-center justify-between rounded-xl border border-white/10 bg-white/5 p-3">
+              <div className="flex items-center gap-3">
+                <Smartphone className="h-5 w-5 text-white/40" />
+                <div>
+                  <p className="font-medium text-sm text-white">
+                    Push notifications
+                  </p>
+                  <p className="text-xs text-white/60">
+                    {prefs.pushEnabled ? "Enabled" : "Disabled"}
+                  </p>
+                </div>
+              </div>
+            </div>
+            {prefs.priorityTypes?.length > 0 && (
+              <div className="rounded-xl border border-white/10 bg-white/5 p-3">
+                <p className="font-medium text-sm text-white">
+                  Priority types
+                </p>
+                <p className="text-xs text-white/60">
+                  {prefs.priorityTypes.join(", ")}
+                </p>
+              </div>
+            )}
+            {prefs.quietHoursStart && prefs.quietHoursEnd && (
+              <div className="rounded-xl border border-white/10 bg-white/5 p-3">
+                <p className="font-medium text-sm text-white">
+                  Quiet hours
+                </p>
+                <p className="text-xs text-white/60">
+                  {prefs.quietHoursStart} – {prefs.quietHoursEnd}
+                </p>
+              </div>
+            )}
+          </div>
+        ) : (
+          <p className="py-8 text-center text-white/60">
+            No preferences set. Using defaults.
+          </p>
+        )}
+      </AdminCard>
 
       <div className="mt-6">
-        <Button variant="outline" disabled>
+        <AdminButton variant="secondary" disabled>
           Save (coming soon)
-        </Button>
+        </AdminButton>
       </div>
-    </AgenciesPage>
+    </AdminPageWrapper>
   )
 }

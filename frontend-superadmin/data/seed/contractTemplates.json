@@ -1,0 +1,141 @@
+[
+  {
+    "id": "template-001",
+    "name": "Standard Modelling Contract",
+    "blueprint": "modelling",
+    "category": "talent_agreement",
+    "version": "2.1",
+    "status": "active",
+    "language": "en",
+    "createdAt": "2024-01-15T00:00:00Z",
+    "updatedAt": "2024-02-01T00:00:00Z",
+    "usageCount": 245,
+    "clauses": [
+      "payment_terms",
+      "exclusivity",
+      "image_rights",
+      "cancellation_policy",
+      "liability_waiver"
+    ],
+    "requiredFields": [
+      "talent_name",
+      "agency_name",
+      "booking_date",
+      "payment_amount",
+      "usage_rights"
+    ],
+    "approvalRequired": true,
+    "legalReviewDate": "2024-02-01T00:00:00Z"
+  },
+  {
+    "id": "template-002",
+    "name": "Pageant Participation Agreement",
+    "blueprint": "pageant",
+    "category": "participant_agreement",
+    "version": "1.5",
+    "status": "active",
+    "language": "en",
+    "createdAt": "2024-01-10T00:00:00Z",
+    "updatedAt": "2024-01-25T00:00:00Z",
+    "usageCount": 128,
+    "clauses": [
+      "eligibility_criteria",
+      "code_of_conduct",
+      "media_release",
+      "prize_terms",
+      "disqualification_terms"
+    ],
+    "requiredFields": [
+      "participant_name",
+      "age",
+      "guardian_consent",
+      "event_name",
+      "registration_fee"
+    ],
+    "approvalRequired": true,
+    "legalReviewDate": "2024-01-25T00:00:00Z"
+  },
+  {
+    "id": "template-003",
+    "name": "Brand Partnership Agreement",
+    "blueprint": "influencer",
+    "category": "brand_deal",
+    "version": "3.0",
+    "status": "active",
+    "language": "en",
+    "createdAt": "2023-12-01T00:00:00Z",
+    "updatedAt": "2024-02-10T00:00:00Z",
+    "usageCount": 89,
+    "clauses": [
+      "deliverables",
+      "payment_schedule",
+      "content_approval",
+      "exclusivity_period",
+      "performance_metrics"
+    ],
+    "requiredFields": [
+      "brand_name",
+      "influencer_name",
+      "campaign_duration",
+      "compensation",
+      "content_requirements"
+    ],
+    "approvalRequired": true,
+    "legalReviewDate": "2024-02-10T00:00:00Z"
+  },
+  {
+    "id": "template-004",
+    "name": "Venue Rental Agreement",
+    "blueprint": "event-staffing",
+    "category": "venue_contract",
+    "version": "1.2",
+    "status": "active",
+    "language": "en",
+    "createdAt": "2024-01-20T00:00:00Z",
+    "updatedAt": "2024-01-20T00:00:00Z",
+    "usageCount": 56,
+    "clauses": [
+      "rental_terms",
+      "security_deposit",
+      "damage_liability",
+      "cancellation_policy",
+      "insurance_requirements"
+    ],
+    "requiredFields": [
+      "venue_name",
+      "event_organizer",
+      "event_date",
+      "rental_fee",
+      "capacity"
+    ],
+    "approvalRequired": false,
+    "legalReviewDate": "2024-01-20T00:00:00Z"
+  },
+  {
+    "id": "template-005",
+    "name": "NDA - Standard",
+    "blueprint": "all",
+    "category": "confidentiality",
+    "version": "4.0",
+    "status": "active",
+    "language": "en",
+    "createdAt": "2023-11-01T00:00:00Z",
+    "updatedAt": "2024-01-15T00:00:00Z",
+    "usageCount": 412,
+    "clauses": [
+      "confidential_information",
+      "obligations",
+      "term_duration",
+      "remedies",
+      "governing_law"
+    ],
+    "requiredFields": [
+      "disclosing_party",
+      "receiving_party",
+      "effective_date",
+      "term_years"
+    ],
+    "approvalRequired": false,
+    "legalReviewDate": "2024-01-15T00:00:00Z"
+  }
+]

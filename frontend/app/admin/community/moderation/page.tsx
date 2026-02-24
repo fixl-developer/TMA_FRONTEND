@@ -2,9 +2,6 @@
 
 import { useEffect, useState } from "react"
 import Link from "next/link"
-import { PageBanner } from "@/shared/components/ui/PageBanner"
-import { Card, CardHeader, CardTitle, CardContent } from "@/shared/components/ui/card"
-import { Button } from "@/shared/components/ui/button"
 import {
   getPendingPosts,
   approvePost,
@@ -14,13 +11,18 @@ import {
   resolveReportTakedown,
   type CommunityPost,
 } from "@/shared/services/communityService"
-import { ShieldCheck, Check, X, AlertTriangle } from "lucide-react"
-import { AgenciesPage } from "@/shared/components/layout/AgenciesPage"
-import { useDashboardTheme } from "@/shared/context/DashboardThemeContext"
+import { ShieldCheck, Check, X, AlertTriangle, ArrowLeft } from "lucide-react"
 import { useTenant } from "@/shared/context/TenantContext"
+import { AdminPageWrapper } from "@/shared/components/layout/AdminPageWrapper"
+import {
+  AdminPageLayout,
+  AdminCard,
+  AdminButton,
+  AdminEmptyState,
+  AdminLoading,
+} from "@/shared/components/admin/AdminPageLayout"
 
 export default function CommunityModerationPage() {
-  const { page } = useDashboardTheme()
   const { tenantId } = useTenant()
   const tid = tenantId ?? "tenant_001"
   const [pendingPosts, setPendingPosts] = useState<CommunityPost[]>([])
@@ -52,135 +54,114 @@ export default function CommunityModerationPage() {
   }
 
   return (
-    <AgenciesPage>
-      <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-        <PageBanner
-          title="Moderation"
-          subtitle="Review and approve community posts."
-          variant="admin"
-          backgroundImage="https://images.unsplash.com/photo-1450101499163-c8848c71ca15?w=1200&q=80"
-        />
-        <Link href="/admin/community">
-          <span className="text-sm" style={{ color: page.accent }}>
-            ← Back to Community
-          </span>
-        </Link>
-      </div>
-
-      {reported.length > 0 && (
-        <Card className="mb-6" style={{ borderColor: page.border }}>
-          <CardHeader className="flex flex-row items-center gap-2">
-            <AlertTriangle className="h-5 w-5 text-amber-600" />
-            <CardTitle>Reported content</CardTitle>
-          </CardHeader>
-          <CardContent>
+    <AdminPageWrapper>
+      <AdminPageLayout
+        title="Moderation"
+        subtitle="Review and approve community posts"
+        actions={
+          <Link href="/admin/community">
+            <AdminButton variant="ghost">
+              <ArrowLeft className="h-4 w-4" />
+              Back to Community
+            </AdminButton>
+          </Link>
+        }
+      >
+        >
+        {reported.length > 0 && (
+          <AdminCard title="Reported Content" subtitle={`${reported.length} reports requiring attention`} className="mb-6">
             <div className="space-y-4">
               {reported.map((r) => (
                 <div
                   key={r._id}
-                  className="flex flex-col gap-4 rounded-xl border p-4 sm:flex-row sm:items-start sm:justify-between"
-                  style={{ borderColor: page.border }}
+                  className="flex flex-col gap-4 rounded-xl border border-amber-500/20 bg-amber-500/5 p-4 sm:flex-row sm:items-start sm:justify-between"
                 >
                   <div className="min-w-0 flex-1">
-                    <p className="text-xs font-medium text-amber-600">{r.reason}</p>
+                    <div className="flex items-center gap-2">
+                      <AlertTriangle className="h-4 w-4 text-amber-400" />
+                      <p className="text-xs font-medium text-amber-400">{r.reason}</p>
+                    </div>
                     {r.post && (
                       <>
-                        <p className="mt-1 font-medium" style={{ color: page.text }}>
-                          {r.post.authorName}
-                        </p>
-                        <p className="mt-1 text-sm text-slate-600">{r.post.content}</p>
+                        <p className="mt-2 font-medium text-white">{r.post.authorName}</p>
+                        <p className="mt-1 text-sm text-white/70">{r.post.content}</p>
                       </>
                     )}
-                    <p className="mt-2 text-xs text-slate-400">
+                    <p className="mt-2 text-xs text-white/40">
                       Reported {new Date(r.createdAt).toLocaleDateString()}
                     </p>
                   </div>
                   <div className="flex shrink-0 gap-2">
-                    <Button
+                    <AdminButton
                       size="sm"
-                      variant="outline"
-                      className="border-amber-200 text-amber-700 hover:bg-amber-50"
+                      variant="danger"
                       onClick={async () => {
                         await resolveReportTakedown(r._id, r.postId)
                         load()
                       }}
                     >
                       <X className="mr-1 h-4 w-4" /> Takedown
-                    </Button>
-                    <Button
+                    </AdminButton>
+                    <AdminButton
                       size="sm"
-                      className="bg-emerald-600 hover:bg-emerald-500"
                       onClick={async () => {
                         await dismissReport(r._id)
                         load()
                       }}
                     >
                       <Check className="mr-1 h-4 w-4" /> Dismiss
-                    </Button>
+                    </AdminButton>
                   </div>
                 </div>
               ))}
             </div>
-          </CardContent>
-        </Card>
-      )}
+          </AdminCard>
+        )}
 
-      <Card style={{ borderColor: page.border }}>
-        <CardHeader className="flex flex-row items-center gap-2">
-          <ShieldCheck className="h-5 w-5" style={{ color: page.accent }} />
-          <CardTitle>Pending review</CardTitle>
-        </CardHeader>
-        <CardContent>
+        <AdminCard title="Pending Review" subtitle={`${pendingPosts.length} posts awaiting approval`}>
           {loading ? (
-            <p className="py-8 text-center text-slate-500">Loading…</p>
+            <AdminLoading rows={3} />
           ) : pendingPosts.length === 0 ? (
-            <div className="flex flex-col items-center py-12 text-center">
-              <ShieldCheck className="h-12 w-12 text-slate-400" />
-              <p className="mt-4 text-slate-500">No posts pending review.</p>
-              <p className="mt-1 text-sm text-slate-500">
-                New posts will appear here for approval.
-              </p>
-            </div>
+            <AdminEmptyState
+              icon={ShieldCheck}
+              title="No posts pending review"
+              description="New posts will appear here for approval"
+            />
           ) : (
             <div className="space-y-4">
               {pendingPosts.map((p) => (
                 <div
                   key={p._id}
-                  className="flex flex-col gap-4 rounded-xl border p-4 sm:flex-row sm:items-start sm:justify-between"
-                  style={{ borderColor: page.border }}
+                  className="flex flex-col gap-4 rounded-xl border border-white/10 bg-white/5 p-4 backdrop-blur-sm sm:flex-row sm:items-start sm:justify-between"
                 >
                   <div>
-                    <p className="font-medium" style={{ color: page.text }}>
-                      {p.authorName}
-                    </p>
-                    <p className="mt-1 text-sm text-slate-600">{p.content}</p>
-                    <p className="mt-2 text-xs text-slate-400">
+                    <p className="font-medium text-white">{p.authorName}</p>
+                    <p className="mt-1 text-sm text-white/70">{p.content}</p>
+                    <p className="mt-2 text-xs text-white/40">
                       {new Date(p.createdAt).toLocaleDateString()}
                     </p>
                   </div>
                   <div className="flex shrink-0 gap-2">
-                    <Button
+                    <AdminButton
                       size="sm"
-                      className="bg-emerald-600 hover:bg-emerald-500"
                       onClick={() => handleApprove(p._id)}
                     >
                       <Check className="mr-1 h-4 w-4" /> Approve
-                    </Button>
-                    <Button
+                    </AdminButton>
+                    <AdminButton
                       size="sm"
-                      variant="outline"
-                      className="border-red-200 text-red-600 hover:bg-red-50"
+                      variant="danger"
                       onClick={() => handleReject(p._id)}
                     >
                       <X className="mr-1 h-4 w-4" /> Reject
-                    </Button>
+                    </AdminButton>
                   </div>
                 </div>
               ))}
             </div>
           )}
-        </CardContent>
-      </Card>
-    </AgenciesPage>
+        </AdminCard>
+      </AdminPageLayout>
+    </AdminPageWrapper>
   )
 }

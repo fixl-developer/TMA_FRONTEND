@@ -137,8 +137,8 @@ export default function Home() {
         title="Dashboard"
         description="High-level view of tenants, pageants, users and features. Powered by seed data for Phase 1."
         badge={
-          <span className="inline-flex items-center gap-1.5 rounded-md border border-slate-200 bg-white px-2.5 py-1 text-xs font-medium text-slate-600">
-            <Sparkles className="h-3.5 w-3.5 text-blue-500" />
+          <span className="inline-flex items-center gap-1.5 rounded border border-[#e1e1e1] bg-white px-2.5 py-1 text-xs font-medium text-[#605e5c]">
+            <Sparkles className="h-3.5 w-3.5 text-[#0078d4]" />
             Phase 1
           </span>
         }
@@ -173,10 +173,10 @@ export default function Home() {
               <CardTitle>Active tenants</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-3xl font-semibold text-slate-800">
+              <p className="text-3xl font-semibold text-[#323130]">
                 {loading ? "—" : metrics.totalTenants}
               </p>
-              <p className="mt-1 text-[11px] text-slate-500">
+              <p className="mt-1 text-[11px] text-[#605e5c]">
                 Agencies, pageant orgs, brands & event orgs.
               </p>
             </CardContent>
@@ -186,10 +186,10 @@ export default function Home() {
               <CardTitle>Active pageants</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-3xl font-semibold text-emerald-600">
+              <p className="text-3xl font-semibold text-[#107c10]">
                 {loading ? "—" : metrics.activePageants}
               </p>
-              <p className="mt-1 text-[11px] text-slate-500">
+              <p className="mt-1 text-[11px] text-[#605e5c]">
                 Currently visible to talents in tenant frontends.
               </p>
             </CardContent>
@@ -199,10 +199,10 @@ export default function Home() {
               <CardTitle>Draft blueprints</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-3xl font-semibold text-amber-600">
+              <p className="text-3xl font-semibold text-[#ffb900]">
                 {loading ? "—" : metrics.draftPageants}
               </p>
-              <p className="mt-1 text-[11px] text-slate-500">
+              <p className="mt-1 text-[11px] text-[#605e5c]">
                 Pageant processes being modelled in the builder.
               </p>
             </CardContent>
@@ -212,10 +212,10 @@ export default function Home() {
               <CardTitle>Total pageants</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-3xl font-semibold text-sky-600">
+              <p className="text-3xl font-semibold text-[#0078d4]">
                 {loading ? "—" : metrics.totalPageants}
               </p>
-              <p className="mt-1 text-[11px] text-slate-500">
+              <p className="mt-1 text-[11px] text-[#605e5c]">
                 Sum of all seeded pageants across tenants.
               </p>
             </CardContent>
@@ -225,10 +225,10 @@ export default function Home() {
               <CardTitle>Platform users</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-3xl font-semibold text-violet-600">
+              <p className="text-3xl font-semibold text-[#8764b8]">
                 {loading ? "—" : metrics.totalUsers}
               </p>
-              <p className="mt-1 text-[11px] text-slate-500">
+              <p className="mt-1 text-[11px] text-[#605e5c]">
                 {metrics.activeUsers} active · Cross-tenant
               </p>
             </CardContent>
@@ -238,10 +238,10 @@ export default function Home() {
               <CardTitle>Feature flags</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-3xl font-semibold text-indigo-600">
+              <p className="text-3xl font-semibold text-[#5c2d91]">
                 {loading ? "—" : metrics.totalFlags}
               </p>
-              <p className="mt-1 text-[11px] text-slate-500">
+              <p className="mt-1 text-[11px] text-[#605e5c]">
                 {metrics.enabledFlags} enabled
               </p>
             </CardContent>
@@ -291,40 +291,40 @@ export default function Home() {
 
       <PageSection title="Platform health (SLO)">
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          <Card className="border-emerald-200 bg-emerald-50/50">
+          <Card className="border-[#c7e0f4] bg-[#f3f9fd]">
             <CardHeader>
-              <CardTitle className="text-sm text-emerald-800">API latency</CardTitle>
+              <CardTitle className="text-sm text-[#004578]">API latency</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-2xl font-bold text-emerald-700">142 ms</p>
-              <p className="mt-1 text-[11px] text-emerald-600">p95 &lt; 300ms ✓</p>
+              <p className="text-2xl font-bold text-[#0078d4]">142 ms</p>
+              <p className="mt-1 text-[11px] text-[#004578]">p95 &lt; 300ms ✓</p>
             </CardContent>
           </Card>
-          <Card className="border-emerald-200 bg-emerald-50/50">
+          <Card className="border-[#c7e0f4] bg-[#f3f9fd]">
             <CardHeader>
-              <CardTitle className="text-sm text-emerald-800">Uptime</CardTitle>
+              <CardTitle className="text-sm text-[#004578]">Uptime</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-2xl font-bold text-emerald-700">99.97%</p>
-              <p className="mt-1 text-[11px] text-emerald-600">Last 30 days</p>
+              <p className="text-2xl font-bold text-[#0078d4]">99.97%</p>
+              <p className="mt-1 text-[11px] text-[#004578]">Last 30 days</p>
             </CardContent>
           </Card>
-          <Card className="border-emerald-200 bg-emerald-50/50">
+          <Card className="border-[#c7e0f4] bg-[#f3f9fd]">
             <CardHeader>
-              <CardTitle className="text-sm text-emerald-800">Error rate</CardTitle>
+              <CardTitle className="text-sm text-[#004578]">Error rate</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-2xl font-bold text-emerald-700">0.02%</p>
-              <p className="mt-1 text-[11px] text-emerald-600">Target &lt; 0.1%</p>
+              <p className="text-2xl font-bold text-[#0078d4]">0.02%</p>
+              <p className="mt-1 text-[11px] text-[#004578]">Target &lt; 0.1%</p>
             </CardContent>
           </Card>
-          <Card className="border-emerald-200 bg-emerald-50/50">
+          <Card className="border-[#c7e0f4] bg-[#f3f9fd]">
             <CardHeader>
-              <CardTitle className="text-sm text-emerald-800">Queue depth</CardTitle>
+              <CardTitle className="text-sm text-[#004578]">Queue depth</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-2xl font-bold text-emerald-700">12</p>
-              <p className="mt-1 text-[11px] text-emerald-600">Background jobs</p>
+              <p className="text-2xl font-bold text-[#0078d4]">12</p>
+              <p className="mt-1 text-[11px] text-[#004578]">Background jobs</p>
             </CardContent>
           </Card>
         </div>
@@ -332,38 +332,38 @@ export default function Home() {
 
       {!loading && metrics.modelingAgencyCount > 0 && (
         <PageSection title="Modeling agencies (B1)">
-            <Card className="border-sky-200 bg-gradient-to-br from-sky-50 to-white">
+            <Card className="border-[#c7e0f4] bg-gradient-to-br from-[#f3f9fd] to-white">
               <CardHeader>
-                <CardTitle className="text-sky-800">Modeling Agencies (B1)</CardTitle>
+                <CardTitle className="text-[#004578]">Modeling Agencies (B1)</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="grid gap-4 sm:grid-cols-3">
                   <div>
-                    <p className="text-[10px] font-semibold uppercase tracking-wide text-sky-600">
+                    <p className="text-[10px] font-semibold uppercase tracking-wide text-[#605e5c]">
                       Agencies
                     </p>
-                    <p className="mt-1 text-2xl font-bold text-sky-700">
+                    <p className="mt-1 text-2xl font-bold text-[#0078d4]">
                       {metrics.modelingAgencyCount}
                     </p>
                   </div>
                   <div>
-                    <p className="text-[10px] font-semibold uppercase tracking-wide text-sky-600">
+                    <p className="text-[10px] font-semibold uppercase tracking-wide text-[#605e5c]">
                       Talents
                     </p>
-                    <p className="mt-1 text-2xl font-bold text-sky-700">
+                    <p className="mt-1 text-2xl font-bold text-[#0078d4]">
                       {metrics.modelingAgencyTalents}
                     </p>
                   </div>
                   <div>
-                    <p className="text-[10px] font-semibold uppercase tracking-wide text-sky-600">
+                    <p className="text-[10px] font-semibold uppercase tracking-wide text-[#605e5c]">
                       Bookings
                     </p>
-                    <p className="mt-1 text-2xl font-bold text-sky-700">
+                    <p className="mt-1 text-2xl font-bold text-[#0078d4]">
                       {metrics.modelingAgencyBookings}
                     </p>
                   </div>
                 </div>
-                <p className="mt-2 text-[11px] text-slate-500">
+                <p className="mt-2 text-[11px] text-[#605e5c]">
                   Modeling agencies use B1 (Roster + Booking) blueprint.
                 </p>
               </CardContent>
@@ -377,9 +377,9 @@ export default function Home() {
             <CardHeader>
               <CardTitle>Pageant status overview</CardTitle>
             </CardHeader>
-            <CardContent className="space-y-2 text-[11px] text-slate-600">
+            <CardContent className="space-y-2 text-[11px] text-[#605e5c]">
               {loading ? (
-                <p className="text-slate-500">Loading from seed…</p>
+                <p className="text-[#605e5c]">Loading from seed…</p>
               ) : (
                 <>
                   <RechartsBar
@@ -395,7 +395,7 @@ export default function Home() {
                       value: entry.value,
                     }))}
                   />
-                  <p className="mt-1 text-[10px] text-slate-500">
+                  <p className="mt-1 text-[10px] text-[#605e5c]">
                     Simple seed-driven chart of pageants by status. In a real
                     system this would be time-series aware.
                   </p>
@@ -408,9 +408,9 @@ export default function Home() {
             <CardHeader>
               <CardTitle>Tenant mix</CardTitle>
             </CardHeader>
-            <CardContent className="space-y-2 text-[11px] text-slate-600">
+            <CardContent className="space-y-2 text-[11px] text-[#605e5c]">
               {loading ? (
-                <p className="text-slate-500">Loading from seed…</p>
+                <p className="text-[#605e5c]">Loading from seed…</p>
               ) : (
                 <>
                   <RechartsPie
@@ -430,7 +430,7 @@ export default function Home() {
                       })
                     )}
                   />
-                  <p className="mt-1 text-[10px] text-slate-500">
+                  <p className="mt-1 text-[10px] text-[#605e5c]">
                     Quick snapshot of tenant composition based on seed data.
                   </p>
                 </>
@@ -445,13 +445,13 @@ export default function Home() {
             <CardHeader>
               <CardTitle>Platform activity trend</CardTitle>
             </CardHeader>
-            <CardContent className="space-y-2 text-[11px] text-slate-600">
+            <CardContent className="space-y-2 text-[11px] text-[#605e5c]">
               {loading ? (
-                <p className="text-slate-500">Loading…</p>
+                <p className="text-[#605e5c]">Loading…</p>
               ) : (
                 <>
                   <RechartsArea data={monthlyTrendData} />
-                  <p className="mt-1 text-[10px] text-slate-500">
+                  <p className="mt-1 text-[10px] text-[#605e5c]">
                     Synthetic trend based on seed data. Real system would show
                     pageants and tenants over time.
                   </p>
@@ -467,39 +467,39 @@ export default function Home() {
             <CardHeader>
               <CardTitle>Recent pageants</CardTitle>
             </CardHeader>
-            <CardContent className="space-y-3 text-[11px] text-slate-600">
+            <CardContent className="space-y-3 text-[11px] text-[#605e5c]">
               {loading ? (
-                <p className="text-slate-500">Loading from seed…</p>
+                <p className="text-[#605e5c]">Loading from seed…</p>
               ) : metrics.recentPageants.length === 0 ? (
-                <p className="text-slate-500">
+                <p className="text-[#605e5c]">
                   No pageants in the current seed. Populate{" "}
-                  <code className="rounded bg-slate-100 px-1.5 py-0.5 text-[10px] text-slate-700">
+                  <code className="rounded bg-[#f3f2f1] px-1.5 py-0.5 text-[10px] text-[#323130]">
                     data/seed/pageants.json
                   </code>{" "}
                   to see them here.
                 </p>
               ) : (
-                <ul className="divide-y divide-slate-200">
+                <ul className="divide-y divide-[#e1e1e1]">
                   {metrics.recentPageants.map((p) => (
                     <li key={p._id} className="py-2.5 first:pt-0 last:pb-0">
                       <div className="flex items-center justify-between gap-2">
                         <div className="space-y-0.5">
-                          <p className="text-[12px] font-semibold text-slate-800">
+                          <p className="text-[12px] font-semibold text-[#323130]">
                             {p.name}
                           </p>
-                          <p className="text-[11px] text-slate-500">
+                          <p className="text-[11px] text-[#605e5c]">
                             Tenant{" "}
-                            <span className="font-mono text-slate-600">
+                            <span className="font-mono text-[#323130]">
                               {p.tenantId}
                             </span>
                           </p>
                         </div>
-                        <span className="rounded-full border border-slate-200 bg-slate-100 px-2 py-1 text-[10px] font-semibold uppercase tracking-wide text-slate-600">
+                        <span className="rounded border border-[#e1e1e1] bg-[#f3f2f1] px-2 py-1 text-[10px] font-semibold uppercase tracking-wide text-[#323130]">
                           {p.status.toLowerCase()}
                         </span>
                       </div>
                       {p.description && (
-                        <p className="mt-1.5 line-clamp-2 text-[11px] text-slate-600">
+                        <p className="mt-1.5 line-clamp-2 text-[11px] text-[#605e5c]">
                           {p.description}
                         </p>
                       )}
@@ -514,13 +514,13 @@ export default function Home() {
             <CardHeader>
               <CardTitle>Tenants by pageant activity</CardTitle>
             </CardHeader>
-            <CardContent className="space-y-3 text-[11px] text-slate-600">
+            <CardContent className="space-y-3 text-[11px] text-[#605e5c]">
               {loading ? (
-                <p className="text-slate-500">Loading from seed…</p>
+                <p className="text-[#605e5c]">Loading from seed…</p>
               ) : metrics.topTenants.length === 0 ? (
-                <p className="text-slate-500">
+                <p className="text-[#605e5c]">
                   No tenants in the current seed. Update{" "}
-                  <code className="rounded bg-slate-100 px-1.5 py-0.5 text-[10px] text-slate-700">
+                  <code className="rounded bg-[#f3f2f1] px-1.5 py-0.5 text-[10px] text-[#323130]">
                     data/seed/tenants.json
                   </code>{" "}
                   to see distribution.
@@ -530,24 +530,24 @@ export default function Home() {
                   {metrics.topTenants.map(({ tenant, pageantCount }) => (
                     <li
                       key={tenant._id}
-                      className="flex items-center justify-between gap-2 rounded-xl border border-slate-200 bg-slate-50 px-3 py-2"
+                      className="flex items-center justify-between gap-2 rounded border border-[#e1e1e1] bg-[#faf9f8] px-3 py-2"
                     >
                       <div className="space-y-0.5">
-                        <p className="text-[12px] font-semibold text-slate-800">
+                        <p className="text-[12px] font-semibold text-[#323130]">
                           {tenant.name}
                         </p>
-                        <p className="text-[11px] text-slate-500">
+                        <p className="text-[11px] text-[#605e5c]">
                           {tenant.type.toLowerCase()} ·{" "}
-                          <span className="font-mono text-slate-600">
+                          <span className="font-mono text-[#323130]">
                             {tenant.slug}
                           </span>
                         </p>
                       </div>
                       <div className="text-right">
-                        <p className="text-[12px] font-semibold text-blue-600">
+                        <p className="text-[12px] font-semibold text-[#0078d4]">
                           {pageantCount}
                         </p>
-                        <p className="text-[10px] text-slate-500">
+                        <p className="text-[10px] text-[#605e5c]">
                           pageants in seed
                         </p>
                       </div>

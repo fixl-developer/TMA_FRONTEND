@@ -1,0 +1,102 @@
+[
+  {
+    "id": "payout-001",
+    "settlementId": "settlement-001",
+    "tenantId": "tenant-001",
+    "tenantName": "Elite Talent Agency",
+    "amount": 427500,
+    "currency": "INR",
+    "status": "completed",
+    "scheduledDate": "2024-03-05T00:00:00Z",
+    "processedDate": "2024-03-05T10:30:00Z",
+    "paymentMethod": "bank_transfer",
+    "bankDetails": {
+      "accountName": "Elite Talent Agency Pvt Ltd",
+      "accountNumber": "****6789",
+      "ifscCode": "HDFC0001234",
+      "bankName": "HDFC Bank"
+    },
+    "transactionId": "TXN-2024030500123",
+    "notes": "February 2024 settlement"
+  },
+  {
+    "id": "payout-002",
+    "settlementId": "settlement-002",
+    "tenantId": "tenant-002",
+    "tenantName": "Glamour Models Inc",
+    "amount": 630000,
+    "currency": "INR",
+    "status": "scheduled",
+    "scheduledDate": "2024-03-10T00:00:00Z",
+    "processedDate": null,
+    "paymentMethod": "bank_transfer",
+    "bankDetails": {
+      "accountName": "Glamour Models Inc",
+      "accountNumber": "****4321",
+      "ifscCode": "ICIC0002345",
+      "bankName": "ICICI Bank"
+    },
+    "transactionId": null,
+    "notes": "Pending approval - February 2024 settlement"
+  },
+  {
+    "id": "payout-003",
+    "settlementId": "settlement-003",
+    "tenantId": "tenant-003",
+    "tenantName": "Star Pageants",
+    "amount": 168000,
+    "currency": "INR",
+    "status": "scheduled",
+    "scheduledDate": "2024-03-10T00:00:00Z",
+    "processedDate": null,
+    "paymentMethod": "bank_transfer",
+    "bankDetails": {
+      "accountName": "Star Pageants Events Pvt Ltd",
+      "accountNumber": "****8765",
+      "ifscCode": "SBI0003456",
+      "bankName": "State Bank of India"
+    },
+    "transactionId": null,
+    "notes": "Pending approval - February 2024 settlement"
+  },
+  {
+    "id": "payout-004",
+    "settlementId": "settlement-004",
+    "tenantId": "tenant-001",
+    "tenantName": "Elite Talent Agency",
+    "amount": 342000,
+    "currency": "INR",
+    "status": "completed",
+    "scheduledDate": "2024-02-05T00:00:00Z",
+    "processedDate": "2024-02-05T10:30:00Z",
+    "paymentMethod": "bank_transfer",
+    "bankDetails": {
+      "accountName": "Elite Talent Agency Pvt Ltd",
+      "accountNumber": "****6789",
+      "ifscCode": "HDFC0001234",
+      "bankName": "HDFC Bank"
+    },
+    "transactionId": "TXN-2024020500089",
+    "notes": "January 2024 settlement"
+  },
+  {
+    "id": "payout-005",
+    "settlementId": "settlement-005",
+    "tenantId": "tenant-004",
+    "tenantName": "Fashion Forward Agency",
+    "amount": 546000,
+    "currency": "INR",
+    "status": "on_hold",
+    "scheduledDate": "2024-03-10T00:00:00Z",
+    "processedDate": null,
+    "paymentMethod": "bank_transfer",
+    "bankDetails": {
+      "accountName": "Fashion Forward Agency",
+      "accountNumber": "****5432",
+      "ifscCode": "AXIS0004567",
+      "bankName": "Axis Bank"
+    },
+    "transactionId": null,
+    "notes": "On hold due to dispute - February 2024 settlement"
+  }
+]

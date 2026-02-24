@@ -1,0 +1,173 @@
+[
+  {
+    "id": "INC-001",
+    "title": "File Storage Download Performance Degradation",
+    "description": "Users experiencing slow download speeds from file storage service. Average response time increased from 150ms to 450ms.",
+    "severity": "high",
+    "status": "investigating",
+    "affectedServices": ["File Storage", "CDN"],
+    "startTime": "2024-02-21T09:30:00Z",
+    "resolvedTime": null,
+    "assignedTo": "Infrastructure Team",
+    "updates": [
+      {
+        "timestamp": "2024-02-21T10:15:00Z",
+        "message": "Identified high load on storage nodes. Scaling up capacity.",
+        "author": "DevOps Engineer"
+      },
+      {
+        "timestamp": "2024-02-21T09:45:00Z",
+        "message": "Incident confirmed. Investigating root cause.",
+        "author": "Site Reliability Engineer"
+      }
+    ]
+  },
+  {
+    "id": "INC-002",
+    "title": "Elevated Error Rate on Search API",
+    "description": "Search API returning 5xx errors at 0.5% rate, above normal threshold of 0.1%.",
+    "severity": "medium",
+    "status": "open",
+    "affectedServices": ["Search Engine", "API Gateway"],
+    "startTime": "2024-02-21T10:00:00Z",
+    "resolvedTime": null,
+    "assignedTo": "Backend Team",
+    "updates": [
+      {
+        "timestamp": "2024-02-21T10:30:00Z",
+        "message": "Reviewing Elasticsearch cluster health. No obvious issues found yet.",
+        "author": "Backend Engineer"
+      }
+    ]
+  },
+  {
+    "id": "INC-003",
+    "title": "Database Connection Pool Exhaustion",
+    "description": "Database connection pool reached maximum capacity causing temporary service disruptions.",
+    "severity": "critical",
+    "status": "resolved",
+    "affectedServices": ["Database Primary", "API Gateway", "Auth Service"],
+    "startTime": "2024-02-20T14:20:00Z",
+    "resolvedTime": "2024-02-20T15:45:00Z",
+    "assignedTo": "Database Team",
+    "updates": [
+      {
+        "timestamp": "2024-02-20T15:45:00Z",
+        "message": "Incident resolved. Connection pool size increased from 100 to 200. Monitoring for stability.",
+        "author": "Database Administrator"
+      },
+      {
+        "timestamp": "2024-02-20T15:00:00Z",
+        "message": "Temporary fix applied. Killing idle connections and increasing pool size.",
+        "author": "Database Administrator"
+      },
+      {
+        "timestamp": "2024-02-20T14:30:00Z",
+        "message": "Root cause identified: Sudden spike in concurrent users exceeded pool capacity.",
+        "author": "Site Reliability Engineer"
+      }
+    ]
+  },
+  {
+    "id": "INC-004",
+    "title": "Email Delivery Delays",
+    "description": "Email notifications experiencing 5-10 minute delays in delivery.",
+    "severity": "low",
+    "status": "resolved",
+    "affectedServices": ["Email Service"],
+    "startTime": "2024-02-19T11:00:00Z",
+    "resolvedTime": "2024-02-19T13:30:00Z",
+    "assignedTo": "Platform Team",
+    "updates": [
+      {
+        "timestamp": "2024-02-19T13:30:00Z",
+        "message": "Issue resolved. Queue processing returned to normal after clearing backlog.",
+        "author": "Platform Engineer"
+      },
+      {
+        "timestamp": "2024-02-19T12:00:00Z",
+        "message": "Email queue backlog identified. Scaling up workers to process faster.",
+        "author": "Platform Engineer"
+      }
+    ]
+  },
+  {
+    "id": "INC-005",
+    "title": "Payment Gateway Timeout Issues",
+    "description": "Intermittent timeout errors when processing payments through Razorpay integration.",
+    "severity": "high",
+    "status": "resolved",
+    "affectedServices": ["Payment Gateway"],
+    "startTime": "2024-02-18T16:45:00Z",
+    "resolvedTime": "2024-02-18T18:20:00Z",
+    "assignedTo": "Finance Tech Team",
+    "updates": [
+      {
+        "timestamp": "2024-02-18T18:20:00Z",
+        "message": "Confirmed with Razorpay that issue was on their end. Now resolved.",
+        "author": "Finance Tech Lead"
+      },
+      {
+        "timestamp": "2024-02-18T17:30:00Z",
+        "message": "Implemented retry logic and increased timeout threshold as temporary mitigation.",
+        "author": "Backend Engineer"
+      },
+      {
+        "timestamp": "2024-02-18T17:00:00Z",
+        "message": "Investigating. Appears to be external API issue with Razorpay.",
+        "author": "Finance Tech Lead"
+      }
+    ]
+  },
+  {
+    "id": "INC-006",
+    "title": "Cache Eviction Rate Spike",
+    "description": "Redis cache experiencing unusually high eviction rate, impacting performance.",
+    "severity": "medium",
+    "status": "resolved",
+    "affectedServices": ["Cache Layer (Redis)"],
+    "startTime": "2024-02-17T09:15:00Z",
+    "resolvedTime": "2024-02-17T11:00:00Z",
+    "assignedTo": "Infrastructure Team",
+    "updates": [
+      {
+        "timestamp": "2024-02-17T11:00:00Z",
+        "message": "Memory increased and eviction policy optimized. Cache performance restored.",
+        "author": "DevOps Engineer"
+      },
+      {
+        "timestamp": "2024-02-17T09:45:00Z",
+        "message": "Root cause: Memory limit reached due to increased data volume. Scaling up Redis instance.",
+        "author": "DevOps Engineer"
+      }
+    ]
+  },
+  {
+    "id": "INC-007",
+    "title": "Scheduled Maintenance - Database Upgrade",
+    "description": "Planned maintenance window for PostgreSQL version upgrade from 15.1 to 15.2.",
+    "severity": "low",
+    "status": "closed",
+    "affectedServices": ["Database Primary", "Database Replica"],
+    "startTime": "2024-02-15T02:00:00Z",
+    "resolvedTime": "2024-02-15T04:30:00Z",
+    "assignedTo": "Database Team",
+    "updates": [
+      {
+        "timestamp": "2024-02-15T04:30:00Z",
+        "message": "Maintenance completed successfully. All services operational.",
+        "author": "Database Administrator"
+      },
+      {
+        "timestamp": "2024-02-15T03:00:00Z",
+        "message": "Upgrade in progress. Replica upgraded, now upgrading primary.",
+        "author": "Database Administrator"
+      },
+      {
+        "timestamp": "2024-02-15T02:00:00Z",
+        "message": "Maintenance window started. Beginning database upgrade process.",
+        "author": "Database Administrator"
+      }
+    ]
+  }
+]

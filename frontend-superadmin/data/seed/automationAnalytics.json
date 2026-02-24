@@ -1,0 +1,22 @@
+{
+  "period": "Last 30 days",
+  "totalExecutions": 6124,
+  "successCount": 5980,
+  "failureCount": 144,
+  "successRatePercent": 97.6,
+  "avgDurationMs": 98,
+  "p95DurationMs": 420,
+  "byPack": [
+    { "packId": "pack_core_ops", "packName": "Core Ops Pack", "executionCount": 2182, "successRatePercent": 98.2 },
+    { "packId": "pack_finance", "packName": "Finance Pack", "executionCount": 845, "successRatePercent": 99.3 },
+    { "packId": "pack_approvals", "packName": "Approvals Pack", "executionCount": 476, "successRatePercent": 98.7 },
+    { "packId": "pack_content_safety", "packName": "Content Safety Pack", "executionCount": 2167, "successRatePercent": 96.8 },
+    { "packId": "pack_staffing", "packName": "Staffing Pack", "executionCount": 830, "successRatePercent": 99.2 },
+    { "packId": "pack_pageant_integrity", "packName": "Pageant Integrity Pack", "executionCount": 153, "successRatePercent": 97.4 },
+    { "packId": "pack_privacy", "packName": "Privacy Pack", "executionCount": 89, "successRatePercent": 100 },
+    { "packId": "pack_disputes", "packName": "Disputes Pack", "executionCount": 44, "successRatePercent": 97.7 },
+    { "packId": "pack_change_control", "packName": "Change Control Pack", "executionCount": 43, "successRatePercent": 97.7 },
+    { "packId": "pack_logistics", "packName": "Logistics Pack", "executionCount": 192, "successRatePercent": 98.4 },
+    { "packId": "pack_vendor_procurement", "packName": "Vendor Procurement Pack", "executionCount": 103, "successRatePercent": 94.2 }
+  ]
+}

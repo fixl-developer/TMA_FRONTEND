@@ -90,8 +90,8 @@ export default function IntegrationsPage() {
         title="Integrations"
         description="APIs, webhooks, partners, deployments, maintenance, data & legal. Phase 5."
         badge={
-          <span className="inline-flex items-center gap-1.5 rounded-md border border-slate-200 bg-white px-2.5 py-1 text-xs font-medium text-slate-600">
-            <Plug2 className="h-3.5 w-3.5 text-blue-500" />
+          <span className="inline-flex items-center gap-1.5 rounded border border-[#edebe9] bg-white px-2.5 py-1 text-xs font-medium text-[#605e5c]">
+            <Plug2 className="h-3.5 w-3.5 text-[#0078d4]" />
             Phase 5
           </span>
         }
@@ -101,52 +101,52 @@ export default function IntegrationsPage() {
         <MetricsGrid>
           <Card>
             <CardHeader>
-              <CardTitle>API keys</CardTitle>
+              <CardTitle className="text-sm font-semibold">API keys</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-3xl font-semibold text-slate-800">
+              <p className="text-3xl font-semibold text-[#323130]">
                 {loading ? "—" : metrics.totalApiKeys}
               </p>
-              <p className="mt-1 text-[11px] text-slate-500">
+              <p className="mt-1 text-xs text-[#605e5c]">
                 Tenant API keys
               </p>
             </CardContent>
           </Card>
           <Card>
             <CardHeader>
-              <CardTitle>Active webhooks</CardTitle>
+              <CardTitle className="text-sm font-semibold">Active webhooks</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-3xl font-semibold text-emerald-600">
+              <p className="text-3xl font-semibold text-[#107c10]">
                 {loading ? "—" : metrics.activeWebhooks}
               </p>
-              <p className="mt-1 text-[11px] text-slate-500">
+              <p className="mt-1 text-xs text-[#605e5c]">
                 of {webhooks.length} configured
               </p>
             </CardContent>
           </Card>
           <Card>
             <CardHeader>
-              <CardTitle>Partners</CardTitle>
+              <CardTitle className="text-sm font-semibold">Partners</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-3xl font-semibold text-sky-600">
+              <p className="text-3xl font-semibold text-[#0078d4]">
                 {loading ? "—" : metrics.totalPartners}
               </p>
-              <p className="mt-1 text-[11px] text-slate-500">
+              <p className="mt-1 text-xs text-[#605e5c]">
                 Payment, email, storage
               </p>
             </CardContent>
           </Card>
           <Card>
             <CardHeader>
-              <CardTitle>DSR pending</CardTitle>
+              <CardTitle className="text-sm font-semibold">DSR pending</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-3xl font-semibold text-amber-600">
+              <p className="text-3xl font-semibold text-[#ffb900]">
                 {loading ? "—" : metrics.pendingDsr}
               </p>
-              <p className="mt-1 text-[11px] text-slate-500">
+              <p className="mt-1 text-xs text-[#605e5c]">
                 Data subject requests
               </p>
             </CardContent>
@@ -155,16 +155,16 @@ export default function IntegrationsPage() {
       </PageSection>
 
       {/* Tabs */}
-      <div className="mb-6 flex gap-1 rounded-lg border border-slate-200 bg-white p-1">
+      <div className="mb-6 flex gap-1 rounded border border-[#edebe9] bg-white p-1">
         {tabs.map((tab) => (
           <button
             key={tab.id}
             type="button"
             onClick={() => setActiveTab(tab.id)}
-            className={`flex items-center gap-2 rounded-md px-4 py-2 text-sm font-medium transition-colors ${
+            className={`flex items-center gap-2 rounded px-4 py-2 text-xs font-medium transition-colors ${
               activeTab === tab.id
-                ? "bg-blue-600 text-white"
-                : "text-slate-600 hover:bg-slate-100 hover:text-slate-900"
+                ? "bg-[#0078d4] text-white"
+                : "text-[#605e5c] hover:bg-[#f3f2f1] hover:text-[#323130]"
             }`}
           >
             {tab.icon}
@@ -206,14 +206,14 @@ export default function IntegrationsPage() {
                             <td className="py-3 pr-4 font-medium text-slate-800">{k.name}</td>
                             <td className="py-3 pr-4 text-slate-600">{getTenantName(k.tenantId)}</td>
                             <td className="py-3 pr-4 font-mono text-xs text-slate-600">{k.keyPrefix}</td>
-                            <td className="py-3 pr-4 text-slate-600">{k.requestsLast30d?.toLocaleString()}</td>
+                            <td className="py-3 pr-4 text-slate-600">{k.requestsLast30d?.toLocaleString('en-IN')}</td>
                             <td className="py-3 pr-4 text-slate-500">
-                              {k.lastUsedAt ? new Date(k.lastUsedAt).toLocaleDateString() : "—"}
+                              {k.lastUsedAt ? new Date(k.lastUsedAt).toLocaleDateString('en-IN') : "—"}
                             </td>
                             <td className="py-3">
                               <span className={`inline-flex rounded border px-2 py-0.5 text-xs font-medium ${
-                                k.status === "ACTIVE" ? "bg-emerald-100 text-emerald-800 border-emerald-200" :
-                                "bg-slate-100 text-slate-600 border-slate-200"
+                                k.status === "ACTIVE" ? "bg-[#107c10] text-white border-[#107c10]" :
+                                "bg-[#a19f9d] text-white border-[#a19f9d]"
                               }`}>
                                 {k.status}
                               </span>
@@ -260,8 +260,8 @@ export default function IntegrationsPage() {
                             <td className="py-3 pr-4 text-slate-600">{w.successRate}%</td>
                             <td className="py-3">
                               <span className={`inline-flex rounded border px-2 py-0.5 text-xs font-medium ${
-                                w.status === "ACTIVE" ? "bg-emerald-100 text-emerald-800 border-emerald-200" :
-                                "bg-slate-100 text-slate-600 border-slate-200"
+                                w.status === "ACTIVE" ? "bg-[#107c10] text-white border-[#107c10]" :
+                                "bg-[#a19f9d] text-white border-[#a19f9d]"
                               }`}>
                                 {w.status}
                               </span>
@@ -297,7 +297,7 @@ export default function IntegrationsPage() {
                         <p className="font-medium text-slate-800">{p.name}</p>
                         <p className="text-[11px] text-slate-500">{p.type}</p>
                         <p className="mt-1 text-sm text-slate-600">{p.tenantCount} tenants</p>
-                        <span className="mt-2 inline-flex rounded border border-emerald-200 bg-emerald-50 px-2 py-0.5 text-xs font-medium text-emerald-800">
+                        <span className="mt-2 inline-flex rounded border border-[#107c10] bg-[#107c10] px-2 py-0.5 text-xs font-medium text-white">
                           {p.status}
                         </span>
                       </div>
@@ -340,10 +340,10 @@ export default function IntegrationsPage() {
                         </div>
                         <div className="text-right">
                           <p className="text-sm text-slate-600">
-                            {new Date(d.deployedAt).toLocaleString()}
+                            {new Date(d.deployedAt).toLocaleString('en-IN')}
                           </p>
                           <p className="text-[11px] text-slate-500">{d.duration}s</p>
-                          <span className="mt-1 inline-flex rounded border border-emerald-200 bg-emerald-50 px-2 py-0.5 text-xs font-medium text-emerald-800">
+                          <span className="mt-1 inline-flex rounded border border-[#107c10] bg-[#107c10] px-2 py-0.5 text-xs font-medium text-white">
                             {d.status}
                           </span>
                         </div>
@@ -382,13 +382,13 @@ export default function IntegrationsPage() {
                           <tr key={m._id} className="border-b border-slate-100 hover:bg-slate-50/50">
                             <td className="py-3 pr-4 font-medium text-slate-800">{m.title}</td>
                             <td className="py-3 pr-4 text-slate-600">
-                              {new Date(m.scheduledStart).toLocaleString()} – {new Date(m.scheduledEnd).toLocaleTimeString()}
+                              {new Date(m.scheduledStart).toLocaleString('en-IN')} – {new Date(m.scheduledEnd).toLocaleTimeString('en-IN')}
                             </td>
                             <td className="py-3 pr-4 text-slate-600">{m.impact}</td>
                             <td className="py-3">
                               <span className={`inline-flex rounded border px-2 py-0.5 text-xs font-medium ${
-                                m.status === "SCHEDULED" ? "bg-amber-100 text-amber-800 border-amber-200" :
-                                "bg-emerald-100 text-emerald-800 border-emerald-200"
+                                m.status === "SCHEDULED" ? "bg-[#ffb900] text-[#323130] border-[#ffb900]" :
+                                "bg-[#107c10] text-white border-[#107c10]"
                               }`}>
                                 {m.status}
                               </span>
@@ -416,7 +416,7 @@ export default function IntegrationsPage() {
                   {["API", "Database", "Redis", "Queue"].map((svc) => (
                     <div key={svc} className="rounded-lg border border-emerald-200 bg-emerald-50/50 px-4 py-3">
                       <p className="font-medium text-slate-800">{svc}</p>
-                      <span className="mt-1 inline-flex rounded border border-emerald-200 bg-emerald-100 px-2 py-0.5 text-xs font-medium text-emerald-800">
+                      <span className="mt-1 inline-flex rounded border border-[#107c10] bg-[#107c10] px-2 py-0.5 text-xs font-medium text-white">
                         Operational
                       </span>
                     </div>
@@ -465,8 +465,8 @@ export default function IntegrationsPage() {
                             </td>
                             <td className="py-3">
                               <span className={`inline-flex rounded border px-2 py-0.5 text-xs font-medium ${
-                                d.status === "PENDING" ? "bg-amber-100 text-amber-800 border-amber-200" :
-                                "bg-emerald-100 text-emerald-800 border-emerald-200"
+                                d.status === "PENDING" ? "bg-[#ffb900] text-[#323130] border-[#ffb900]" :
+                                "bg-[#107c10] text-white border-[#107c10]"
                               }`}>
                                 {d.status}
                               </span>
@@ -510,7 +510,7 @@ export default function IntegrationsPage() {
                             <td className="py-3 pr-4 text-slate-600">{r.retentionMonths} months</td>
                             <td className="py-3 pr-4 text-slate-600">{r.description}</td>
                             <td className="py-3">
-                              <span className="inline-flex rounded border border-emerald-200 bg-emerald-50 px-2 py-0.5 text-xs font-medium text-emerald-800">
+                              <span className="inline-flex rounded border border-[#107c10] bg-[#107c10] px-2 py-0.5 text-xs font-medium text-white">
                                 {r.status}
                               </span>
                             </td>
@@ -550,8 +550,8 @@ export default function IntegrationsPage() {
                           </p>
                         </div>
                         <span className={`shrink-0 rounded border px-2.5 py-1 text-xs font-medium ${
-                          h.status === "ACTIVE" ? "bg-amber-100 text-amber-800 border-amber-200" :
-                          "bg-slate-100 text-slate-600 border-slate-200"
+                          h.status === "ACTIVE" ? "bg-[#ffb900] text-[#323130] border-[#ffb900]" :
+                          "bg-[#a19f9d] text-white border-[#a19f9d]"
                         }`}>
                           {h.status}
                         </span>

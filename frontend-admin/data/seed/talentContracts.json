@@ -1,5 +1,0 @@
-[
-  { "id": "c1", "talentId": "t1", "templateId": "tmpl-1", "status": "signed", "signedAt": "2025-01-20", "expiresAt": "2026-01-20" },
-  { "id": "c2", "talentId": "t2", "templateId": "tmpl-1", "status": "pending", "signedAt": null, "expiresAt": null },
-  { "id": "c3", "talentId": "t1", "templateId": "tmpl-2", "status": "voided", "signedAt": "2024-06-01", "expiresAt": "2025-06-01" }
-]

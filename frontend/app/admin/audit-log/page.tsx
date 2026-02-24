@@ -1,21 +1,23 @@
 "use client"
 
 import { useEffect, useState, useMemo } from "react"
-import Link from "next/link"
 import { getAuditLogsByTenant } from "@/shared/services/tenantIntegrationsService"
 import type { AuditLogEntry } from "@/shared/services/tenantIntegrationsService"
 import { useTenant } from "@/shared/context/TenantContext"
-import { CapabilityGate } from "@/shared/components/ui/CapabilityGate"
 import { useToast } from "@/shared/components/ui/toast"
 import { FileText, Activity, Clock, User, Download, Filter } from "lucide-react"
+import { AdminPageWrapper } from "@/shared/components/layout/AdminPageWrapper"
 import {
-  AdminPageWrapper,
-  AdminCard,
-  AdminSectionHeader,
+  AdminPageLayout,
+  AdminStatsGrid,
   AdminStatCard,
+  AdminCard,
+  AdminTable,
+  AdminTableRow,
   AdminButton,
   AdminEmptyState,
-} from "@/shared/components/layout/AdminPageWrapper"
+  AdminSearchBar,
+} from "@/shared/components/admin/AdminPageLayout"
 import {
   Select,
   SelectContent,
@@ -31,6 +33,7 @@ export default function AuditLogPage() {
   const [loading, setLoading] = useState(true)
   const [actionFilter, setActionFilter] = useState<string>("all")
   const [actorFilter, setActorFilter] = useState<string>("all")
+  const [searchQuery, setSearchQuery] = useState("")
 
   useEffect(() => {
     const id = tenantId || "tenant_001"
@@ -41,19 +44,14 @@ export default function AuditLogPage() {
     return logs.filter((l) => {
       if (actionFilter !== "all" && l.action !== actionFilter) return false
       if (actorFilter !== "all" && l.actorType !== actorFilter) return false
+      if (searchQuery && !l.action.toLowerCase().includes(searchQuery.toLowerCase()) &&
+          !l.actorId.toLowerCase().includes(searchQuery.toLowerCase())) return false
       return true
     })
-  }, [logs, actionFilter, actorFilter])
+  }, [logs, actionFilter, actorFilter, searchQuery])
 
-  const actionOptions = useMemo(() => {
-    const actions = [...new Set(logs.map((l) => l.action))].sort()
-    return actions
-  }, [logs])
-
-  const actorOptions = useMemo(() => {
-    return [...new Set(logs.map((l) => l.actorType))].sort()
-  }, [logs])
-
+  const actionOptions = useMemo(() => [...new Set(logs.map((l) => l.action))].sort(), [logs])
+  const actorOptions = useMemo(() => [...new Set(logs.map((l) => l.actorType))].sort(), [logs])
   const uniqueActors = new Set(filteredLogs.map((l) => l.actorType)).size
   const uniqueActions = new Set(filteredLogs.map((l) => l.action)).size
 
@@ -80,91 +78,53 @@ export default function AuditLogPage() {
 
   return (
     <AdminPageWrapper>
-      <CapabilityGate capability="audit.read" fallback={
-        <AdminCard>
-          <p className="py-12 text-center text-white/50">You don&apos;t have permission to view the audit log.</p>
-        </AdminCard>
-      }>
-      <AdminSectionHeader
+      <AdminPageLayout
         title="Audit Log"
-        subtitle="Immutable tenant activity log"
-        action={
-          <div className="flex flex-wrap items-center gap-2">
-            <CapabilityGate capability="audit.read">
-              <AdminButton variant="secondary" size="sm" onClick={handleExportCsv}>
-                <Download className="mr-1.5 h-4 w-4" />
-                Export CSV
-              </AdminButton>
-            </CapabilityGate>
-            <Link href="/admin/reports">
-              <AdminButton variant="secondary" size="sm">
-                Reports
-              </AdminButton>
-            </Link>
-            <Link href="/admin/integrations">
-              <AdminButton variant="secondary" size="sm">
-                Integrations
-              </AdminButton>
-            </Link>
+        subtitle="Track all system activities and changes"
+        actions={
+        <AdminButton onClick={handleExportCsv}>
+          <Download className="h-4 w-4" />
+          Export CSV
+        </AdminButton>
+      }
+    >
+      {/* Stats */}
+      <AdminStatsGrid columns={4}>
+        <AdminStatCard label="Total Events" value={logs.length} icon={FileText} color="purple" />
+        <AdminStatCard label="Filtered Events" value={filteredLogs.length} icon={Activity} color="blue" />
+        <AdminStatCard label="Unique Actions" value={uniqueActions} icon={Activity} color="green" />
+        <AdminStatCard label="Unique Actors" value={uniqueActors} icon={User} color="yellow" />
+      </AdminStatsGrid>
+
+      {/* Filters */}
+      <AdminCard className="mb-6">
+        <div className="grid gap-4 sm:grid-cols-3">
+          <div>
+            <label className="text-xs font-semibold text-[#605e5c] mb-2 block">Search</label>
+            <AdminSearchBar value={searchQuery} onChange={setSearchQuery} placeholder="Search logs..." />
           </div>
-        }
-      />
-
-      {/* Stats Cards */}
-      <div className="mb-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        <AdminStatCard
-          title="Total Entries"
-          value={filteredLogs.length}
-          subtitle={actionFilter !== "all" || actorFilter !== "all" ? "Filtered" : "All logged events"}
-          icon={FileText}
-          color="purple"
-        />
-        <AdminStatCard
-          title="Unique Actors"
-          value={uniqueActors}
-          subtitle="Different actor types"
-          icon={User}
-          color="blue"
-        />
-        <AdminStatCard
-          title="Unique Actions"
-          value={uniqueActions}
-          subtitle="Different action types"
-          icon={Activity}
-          color="green"
-        />
-        <AdminStatCard
-          title="Latest"
-          value={filteredLogs.length > 0 ? "Today" : "—"}
-          subtitle="Most recent activity"
-          icon={Clock}
-          color="yellow"
-        />
-      </div>
-
-      {/* Audit Log Entries */}
-      <AdminCard>
-        <div className="mb-6 flex flex-wrap items-center justify-between gap-4">
-          <h3 className="text-lg font-bold text-white">Recent Activity</h3>
-          <div className="flex items-center gap-2">
-            <Filter className="h-4 w-4 text-white/50" />
+          <div>
+            <label className="text-xs font-semibold text-[#605e5c] mb-2 block">Action</label>
             <Select value={actionFilter} onValueChange={setActionFilter}>
-              <SelectTrigger className="w-[180px] border-white/20 bg-white/5 text-white">
-                <SelectValue placeholder="Filter by action" />
+              <SelectTrigger className="h-8">
+                <SelectValue />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="all">All actions</SelectItem>
+                <SelectItem value="all">All Actions</SelectItem>
                 {actionOptions.map((a) => (
                   <SelectItem key={a} value={a}>{a}</SelectItem>
                 ))}
               </SelectContent>
             </Select>
+          </div>
+          <div>
+            <label className="text-xs font-semibold text-[#605e5c] mb-2 block">Actor Type</label>
             <Select value={actorFilter} onValueChange={setActorFilter}>
-              <SelectTrigger className="w-[140px] border-white/20 bg-white/5 text-white">
-                <SelectValue placeholder="Filter by actor" />
+              <SelectTrigger className="h-8">
+                <SelectValue />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="all">All actors</SelectItem>
+                <SelectItem value="all">All Actors</SelectItem>
                 {actorOptions.map((a) => (
                   <SelectItem key={a} value={a}>{a}</SelectItem>
                 ))}
@@ -172,70 +132,55 @@ export default function AuditLogPage() {
             </Select>
           </div>
         </div>
+      </AdminCard>
+
+      {/* Audit Log Table */}
+      <AdminCard title="Activity Log">
         {loading ? (
           <div className="space-y-3">
-            {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
-              <div key={i} className="h-20 animate-pulse rounded-lg bg-white/5" />
+            {[1, 2, 3, 4, 5].map((i) => (
+              <div key={i} className="h-16 animate-pulse rounded bg-[#f3f2f1]" />
             ))}
           </div>
         ) : filteredLogs.length === 0 ? (
           <AdminEmptyState
-            icon={Activity}
-            title={logs.length === 0 ? "No audit entries yet" : "No matching entries"}
-            description={
-              logs.length === 0
-                ? "Activity will appear here as users perform actions in your organization."
-                : "Try adjusting the filters to see more results."
-            }
+            icon={FileText}
+            title="No audit logs found"
+            description="Try adjusting your filters"
           />
         ) : (
-          <div className="space-y-3">
-            {filteredLogs.map((l) => (
-              <div
-                key={l._id}
-                className="rounded-xl border border-white/10 bg-white/5 p-4 backdrop-blur-sm transition-all hover:border-white/20 hover:bg-white/10"
-              >
-                <div className="flex items-start justify-between gap-4">
-                  <div className="flex-1">
-                    <div className="flex items-center gap-2">
-                      <div className="rounded-lg bg-purple-500/10 p-1.5">
-                        <Activity className="h-4 w-4 text-purple-400" />
-                      </div>
-                      <p className="font-semibold text-white">{l.action}</p>
-                    </div>
-                    <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1 text-xs text-white/60">
-                      <span className="flex items-center gap-1">
-                        <User className="h-3 w-3" />
-                        {l.actorType}
-                      </span>
-                      <span>
-                        {l.entityType}/{l.entityId}
-                      </span>
-                      {l.ip && <span>IP: {l.ip}</span>}
-                    </div>
+          <AdminTable headers={["Timestamp", "Action", "Actor", "Entity", "IP Address"]}>
+            {filteredLogs.map((log) => (
+              <AdminTableRow key={log._id}>
+                <td className="px-6 py-4">
+                  <div className="flex items-center gap-2">
+                    <Clock className="h-4 w-4 text-[#605e5c]" />
+                    <span className="text-xs text-[#605e5c]">
+                      {new Date(log.createdAt).toLocaleString("en-IN")}
+                    </span>
                   </div>
-                  <div className="shrink-0 text-right">
-                    <p className="text-xs text-white/50">
-                      {new Date(l.createdAt).toLocaleDateString("en-IN", {
-                        day: "numeric",
-                        month: "short",
-                        year: "numeric",
-                      })}
-                    </p>
-                    <p className="text-xs text-white/40">
-                      {new Date(l.createdAt).toLocaleTimeString("en-IN", {
-                        hour: "2-digit",
-                        minute: "2-digit",
-                      })}
-                    </p>
+                </td>
+                <td className="px-6 py-4 text-xs font-semibold text-[#323130]">
+                  {log.action}
+                </td>
+                <td className="px-6 py-4">
+                  <div className="text-xs text-[#605e5c]">
+                    <div className="font-semibold text-[#323130]">{log.actorType}</div>
+                    <div className="text-[#a19f9d]">{log.actorId}</div>
                   </div>
-                </div>
-              </div>
+                </td>
+                <td className="px-6 py-4 text-xs text-[#605e5c]">
+                  {log.entityType}/{log.entityId}
+                </td>
+                <td className="px-6 py-4 text-xs text-[#a19f9d] font-mono">
+                  {log.ip || "—"}
+                </td>
+              </AdminTableRow>
             ))}
-          </div>
+          </AdminTable>
         )}
       </AdminCard>
-      </CapabilityGate>
+      </AdminPageLayout>
     </AdminPageWrapper>
   )
 }

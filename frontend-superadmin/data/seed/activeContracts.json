@@ -1,0 +1,152 @@
+[
+  {
+    "id": "contract-001",
+    "contractNumber": "CTR-2024-001",
+    "templateId": "template-001",
+    "templateName": "Standard Modelling Contract",
+    "tenantId": "tenant-001",
+    "tenantName": "Elite Talent Agency",
+    "parties": [
+      {
+        "role": "agency",
+        "name": "Elite Talent Agency",
+        "email": "contracts@elitetalent.com"
+      },
+      {
+        "role": "talent",
+        "name": "Priya Sharma",
+        "email": "priya@example.com"
+      }
+    ],
+    "status": "active",
+    "startDate": "2024-02-01T00:00:00Z",
+    "endDate": "2024-08-01T00:00:00Z",
+    "value": 450000,
+    "currency": "INR",
+    "signedDate": "2024-01-28T00:00:00Z",
+    "renewalDate": "2024-07-01T00:00:00Z",
+    "autoRenew": true,
+    "complianceStatus": "compliant",
+    "lastReviewDate": "2024-02-15T00:00:00Z"
+  },
+  {
+    "id": "contract-002",
+    "contractNumber": "CTR-2024-002",
+    "templateId": "template-002",
+    "templateName": "Pageant Participation Agreement",
+    "tenantId": "tenant-003",
+    "tenantName": "Star Pageants",
+    "parties": [
+      {
+        "role": "organizer",
+        "name": "Star Pageants",
+        "email": "info@starpageants.com"
+      },
+      {
+        "role": "participant",
+        "name": "Ananya Reddy",
+        "email": "ananya@example.com"
+      }
+    ],
+    "status": "pending_signature",
+    "startDate": "2024-03-01T00:00:00Z",
+    "endDate": "2024-03-15T00:00:00Z",
+    "value": 25000,
+    "currency": "INR",
+    "signedDate": null,
+    "renewalDate": null,
+    "autoRenew": false,
+    "complianceStatus": "pending_review",
+    "lastReviewDate": null
+  },
+  {
+    "id": "contract-003",
+    "contractNumber": "CTR-2024-003",
+    "templateId": "template-003",
+    "templateName": "Brand Partnership Agreement",
+    "tenantId": "tenant-004",
+    "tenantName": "Fashion Forward Agency",
+    "parties": [
+      {
+        "role": "brand",
+        "name": "Luxury Fashion Brand",
+        "email": "partnerships@luxurybrand.com"
+      },
+      {
+        "role": "influencer",
+        "name": "Vikram Singh",
+        "email": "vikram@example.com"
+      }
+    ],
+    "status": "active",
+    "startDate": "2024-01-15T00:00:00Z",
+    "endDate": "2024-04-15T00:00:00Z",
+    "value": 850000,
+    "currency": "INR",
+    "signedDate": "2024-01-10T00:00:00Z",
+    "renewalDate": "2024-03-15T00:00:00Z",
+    "autoRenew": false,
+    "complianceStatus": "compliant",
+    "lastReviewDate": "2024-02-01T00:00:00Z"
+  },
+  {
+    "id": "contract-004",
+    "contractNumber": "CTR-2024-004",
+    "templateId": "template-001",
+    "templateName": "Standard Modelling Contract",
+    "tenantId": "tenant-002",
+    "tenantName": "Glamour Models Inc",
+    "parties": [
+      {
+        "role": "agency",
+        "name": "Glamour Models Inc",
+        "email": "contracts@glamour.com"
+      },
+      {
+        "role": "talent",
+        "name": "Rajesh Kumar",
+        "email": "rajesh@example.com"
+      }
+    ],
+    "status": "expiring_soon",
+    "startDate": "2023-09-01T00:00:00Z",
+    "endDate": "2024-03-01T00:00:00Z",
+    "value": 680000,
+    "currency": "INR",
+    "signedDate": "2023-08-25T00:00:00Z",
+    "renewalDate": "2024-02-01T00:00:00Z",
+    "autoRenew": false,
+    "complianceStatus": "compliant",
+    "lastReviewDate": "2024-01-15T00:00:00Z"
+  },
+  {
+    "id": "contract-005",
+    "contractNumber": "CTR-2024-005",
+    "templateId": "template-005",
+    "templateName": "NDA - Standard",
+    "tenantId": "tenant-001",
+    "tenantName": "Elite Talent Agency",
+    "parties": [
+      {
+        "role": "disclosing_party",
+        "name": "Elite Talent Agency",
+        "email": "legal@elitetalent.com"
+      },
+      {
+        "role": "receiving_party",
+        "name": "Production House XYZ",
+        "email": "legal@productionxyz.com"
+      }
+    ],
+    "status": "active",
+    "startDate": "2024-01-01T00:00:00Z",
+    "endDate": "2026-01-01T00:00:00Z",
+    "value": 0,
+    "currency": "INR",
+    "signedDate": "2023-12-28T00:00:00Z",
+    "renewalDate": null,
+    "autoRenew": false,
+    "complianceStatus": "compliant",
+    "lastReviewDate": "2024-01-01T00:00:00Z"
+  }
+]

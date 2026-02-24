@@ -1,0 +1,9 @@
+{
+  "overallStatus": "healthy",
+  "uptime": 99.97,
+  "activeIncidents": 2,
+  "servicesHealthy": 14,
+  "servicesTotal": 15,
+  "avgResponseTime": 145,
+  "errorRate": 0.12
+}

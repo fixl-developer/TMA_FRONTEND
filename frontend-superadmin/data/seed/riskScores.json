@@ -1,0 +1,121 @@
+[
+  {
+    "id": "risk-001",
+    "entityType": "user",
+    "entityId": "user-1234",
+    "entityName": "Rajesh Kumar",
+    "overallScore": 85,
+    "riskLevel": "high",
+    "lastUpdated": "2024-02-20T14:30:00Z",
+    "factors": {
+      "transactionVelocity": 90,
+      "accountAge": 45,
+      "verificationStatus": 70,
+      "paymentHistory": 60,
+      "behaviorPattern": 85
+    },
+    "flags": [
+      "high_velocity",
+      "recent_account"
+    ],
+    "recommendations": [
+      "Enable additional verification",
+      "Monitor transactions closely",
+      "Limit transaction amounts"
+    ]
+  },
+  {
+    "id": "risk-002",
+    "entityType": "user",
+    "entityId": "user-5678",
+    "entityName": "Priya Sharma",
+    "overallScore": 35,
+    "riskLevel": "low",
+    "lastUpdated": "2024-02-20T10:15:00Z",
+    "factors": {
+      "transactionVelocity": 30,
+      "accountAge": 95,
+      "verificationStatus": 100,
+      "paymentHistory": 90,
+      "behaviorPattern": 25
+    },
+    "flags": [],
+    "recommendations": []
+  },
+  {
+    "id": "risk-003",
+    "entityType": "tenant",
+    "entityId": "tenant-003",
+    "entityName": "Star Pageants",
+    "overallScore": 72,
+    "riskLevel": "medium",
+    "lastUpdated": "2024-02-19T18:45:00Z",
+    "factors": {
+      "paymentFailures": 80,
+      "disputeRate": 65,
+      "complianceScore": 70,
+      "userComplaints": 75,
+      "financialHealth": 60
+    },
+    "flags": [
+      "high_payment_failures",
+      "elevated_disputes"
+    ],
+    "recommendations": [
+      "Review payment processing setup",
+      "Investigate dispute patterns",
+      "Conduct compliance audit"
+    ]
+  },
+  {
+    "id": "risk-004",
+    "entityType": "user",
+    "entityId": "user-9012",
+    "entityName": "Amit Patel",
+    "overallScore": 95,
+    "riskLevel": "critical",
+    "lastUpdated": "2024-02-20T08:20:00Z",
+    "factors": {
+      "transactionVelocity": 95,
+      "accountAge": 80,
+      "verificationStatus": 50,
+      "paymentHistory": 100,
+      "behaviorPattern": 98
+    },
+    "flags": [
+      "geo_anomaly",
+      "account_locked",
+      "impossible_travel"
+    ],
+    "recommendations": [
+      "Verify account ownership",
+      "Request additional documentation",
+      "Keep account locked until verified"
+    ]
+  },
+  {
+    "id": "risk-005",
+    "entityType": "transaction",
+    "entityId": "txn-7890",
+    "entityName": "Booking Payment - ₹95,000",
+    "overallScore": 68,
+    "riskLevel": "medium",
+    "lastUpdated": "2024-02-20T12:00:00Z",
+    "factors": {
+      "amountAnomaly": 75,
+      "userRiskScore": 58,
+      "merchantRiskScore": 40,
+      "paymentMethod": 70,
+      "timeOfDay": 50
+    },
+    "flags": [
+      "large_amount",
+      "unusual_pattern"
+    ],
+    "recommendations": [
+      "Manual review required",
+      "Verify with user",
+      "Hold funds for 24 hours"
+    ]
+  }
+]

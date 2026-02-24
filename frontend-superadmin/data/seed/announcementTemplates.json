@@ -1,0 +1,56 @@
+[
+  {
+    "id": "template_001",
+    "name": "Maintenance Notice",
+    "description": "Standard template for scheduled maintenance announcements",
+    "title": "Scheduled Maintenance",
+    "message": "We will be performing scheduled maintenance on [DATE] from [START_TIME] to [END_TIME]. During this time, the platform may experience brief interruptions. We apologize for any inconvenience.",
+    "type": "maintenance",
+    "priority": "high"
+  },
+  {
+    "id": "template_002",
+    "name": "New Feature Launch",
+    "description": "Announce new features and capabilities",
+    "title": "New Feature: [FEATURE_NAME]",
+    "message": "We're excited to announce [FEATURE_NAME]! This new feature allows you to [DESCRIPTION]. Check it out in your dashboard today.",
+    "type": "feature",
+    "priority": "medium"
+  },
+  {
+    "id": "template_003",
+    "name": "Security Alert",
+    "description": "Critical security notifications",
+    "title": "Security Update Required",
+    "message": "Important security update: [DESCRIPTION]. Please take action immediately to ensure your account remains secure.",
+    "type": "security",
+    "priority": "critical"
+  },
+  {
+    "id": "template_004",
+    "name": "Service Disruption",
+    "description": "Notify users of unexpected service issues",
+    "title": "Service Disruption Notice",
+    "message": "We are currently experiencing issues with [SERVICE_NAME]. Our team is working to resolve this as quickly as possible. We will provide updates as they become available.",
+    "type": "warning",
+    "priority": "critical"
+  },
+  {
+    "id": "template_005",
+    "name": "General Information",
+    "description": "General platform updates and information",
+    "title": "[SUBJECT]",
+    "message": "[MESSAGE_CONTENT]",
+    "type": "info",
+    "priority": "low"
+  },
+  {
+    "id": "template_006",
+    "name": "Policy Update",
+    "description": "Notify users of policy or terms changes",
+    "title": "Policy Update: [POLICY_NAME]",
+    "message": "We have updated our [POLICY_NAME]. Please review the changes in your account settings. These changes will take effect on [DATE].",
+    "type": "warning",
+    "priority": "medium"
+  }
+]

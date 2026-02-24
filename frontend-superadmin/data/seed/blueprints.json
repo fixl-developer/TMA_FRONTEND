@@ -1,0 +1,332 @@
+[
+  {
+    "id": "B1",
+    "code": "B1",
+    "name": "Roster + Booking",
+    "category": "Modeling & Talent",
+    "status": "ACTIVE",
+    "description": "Core roster, availability and booking OS for agencies and talent networks.",
+    "modules": [
+      "Talent roster",
+      "Availability & holds",
+      "Booking pipeline",
+      "Contracts & documents",
+      "Billing & payouts"
+    ],
+    "defaultWorkflows": [
+      "Intake → Review → Onboard",
+      "Inquiry → Quote → Confirmed booking",
+      "Hold → Option → Confirm / Release"
+    ],
+    "primaryRoles": [
+      "Agent / Booker",
+      "Operations Manager",
+      "Finance Manager"
+    ],
+    "stats": {
+      "tenantCount": 14,
+      "activeInstances": 22,
+      "avgWesScore": 84
+    },
+    "capabilities": [
+      "roster.manage",
+      "booking.manage",
+      "booking.approve",
+      "talent.profile.edit",
+      "rates.manage"
+    ]
+  },
+  {
+    "id": "B2",
+    "code": "B2",
+    "name": "Casting Pipeline",
+    "category": "Casting & Production",
+    "status": "ACTIVE",
+    "description": "End‑to‑end casting projects, submissions and selection pipelines.",
+    "modules": [
+      "Casting projects",
+      "Breakdowns & roles",
+      "Submissions & auditions",
+      "Shortlists & callbacks"
+    ],
+    "defaultWorkflows": [
+      "Brief → Breakdown → Shortlist → Book",
+      "Open call → Screen → Audition → Select"
+    ],
+    "primaryRoles": [
+      "Casting Director",
+      "Producer",
+      "Agent / Booker"
+    ],
+    "stats": {
+      "tenantCount": 8,
+      "activeInstances": 11,
+      "avgWesScore": 79
+    },
+    "capabilities": [
+      "casting.project.manage",
+      "casting.submission.review",
+      "casting.shortlist.publish"
+    ]
+  },
+  {
+    "id": "B3",
+    "code": "B3",
+    "name": "Season / Competition",
+    "category": "Pageants & Competitions",
+    "status": "ACTIVE",
+    "description": "Season‑based competitions, stages, scoring and results publishing.",
+    "modules": [
+      "Season setup",
+      "Registration & screening",
+      "Stages & rounds",
+      "Judging & scoring",
+      "Results & leaderboards"
+    ],
+    "defaultWorkflows": [
+      "Registration → Screening → Shortlist",
+      "Stage → Round → Scores → Results lock"
+    ],
+    "primaryRoles": [
+      "Pageant Director",
+      "Stage Manager",
+      "Judge"
+    ],
+    "stats": {
+      "tenantCount": 3,
+      "activeInstances": 4,
+      "avgWesScore": 82
+    },
+    "capabilities": [
+      "season.manage",
+      "judging.score",
+      "results.publish"
+    ]
+  },
+  {
+    "id": "B4",
+    "code": "B4",
+    "name": "Brand Deals + Deliverables",
+    "category": "Influencer & Brand",
+    "status": "ACTIVE",
+    "description": "Campaign briefs, deliverables, approvals and branded content reporting.",
+    "modules": [
+      "Campaign briefs",
+      "Creator roster",
+      "Deliverables tracking",
+      "Approvals & compliance",
+      "Campaign reporting"
+    ],
+    "defaultWorkflows": [
+      "Brief → Shortlist → Deal → Execution",
+      "Deliverable → Review → Approved / Revision"
+    ],
+    "primaryRoles": [
+      "Campaign / Deals Manager",
+      "Brand Manager",
+      "Creator Success"
+    ],
+    "stats": {
+      "tenantCount": 7,
+      "activeInstances": 9,
+      "avgWesScore": 81
+    },
+    "capabilities": [
+      "campaign.manage",
+      "deliverable.review",
+      "brand-approval.manage"
+    ]
+  },
+  {
+    "id": "B5",
+    "code": "B5",
+    "name": "Course / Cohort",
+    "category": "Academy & Training",
+    "status": "ACTIVE",
+    "description": "Cohort‑based learning, schedules, assessments and certifications.",
+    "modules": [
+      "Courses & cohorts",
+      "Schedules & sessions",
+      "Assessments",
+      "Certificates"
+    ],
+    "defaultWorkflows": [
+      "Apply → Enrol → Attend → Certify"
+    ],
+    "primaryRoles": [
+      "Academy Manager",
+      "Trainer / Mentor"
+    ],
+    "stats": {
+      "tenantCount": 4,
+      "activeInstances": 6,
+      "avgWesScore": 77
+    },
+    "capabilities": [
+      "course.manage",
+      "cohort.manage",
+      "assessment.grade"
+    ]
+  },
+  {
+    "id": "B6",
+    "code": "B6",
+    "name": "Project + Assets",
+    "category": "Production & Projects",
+    "status": "ACTIVE",
+    "description": "Production projects, asset library, tasks and approvals for shoots.",
+    "modules": [
+      "Projects & timelines",
+      "Shot lists",
+      "Assets library",
+      "Approvals"
+    ],
+    "defaultWorkflows": [
+      "Brief → Plan → Shoot → Deliver",
+      "Asset upload → Review → Approved"
+    ],
+    "primaryRoles": [
+      "Producer / Project Manager",
+      "Creative Director"
+    ],
+    "stats": {
+      "tenantCount": 5,
+      "activeInstances": 7,
+      "avgWesScore": 80
+    },
+    "capabilities": [
+      "project.manage",
+      "asset.manage",
+      "asset.approve"
+    ]
+  },
+  {
+    "id": "B7",
+    "code": "B7",
+    "name": "Shift / Staffing",
+    "category": "Event Staffing",
+    "status": "ACTIVE",
+    "description": "Shift planning, staffing, check‑ins and payroll for on‑ground events.",
+    "modules": [
+      "Events & shifts",
+      "Staffing roster",
+      "Check‑in & attendance",
+      "Payroll exports"
+    ],
+    "defaultWorkflows": [
+      "Event → Shifts → Assign → Confirm",
+      "Shift → Check‑in → Approve hours"
+    ],
+    "primaryRoles": [
+      "Staffing Manager",
+      "On‑ground Supervisor"
+    ],
+    "stats": {
+      "tenantCount": 3,
+      "activeInstances": 5,
+      "avgWesScore": 76
+    },
+    "capabilities": [
+      "shift.manage",
+      "shift.assign",
+      "timesheet.approve"
+    ]
+  },
+  {
+    "id": "B8",
+    "code": "B8",
+    "name": "Community + Monetization",
+    "category": "Communities",
+    "status": "ACTIVE",
+    "description": "Communities, memberships, events and paid programs for talent networks.",
+    "modules": [
+      "Community groups",
+      "Memberships",
+      "Events & meetups",
+      "Paid programs"
+    ],
+    "defaultWorkflows": [
+      "Join → Onboard → Engage",
+      "Program → Enrol → Complete"
+    ],
+    "primaryRoles": [
+      "Community Manager",
+      "Program Manager"
+    ],
+    "stats": {
+      "tenantCount": 4,
+      "activeInstances": 6,
+      "avgWesScore": 78
+    },
+    "capabilities": [
+      "community.manage",
+      "membership.manage",
+      "event.manage"
+    ]
+  },
+  {
+    "id": "B9",
+    "code": "B9",
+    "name": "Marketplace / Aggregator",
+    "category": "Marketplaces",
+    "status": "ACTIVE",
+    "description": "Listings, search, cart and order flows for talent marketplaces.",
+    "modules": [
+      "Listings & search",
+      "Cart & checkout",
+      "Orders & fulfilment",
+      "Ratings & reviews"
+    ],
+    "defaultWorkflows": [
+      "Browse → Book → Fulfil → Review"
+    ],
+    "primaryRoles": [
+      "Marketplace Ops",
+      "Vendor Manager"
+    ],
+    "stats": {
+      "tenantCount": 2,
+      "activeInstances": 3,
+      "avgWesScore": 75
+    },
+    "capabilities": [
+      "listing.manage",
+      "order.manage",
+      "review.moderate"
+    ]
+  },
+  {
+    "id": "B10",
+    "code": "B10",
+    "name": "Holding / Group",
+    "category": "Enterprise & Groups",
+    "status": "ACTIVE",
+    "description": "Multi‑tenant, multi‑brand holding company layer for roll‑ups.",
+    "modules": [
+      "Group hierarchy",
+      "Cross‑tenant reporting",
+      "Central contracts",
+      "Central policies"
+    ],
+    "defaultWorkflows": [
+      "Create tenant → Link to group",
+      "Group policy → Push to tenants"
+    ],
+    "primaryRoles": [
+      "Group COO",
+      "Group Finance",
+      "Compliance Admin"
+    ],
+    "stats": {
+      "tenantCount": 1,
+      "activeInstances": 1,
+      "avgWesScore": 86
+    },
+    "capabilities": [
+      "group.manage",
+      "group-policy.manage",
+      "group-reporting.view"
+    ]
+  }
+]
+

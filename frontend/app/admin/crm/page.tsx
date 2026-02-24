@@ -4,15 +4,18 @@ import { useEffect, useState } from "react"
 import Link from "next/link"
 import { getLeads, getAccounts, getActivities } from "@/shared/services/crmService"
 import { useTenant } from "@/shared/context/TenantContext"
-import { Users2, Building2, UserPlus, Activity, ChevronRight } from "lucide-react"
+import { Users2, Building2, UserPlus, Activity, ChevronRight, UserCircle2, Phone } from "lucide-react"
+import { AdminPageWrapper } from "@/shared/components/layout/AdminPageWrapper"
 import {
-  AdminPageWrapper,
-  AdminCard,
-  AdminSectionHeader,
+  AdminPageLayout,
+  AdminStatsGrid,
   AdminStatCard,
-  AdminButton,
+  AdminCard,
+  AdminTable,
+  AdminTableRow,
   AdminBadge,
-} from "@/shared/components/layout/AdminPageWrapper"
+  AdminEmptyState,
+} from "@/shared/components/admin/AdminPageLayout"
 
 export default function CrmPage() {
   const { tenantId } = useTenant()
@@ -36,190 +39,138 @@ export default function CrmPage() {
 
   const qualifiedLeads = leads.filter((l) => l.status === "QUALIFIED")
   const newLeads = leads.filter((l) => l.status === "NEW")
-
-  const getLeadBadgeVariant = (status: string) => {
-    switch (status) {
-      case "QUALIFIED":
-        return "success"
-      case "NEW":
-        return "warning"
-      default:
-        return "default"
-    }
-  }
+  const recentLeads = leads.slice(0, 5)
 
   return (
     <AdminPageWrapper>
-      <AdminSectionHeader
+      <AdminPageLayout
         title="CRM"
-        subtitle="Leads, accounts, contacts, and activities"
-      />
-
-      {/* Stats Cards */}
-      <div className="mb-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        subtitle="Manage leads, accounts, contacts, and activities"
+      >
+      {/* Stats */}
+      <AdminStatsGrid columns={4}>
         <AdminStatCard
-          title="Total Leads"
+          label="Total Leads"
           value={leads.length}
-          subtitle={`${qualifiedLeads.length} qualified`}
           icon={Users2}
           color="purple"
+          subtitle={`${qualifiedLeads.length} qualified`}
         />
         <AdminStatCard
-          title="Accounts"
+          label="Accounts"
           value={accounts.length}
-          subtitle="Active clients & brands"
           icon={Building2}
           color="blue"
+          subtitle="Active clients"
         />
         <AdminStatCard
-          title="New Leads"
+          label="New Leads"
           value={newLeads.length}
-          subtitle="Awaiting qualification"
           icon={UserPlus}
           color="yellow"
+          subtitle="Awaiting qualification"
         />
         <AdminStatCard
-          title="Recent Activity"
+          label="Activities"
           value={activities.length}
-          subtitle="Last 5 logged"
           icon={Activity}
           color="green"
+          subtitle="Recent logged"
         />
-      </div>
+      </AdminStatsGrid>
 
-      {/* Quick Actions */}
+      {/* Quick Navigation */}
       <div className="mb-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
-        <Link href="/admin/crm/leads">
-          <AdminCard hoverable className="h-full">
-            <div className="flex items-center gap-3">
-              <div className="rounded-lg bg-[#d4ff00]/10 p-2">
-                <Users2 className="h-5 w-5 text-[#d4ff00]" />
+        {[
+          { label: "Leads", href: "/admin/crm/leads", icon: Users2, color: "#0078d4" },
+          { label: "Accounts", href: "/admin/crm/accounts", icon: Building2, color: "#107c10" },
+          { label: "Contacts", href: "/admin/crm/contacts", icon: UserCircle2, color: "#8764b8" },
+          { label: "Activities", href: "/admin/crm/activities", icon: Activity, color: "#ffb900" },
+          { label: "Segments", href: "/admin/crm/segments", icon: Users2, color: "#d13438" },
+        ].map((item) => {
+          const Icon = item.icon
+          return (
+            <Link key={item.href} href={item.href}>
+              <div className="group rounded border border-[#edebe9] bg-white p-4 transition-all hover:border-[#0078d4] hover:shadow-sm cursor-pointer">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-3">
+                    <Icon className="h-5 w-5" style={{ color: item.color }} />
+                    <p className="text-sm font-semibold text-[#323130]">{item.label}</p>
+                  </div>
+                  <ChevronRight className="h-4 w-4 text-[#a19f9d] transition-transform group-hover:translate-x-1" />
+                </div>
               </div>
-              <p className="font-semibold text-white">Leads</p>
-            </div>
-          </AdminCard>
-        </Link>
-        <Link href="/admin/crm/accounts">
-          <AdminCard hoverable className="h-full">
-            <div className="flex items-center gap-3">
-              <div className="rounded-lg bg-purple-500/10 p-2">
-                <Building2 className="h-5 w-5 text-purple-400" />
-              </div>
-              <p className="font-semibold text-white">Accounts</p>
-            </div>
-          </AdminCard>
-        </Link>
-        <Link href="/admin/crm/contacts">
-          <AdminCard hoverable className="h-full">
-            <div className="flex items-center gap-3">
-              <div className="rounded-lg bg-blue-500/10 p-2">
-                <UserPlus className="h-5 w-5 text-blue-400" />
-              </div>
-              <p className="font-semibold text-white">Contacts</p>
-            </div>
-          </AdminCard>
-        </Link>
-        <Link href="/admin/crm/activities">
-          <AdminCard hoverable className="h-full">
-            <div className="flex items-center gap-3">
-              <div className="rounded-lg bg-green-500/10 p-2">
-                <Activity className="h-5 w-5 text-green-400" />
-              </div>
-              <p className="font-semibold text-white">Activities</p>
-            </div>
-          </AdminCard>
-        </Link>
-        <Link href="/admin/crm/segments">
-          <AdminCard hoverable className="h-full">
-            <div className="flex items-center gap-3">
-              <div className="rounded-lg bg-pink-500/10 p-2">
-                <Users2 className="h-5 w-5 text-pink-400" />
-              </div>
-              <p className="font-semibold text-white">Segments</p>
-            </div>
-          </AdminCard>
-        </Link>
+            </Link>
+          )
+        })}
       </div>
 
-      {/* Leads and Accounts */}
-      <div className="grid gap-6 lg:grid-cols-2">
-        {/* Leads */}
-        <AdminCard>
-          <div className="mb-4 flex items-center justify-between">
-            <h3 className="text-lg font-bold text-white">Recent Leads</h3>
-            <Link href="/admin/crm/leads">
-              <AdminButton size="sm" variant="ghost">
-                View All
-              </AdminButton>
-            </Link>
+      {/* Recent Leads */}
+      <AdminCard
+        title="Recent Leads"
+        actions={
+          <Link href="/admin/crm/leads">
+            <button className="text-xs font-semibold text-[#0078d4] hover:underline">
+              View All
+            </button>
+          </Link>
+        }
+      >
+        {loading ? (
+          <div className="space-y-3">
+            {[1, 2, 3, 4, 5].map((i) => (
+              <div key={i} className="h-16 animate-pulse rounded bg-[#f3f2f1]" />
+            ))}
           </div>
-          {loading ? (
-            <div className="space-y-3">
-              {[1, 2, 3, 4, 5].map((i) => (
-                <div key={i} className="h-16 animate-pulse rounded-lg bg-white/5" />
-              ))}
-            </div>
-          ) : leads.length === 0 ? (
-            <p className="py-8 text-center text-white/50">No leads yet.</p>
-          ) : (
-            <div className="space-y-3">
-              {leads.slice(0, 5).map((l) => (
-                <Link key={l._id} href={`/admin/crm/leads?highlight=${l._id}`}>
-                  <div className="flex items-center justify-between rounded-xl border border-white/10 bg-white/5 p-4 backdrop-blur-sm transition-all hover:border-white/20 hover:bg-white/10">
-                    <div className="flex-1">
-                      <p className="font-medium text-white">{l.name}</p>
-                      <p className="text-sm text-white/60">{l.email}</p>
+        ) : recentLeads.length === 0 ? (
+          <AdminEmptyState
+            icon={Users2}
+            title="No leads yet"
+            description="Start adding leads to track your sales pipeline"
+          />
+        ) : (
+          <AdminTable headers={["Lead", "Company", "Status", "Source", "Date"]}>
+            {recentLeads.map((lead) => (
+              <AdminTableRow key={lead._id}>
+                <td className="px-6 py-4">
+                  <div className="flex items-center gap-3">
+                    <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#0078d4] text-xs font-semibold text-white">
+                      {lead.name?.charAt(0)?.toUpperCase()}
                     </div>
-                    <div className="flex items-center gap-2">
-                      <AdminBadge variant={getLeadBadgeVariant(l.status) as any}>
-                        {l.status}
-                      </AdminBadge>
-                      <ChevronRight className="h-4 w-4 text-white/40" />
+                    <div>
+                      <p className="text-xs font-semibold text-[#323130]">{lead.name}</p>
+                      <p className="text-xs text-[#605e5c]">{lead.email}</p>
                     </div>
                   </div>
-                </Link>
-              ))}
-            </div>
-          )}
-        </AdminCard>
-
-        {/* Accounts */}
-        <AdminCard>
-          <div className="mb-4 flex items-center justify-between">
-            <h3 className="text-lg font-bold text-white">Recent Accounts</h3>
-            <Link href="/admin/crm/accounts">
-              <AdminButton size="sm" variant="ghost">
-                View All
-              </AdminButton>
-            </Link>
-          </div>
-          {loading ? (
-            <div className="space-y-3">
-              {[1, 2, 3, 4, 5].map((i) => (
-                <div key={i} className="h-16 animate-pulse rounded-lg bg-white/5" />
-              ))}
-            </div>
-          ) : accounts.length === 0 ? (
-            <p className="py-8 text-center text-white/50">No accounts yet.</p>
-          ) : (
-            <div className="space-y-3">
-              {accounts.slice(0, 5).map((a) => (
-                <Link key={a._id} href={`/admin/crm/accounts/${a._id}`}>
-                  <div className="flex items-center justify-between rounded-xl border border-white/10 bg-white/5 p-4 backdrop-blur-sm transition-all hover:border-white/20 hover:bg-white/10">
-                    <div className="flex-1">
-                      <p className="font-medium text-white">{a.name}</p>
-                      <p className="text-sm text-white/60">
-                        {a.type} · {a.industry}
-                      </p>
-                    </div>
-                    <ChevronRight className="h-4 w-4 text-white/40" />
-                  </div>
-                </Link>
-              ))}
-            </div>
-          )}
-        </AdminCard>
-      </div>
+                </td>
+                <td className="px-6 py-4 text-xs text-[#605e5c]">
+                  {lead.company || "—"}
+                </td>
+                <td className="px-6 py-4">
+                  <AdminBadge
+                    variant={
+                      lead.status === "QUALIFIED"
+                        ? "success"
+                        : lead.status === "NEW"
+                        ? "warning"
+                        : "default"
+                    }
+                  >
+                    {lead.status}
+                  </AdminBadge>
+                </td>
+                <td className="px-6 py-4 text-xs text-[#605e5c]">
+                  {lead.source || "—"}
+                </td>
+                <td className="px-6 py-4 text-xs text-[#a19f9d]">
+                  {new Date(lead.createdAt).toLocaleDateString("en-IN")}
+                </td>
+              </AdminTableRow>
+            ))}
+          </AdminTable>
+        )}
+      </AdminCard>
+      </AdminPageLayout>
     </AdminPageWrapper>
   )
 }

@@ -53,7 +53,7 @@ export default function CommunityFeedPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#1a0b2e] via-[#3d1f47] to-[#6b2d5c] p-4 sm:p-6 lg:p-8">
+    <div className="min-h-screen bg-gray-50 p-4 sm:p-6 lg:p-8">
       <div className="mx-auto max-w-[1600px]">
         {/* Header */}
         <div className="mb-8">
@@ -63,8 +63,8 @@ export default function CommunityFeedPage() {
 
         {/* Stats Cards */}
         <div className="mb-6 grid gap-4 sm:grid-cols-3">
-          <div className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-md transition-all hover:border-white/20 hover:bg-white/10">
-            <div className="absolute right-0 top-0 h-32 w-32 -translate-y-8 translate-x-8 rounded-full bg-gradient-to-br from-purple-400/20 to-pink-400/20 blur-2xl" />
+          <div className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-md transition-all hover:border-white/20 hover:bg-white/10 admin-light-theme:border-slate-200 admin-light-theme:bg-white">
+            <div className="absolute right-0 top-0 h-32 w-32 -translate-y-8 translate-x-8 rounded-full bg-violet-100/50 blur-2xl admin-dark-theme:bg-purple-400/20" />
             <div className="relative">
               <div className="mb-4 flex items-start justify-between">
                 <div>

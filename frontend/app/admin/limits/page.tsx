@@ -4,12 +4,14 @@ import { useEffect, useState } from "react"
 import { getTenantLimits } from "@/shared/services/adminService"
 import { useTenant } from "@/shared/context/TenantContext"
 import { Users, UserCircle2, Megaphone, HardDrive } from "lucide-react"
+import { AdminPageWrapper } from "@/shared/components/layout/AdminPageWrapper"
 import {
-  AdminPageWrapper,
-  AdminCard,
-  AdminSectionHeader,
+  AdminPageLayout,
+  AdminStatsGrid,
   AdminStatCard,
-} from "@/shared/components/layout/AdminPageWrapper"
+  AdminCard,
+  AdminLoading,
+} from "@/shared/components/admin/AdminPageLayout"
 
 export default function AdminLimitsPage() {
   const { tenantId } = useTenant()
@@ -34,17 +36,15 @@ export default function AdminLimitsPage() {
 
   return (
     <AdminPageWrapper>
-      <AdminSectionHeader
+      <AdminPageLayout
         title="Limits"
         subtitle="Usage against tenant limits"
-      />
-
-      {/* Stats Cards */}
-      <div className="mb-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      >
+      <AdminStatsGrid columns={4}>
         {loading ? (
           <>
             {[1, 2, 3, 4].map((i) => (
-              <div key={i} className="h-32 animate-pulse rounded-2xl bg-white/5 admin-light-theme:bg-slate-100 transition-colors" />
+              <div key={i} className="h-32 animate-pulse rounded bg-[#f3f2f1]" />
             ))}
           </>
         ) : (
@@ -54,7 +54,7 @@ export default function AdminLimitsPage() {
             return (
               <AdminStatCard
                 key={item.label}
-                title={item.label}
+                label={item.label}
                 value={`${item.used} / ${item.limit}${item.unit ? ` ${item.unit}` : ""}`}
                 subtitle={`${pct}% used`}
                 icon={Icon}
@@ -63,17 +63,11 @@ export default function AdminLimitsPage() {
             )
           })
         )}
-      </div>
+      </AdminStatsGrid>
 
-      {/* Detailed Usage */}
-      <AdminCard>
-        <h3 className="mb-6 text-lg font-bold text-white admin-light-theme:text-slate-900 transition-colors">Usage Details</h3>
+      <AdminCard title="Usage Details">
         {loading ? (
-          <div className="space-y-3">
-            {[1, 2, 3, 4].map((i) => (
-              <div key={i} className="h-20 animate-pulse rounded-lg bg-white/5 admin-light-theme:bg-slate-100" />
-            ))}
-          </div>
+          <AdminLoading rows={4} />
         ) : (
           <div className="grid gap-4 sm:grid-cols-2">
             {items.map((item) => {
@@ -83,31 +77,31 @@ export default function AdminLimitsPage() {
               return (
                 <div
                   key={item.label}
-                  className="rounded-xl border border-white/10 admin-light-theme:border-slate-200 bg-white/5 admin-light-theme:bg-white p-4 backdrop-blur-sm transition-all hover:border-white/20 admin-light-theme:hover:border-slate-300 hover:bg-white/10 admin-light-theme:hover:shadow-md"
+                  className="rounded border border-[#edebe9] bg-white p-4 transition-all hover:shadow-sm"
                 >
                   <div className="flex items-center gap-3">
-                    <div className="rounded-lg bg-purple-500/10 admin-light-theme:bg-purple-100 p-2 transition-colors">
-                      <Icon className="h-5 w-5 text-purple-400 admin-light-theme:text-purple-600 transition-colors" />
+                    <div className="rounded bg-[#8764b8] p-2 text-white">
+                      <Icon className="h-5 w-5" />
                     </div>
                     <div className="flex-1">
-                      <p className="text-xs font-medium uppercase tracking-wide text-white/50 admin-light-theme:text-slate-500 transition-colors">
+                      <p className="text-xs font-semibold uppercase tracking-wide text-[#605e5c]">
                         {item.label}
                       </p>
-                      <p className="mt-1 text-lg font-bold text-white admin-light-theme:text-slate-900 transition-colors">
+                      <p className="mt-1 text-base font-semibold text-[#323130]">
                         {item.used} / {item.limit}
                         {item.unit && ` ${item.unit}`}
                       </p>
                     </div>
                   </div>
-                  <div className="mt-3 h-2 overflow-hidden rounded-full bg-white/10 admin-light-theme:bg-slate-200 transition-colors">
+                  <div className="mt-3 h-2 overflow-hidden rounded-full bg-[#f3f2f1]">
                     <div
                       className={`h-full transition-all ${
-                        isNearLimit ? "bg-rose-400 admin-light-theme:bg-rose-500" : "bg-[#d4ff00]"
+                        isNearLimit ? "bg-[#d13438]" : "bg-[#107c10]"
                       }`}
                       style={{ width: `${Math.min(pct, 100)}%` }}
                     />
                   </div>
-                  <p className={`mt-2 text-xs transition-colors ${isNearLimit ? "text-rose-400 admin-light-theme:text-rose-600" : "text-white/60 admin-light-theme:text-slate-600"}`}>
+                  <p className={`mt-2 text-xs ${isNearLimit ? "text-[#d13438]" : "text-[#605e5c]"}`}>
                     {pct}% used {isNearLimit && "⚠️ Near limit"}
                   </p>
                 </div>
@@ -116,6 +110,7 @@ export default function AdminLimitsPage() {
           </div>
         )}
       </AdminCard>
+      </AdminPageLayout>
     </AdminPageWrapper>
   )
 }

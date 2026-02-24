@@ -1,0 +1,178 @@
+[
+  {
+    "id": "wf_001",
+    "name": "Booking confirmation flow",
+    "description": "Inquiry → Quote → Hold → Confirm or Release",
+    "type": "BOOKING",
+    "status": "ACTIVE",
+    "tenantId": "",
+    "blueprintId": "B1",
+    "version": "1.2.0",
+    "states": [
+      { "id": "inquiry", "name": "Inquiry", "type": "initial" },
+      { "id": "quoted", "name": "Quoted", "type": "intermediate" },
+      { "id": "hold", "name": "Hold", "type": "intermediate" },
+      { "id": "confirmed", "name": "Confirmed", "type": "terminal" },
+      { "id": "released", "name": "Released", "type": "terminal" }
+    ],
+    "transitions": [
+      { "from": "inquiry", "to": "quoted", "trigger": "quote_sent" },
+      { "from": "quoted", "to": "hold", "trigger": "hold_created" },
+      { "from": "hold", "to": "confirmed", "trigger": "booking_confirmed" },
+      { "from": "hold", "to": "released", "trigger": "hold_expired" }
+    ],
+    "stats": {
+      "executionCount": 1240,
+      "successCount": 1180,
+      "failureCount": 60,
+      "avgDurationMs": 4200,
+      "lastRunAt": "2025-02-16T10:30:00.000Z"
+    }
+  },
+  {
+    "id": "wf_002",
+    "name": "Intake → Review → Onboard",
+    "description": "Talent intake pipeline for roster onboarding",
+    "type": "INTAKE",
+    "status": "ACTIVE",
+    "tenantId": "",
+    "blueprintId": "B1",
+    "version": "2.0.0",
+    "states": [
+      { "id": "submitted", "name": "Submitted", "type": "initial" },
+      { "id": "review", "name": "Under review", "type": "intermediate" },
+      { "id": "approved", "name": "Approved", "type": "intermediate" },
+      { "id": "onboarded", "name": "Onboarded", "type": "terminal" },
+      { "id": "rejected", "name": "Rejected", "type": "terminal" }
+    ],
+    "transitions": [
+      { "from": "submitted", "to": "review", "trigger": "assign_reviewer" },
+      { "from": "review", "to": "approved", "trigger": "approve" },
+      { "from": "review", "to": "rejected", "trigger": "reject" },
+      { "from": "approved", "to": "onboarded", "trigger": "complete_onboarding" }
+    ],
+    "stats": {
+      "executionCount": 890,
+      "successCount": 845,
+      "failureCount": 45,
+      "avgDurationMs": 186000,
+      "lastRunAt": "2025-02-16T09:15:00.000Z"
+    }
+  },
+  {
+    "id": "wf_003",
+    "name": "Escrow release flow",
+    "description": "Milestone → Evidence → Approval → Release",
+    "type": "ESCROW",
+    "status": "ACTIVE",
+    "tenantId": "",
+    "blueprintId": "B1",
+    "version": "1.0.0",
+    "states": [
+      { "id": "pending", "name": "Pending", "type": "initial" },
+      { "id": "evidence_submitted", "name": "Evidence submitted", "type": "intermediate" },
+      { "id": "approved", "name": "Approved", "type": "intermediate" },
+      { "id": "released", "name": "Released", "type": "terminal" },
+      { "id": "disputed", "name": "Disputed", "type": "intermediate" }
+    ],
+    "transitions": [
+      { "from": "pending", "to": "evidence_submitted", "trigger": "evidence_uploaded" },
+      { "from": "evidence_submitted", "to": "approved", "trigger": "approver_approved" },
+      { "from": "approved", "to": "released", "trigger": "release_funds" },
+      { "from": "evidence_submitted", "to": "disputed", "trigger": "dispute_raised" }
+    ],
+    "stats": {
+      "executionCount": 456,
+      "successCount": 440,
+      "failureCount": 16,
+      "avgDurationMs": 7200000,
+      "lastRunAt": "2025-02-16T08:00:00.000Z"
+    }
+  },
+  {
+    "id": "wf_004",
+    "name": "Pageant registration pipeline",
+    "description": "Register → Screen → Shortlist → Compete",
+    "type": "PAGEANT",
+    "status": "ACTIVE",
+    "tenantId": "tenant_002",
+    "blueprintId": "B3",
+    "version": "1.1.0",
+    "states": [
+      { "id": "registered", "name": "Registered", "type": "initial" },
+      { "id": "screening", "name": "Screening", "type": "intermediate" },
+      { "id": "shortlisted", "name": "Shortlisted", "type": "intermediate" },
+      { "id": "competing", "name": "Competing", "type": "terminal" },
+      { "id": "withdrawn", "name": "Withdrawn", "type": "terminal" }
+    ],
+    "transitions": [
+      { "from": "registered", "to": "screening", "trigger": "start_screening" },
+      { "from": "screening", "to": "shortlisted", "trigger": "shortlist" },
+      { "from": "shortlisted", "to": "competing", "trigger": "confirm_participation" },
+      { "from": "registered", "to": "withdrawn", "trigger": "withdraw" }
+    ],
+    "stats": {
+      "executionCount": 320,
+      "successCount": 310,
+      "failureCount": 10,
+      "avgDurationMs": 3600000,
+      "lastRunAt": "2025-02-16T11:00:00.000Z"
+    }
+  },
+  {
+    "id": "wf_005",
+    "name": "Approval chain (multi-step)",
+    "description": "Submit → Level 1 → Level 2 → Final",
+    "type": "APPROVAL",
+    "status": "ACTIVE",
+    "tenantId": "",
+    "blueprintId": "B1",
+    "version": "1.0.0",
+    "states": [
+      { "id": "submitted", "name": "Submitted", "type": "initial" },
+      { "id": "l1_review", "name": "L1 review", "type": "intermediate" },
+      { "id": "l2_review", "name": "L2 review", "type": "intermediate" },
+      { "id": "approved", "name": "Approved", "type": "terminal" },
+      { "id": "rejected", "name": "Rejected", "type": "terminal" }
+    ],
+    "transitions": [
+      { "from": "submitted", "to": "l1_review", "trigger": "assign_l1" },
+      { "from": "l1_review", "to": "l2_review", "trigger": "l1_approve" },
+      { "from": "l1_review", "to": "rejected", "trigger": "l1_reject" },
+      { "from": "l2_review", "to": "approved", "trigger": "l2_approve" },
+      { "from": "l2_review", "to": "rejected", "trigger": "l2_reject" }
+    ],
+    "stats": {
+      "executionCount": 2100,
+      "successCount": 1980,
+      "failureCount": 120,
+      "avgDurationMs": 144000,
+      "lastRunAt": "2025-02-16T10:45:00.000Z"
+    }
+  },
+  {
+    "id": "wf_006",
+    "name": "Draft: Campaign brief workflow",
+    "description": "Draft workflow for campaign brief approval",
+    "type": "CAMPAIGN",
+    "status": "DRAFT",
+    "tenantId": "",
+    "blueprintId": "B4",
+    "version": "0.1.0",
+    "states": [
+      { "id": "draft", "name": "Draft", "type": "initial" },
+      { "id": "review", "name": "Review", "type": "intermediate" },
+      { "id": "published", "name": "Published", "type": "terminal" }
+    ],
+    "transitions": [
+      { "from": "draft", "to": "review", "trigger": "submit" },
+      { "from": "review", "to": "published", "trigger": "approve" }
+    ],
+    "stats": {
+      "executionCount": 0,
+      "successCount": 0,
+      "failureCount": 0,
+      "avgDurationMs": 0
+    }
+  }
+]

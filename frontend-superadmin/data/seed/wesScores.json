@@ -1,0 +1,97 @@
+[
+  {
+    "id": "wes-001",
+    "tenantId": "tenant-001",
+    "tenantName": "Elite Talent Agency",
+    "blueprint": "modelling",
+    "currentScore": 87,
+    "previousScore": 82,
+    "trend": "up",
+    "lastCalculated": "2024-02-20T10:30:00Z",
+    "metrics": {
+      "automationAdoption": 92,
+      "responseTime": 85,
+      "resolutionRate": 88,
+      "processCompliance": 84,
+      "dataQuality": 90
+    },
+    "rank": 3,
+    "totalTenants": 45
+  },
+  {
+    "id": "wes-002",
+    "tenantId": "tenant-002",
+    "tenantName": "Glamour Models Inc",
+    "blueprint": "modelling",
+    "currentScore": 94,
+    "previousScore": 91,
+    "trend": "up",
+    "lastCalculated": "2024-02-20T10:30:00Z",
+    "metrics": {
+      "automationAdoption": 96,
+      "responseTime": 94,
+      "resolutionRate": 95,
+      "processCompliance": 92,
+      "dataQuality": 93
+    },
+    "rank": 1,
+    "totalTenants": 45
+  },
+  {
+    "id": "wes-003",
+    "tenantId": "tenant-003",
+    "tenantName": "Star Pageants",
+    "blueprint": "pageant",
+    "currentScore": 78,
+    "previousScore": 80,
+    "trend": "down",
+    "lastCalculated": "2024-02-20T10:30:00Z",
+    "metrics": {
+      "automationAdoption": 75,
+      "responseTime": 82,
+      "resolutionRate": 76,
+      "processCompliance": 80,
+      "dataQuality": 77
+    },
+    "rank": 12,
+    "totalTenants": 45
+  },
+  {
+    "id": "wes-004",
+    "tenantId": "tenant-004",
+    "tenantName": "Fashion Forward Agency",
+    "blueprint": "modelling",
+    "currentScore": 91,
+    "previousScore": 89,
+    "trend": "up",
+    "lastCalculated": "2024-02-20T10:30:00Z",
+    "metrics": {
+      "automationAdoption": 90,
+      "responseTime": 92,
+      "resolutionRate": 91,
+      "processCompliance": 90,
+      "dataQuality": 92
+    },
+    "rank": 2,
+    "totalTenants": 45
+  },
+  {
+    "id": "wes-005",
+    "tenantId": "tenant-005",
+    "tenantName": "Crown Events",
+    "blueprint": "pageant",
+    "currentScore": 65,
+    "previousScore": 68,
+    "trend": "down",
+    "lastCalculated": "2024-02-20T10:30:00Z",
+    "metrics": {
+      "automationAdoption": 60,
+      "responseTime": 70,
+      "resolutionRate": 65,
+      "processCompliance": 68,
+      "dataQuality": 62
+    },
+    "rank": 28,
+    "totalTenants": 45
+  }
+]

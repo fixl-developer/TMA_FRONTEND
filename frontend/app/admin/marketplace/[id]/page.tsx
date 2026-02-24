@@ -220,7 +220,7 @@ export default function MarketplaceListingDetailPage() {
 
       {/* Booking Dialog */}
       <Dialog open={bookingOpen} onOpenChange={setBookingOpen}>
-        <DialogContent className="border border-white/10 bg-slate-900 text-white">
+        <DialogContent className="border admin-light-theme:border-slate-200 admin-light-theme:bg-white admin-dark-theme:border-white/10 admin-dark-theme:bg-slate-900 admin-light-theme:text-slate-900 admin-dark-theme:text-white">
           <DialogHeader><DialogTitle>Book: {listing.title}</DialogTitle></DialogHeader>
           <div className="space-y-4">
             <div>
@@ -255,7 +255,7 @@ export default function MarketplaceListingDetailPage() {
 
       {/* Review Dialog */}
       <Dialog open={reviewOpen} onOpenChange={setReviewOpen}>
-        <DialogContent className="border border-white/10 bg-slate-900 text-white">
+        <DialogContent className="border admin-light-theme:border-slate-200 admin-light-theme:bg-white admin-dark-theme:border-white/10 admin-dark-theme:bg-slate-900 admin-light-theme:text-slate-900 admin-dark-theme:text-white">
           <DialogHeader><DialogTitle>Add Review</DialogTitle></DialogHeader>
           <div className="space-y-4">
             <div>

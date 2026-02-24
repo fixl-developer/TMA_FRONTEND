@@ -62,8 +62,8 @@ export default function FeaturesPage() {
         title="Features"
         description="Feature flags, gradual rollouts, and platform configuration."
         badge={
-          <span className="inline-flex items-center gap-1.5 rounded-md border border-slate-200 bg-white px-2.5 py-1 text-xs font-medium text-slate-600">
-            <Flag className="h-3.5 w-3.5 text-blue-500" />
+          <span className="inline-flex items-center gap-1.5 rounded border border-[#e1e1e1] bg-white px-2.5 py-1 text-xs font-medium text-[#605e5c]">
+            <Flag className="h-3.5 w-3.5 text-[#0078d4]" />
             Platform
           </span>
         }
@@ -76,10 +76,10 @@ export default function FeaturesPage() {
               <CardTitle>Feature flags</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-3xl font-semibold text-slate-800">
+              <p className="text-3xl font-semibold text-[#323130]">
                 {loading ? "—" : metrics.totalFlags}
               </p>
-              <p className="mt-1 text-[11px] text-slate-500">
+              <p className="mt-1 text-[11px] text-[#605e5c]">
                 {metrics.enabledFlags} enabled
               </p>
             </CardContent>
@@ -89,10 +89,10 @@ export default function FeaturesPage() {
               <CardTitle>Active rollouts</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-3xl font-semibold text-emerald-600">
+              <p className="text-3xl font-semibold text-[#107c10]">
                 {loading ? "—" : metrics.activeRollouts}
               </p>
-              <p className="mt-1 text-[11px] text-slate-500">
+              <p className="mt-1 text-[11px] text-[#605e5c]">
                 Gradual releases in progress
               </p>
             </CardContent>
@@ -102,10 +102,10 @@ export default function FeaturesPage() {
               <CardTitle>Config keys</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-3xl font-semibold text-sky-600">
+              <p className="text-3xl font-semibold text-[#0078d4]">
                 {loading ? "—" : metrics.configKeys}
               </p>
-              <p className="mt-1 text-[11px] text-slate-500">
+              <p className="mt-1 text-[11px] text-[#605e5c]">
                 Platform settings
               </p>
             </CardContent>
@@ -114,16 +114,16 @@ export default function FeaturesPage() {
       </PageSection>
 
       {/* Tabs */}
-      <div className="mb-4 flex gap-1 rounded-lg border border-slate-200 bg-white p-1">
+      <div className="mb-4 flex gap-1 rounded border border-[#e1e1e1] bg-white p-1">
         {tabs.map((tab) => (
           <button
             key={tab.id}
             type="button"
             onClick={() => setActiveTab(tab.id)}
-            className={`flex items-center gap-2 rounded-md px-4 py-2 text-sm font-medium transition-colors ${
+            className={`flex items-center gap-2 rounded px-4 py-2 text-sm font-semibold transition-colors ${
               activeTab === tab.id
-                ? "bg-blue-600 text-white"
-                : "text-slate-600 hover:bg-slate-100 hover:text-slate-900"
+                ? "bg-[#f3f2f1] text-[#0078d4] border-l-2 border-[#0078d4]"
+                : "text-[#605e5c] hover:bg-[#faf9f8]"
             }`}
           >
             {tab.icon}
@@ -144,21 +144,21 @@ export default function FeaturesPage() {
             </CardHeader>
             <CardContent>
               {loading ? (
-                <p className="text-slate-500">Loading…</p>
+                <p className="text-[#605e5c]">Loading…</p>
               ) : flags.length === 0 ? (
-                <p className="text-slate-500">No feature flags.</p>
+                <p className="text-[#605e5c]">No feature flags.</p>
               ) : (
                 <div className="space-y-3">
                   {flags.map((f) => (
                     <div
                       key={f._id}
-                      className="flex items-start justify-between gap-4 rounded-lg border border-slate-200 bg-slate-50/50 p-4"
+                      className="flex items-start justify-between gap-4 rounded border border-[#e1e1e1] bg-white p-4 hover:bg-[#faf9f8] transition-colors"
                     >
                       <div>
-                        <p className="font-medium text-slate-800">{f.name}</p>
-                        <p className="text-[11px] text-slate-500 font-mono">{f.key}</p>
-                        <p className="mt-1 text-sm text-slate-600">{f.description}</p>
-                        <div className="mt-2 flex gap-2 text-xs text-slate-500">
+                        <p className="font-medium text-[#323130]">{f.name}</p>
+                        <p className="text-[11px] text-[#605e5c] font-mono">{f.key}</p>
+                        <p className="mt-1 text-sm text-[#605e5c]">{f.description}</p>
+                        <div className="mt-2 flex gap-2 text-xs text-[#605e5c]">
                           <span>Rollout: {f.rolloutPercent}%</span>
                           {f.tenantIds?.length > 0 && (
                             <span>
@@ -170,8 +170,8 @@ export default function FeaturesPage() {
                       <span
                         className={`shrink-0 rounded border px-2.5 py-1 text-xs font-medium ${
                           f.enabled
-                            ? "bg-emerald-100 text-emerald-800 border-emerald-200"
-                            : "bg-slate-100 text-slate-600 border-slate-200"
+                            ? "bg-[#dff6dd] text-[#107c10] border-[#107c10]"
+                            : "bg-[#f3f2f1] text-[#323130] border-[#8a8886]"
                         }`}
                       >
                         {f.enabled ? "ON" : "OFF"}
@@ -197,36 +197,38 @@ export default function FeaturesPage() {
             </CardHeader>
             <CardContent>
               {loading ? (
-                <p className="text-slate-500">Loading…</p>
+                <p className="text-[#605e5c]">Loading…</p>
               ) : rollouts.length === 0 ? (
-                <p className="text-slate-500">No rollouts.</p>
+                <p className="text-[#605e5c]">No rollouts.</p>
               ) : (
                 <div className="overflow-x-auto">
                   <table className="w-full text-sm">
                     <thead>
-                      <tr className="border-b border-slate-200 text-left text-slate-500">
-                        <th className="pb-3 pr-4 font-medium">Name</th>
-                        <th className="pb-3 pr-4 font-medium">Flag</th>
-                        <th className="pb-3 pr-4 font-medium">Strategy</th>
-                        <th className="pb-3 pr-4 font-medium">Target</th>
-                        <th className="pb-3 pr-4 font-medium">Status</th>
-                        <th className="pb-3 font-medium">Started</th>
+                      <tr className="border-b border-[#e1e1e1] bg-[#faf9f8] text-left text-[#323130]">
+                        <th className="pb-3 pr-4 font-semibold">Name</th>
+                        <th className="pb-3 pr-4 font-semibold">Flag</th>
+                        <th className="pb-3 pr-4 font-semibold">Strategy</th>
+                        <th className="pb-3 pr-4 font-semibold">Target</th>
+                        <th className="pb-3 pr-4 font-semibold">Status</th>
+                        <th className="pb-3 font-semibold">Started</th>
                       </tr>
                     </thead>
                     <tbody>
-                      {rollouts.map((r) => (
+                      {rollouts.map((r, idx) => (
                         <tr
                           key={r._id}
-                          className="border-b border-slate-100 hover:bg-slate-50/50"
+                          className={`border-b border-[#e1e1e1] transition-colors ${
+                            idx % 2 === 0 ? "bg-white hover:bg-[#f3f2f1]" : "bg-[#faf9f8] hover:bg-[#f3f2f1]"
+                          }`}
                         >
-                          <td className="py-3 pr-4 font-medium text-slate-800">
+                          <td className="py-3 pr-4 font-medium text-[#323130]">
                             {r.name}
                           </td>
-                          <td className="py-3 pr-4 text-slate-600 font-mono text-xs">
+                          <td className="py-3 pr-4 text-[#605e5c] font-mono text-xs">
                             {r.flagKey}
                           </td>
-                          <td className="py-3 pr-4 text-slate-600">{r.strategy}</td>
-                          <td className="py-3 pr-4 text-slate-600">
+                          <td className="py-3 pr-4 text-[#605e5c]">{r.strategy}</td>
+                          <td className="py-3 pr-4 text-[#605e5c]">
                             {r.strategy === "PERCENTAGE"
                               ? `${r.percent}%`
                               : r.targetTenantIds?.length > 0
@@ -237,14 +239,14 @@ export default function FeaturesPage() {
                             <span
                               className={`inline-flex rounded border px-2 py-0.5 text-xs font-medium ${
                                 r.status === "ACTIVE"
-                                  ? "bg-emerald-100 text-emerald-800 border-emerald-200"
-                                  : "bg-slate-100 text-slate-600 border-slate-200"
+                                  ? "bg-[#dff6dd] text-[#107c10] border-[#107c10]"
+                                  : "bg-[#f3f2f1] text-[#323130] border-[#8a8886]"
                               }`}
                             >
                               {r.status}
                             </span>
                           </td>
-                          <td className="py-3 text-slate-500">
+                          <td className="py-3 text-[#605e5c]">
                             {r.startedAt
                               ? new Date(r.startedAt).toLocaleDateString()
                               : "—"}

@@ -1,0 +1,368 @@
+{
+  "overview": {
+    "totalCommissions": 8475000,
+    "pendingSettlements": 2340000,
+    "settledThisMonth": 6135000,
+    "activeRules": 47,
+    "totalPayouts": 156,
+    "avgProcessingTime": 2.3,
+    "disputeRate": 1.2
+  },
+  "commissionRules": [
+    {
+      "id": "rule_comm_001",
+      "name": "Pageant Winner Commission",
+      "blueprint": "pageant",
+      "role": "talent",
+      "type": "percentage",
+      "value": 15,
+      "tier": "standard",
+      "conditions": {
+        "minAmount": 10000,
+        "maxAmount": null,
+        "eventType": "pageant_win",
+        "rankRequired": "winner"
+      },
+      "status": "active",
+      "applicableTenants": 89,
+      "totalPaid": 1250000,
+      "lastModified": "2024-02-15T10:30:00Z"
+    },
+    {
+      "id": "rule_comm_002",
+      "name": "Model Booking Commission",
+      "blueprint": "modelling",
+      "role": "model",
+      "type": "percentage",
+      "value": 20,
+      "tier": "premium",
+      "conditions": {
+        "minAmount": 5000,
+        "maxAmount": null,
+        "bookingType": "commercial",
+        "experienceLevel": "professional"
+      },
+      "status": "active",
+      "applicableTenants": 67,
+      "totalPaid": 2340000,
+      "lastModified": "2024-02-10T14:20:00Z"
+    },
+    {
+      "id": "rule_comm_003",
+      "name": "Campaign Performance Bonus",
+      "blueprint": "campaign",
+      "role": "influencer",
+      "type": "tiered",
+      "tiers": [
+        { "threshold": 100000, "rate": 5 },
+        { "threshold": 500000, "rate": 7 },
+        { "threshold": 1000000, "rate": 10 }
+      ],
+      "conditions": {
+        "minEngagement": 5,
+        "campaignStatus": "completed",
+        "metricsAchieved": true
+      },
+      "status": "active",
+      "applicableTenants": 37,
+      "totalPaid": 890000,
+      "lastModified": "2024-02-08T09:15:00Z"
+    },
+    {
+      "id": "rule_comm_004",
+      "name": "Talent Agency Commission",
+      "blueprint": "talent",
+      "role": "agency",
+      "type": "percentage",
+      "value": 12,
+      "tier": "standard",
+      "conditions": {
+        "minAmount": 15000,
+        "maxAmount": null,
+        "contractType": "exclusive",
+        "duration": "12_months"
+      },
+      "status": "active",
+      "applicableTenants": 54,
+      "totalPaid": 1680000,
+      "lastModified": "2024-01-28T16:45:00Z"
+    },
+    {
+      "id": "rule_comm_005",
+      "name": "Platform Service Fee",
+      "blueprint": "all",
+      "role": "platform",
+      "type": "percentage",
+      "value": 5,
+      "tier": "base",
+      "conditions": {
+        "minAmount": 1000,
+        "maxAmount": null,
+        "transactionType": "all"
+      },
+      "status": "active",
+      "applicableTenants": 247,
+      "totalPaid": 2315000,
+      "lastModified": "2024-01-15T11:30:00Z"
+    }
+  ],
+  "settlements": [
+    {
+      "id": "settlement_001",
+      "period": "February 2025",
+      "startDate": "2025-02-01",
+      "endDate": "2025-02-28",
+      "status": "in_progress",
+      "totalAmount": 2340000,
+      "tenantCount": 247,
+      "payoutCount": 156,
+      "generatedDate": "2025-02-20T10:00:00Z",
+      "dueDate": "2025-03-05T23:59:59Z",
+      "breakdown": {
+        "pageant": 680000,
+        "modelling": 890000,
+        "talent": 520000,
+        "campaign": 250000
+      }
+    },
+    {
+      "id": "settlement_002",
+      "period": "January 2025",
+      "startDate": "2025-01-01",
+      "endDate": "2025-01-31",
+      "status": "completed",
+      "totalAmount": 3120000,
+      "tenantCount": 245,
+      "payoutCount": 148,
+      "generatedDate": "2025-02-01T10:00:00Z",
+      "dueDate": "2025-02-05T23:59:59Z",
+      "completedDate": "2025-02-04T14:30:00Z",
+      "breakdown": {
+        "pageant": 920000,
+        "modelling": 1150000,
+        "talent": 780000,
+        "campaign": 270000
+      }
+    },
+    {
+      "id": "settlement_003",
+      "period": "December 2024",
+      "startDate": "2024-12-01",
+      "endDate": "2024-12-31",
+      "status": "completed",
+      "totalAmount": 3015000,
+      "tenantCount": 242,
+      "payoutCount": 142,
+      "generatedDate": "2025-01-01T10:00:00Z",
+      "dueDate": "2025-01-05T23:59:59Z",
+      "completedDate": "2025-01-04T16:20:00Z",
+      "breakdown": {
+        "pageant": 850000,
+        "modelling": 1100000,
+        "talent": 790000,
+        "campaign": 275000
+      }
+    }
+  ],
+  "payoutQueue": [
+    {
+      "id": "payout_001",
+      "tenantId": "tenant_001",
+      "tenantName": "Elite Pageants Mumbai",
+      "blueprint": "pageant",
+      "amount": 125000,
+      "currency": "INR",
+      "period": "February 2025",
+      "status": "pending",
+      "priority": "high",
+      "dueDate": "2025-03-05",
+      "commissionBreakdown": [
+        { "rule": "Pageant Winner Commission", "amount": 95000 },
+        { "rule": "Platform Service Fee", "amount": 30000 }
+      ],
+      "paymentMethod": "bank_transfer",
+      "bankDetails": {
+        "accountName": "Elite Pageants Pvt Ltd",
+        "accountNumber": "****6789",
+        "ifsc": "HDFC0001234"
+      },
+      "createdDate": "2025-02-20T10:00:00Z"
+    },
+    {
+      "id": "payout_002",
+      "tenantId": "tenant_002",
+      "tenantName": "Fashion Forward Agency",
+      "blueprint": "modelling",
+      "amount": 185000,
+      "currency": "INR",
+      "period": "February 2025",
+      "status": "processing",
+      "priority": "high",
+      "dueDate": "2025-03-05",
+      "commissionBreakdown": [
+        { "rule": "Model Booking Commission", "amount": 150000 },
+        { "rule": "Platform Service Fee", "amount": 35000 }
+      ],
+      "paymentMethod": "bank_transfer",
+      "bankDetails": {
+        "accountName": "Fashion Forward Agency",
+        "accountNumber": "****4521",
+        "ifsc": "ICIC0002345"
+      },
+      "createdDate": "2025-02-20T10:00:00Z",
+      "processingStarted": "2025-02-21T09:30:00Z"
+    },
+    {
+      "id": "payout_003",
+      "tenantId": "tenant_003",
+      "tenantName": "Global Talent Network",
+      "blueprint": "talent",
+      "amount": 95000,
+      "currency": "INR",
+      "period": "February 2025",
+      "status": "pending",
+      "priority": "medium",
+      "dueDate": "2025-03-05",
+      "commissionBreakdown": [
+        { "rule": "Talent Agency Commission", "amount": 75000 },
+        { "rule": "Platform Service Fee", "amount": 20000 }
+      ],
+      "paymentMethod": "bank_transfer",
+      "bankDetails": {
+        "accountName": "Global Talent Network",
+        "accountNumber": "****7890",
+        "ifsc": "SBIN0003456"
+      },
+      "createdDate": "2025-02-20T10:00:00Z"
+    },
+    {
+      "id": "payout_004",
+      "tenantId": "tenant_004",
+      "tenantName": "Creative Campaigns Co",
+      "blueprint": "campaign",
+      "amount": 68000,
+      "currency": "INR",
+      "period": "February 2025",
+      "status": "on_hold",
+      "priority": "low",
+      "dueDate": "2025-03-05",
+      "holdReason": "Pending verification of campaign metrics",
+      "commissionBreakdown": [
+        { "rule": "Campaign Performance Bonus", "amount": 55000 },
+        { "rule": "Platform Service Fee", "amount": 13000 }
+      ],
+      "paymentMethod": "bank_transfer",
+      "bankDetails": {
+        "accountName": "Creative Campaigns Co",
+        "accountNumber": "****2345",
+        "ifsc": "AXIS0004567"
+      },
+      "createdDate": "2025-02-20T10:00:00Z"
+    },
+    {
+      "id": "payout_005",
+      "tenantId": "tenant_005",
+      "tenantName": "Startup Pageant Hub",
+      "blueprint": "pageant",
+      "amount": 42000,
+      "currency": "INR",
+      "period": "January 2025",
+      "status": "completed",
+      "priority": "medium",
+      "dueDate": "2025-02-05",
+      "commissionBreakdown": [
+        { "rule": "Pageant Winner Commission", "amount": 35000 },
+        { "rule": "Platform Service Fee", "amount": 7000 }
+      ],
+      "paymentMethod": "bank_transfer",
+      "bankDetails": {
+        "accountName": "Startup Pageant Hub",
+        "accountNumber": "****8901",
+        "ifsc": "HDFC0005678"
+      },
+      "createdDate": "2025-02-01T10:00:00Z",
+      "completedDate": "2025-02-04T14:30:00Z",
+      "transactionId": "TXN_20250204_001"
+    }
+  ],
+  "disputes": [
+    {
+      "id": "dispute_001",
+      "payoutId": "payout_004",
+      "tenantId": "tenant_004",
+      "tenantName": "Creative Campaigns Co",
+      "amount": 68000,
+      "reason": "Commission calculation discrepancy",
+      "description": "Tenant claims campaign performance bonus should be calculated at higher tier based on engagement metrics",
+      "status": "under_review",
+      "priority": "high",
+      "filedDate": "2025-02-18T14:20:00Z",
+      "assignedTo": "dispute_team_001",
+      "evidence": [
+        "Campaign performance report",
+        "Engagement metrics dashboard",
+        "Commission rule documentation"
+      ],
+      "expectedResolution": "2025-02-25T23:59:59Z"
+    },
+    {
+      "id": "dispute_002",
+      "payoutId": "payout_003",
+      "tenantId": "tenant_003",
+      "tenantName": "Global Talent Network",
+      "amount": 95000,
+      "reason": "Missing commission for exclusive contract",
+      "description": "Tenant reports that commission for one exclusive talent contract is not included in the settlement",
+      "status": "resolved",
+      "priority": "medium",
+      "filedDate": "2025-02-15T10:30:00Z",
+      "resolvedDate": "2025-02-19T16:45:00Z",
+      "resolution": "Commission was correctly calculated. Contract was signed after settlement period cutoff date.",
+      "assignedTo": "dispute_team_002"
+    }
+  ],
+  "analytics": {
+    "byBlueprint": [
+      {
+        "blueprint": "modelling",
+        "totalCommissions": 2340000,
+        "avgCommissionRate": 20,
+        "tenantCount": 67,
+        "payoutCount": 45,
+        "growthRate": 12.5
+      },
+      {
+        "blueprint": "talent",
+        "totalCommissions": 1680000,
+        "avgCommissionRate": 12,
+        "tenantCount": 54,
+        "payoutCount": 38,
+        "growthRate": 8.3
+      },
+      {
+        "blueprint": "pageant",
+        "totalCommissions": 1250000,
+        "avgCommissionRate": 15,
+        "tenantCount": 89,
+        "payoutCount": 52,
+        "growthRate": 15.7
+      },
+      {
+        "blueprint": "campaign",
+        "totalCommissions": 890000,
+        "avgCommissionRate": 7.5,
+        "tenantCount": 37,
+        "payoutCount": 21,
+        "growthRate": 22.1
+      }
+    ],
+    "monthlyTrend": [
+      { "month": "Sep 2024", "amount": 2450000 },
+      { "month": "Oct 2024", "amount": 2680000 },
+      { "month": "Nov 2024", "amount": 2820000 },
+      { "month": "Dec 2024", "amount": 3015000 },
+      { "month": "Jan 2025", "amount": 3120000 },
+      { "month": "Feb 2025", "amount": 2340000 }
+    ]
+  }
+}

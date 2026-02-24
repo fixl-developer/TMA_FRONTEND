@@ -13,7 +13,7 @@ interface AdminThemeContextValue {
 const AdminThemeContext = React.createContext<AdminThemeContextValue | undefined>(undefined)
 
 export function AdminThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setThemeState] = React.useState<Theme>("dark")
+  const [theme, setThemeState] = React.useState<Theme>("light")
 
   React.useEffect(() => {
     // Load theme from localStorage

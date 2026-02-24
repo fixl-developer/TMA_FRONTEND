@@ -2,24 +2,25 @@
 
 import { useEffect, useState } from "react"
 import Link from "next/link"
-import { PageBanner } from "@/shared/components/ui/PageBanner"
-import { Card, CardHeader, CardTitle, CardContent } from "@/shared/components/ui/card"
-import { Button } from "@/shared/components/ui/button"
 import {
   getShipments,
-  getShipmentStatusColor,
   getShipmentTypeLabel,
-  getCampaignById,
-  getTalentById,
 } from "@/shared/services/logisticsService"
 import { useTenant } from "@/shared/context/TenantContext"
-import { Package, ChevronRight } from "lucide-react"
-import { AgenciesPage } from "@/shared/components/layout/AgenciesPage"
-import { useDashboardTheme } from "@/shared/context/DashboardThemeContext"
+import { Package, ChevronRight, RotateCcw } from "lucide-react"
+import {
+  AdminPageWrapper,
+  AdminCard,
+  AdminSectionHeader,
+  AdminStatCard,
+  AdminButton,
+  AdminBadge,
+  AdminEmptyState,
+  AdminTableSkeleton,
+} from "@/shared/components/layout/AdminPageWrapper"
 
 export default function ShipmentsPage() {
   const { tenantId } = useTenant()
-  const { page } = useDashboardTheme()
   const [shipments, setShipments] = useState<any[]>([])
   const [loading, setLoading] = useState(true)
 
@@ -36,104 +37,94 @@ export default function ShipmentsPage() {
   ).length
 
   return (
-    <AgenciesPage>
-      <PageBanner
+    <AdminPageWrapper>
+      <AdminSectionHeader
         title="Shipments"
         subtitle="Product seeding, kits, wardrobe – track deliveries"
-        variant="admin"
-        backgroundImage="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1200&q=80"
+        action={
+          <Link href="/admin/logistics/returns">
+            <AdminButton variant="secondary" size="sm">
+              <RotateCcw className="h-4 w-4" />
+              Returns
+            </AdminButton>
+          </Link>
+        }
       />
-      <div className="mt-6 flex flex-wrap gap-3">
-        <Link href="/admin/logistics/returns">
-          <Button variant="ghost" size="sm">
-            Returns
-          </Button>
-        </Link>
+
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 mb-6">
+        <AdminStatCard
+          title="Total shipments"
+          value={loading ? "—" : shipments.length}
+          subtitle={`${deliveredCount} delivered`}
+          icon={Package}
+          color="blue"
+        />
+        <AdminStatCard
+          title="In transit"
+          value={inTransitCount}
+          icon={Package}
+          color="yellow"
+        />
       </div>
 
-      <div className="mb-6 mt-6 grid min-w-0 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        <Card style={{ borderColor: page.border }}>
-          <CardHeader className="flex flex-row items-center justify-between">
-            <CardTitle className="text-sm">Total shipments</CardTitle>
-            <Package className="h-5 w-5" style={{ color: page.accent }} />
-          </CardHeader>
-          <CardContent>
-            <p className="text-2xl font-bold" style={{ color: page.text }}>
-              {loading ? "—" : shipments.length}
-            </p>
-            <p className="text-sm text-slate-500">{deliveredCount} delivered</p>
-          </CardContent>
-        </Card>
-        <Card style={{ borderColor: page.border }}>
-          <CardHeader>
-            <CardTitle className="text-sm">In transit</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p className="text-2xl font-bold text-amber-600">{inTransitCount}</p>
-          </CardContent>
-        </Card>
-      </div>
-
-      <Card style={{ borderColor: page.border }}>
-        <CardHeader>
-          <CardTitle>Shipment list</CardTitle>
-        </CardHeader>
-        <CardContent>
-          {loading ? (
-            <p className="py-8 text-center text-slate-500">Loading…</p>
-          ) : shipments.length === 0 ? (
-            <p className="py-8 text-center text-slate-500">No shipments yet.</p>
-          ) : (
-            <div className="space-y-3">
-              {shipments.map((s) => (
-                <Link key={s._id} href={`/admin/logistics/shipments/${s._id}`}>
-                  <div
-                    className="flex items-center justify-between rounded-lg border p-4 transition-colors hover:bg-slate-50"
-                    style={{ borderColor: page.border }}
-                  >
-                    <div className="flex items-center gap-3">
-                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-amber-100">
-                        <Package className="h-5 w-5 text-amber-600" />
-                      </div>
-                      <div>
-                        <p className="font-medium" style={{ color: page.text }}>
-                          {s.trackingNumber}
-                        </p>
-                        <p className="text-sm text-slate-500">
-                          {getShipmentTypeLabel(s.type)} · {s.carrier} ·{" "}
-                          {s.origin} → {s.destination}
-                        </p>
-                        {s.notes && (
-                          <p className="mt-0.5 text-xs text-slate-400 truncate max-w-md">
-                            {s.notes}
-                          </p>
-                        )}
-                      </div>
+      <AdminCard>
+        <div className="mb-4 flex items-center gap-2">
+          <Package className="h-5 w-5 text-white/60" />
+          <h2 className="text-lg font-semibold text-white">Shipment list</h2>
+        </div>
+        {loading ? (
+          <AdminTableSkeleton rows={5} cols={4} />
+        ) : shipments.length === 0 ? (
+          <AdminEmptyState
+            icon={Package}
+            title="No shipments"
+            description="No shipments found yet."
+          />
+        ) : (
+          <div className="space-y-3">
+            {shipments.map((s) => (
+              <Link key={s._id} href={`/admin/logistics/shipments/${s._id}`}>
+                <div className="flex items-center justify-between rounded-xl border border-white/10 bg-white/5 p-4 transition hover:bg-white/10">
+                  <div className="flex items-center gap-3">
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-yellow-500/20">
+                      <Package className="h-5 w-5 text-yellow-400" />
                     </div>
-                    <div className="flex items-center gap-2">
-                      <span
-                        className={`rounded-full border px-2 py-0.5 text-xs ${getShipmentStatusColor(s.status)}`}
-                      >
-                        {s.status.replace("_", " ")}
-                      </span>
-                      <ChevronRight className="h-4 w-4 text-slate-400" />
+                    <div>
+                      <p className="font-medium text-white">
+                        {s.trackingNumber}
+                      </p>
+                      <p className="text-sm text-white/60">
+                        {getShipmentTypeLabel(s.type)} · {s.carrier} ·{" "}
+                        {s.origin} → {s.destination}
+                      </p>
+                      {s.notes && (
+                        <p className="mt-0.5 text-xs text-white/40 truncate max-w-md">
+                          {s.notes}
+                        </p>
+                      )}
                     </div>
                   </div>
-                </Link>
-              ))}
-            </div>
-          )}
-        </CardContent>
-      </Card>
+                  <div className="flex items-center gap-2">
+                    <AdminBadge variant={s.status === "DELIVERED" ? "success" : s.status === "IN_TRANSIT" ? "info" : "default"}>
+                      {s.status.replace("_", " ")}
+                    </AdminBadge>
+                    <ChevronRight className="h-4 w-4 text-white/40" />
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+        )}
+      </AdminCard>
 
       <div className="mt-6 flex flex-wrap gap-3">
-        <Button size="sm" variant="outline" disabled>
+        <AdminButton size="sm" variant="secondary" disabled>
           Create kit (coming soon)
-        </Button>
-        <Button asChild variant="outline">
-          <Link href="/admin/logistics/returns">Returns</Link>
-        </Button>
+        </AdminButton>
+        <Link href="/admin/logistics/returns">
+          <AdminButton variant="secondary">Returns</AdminButton>
+        </Link>
       </div>
-    </AgenciesPage>
+    </AdminPageWrapper>
   )
 }

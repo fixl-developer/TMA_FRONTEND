@@ -1,0 +1,352 @@
+[
+  {
+    "blueprint": "pageant",
+    "roles": ["pageant_director", "pageant_coordinator", "head_judge", "judge", "contestant"],
+    "resources": [
+      {
+        "name": "pageants",
+        "permissions": [
+          {
+            "action": "create",
+            "roleAccess": {
+              "pageant_director": true,
+              "pageant_coordinator": false,
+              "head_judge": false,
+              "judge": false,
+              "contestant": false
+            }
+          },
+          {
+            "action": "view",
+            "roleAccess": {
+              "pageant_director": true,
+              "pageant_coordinator": true,
+              "head_judge": true,
+              "judge": true,
+              "contestant": true
+            }
+          },
+          {
+            "action": "edit",
+            "roleAccess": {
+              "pageant_director": true,
+              "pageant_coordinator": true,
+              "head_judge": false,
+              "judge": false,
+              "contestant": false
+            }
+          },
+          {
+            "action": "delete",
+            "roleAccess": {
+              "pageant_director": true,
+              "pageant_coordinator": false,
+              "head_judge": false,
+              "judge": false,
+              "contestant": false
+            }
+          }
+        ]
+      },
+      {
+        "name": "contestants",
+        "permissions": [
+          {
+            "action": "view_all",
+            "roleAccess": {
+              "pageant_director": true,
+              "pageant_coordinator": true,
+              "head_judge": true,
+              "judge": true,
+              "contestant": false
+            }
+          },
+          {
+            "action": "manage",
+            "roleAccess": {
+              "pageant_director": true,
+              "pageant_coordinator": true,
+              "head_judge": false,
+              "judge": false,
+              "contestant": false
+            }
+          },
+          {
+            "action": "approve_registration",
+            "roleAccess": {
+              "pageant_director": true,
+              "pageant_coordinator": true,
+              "head_judge": false,
+              "judge": false,
+              "contestant": false
+            }
+          }
+        ]
+      },
+      {
+        "name": "scoring",
+        "permissions": [
+          {
+            "action": "submit_scores",
+            "roleAccess": {
+              "pageant_director": true,
+              "pageant_coordinator": false,
+              "head_judge": true,
+              "judge": true,
+              "contestant": false
+            }
+          },
+          {
+            "action": "edit_scores",
+            "roleAccess": {
+              "pageant_director": true,
+              "pageant_coordinator": false,
+              "head_judge": true,
+              "judge": false,
+              "contestant": false
+            }
+          },
+          {
+            "action": "finalize_results",
+            "roleAccess": {
+              "pageant_director": true,
+              "pageant_coordinator": false,
+              "head_judge": true,
+              "judge": false,
+              "contestant": false
+            }
+          },
+          {
+            "action": "view_all_scores",
+            "roleAccess": {
+              "pageant_director": true,
+              "pageant_coordinator": true,
+              "head_judge": true,
+              "judge": false,
+              "contestant": false
+            }
+          }
+        ]
+      },
+      {
+        "name": "reports",
+        "permissions": [
+          {
+            "action": "view",
+            "roleAccess": {
+              "pageant_director": true,
+              "pageant_coordinator": true,
+              "head_judge": true,
+              "judge": false,
+              "contestant": false
+            }
+          },
+          {
+            "action": "export",
+            "roleAccess": {
+              "pageant_director": true,
+              "pageant_coordinator": false,
+              "head_judge": false,
+              "judge": false,
+              "contestant": false
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "blueprint": "casting",
+    "roles": ["casting_director", "casting_assistant", "talent"],
+    "resources": [
+      {
+        "name": "casting_calls",
+        "permissions": [
+          {
+            "action": "create",
+            "roleAccess": {
+              "casting_director": true,
+              "casting_assistant": false,
+              "talent": false
+            }
+          },
+          {
+            "action": "view",
+            "roleAccess": {
+              "casting_director": true,
+              "casting_assistant": true,
+              "talent": true
+            }
+          },
+          {
+            "action": "edit",
+            "roleAccess": {
+              "casting_director": true,
+              "casting_assistant": false,
+              "talent": false
+            }
+          },
+          {
+            "action": "delete",
+            "roleAccess": {
+              "casting_director": true,
+              "casting_assistant": false,
+              "talent": false
+            }
+          }
+        ]
+      },
+      {
+        "name": "submissions",
+        "permissions": [
+          {
+            "action": "view_all",
+            "roleAccess": {
+              "casting_director": true,
+              "casting_assistant": true,
+              "talent": false
+            }
+          },
+          {
+            "action": "review",
+            "roleAccess": {
+              "casting_director": true,
+              "casting_assistant": true,
+              "talent": false
+            }
+          },
+          {
+            "action": "shortlist",
+            "roleAccess": {
+              "casting_director": true,
+              "casting_assistant": false,
+              "talent": false
+            }
+          },
+          {
+            "action": "submit",
+            "roleAccess": {
+              "casting_director": false,
+              "casting_assistant": false,
+              "talent": true
+            }
+          }
+        ]
+      },
+      {
+        "name": "auditions",
+        "permissions": [
+          {
+            "action": "schedule",
+            "roleAccess": {
+              "casting_director": true,
+              "casting_assistant": true,
+              "talent": false
+            }
+          },
+          {
+            "action": "manage",
+            "roleAccess": {
+              "casting_director": true,
+              "casting_assistant": false,
+              "talent": false
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "blueprint": "talent_agency",
+    "roles": ["agency_manager", "talent_agent", "talent"],
+    "resources": [
+      {
+        "name": "talent_profiles",
+        "permissions": [
+          {
+            "action": "view_all",
+            "roleAccess": {
+              "agency_manager": true,
+              "talent_agent": true,
+              "talent": false
+            }
+          },
+          {
+            "action": "manage",
+            "roleAccess": {
+              "agency_manager": true,
+              "talent_agent": true,
+              "talent": false
+            }
+          },
+          {
+            "action": "edit_own",
+            "roleAccess": {
+              "agency_manager": false,
+              "talent_agent": false,
+              "talent": true
+            }
+          }
+        ]
+      },
+      {
+        "name": "contracts",
+        "permissions": [
+          {
+            "action": "create",
+            "roleAccess": {
+              "agency_manager": true,
+              "talent_agent": true,
+              "talent": false
+            }
+          },
+          {
+            "action": "approve",
+            "roleAccess": {
+              "agency_manager": true,
+              "talent_agent": false,
+              "talent": false
+            }
+          },
+          {
+            "action": "view",
+            "roleAccess": {
+              "agency_manager": true,
+              "talent_agent": true,
+              "talent": true
+            }
+          }
+        ]
+      },
+      {
+        "name": "financials",
+        "permissions": [
+          {
+            "action": "view_all",
+            "roleAccess": {
+              "agency_manager": true,
+              "talent_agent": false,
+              "talent": false
+            }
+          },
+          {
+            "action": "view_own",
+            "roleAccess": {
+              "agency_manager": true,
+              "talent_agent": true,
+              "talent": true
+            }
+          },
+          {
+            "action": "manage_commissions",
+            "roleAccess": {
+              "agency_manager": true,
+              "talent_agent": false,
+              "talent": false
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

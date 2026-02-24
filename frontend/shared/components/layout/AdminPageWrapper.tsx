@@ -14,17 +14,17 @@ interface AdminPageWrapperProps {
  * Wrapper component for all admin pages with theme support
  * Provides consistent background and spacing
  * Dark theme: purple gradient
- * Light theme: white/gray gradient
+ * Light theme: professional gray
  */
 export function AdminPageWrapper({ children, className, noPadding = false }: AdminPageWrapperProps) {
   return (
-    <div 
+    <div
       className={cn(
         "min-h-screen transition-colors duration-300",
         // Dark theme (default)
         "bg-gradient-to-br from-[#1a0b2e] via-[#3d1f47] to-[#6b2d5c]",
-        // Light theme
-        "admin-light-theme:bg-gradient-to-br admin-light-theme:from-slate-50 admin-light-theme:via-white admin-light-theme:to-slate-100",
+        // Light theme - professional gray
+        "admin-light-theme:bg-gray-50",
         !noPadding && "p-4 sm:p-6 lg:p-8",
         className
       )}
@@ -46,20 +46,20 @@ interface AdminCardProps {
 }
 
 /**
- * Glassmorphism card component for admin pages with theme support
+ * Card component for admin pages with Microsoft 365 style
  */
 export function AdminCard({ children, className, hoverable = false, onClick }: AdminCardProps) {
   return (
     <div
       className={cn(
-        "rounded-2xl border p-6 backdrop-blur-md transition-colors duration-300",
+        "rounded-lg border p-6 transition-colors duration-300",
         // Dark theme
         "border-white/10 bg-white/5",
-        // Light theme
-        "admin-light-theme:border-slate-200 admin-light-theme:bg-white admin-light-theme:shadow-sm",
+        // Light theme - Microsoft 365 style
+        "admin-light-theme:border-gray-200 admin-light-theme:bg-white admin-light-theme:shadow-sm",
         hoverable && "transition-all cursor-pointer",
         hoverable && "hover:border-white/20 hover:bg-white/10",
-        hoverable && "admin-light-theme:hover:border-slate-300 admin-light-theme:hover:shadow-md",
+        hoverable && "admin-light-theme:hover:border-gray-300 admin-light-theme:hover:shadow-md",
         className
       )}
       onClick={onClick}
@@ -77,14 +77,14 @@ interface AdminSectionHeaderProps {
 }
 
 /**
- * Section header for admin pages with theme support
+ * Section header for admin pages with Microsoft 365 style
  */
 export function AdminSectionHeader({ title, subtitle, action, className }: AdminSectionHeaderProps) {
   return (
     <div className={cn("mb-6 flex items-start justify-between gap-4", className)}>
       <div>
-        <h2 className="text-2xl font-bold text-white admin-light-theme:text-slate-900 transition-colors duration-300">{title}</h2>
-        {subtitle && <p className="mt-1 text-sm text-white/60 admin-light-theme:text-slate-600 transition-colors duration-300">{subtitle}</p>}
+        <h2 className="text-2xl font-bold text-white admin-light-theme:text-gray-900 transition-colors duration-300">{title}</h2>
+        {subtitle && <p className="mt-1 text-sm text-white/60 admin-light-theme:text-gray-600 transition-colors duration-300">{subtitle}</p>}
       </div>
       {action && <div className="shrink-0">{action}</div>}
     </div>
@@ -116,28 +116,28 @@ export function AdminStatCard({
   className,
 }: AdminStatCardProps) {
   const colorMap = {
-    purple: { 
-      bg: "from-purple-400/20 to-pink-400/20", 
+    purple: {
+      bg: "from-purple-400/20 to-pink-400/20",
       icon: "bg-purple-500/10 text-purple-400",
       iconLight: "admin-light-theme:bg-purple-100 admin-light-theme:text-purple-600"
     },
-    blue: { 
-      bg: "from-blue-400/20 to-cyan-400/20", 
+    blue: {
+      bg: "from-blue-400/20 to-cyan-400/20",
       icon: "bg-blue-500/10 text-blue-400",
       iconLight: "admin-light-theme:bg-blue-100 admin-light-theme:text-blue-600"
     },
-    pink: { 
-      bg: "from-pink-400/20 to-rose-400/20", 
+    pink: {
+      bg: "from-pink-400/20 to-rose-400/20",
       icon: "bg-pink-500/10 text-pink-400",
       iconLight: "admin-light-theme:bg-pink-100 admin-light-theme:text-pink-600"
     },
-    yellow: { 
-      bg: "from-yellow-400/20 to-amber-400/20", 
+    yellow: {
+      bg: "from-yellow-400/20 to-amber-400/20",
       icon: "bg-yellow-500/10 text-yellow-400",
       iconLight: "admin-light-theme:bg-yellow-100 admin-light-theme:text-yellow-600"
     },
-    green: { 
-      bg: "from-emerald-400/20 to-teal-400/20", 
+    green: {
+      bg: "from-emerald-400/20 to-teal-400/20",
       icon: "bg-emerald-500/10 text-emerald-400",
       iconLight: "admin-light-theme:bg-emerald-100 admin-light-theme:text-emerald-600"
     },
@@ -175,11 +175,11 @@ export function AdminStatCard({
             <span
               className={cn(
                 "flex items-center gap-1 text-sm font-semibold transition-colors",
-                trend === "up" 
-                  ? "text-emerald-400 admin-light-theme:text-emerald-600" 
-                  : trend === "down" 
-                  ? "text-rose-400 admin-light-theme:text-rose-600" 
-                  : "text-white/50 admin-light-theme:text-slate-500"
+                trend === "up"
+                  ? "text-emerald-400 admin-light-theme:text-emerald-600"
+                  : trend === "down"
+                    ? "text-rose-400 admin-light-theme:text-rose-600"
+                    : "text-white/50 admin-light-theme:text-slate-500"
               )}
             >
               {trend === "up" ? "↑" : trend === "down" ? "↓" : "—"}

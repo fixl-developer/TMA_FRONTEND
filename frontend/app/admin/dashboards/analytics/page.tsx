@@ -1,13 +1,11 @@
 /**
  * Analytics Dashboard - Tenant Admin
- *
- * Jobs funnel, revenue over time, talent growth, dispute rate.
+ * Microsoft 365 Professional Style
  */
 
 "use client"
 
 import { useEffect, useState } from "react"
-import { Card, CardHeader, CardTitle, CardContent } from "@/shared/components/ui/card"
 import {
   getJobsFunnelStats,
   getRevenueOverTimeStats,
@@ -17,10 +15,17 @@ import {
   formatCurrency,
 } from "@/shared/services/dashboardService"
 import { useTenant } from "@/shared/context/TenantContext"
-import { BarChart3, TrendingUp, Users, Scale, Wallet } from "lucide-react"
-import { FinanceOverviewCard } from "@/shared/components/charts/FinanceOverviewCard"
-import { CreativeChartWithToggle } from "@/shared/components/charts/CreativeChartWithToggle"
-import { CreativeStackedBarChart } from "@/shared/components/charts/CreativeStackedBarChart"
+import { BarChart3, TrendingUp, Users, Scale, Wallet, DollarSign } from "lucide-react"
+import { BarChart, Bar, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from "recharts"
+
+const COLORS = {
+  primary: "#0078d4",
+  success: "#107c10",
+  warning: "#ffb900",
+  danger: "#d13438",
+  purple: "#8764b8",
+  teal: "#00b7c3",
+}
 
 export default function AnalyticsDashboardPage() {
   const { tenantId } = useTenant()
@@ -53,185 +58,219 @@ export default function AnalyticsDashboardPage() {
     load()
   }, [tenantId])
 
+  const totalEscrow = finance
+    ? Object.values(finance.escrowAmounts).reduce((sum: number, val) => sum + (val as number), 0)
+    : 0
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#1a0b2e] via-[#3d1f47] to-[#6b2d5c] p-4 sm:p-6 lg:p-8">
+    <div className="min-h-screen bg-gray-50">
       <div className="mx-auto max-w-[1600px]">
-        {/* Header */}
-        <div className="mb-8">
-          <h1 className="text-4xl font-bold text-white">Analytics</h1>
-          <p className="mt-2 text-base text-white/60">Overview, jobs funnel, finance, talent growth, dispute rate</p>
+        {/* Page Header */}
+        <div className="mb-6">
+          <h1 className="text-2xl font-semibold text-gray-900">Analytics</h1>
+          <p className="text-xs text-gray-600 mt-1">Financial overview, jobs funnel, talent growth, and dispute metrics</p>
         </div>
+
         {/* Finance Overview Cards */}
         {!loading && finance && (
           <div className="mb-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {/* Wallet Balance */}
-            <div className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-md transition-all hover:border-white/20 hover:bg-white/10">
-              <div className="absolute right-0 top-0 h-32 w-32 -translate-y-8 translate-x-8 rounded-full bg-gradient-to-br from-[#d4ff00]/20 to-[#b8e600]/20 blur-2xl" />
-              <div className="relative">
-                <div className="mb-4 flex items-start justify-between">
-                  <div>
-                    <p className="text-xs font-medium uppercase tracking-wide text-white/50">Wallet</p>
-                    <p className="mt-1 text-sm text-white/60">Balance</p>
-                  </div>
-                  <div className="rounded-lg bg-[#d4ff00]/10 p-2">
-                    <Wallet className="h-5 w-5 text-[#d4ff00]" />
-                  </div>
+            <div className="rounded bg-white border border-gray-200 p-4">
+              <div className="flex items-start justify-between mb-3">
+                <div className="flex-1">
+                  <p className="text-xs font-semibold text-gray-600">Wallet Balance</p>
+                  <p className="mt-2 text-2xl font-semibold text-gray-900">
+                    {formatCurrency(finance.walletBalance, finance.walletCurrency)}
+                  </p>
                 </div>
-                <p className="text-3xl font-bold text-white">
-                  {formatCurrency(finance.walletBalance, finance.walletCurrency)}
-                </p>
+                <Wallet className="h-5 w-5 text-green-600" />
               </div>
             </div>
 
-            {/* Escrow */}
-            <div className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-md transition-all hover:border-white/20 hover:bg-white/10">
-              <div className="absolute right-0 top-0 h-32 w-32 -translate-y-8 translate-x-8 rounded-full bg-gradient-to-br from-purple-400/20 to-pink-400/20 blur-2xl" />
-              <div className="relative">
-                <div className="mb-4 flex items-start justify-between">
-                  <div>
-                    <p className="text-xs font-medium uppercase tracking-wide text-white/50">Escrow</p>
-                    <p className="mt-1 text-sm text-white/60">Total Held</p>
-                  </div>
-                  <div className="rounded-lg bg-purple-500/10 p-2">
-                    <Scale className="h-5 w-5 text-purple-400" />
-                  </div>
+            <div className="rounded bg-white border border-gray-200 p-4">
+              <div className="flex items-start justify-between mb-3">
+                <div className="flex-1">
+                  <p className="text-xs font-semibold text-gray-600">Escrow Total</p>
+                  <p className="mt-2 text-2xl font-semibold text-gray-900">
+                    {formatCurrency(totalEscrow, finance.walletCurrency)}
+                  </p>
                 </div>
-                <p className="text-3xl font-bold text-white">
-                  {formatCurrency(
-                    Object.values(finance.escrowAmounts).reduce((sum: number, val) => sum + (val as number), 0),
-                    finance.walletCurrency
-                  )}
-                </p>
+                <Scale className="h-5 w-5 text-blue-600" />
               </div>
             </div>
 
-            {/* Payouts */}
-            <div className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-md transition-all hover:border-white/20 hover:bg-white/10">
-              <div className="absolute right-0 top-0 h-32 w-32 -translate-y-8 translate-x-8 rounded-full bg-gradient-to-br from-blue-400/20 to-cyan-400/20 blur-2xl" />
-              <div className="relative">
-                <div className="mb-4 flex items-start justify-between">
-                  <div>
-                    <p className="text-xs font-medium uppercase tracking-wide text-white/50">Payouts</p>
-                    <p className="mt-1 text-sm text-white/60">Settled</p>
-                  </div>
-                  <div className="rounded-lg bg-blue-500/10 p-2">
-                    <TrendingUp className="h-5 w-5 text-blue-400" />
-                  </div>
+            <div className="rounded bg-white border border-gray-200 p-4">
+              <div className="flex items-start justify-between mb-3">
+                <div className="flex-1">
+                  <p className="text-xs font-semibold text-gray-600">Payouts Settled</p>
+                  <p className="mt-2 text-2xl font-semibold text-gray-900">
+                    {formatCurrency(finance.payoutSettled, finance.walletCurrency)}
+                  </p>
+                  <p className="text-xs text-gray-600 mt-1">{finance.payoutCount} transactions</p>
                 </div>
-                <p className="text-3xl font-bold text-white">
-                  {formatCurrency(finance.payoutSettled, finance.walletCurrency)}
-                </p>
-                <p className="mt-2 text-xs text-white/50">{finance.payoutCount} transactions</p>
+                <TrendingUp className="h-5 w-5 text-green-600" />
               </div>
             </div>
           </div>
         )}
 
         {/* Charts Section */}
-        <div className="mb-6 grid grid-cols-1 gap-6 lg:grid-cols-2">
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
           {loading ? (
-            <p className="col-span-full py-8 text-center text-white/60">Loading…</p>
+            <div className="col-span-full py-12 text-center">
+              <p className="text-sm text-gray-600">Loading analytics...</p>
+            </div>
           ) : (
             <>
               {/* Jobs Funnel */}
-              <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-md">
-                <div className="mb-4 flex items-center gap-2">
-                  <div className="rounded-lg bg-[#d4ff00]/10 p-2">
-                    <BarChart3 className="h-5 w-5 text-[#d4ff00]" />
-                  </div>
-                  <h3 className="text-lg font-bold text-white">Jobs funnel</h3>
+              <div className="rounded bg-white border border-gray-200">
+                <div className="border-b border-gray-200 px-6 py-4 flex items-center gap-2">
+                  <BarChart3 className="h-5 w-5 text-blue-600" />
+                  <h2 className="text-base font-semibold text-gray-900">Jobs Funnel</h2>
                 </div>
-                <CreativeChartWithToggle
-                  data={jobs?.funnel ?? []}
-                  dataKey="count"
-                  xAxisKey="stage"
-                  variants={["bar", "line", "pie"]}
-                  height={260}
-                  theme="dark"
-                  emptyMessage="No job data"
-                />
+                <div className="p-6">
+                  {jobs?.funnel && jobs.funnel.length > 0 ? (
+                    <ResponsiveContainer width="100%" height={260}>
+                      <BarChart data={jobs.funnel}>
+                        <CartesianGrid strokeDasharray="3 3" stroke="#edebe9" />
+                        <XAxis dataKey="stage" tick={{ fill: "#605e5c", fontSize: 12 }} />
+                        <YAxis tick={{ fill: "#605e5c", fontSize: 12 }} />
+                        <Tooltip
+                          contentStyle={{
+                            backgroundColor: "#fff",
+                            border: "1px solid #edebe9",
+                            borderRadius: "4px",
+                            fontSize: "12px",
+                          }}
+                        />
+                        <Bar dataKey="count" fill={COLORS.primary} radius={[4, 4, 0, 0]} />
+                      </BarChart>
+                    </ResponsiveContainer>
+                  ) : (
+                    <div className="flex h-64 items-center justify-center text-sm text-gray-400">
+                      No job data available
+                    </div>
+                  )}
+                </div>
               </div>
 
               {/* Revenue Over Time */}
-              <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-md">
-                <div className="mb-4 flex items-center gap-2">
-                  <div className="rounded-lg bg-emerald-500/10 p-2">
-                    <TrendingUp className="h-5 w-5 text-emerald-400" />
-                  </div>
-                  <h3 className="text-lg font-bold text-white">
-                    {revenue?.source === "tenant" ? "Income over time" : "Revenue over time"}
-                  </h3>
+              <div className="rounded bg-white border border-gray-200">
+                <div className="border-b border-gray-200 px-6 py-4 flex items-center gap-2">
+                  <TrendingUp className="h-5 w-5 text-green-600" />
+                  <h2 className="text-base font-semibold text-gray-900">
+                    {revenue?.source === "tenant" ? "Income Over Time" : "Revenue Over Time"}
+                  </h2>
                 </div>
-                {revenue?.data && revenue.data.length > 0 ? (
-                  <CreativeStackedBarChart
-                    data={revenue.data}
-                    xAxisKey="period"
-                    segments={
-                      revenue.source === "tenant"
-                        ? [
-                            { dataKey: "contract", label: "Contract payments", color: "#d4ff00" },
-                            { dataKey: "deposit", label: "Deposits", color: "#10b981" },
-                          ]
-                        : [
-                            { dataKey: "subscription", label: "Subscription", color: "#d4ff00" },
-                            { dataKey: "usage", label: "Usage", color: "#f59e0b" },
-                            { dataKey: "platformFee", label: "Platform fee", color: "#10b981" },
-                          ]
-                    }
-                    valueFormatter={(v) => formatCurrency(v, "INR")}
-                    height={260}
-                    theme="dark"
-                  />
-                ) : (
-                  <div className="flex h-64 items-center justify-center text-white/50">No revenue data</div>
-                )}
+                <div className="p-6">
+                  {revenue?.data && revenue.data.length > 0 ? (
+                    <ResponsiveContainer width="100%" height={260}>
+                      <LineChart data={revenue.data}>
+                        <CartesianGrid strokeDasharray="3 3" stroke="#edebe9" />
+                        <XAxis dataKey="period" tick={{ fill: "#605e5c", fontSize: 12 }} />
+                        <YAxis tick={{ fill: "#605e5c", fontSize: 12 }} />
+                        <Tooltip
+                          contentStyle={{
+                            backgroundColor: "#fff",
+                            border: "1px solid #edebe9",
+                            borderRadius: "4px",
+                            fontSize: "12px",
+                          }}
+                          formatter={(value: any) => formatCurrency(value, "INR")}
+                        />
+                        {revenue.source === "tenant" ? (
+                          <>
+                            <Line type="monotone" dataKey="contract" stroke={COLORS.primary} strokeWidth={2} dot={{ r: 4 }} />
+                            <Line type="monotone" dataKey="deposit" stroke={COLORS.success} strokeWidth={2} dot={{ r: 4 }} />
+                          </>
+                        ) : (
+                          <>
+                            <Line type="monotone" dataKey="subscription" stroke={COLORS.primary} strokeWidth={2} dot={{ r: 4 }} />
+                            <Line type="monotone" dataKey="usage" stroke={COLORS.warning} strokeWidth={2} dot={{ r: 4 }} />
+                            <Line type="monotone" dataKey="platformFee" stroke={COLORS.success} strokeWidth={2} dot={{ r: 4 }} />
+                          </>
+                        )}
+                      </LineChart>
+                    </ResponsiveContainer>
+                  ) : (
+                    <div className="flex h-64 items-center justify-center text-sm text-gray-400">
+                      No revenue data available
+                    </div>
+                  )}
+                </div>
               </div>
 
               {/* Talent Growth */}
-              <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-md">
-                <div className="mb-4 flex items-center gap-2">
-                  <div className="rounded-lg bg-purple-500/10 p-2">
-                    <Users className="h-5 w-5 text-purple-400" />
-                  </div>
-                  <h3 className="text-lg font-bold text-white">Talent growth</h3>
+              <div className="rounded bg-white border border-gray-200">
+                <div className="border-b border-gray-200 px-6 py-4 flex items-center gap-2">
+                  <Users className="h-5 w-5 text-purple-600" />
+                  <h2 className="text-base font-semibold text-gray-900">Talent Growth</h2>
                 </div>
-                <CreativeChartWithToggle
-                  data={talent?.byMonth ?? []}
-                  dataKey="count"
-                  xAxisKey="month"
-                  variants={["bar", "line", "area", "pie"]}
-                  height={260}
-                  theme="dark"
-                  emptyMessage="No talent data"
-                />
+                <div className="p-6">
+                  {talent?.byMonth && talent.byMonth.length > 0 ? (
+                    <ResponsiveContainer width="100%" height={260}>
+                      <BarChart data={talent.byMonth}>
+                        <CartesianGrid strokeDasharray="3 3" stroke="#edebe9" />
+                        <XAxis dataKey="month" tick={{ fill: "#605e5c", fontSize: 12 }} />
+                        <YAxis tick={{ fill: "#605e5c", fontSize: 12 }} />
+                        <Tooltip
+                          contentStyle={{
+                            backgroundColor: "#fff",
+                            border: "1px solid #edebe9",
+                            borderRadius: "4px",
+                            fontSize: "12px",
+                          }}
+                        />
+                        <Bar dataKey="count" fill={COLORS.purple} radius={[4, 4, 0, 0]} />
+                      </BarChart>
+                    </ResponsiveContainer>
+                  ) : (
+                    <div className="flex h-64 items-center justify-center text-sm text-gray-400">
+                      No talent data available
+                    </div>
+                  )}
+                </div>
               </div>
 
               {/* Dispute Rate */}
-              <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-md">
-                <div className="mb-4 flex items-center gap-2">
-                  <div className="rounded-lg bg-rose-500/10 p-2">
-                    <Scale className="h-5 w-5 text-rose-400" />
-                  </div>
-                  <h3 className="text-lg font-bold text-white">Dispute rate</h3>
+              <div className="rounded bg-white border border-gray-200">
+                <div className="border-b border-gray-200 px-6 py-4 flex items-center gap-2">
+                  <Scale className="h-5 w-5 text-red-600" />
+                  <h2 className="text-base font-semibold text-gray-900">Dispute Rate</h2>
                 </div>
-                {disputes?.byStatus?.length > 0 ? (
-                  <div className="space-y-3">
-                    <CreativeChartWithToggle
-                      data={disputes.byStatus}
-                      dataKey="value"
-                      xAxisKey="name"
-                      variants={["bar", "pie"]}
-                      height={220}
-                      theme="dark"
-                      emptyMessage="No dispute data"
-                    />
-                    <p className="text-sm text-white/60">
-                      Open rate: {disputes.ratePercent}% · Total: {disputes.total}
-                    </p>
-                  </div>
-                ) : (
-                  <div className="flex h-48 items-center justify-center text-white/50">No dispute data</div>
-                )}
+                <div className="p-6">
+                  {disputes?.byStatus && disputes.byStatus.length > 0 ? (
+                    <>
+                      <ResponsiveContainer width="100%" height={220}>
+                        <BarChart data={disputes.byStatus}>
+                          <CartesianGrid strokeDasharray="3 3" stroke="#edebe9" />
+                          <XAxis dataKey="name" tick={{ fill: "#605e5c", fontSize: 12 }} />
+                          <YAxis tick={{ fill: "#605e5c", fontSize: 12 }} />
+                          <Tooltip
+                            contentStyle={{
+                              backgroundColor: "#fff",
+                              border: "1px solid #edebe9",
+                              borderRadius: "4px",
+                              fontSize: "12px",
+                            }}
+                          />
+                          <Bar dataKey="value" fill={COLORS.danger} radius={[4, 4, 0, 0]} />
+                        </BarChart>
+                      </ResponsiveContainer>
+                      <div className="mt-4 flex items-center justify-between rounded bg-gray-50 p-3">
+                        <span className="text-xs font-semibold text-gray-600">Open Rate</span>
+                        <span className="text-sm font-semibold text-gray-900">{disputes.ratePercent}%</span>
+                      </div>
+                      <div className="mt-2 flex items-center justify-between rounded bg-gray-50 p-3">
+                        <span className="text-xs font-semibold text-gray-600">Total Disputes</span>
+                        <span className="text-sm font-semibold text-gray-900">{disputes.total}</span>
+                      </div>
+                    </>
+                  ) : (
+                    <div className="flex h-64 items-center justify-center text-sm text-gray-400">
+                      No dispute data available
+                    </div>
+                  )}
+                </div>
               </div>
             </>
           )}

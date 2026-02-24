@@ -1,0 +1,307 @@
+[
+  {
+    "id": "AUD-001",
+    "timestamp": "2024-02-21T10:30:00Z",
+    "action": "Created new role 'Senior Judge' for Pageant blueprint",
+    "actionType": "role_created",
+    "actor": "admin@talentos.com",
+    "actorRole": "superadmin",
+    "targetType": "role",
+    "targetName": "senior_judge",
+    "blueprint": "pageant",
+    "changes": [
+      {
+        "field": "role_name",
+        "oldValue": "null",
+        "newValue": "senior_judge"
+      },
+      {
+        "field": "permission_count",
+        "oldValue": "0",
+        "newValue": "15"
+      }
+    ],
+    "ipAddress": "103.45.67.89",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/121.0.0.0"
+  },
+  {
+    "id": "AUD-002",
+    "timestamp": "2024-02-21T09:15:00Z",
+    "action": "Updated permissions for Casting Director role",
+    "actionType": "permission_granted",
+    "actor": "system.admin@talentos.com",
+    "actorRole": "superadmin",
+    "targetType": "role",
+    "targetName": "casting_director",
+    "blueprint": "casting",
+    "changes": [
+      {
+        "field": "permissions",
+        "oldValue": "35 permissions",
+        "newValue": "38 permissions"
+      },
+      {
+        "field": "added_permissions",
+        "oldValue": "null",
+        "newValue": "manage_callbacks,export_reports,bulk_actions"
+      }
+    ],
+    "ipAddress": "103.45.67.90",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Safari/605.1.15"
+  },
+  {
+    "id": "AUD-003",
+    "timestamp": "2024-02-21T08:45:00Z",
+    "action": "Modified access policy for talent submissions",
+    "actionType": "policy_updated",
+    "actor": "security@talentos.com",
+    "actorRole": "security_admin",
+    "targetType": "policy",
+    "targetName": "Talent Submission Access",
+    "blueprint": "casting",
+    "changes": [
+      {
+        "field": "conditions",
+        "oldValue": "1 condition",
+        "newValue": "2 conditions"
+      },
+      {
+        "field": "added_condition",
+        "oldValue": "null",
+        "newValue": "casting_call_status equals open"
+      }
+    ],
+    "ipAddress": "103.45.67.91",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) Edge/121.0.0.0"
+  },
+  {
+    "id": "AUD-004",
+    "timestamp": "2024-02-20T16:20:00Z",
+    "action": "Assigned Model Coordinator role to user priya.sharma@example.com",
+    "actionType": "user_assigned",
+    "actor": "hr@talentos.com",
+    "actorRole": "hr_manager",
+    "targetType": "user",
+    "targetName": "priya.sharma@example.com",
+    "blueprint": "model_management",
+    "changes": [
+      {
+        "field": "role",
+        "oldValue": "model",
+        "newValue": "model_coordinator"
+      },
+      {
+        "field": "permission_count",
+        "oldValue": "10",
+        "newValue": "28"
+      }
+    ],
+    "ipAddress": "103.45.67.92",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/121.0.0.0"
+  },
+  {
+    "id": "AUD-005",
+    "timestamp": "2024-02-20T14:10:00Z",
+    "action": "Revoked financial access from Event Manager role",
+    "actionType": "permission_revoked",
+    "actor": "finance.admin@talentos.com",
+    "actorRole": "finance_admin",
+    "targetType": "role",
+    "targetName": "event_manager",
+    "blueprint": "event_management",
+    "changes": [
+      {
+        "field": "permissions",
+        "oldValue": "42 permissions",
+        "newValue": "40 permissions"
+      },
+      {
+        "field": "removed_permissions",
+        "oldValue": "view_all_financials,export_financial_reports",
+        "newValue": "null"
+      }
+    ],
+    "ipAddress": "103.45.67.93",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Safari/605.1.15"
+  },
+  {
+    "id": "AUD-006",
+    "timestamp": "2024-02-20T11:30:00Z",
+    "action": "Created compliance policy for data access",
+    "actionType": "policy_created",
+    "actor": "compliance@talentos.com",
+    "actorRole": "compliance_officer",
+    "targetType": "policy",
+    "targetName": "Data Access Compliance Policy",
+    "blueprint": "all",
+    "changes": [
+      {
+        "field": "policy_type",
+        "oldValue": "null",
+        "newValue": "conditional"
+      },
+      {
+        "field": "priority",
+        "oldValue": "null",
+        "newValue": "2"
+      }
+    ],
+    "ipAddress": "103.45.67.94",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) Firefox/122.0"
+  },
+  {
+    "id": "AUD-007",
+    "timestamp": "2024-02-19T15:45:00Z",
+    "action": "Updated Pageant Director permissions",
+    "actionType": "permission_granted",
+    "actor": "system.admin@talentos.com",
+    "actorRole": "superadmin",
+    "targetType": "role",
+    "targetName": "pageant_director",
+    "blueprint": "pageant",
+    "changes": [
+      {
+        "field": "permissions",
+        "oldValue": "43 permissions",
+        "newValue": "45 permissions"
+      },
+      {
+        "field": "added_permissions",
+        "oldValue": "null",
+        "newValue": "manage_sponsors,approve_budgets"
+      }
+    ],
+    "ipAddress": "103.45.67.95",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/121.0.0.0"
+  },
+  {
+    "id": "AUD-008",
+    "timestamp": "2024-02-19T13:20:00Z",
+    "action": "Removed Talent Scout role from user rahul.verma@example.com",
+    "actionType": "user_removed",
+    "actor": "hr@talentos.com",
+    "actorRole": "hr_manager",
+    "targetType": "user",
+    "targetName": "rahul.verma@example.com",
+    "blueprint": "talent_agency",
+    "changes": [
+      {
+        "field": "role",
+        "oldValue": "talent_scout",
+        "newValue": "null"
+      },
+      {
+        "field": "status",
+        "oldValue": "active",
+        "newValue": "inactive"
+      }
+    ],
+    "ipAddress": "103.45.67.96",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Safari/605.1.15"
+  },
+  {
+    "id": "AUD-009",
+    "timestamp": "2024-02-18T17:00:00Z",
+    "action": "Updated Judge role permissions for scoring",
+    "actionType": "role_updated",
+    "actor": "admin@talentos.com",
+    "actorRole": "superadmin",
+    "targetType": "role",
+    "targetName": "judge",
+    "blueprint": "pageant",
+    "changes": [
+      {
+        "field": "description",
+        "oldValue": "Evaluate contestants",
+        "newValue": "Evaluate contestants and submit scores"
+      },
+      {
+        "field": "permissions",
+        "oldValue": "10 permissions",
+        "newValue": "12 permissions"
+      }
+    ],
+    "ipAddress": "103.45.67.97",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) Edge/121.0.0.0"
+  },
+  {
+    "id": "AUD-010",
+    "timestamp": "2024-02-18T14:30:00Z",
+    "action": "Granted bulk operations permission to Casting Assistant",
+    "actionType": "permission_granted",
+    "actor": "system.admin@talentos.com",
+    "actorRole": "superadmin",
+    "targetType": "role",
+    "targetName": "casting_assistant",
+    "blueprint": "casting",
+    "changes": [
+      {
+        "field": "permissions",
+        "oldValue": "20 permissions",
+        "newValue": "22 permissions"
+      },
+      {
+        "field": "added_permissions",
+        "oldValue": "null",
+        "newValue": "bulk_email,bulk_status_update"
+      }
+    ],
+    "ipAddress": "103.45.67.98",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/121.0.0.0"
+  },
+  {
+    "id": "AUD-011",
+    "timestamp": "2024-02-17T11:15:00Z",
+    "action": "Created Financial Data Access Policy",
+    "actionType": "policy_created",
+    "actor": "security@talentos.com",
+    "actorRole": "security_admin",
+    "targetType": "policy",
+    "targetName": "Financial Data Access Policy",
+    "blueprint": "all",
+    "changes": [
+      {
+        "field": "policy_type",
+        "oldValue": "null",
+        "newValue": "deny"
+      },
+      {
+        "field": "priority",
+        "oldValue": "null",
+        "newValue": "1"
+      },
+      {
+        "field": "status",
+        "oldValue": "null",
+        "newValue": "active"
+      }
+    ],
+    "ipAddress": "103.45.67.99",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) Safari/605.1.15"
+  },
+  {
+    "id": "AUD-012",
+    "timestamp": "2024-02-16T09:45:00Z",
+    "action": "Assigned Agency Manager role to user amit.patel@example.com",
+    "actionType": "user_assigned",
+    "actor": "hr@talentos.com",
+    "actorRole": "hr_manager",
+    "targetType": "user",
+    "targetName": "amit.patel@example.com",
+    "blueprint": "talent_agency",
+    "changes": [
+      {
+        "field": "role",
+        "oldValue": "talent_agent",
+        "newValue": "agency_manager"
+      },
+      {
+        "field": "permission_count",
+        "oldValue": "35",
+        "newValue": "48"
+      }
+    ],
+    "ipAddress": "103.45.67.100",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) Firefox/122.0"
+  }
+]

@@ -1,4 +1,0 @@
-[
-  { "id": "off-1", "castingId": "cast-2", "talentId": "t1", "status": "accepted", "amountMinor": 50000, "currency": "INR", "createdAt": "2025-02-12" },
-  { "id": "off-2", "castingId": "cast-2", "talentId": "t2", "status": "pending", "amountMinor": 45000, "currency": "INR", "createdAt": "2025-02-13" }
-]

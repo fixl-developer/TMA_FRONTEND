@@ -1,0 +1,214 @@
+{
+  "overview": {
+    "platformWES": 78.5,
+    "totalTenants": 247,
+    "highPerformers": 89,
+    "needsImprovement": 42,
+    "automationRules": 67,
+    "activeRules": 58,
+    "avgResponseTime": 2.3,
+    "avgResolutionRate": 94.2
+  },
+  "tenantScores": [
+    {
+      "tenantId": "tenant_001",
+      "name": "Elite Pageants Mumbai",
+      "blueprint": "pageant",
+      "wesScore": 95.2,
+      "trend": "up",
+      "trendValue": 3.2,
+      "metrics": {
+        "responseTime": 1.2,
+        "resolutionRate": 98.5,
+        "automationAdoption": 92.0,
+        "userSatisfaction": 4.8,
+        "processEfficiency": 89.3
+      },
+      "lastUpdated": "2024-02-20T10:30:00Z"
+    },
+    {
+      "tenantId": "tenant_002", 
+      "name": "Fashion Forward Agency",
+      "blueprint": "modelling",
+      "wesScore": 87.8,
+      "trend": "up",
+      "trendValue": 1.5,
+      "metrics": {
+        "responseTime": 1.8,
+        "resolutionRate": 95.2,
+        "automationAdoption": 85.5,
+        "userSatisfaction": 4.6,
+        "processEfficiency": 82.1
+      },
+      "lastUpdated": "2024-02-20T09:15:00Z"
+    },
+    {
+      "tenantId": "tenant_003",
+      "name": "Global Talent Network",
+      "blueprint": "talent",
+      "wesScore": 82.4,
+      "trend": "stable",
+      "trendValue": 0.3,
+      "metrics": {
+        "responseTime": 2.1,
+        "resolutionRate": 91.8,
+        "automationAdoption": 78.2,
+        "userSatisfaction": 4.4,
+        "processEfficiency": 79.6
+      },
+      "lastUpdated": "2024-02-20T08:45:00Z"
+    },
+    {
+      "tenantId": "tenant_004",
+      "name": "Creative Campaigns Co",
+      "blueprint": "campaign",
+      "wesScore": 76.1,
+      "trend": "down",
+      "trendValue": -2.1,
+      "metrics": {
+        "responseTime": 3.2,
+        "resolutionRate": 88.5,
+        "automationAdoption": 65.8,
+        "userSatisfaction": 4.1,
+        "processEfficiency": 71.2
+      },
+      "lastUpdated": "2024-02-20T07:20:00Z"
+    },
+    {
+      "tenantId": "tenant_005",
+      "name": "Startup Pageant Hub",
+      "blueprint": "pageant",
+      "wesScore": 68.9,
+      "trend": "up",
+      "trendValue": 4.7,
+      "metrics": {
+        "responseTime": 4.1,
+        "resolutionRate": 82.3,
+        "automationAdoption": 58.9,
+        "userSatisfaction": 3.9,
+        "processEfficiency": 64.5
+      },
+      "lastUpdated": "2024-02-20T06:10:00Z"
+    }
+  ],
+  "blueprintBenchmarks": [
+    {
+      "blueprint": "pageant",
+      "avgWES": 81.2,
+      "tenantCount": 89,
+      "topPerformer": 95.2,
+      "needsImprovement": 12,
+      "keyMetrics": {
+        "avgResponseTime": 2.1,
+        "avgResolutionRate": 92.8,
+        "avgAutomationAdoption": 79.5
+      }
+    },
+    {
+      "blueprint": "modelling",
+      "avgWES": 79.8,
+      "tenantCount": 67,
+      "topPerformer": 91.4,
+      "needsImprovement": 8,
+      "keyMetrics": {
+        "avgResponseTime": 2.3,
+        "avgResolutionRate": 91.2,
+        "avgAutomationAdoption": 76.8
+      }
+    },
+    {
+      "blueprint": "talent",
+      "avgWES": 77.5,
+      "tenantCount": 54,
+      "topPerformer": 89.6,
+      "needsImprovement": 11,
+      "keyMetrics": {
+        "avgResponseTime": 2.6,
+        "avgResolutionRate": 89.5,
+        "avgAutomationAdoption": 73.2
+      }
+    },
+    {
+      "blueprint": "campaign",
+      "avgWES": 74.9,
+      "tenantCount": 37,
+      "topPerformer": 86.3,
+      "needsImprovement": 11,
+      "keyMetrics": {
+        "avgResponseTime": 2.9,
+        "avgResolutionRate": 87.1,
+        "avgAutomationAdoption": 69.4
+      }
+    }
+  ],
+  "historicalTrend": [
+    { "month": "Sep 2024", "score": 72.1 },
+    { "month": "Oct 2024", "score": 74.3 },
+    { "month": "Nov 2024", "score": 75.8 },
+    { "month": "Dec 2024", "score": 76.9 },
+    { "month": "Jan 2025", "score": 77.8 },
+    { "month": "Feb 2025", "score": 78.5 }
+  ],
+  "recommendations": [
+    {
+      "id": "rec_001",
+      "priority": "high",
+      "category": "automation",
+      "title": "Implement Auto-Response Rules",
+      "description": "Deploy automated response templates for common inquiries to reduce response time by 40%",
+      "impact": "Medium",
+      "effort": "Low",
+      "affectedTenants": 23,
+      "estimatedImprovement": 5.2,
+      "status": "pending"
+    },
+    {
+      "id": "rec_002",
+      "priority": "high",
+      "category": "process",
+      "title": "Streamline Approval Workflows",
+      "description": "Reduce approval steps for routine operations from 4 to 2 stages",
+      "impact": "High",
+      "effort": "Medium",
+      "affectedTenants": 67,
+      "estimatedImprovement": 8.1,
+      "status": "in_progress"
+    },
+    {
+      "id": "rec_003",
+      "priority": "medium",
+      "category": "training",
+      "title": "Enhanced User Training Program",
+      "description": "Provide advanced training on automation features to increase adoption rates",
+      "impact": "Medium",
+      "effort": "High",
+      "affectedTenants": 156,
+      "estimatedImprovement": 6.7,
+      "status": "pending"
+    },
+    {
+      "id": "rec_004",
+      "priority": "medium",
+      "category": "integration",
+      "title": "Third-party Tool Integration",
+      "description": "Integrate with popular CRM and communication tools to reduce manual data entry",
+      "impact": "High",
+      "effort": "High",
+      "affectedTenants": 89,
+      "estimatedImprovement": 9.3,
+      "status": "planned"
+    },
+    {
+      "id": "rec_005",
+      "priority": "low",
+      "category": "reporting",
+      "title": "Advanced Analytics Dashboard",
+      "description": "Provide real-time performance insights to help tenants optimize their workflows",
+      "impact": "Low",
+      "effort": "Medium",
+      "affectedTenants": 247,
+      "estimatedImprovement": 3.8,
+      "status": "pending"
+    }
+  ]
+}

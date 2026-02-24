@@ -1,0 +1,222 @@
+[
+  {
+    "id": "daily_001",
+    "date": "2024-02-21",
+    "tenant": "Elite Models Agency",
+    "status": "matched",
+    "transactions": 87,
+    "expectedAmount": 145800,
+    "actualAmount": 145800,
+    "variance": 0,
+    "notes": "All transactions matched"
+  },
+  {
+    "id": "daily_002",
+    "date": "2024-02-21",
+    "tenant": "Miss Universe Pageant",
+    "status": "matched",
+    "transactions": 142,
+    "expectedAmount": 298500,
+    "actualAmount": 298500,
+    "variance": 0,
+    "notes": "Clean reconciliation"
+  },
+  {
+    "id": "daily_003",
+    "date": "2024-02-21",
+    "tenant": "Fashion Week Productions",
+    "status": "discrepancy",
+    "transactions": 56,
+    "expectedAmount": 87200,
+    "actualAmount": 84700,
+    "variance": -2500,
+    "notes": "Missing 3 transactions, investigating"
+  },
+  {
+    "id": "daily_004",
+    "date": "2024-02-21",
+    "tenant": "Talent Connect Agency",
+    "status": "matched",
+    "transactions": 118,
+    "expectedAmount": 234700,
+    "actualAmount": 234700,
+    "variance": 0,
+    "notes": null
+  },
+  {
+    "id": "daily_005",
+    "date": "2024-02-21",
+    "tenant": "Global Pageant Network",
+    "status": "pending",
+    "transactions": 94,
+    "expectedAmount": 156900,
+    "actualAmount": 156900,
+    "variance": 0,
+    "notes": "Awaiting bank confirmation"
+  },
+  {
+    "id": "daily_006",
+    "date": "2024-02-20",
+    "tenant": "Premier Casting Co",
+    "status": "matched",
+    "transactions": 103,
+    "expectedAmount": 189400,
+    "actualAmount": 189400,
+    "variance": 0,
+    "notes": "Reconciled successfully"
+  },
+  {
+    "id": "daily_007",
+    "date": "2024-02-20",
+    "tenant": "Star Talent Management",
+    "status": "investigating",
+    "transactions": 45,
+    "expectedAmount": 67800,
+    "actualAmount": 69300,
+    "variance": 1500,
+    "notes": "Duplicate transaction detected"
+  },
+  {
+    "id": "daily_008",
+    "date": "2024-02-20",
+    "tenant": "Runway Models Inc",
+    "status": "matched",
+    "transactions": 167,
+    "expectedAmount": 312500,
+    "actualAmount": 312500,
+    "variance": 0,
+    "notes": null
+  },
+  {
+    "id": "daily_009",
+    "date": "2024-02-19",
+    "tenant": "Elite Models Agency",
+    "status": "matched",
+    "transactions": 92,
+    "expectedAmount": 156700,
+    "actualAmount": 156700,
+    "variance": 0,
+    "notes": "All clear"
+  },
+  {
+    "id": "daily_010",
+    "date": "2024-02-19",
+    "tenant": "Miss Universe Pageant",
+    "status": "matched",
+    "transactions": 138,
+    "expectedAmount": 287900,
+    "actualAmount": 287900,
+    "variance": 0,
+    "notes": null
+  },
+  {
+    "id": "daily_011",
+    "date": "2024-02-19",
+    "tenant": "Fashion Week Productions",
+    "status": "discrepancy",
+    "transactions": 61,
+    "expectedAmount": 94500,
+    "actualAmount": 93200,
+    "variance": -1300,
+    "notes": "Payment gateway delay"
+  },
+  {
+    "id": "daily_012",
+    "date": "2024-02-18",
+    "tenant": "Talent Connect Agency",
+    "status": "matched",
+    "transactions": 125,
+    "expectedAmount": 245800,
+    "actualAmount": 245800,
+    "variance": 0,
+    "notes": "Reconciled"
+  },
+  {
+    "id": "daily_013",
+    "date": "2024-02-18",
+    "tenant": "Global Pageant Network",
+    "status": "matched",
+    "transactions": 89,
+    "expectedAmount": 148600,
+    "actualAmount": 148600,
+    "variance": 0,
+    "notes": null
+  },
+  {
+    "id": "daily_014",
+    "date": "2024-02-18",
+    "tenant": "Premier Casting Co",
+    "status": "matched",
+    "transactions": 97,
+    "expectedAmount": 178300,
+    "actualAmount": 178300,
+    "variance": 0,
+    "notes": "Clean"
+  },
+  {
+    "id": "daily_015",
+    "date": "2024-02-17",
+    "tenant": "Star Talent Management",
+    "status": "matched",
+    "transactions": 52,
+    "expectedAmount": 72400,
+    "actualAmount": 72400,
+    "variance": 0,
+    "notes": null
+  },
+  {
+    "id": "daily_016",
+    "date": "2024-02-17",
+    "tenant": "Runway Models Inc",
+    "status": "matched",
+    "transactions": 174,
+    "expectedAmount": 328900,
+    "actualAmount": 328900,
+    "variance": 0,
+    "notes": "All matched"
+  },
+  {
+    "id": "daily_017",
+    "date": "2024-02-16",
+    "tenant": "Elite Models Agency",
+    "status": "matched",
+    "transactions": 85,
+    "expectedAmount": 142300,
+    "actualAmount": 142300,
+    "variance": 0,
+    "notes": null
+  },
+  {
+    "id": "daily_018",
+    "date": "2024-02-16",
+    "tenant": "Miss Universe Pageant",
+    "status": "discrepancy",
+    "transactions": 145,
+    "expectedAmount": 302100,
+    "actualAmount": 298700,
+    "variance": -3400,
+    "notes": "Refund processing issue"
+  },
+  {
+    "id": "daily_019",
+    "date": "2024-02-15",
+    "tenant": "Fashion Week Productions",
+    "status": "matched",
+    "transactions": 58,
+    "expectedAmount": 89700,
+    "actualAmount": 89700,
+    "variance": 0,
+    "notes": "Reconciled"
+  },
+  {
+    "id": "daily_020",
+    "date": "2024-02-15",
+    "tenant": "Talent Connect Agency",
+    "status": "matched",
+    "transactions": 121,
+    "expectedAmount": 238900,
+    "actualAmount": 238900,
+    "variance": 0,
+    "notes": null
+  }
+]

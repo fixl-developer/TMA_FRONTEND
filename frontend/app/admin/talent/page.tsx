@@ -3,20 +3,24 @@
 import { useEffect, useState } from "react"
 import { getTenantTalents } from "@/shared/services/adminService"
 import { useTenant } from "@/shared/context/TenantContext"
-import { UserCircle2, Users, Star, TrendingUp, UserPlus } from "lucide-react"
+import { UserCircle2, Users, Star, TrendingUp, UserPlus, Mail, Phone } from "lucide-react"
+import { AdminPageWrapper } from "@/shared/components/layout/AdminPageWrapper"
 import {
-  AdminPageWrapper,
-  AdminCard,
-  AdminSectionHeader,
+  AdminPageLayout,
+  AdminStatsGrid,
   AdminStatCard,
+  AdminCard,
   AdminButton,
   AdminBadge,
   AdminEmptyState,
-} from "@/shared/components/layout/AdminPageWrapper"
+  AdminSearchBar,
+  AdminLoading,
+} from "@/shared/components/admin/AdminPageLayout"
 
 export default function AdminTalentPage() {
   const [talents, setTalents] = useState<any[]>([])
   const [loading, setLoading] = useState(true)
+  const [searchQuery, setSearchQuery] = useState("")
   const { tenantId } = useTenant()
 
   useEffect(() => {
@@ -29,102 +33,130 @@ export default function AdminTalentPage() {
   const activeTalents = talents.filter((t) => t.status !== "INACTIVE").length
   const featuredTalents = talents.filter((t) => t.featured).length
 
+  const filteredTalents = talents.filter((t) =>
+    t.name?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    t.email?.toLowerCase().includes(searchQuery.toLowerCase())
+  )
+
   return (
     <AdminPageWrapper>
-      <AdminSectionHeader
+      <AdminPageLayout
         title="Talent"
-        subtitle="Profiles, portfolios, and contracts"
-        action={
-          <AdminButton>
-            <UserPlus className="mr-2 h-4 w-4" />
-            Add Talent
-          </AdminButton>
-        }
-      />
-
+        subtitle="Manage talent profiles, portfolios, and availability"
+        actions={
+        <AdminButton>
+          <UserPlus className="h-4 w-4" />
+          Add Talent
+        </AdminButton>
+      }
+    >
       {/* Stats */}
-      <div className="mb-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <AdminStatsGrid columns={4}>
         <AdminStatCard
-          title="Total Talent"
+          label="Total Talent"
           value={talents.length}
-          subtitle="All profiles"
           icon={Users}
           color="purple"
+          subtitle="All profiles"
         />
         <AdminStatCard
-          title="Active"
+          label="Active"
           value={activeTalents}
-          subtitle="Available for work"
           icon={UserCircle2}
           color="green"
-          trend="up"
-          trendValue="+12%"
+          subtitle="Available for work"
+          trend={{ value: "+12%", direction: "up" }}
         />
         <AdminStatCard
-          title="Featured"
+          label="Featured"
           value={featuredTalents}
-          subtitle="Highlighted profiles"
           icon={Star}
           color="yellow"
+          subtitle="Highlighted profiles"
         />
         <AdminStatCard
-          title="Growth"
+          label="Growth"
           value="+18%"
-          subtitle="This month"
           icon={TrendingUp}
           color="blue"
-          trend="up"
-          trendValue="+18%"
+          subtitle="This month"
         />
-      </div>
+      </AdminStatsGrid>
 
       {/* Talent Grid */}
-      <AdminCard>
-        <div className="mb-4 flex items-center justify-between">
-          <h3 className="text-lg font-bold text-white">Talent Roster</h3>
-        </div>
+      <AdminCard
+        title="Talent Roster"
+        actions={<AdminSearchBar value={searchQuery} onChange={setSearchQuery} placeholder="Search talent..." />}
+      >
         {loading ? (
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {[1, 2, 3, 4, 5, 6].map((i) => (
-              <div key={i} className="h-32 animate-pulse rounded-xl bg-white/5" />
+              <div key={i} className="h-48 animate-pulse rounded bg-[#f3f2f1]" />
             ))}
           </div>
-        ) : talents.length === 0 ? (
+        ) : filteredTalents.length === 0 ? (
           <AdminEmptyState
             icon={UserCircle2}
-            title="No talents yet"
-            description="Add talent profiles to get started."
-            action={<AdminButton>Add Talent</AdminButton>}
+            title={searchQuery ? "No talent found" : "No talent yet"}
+            description={searchQuery ? "Try adjusting your search" : "Add talent profiles to get started"}
+            action={
+              !searchQuery && (
+                <AdminButton>
+                  <UserPlus className="h-4 w-4" />
+                  Add Talent
+                </AdminButton>
+              )
+            }
           />
         ) : (
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {talents.map((t) => (
+            {filteredTalents.map((talent) => (
               <div
-                key={t._id}
-                className="group relative overflow-hidden rounded-xl border border-white/10 bg-white/5 p-4 backdrop-blur-sm transition-all hover:border-white/20 hover:bg-white/10"
+                key={talent._id}
+                className="group rounded border border-[#edebe9] bg-white p-4 transition-all hover:border-[#0078d4] hover:shadow-sm cursor-pointer"
               >
-                <div className="flex items-center gap-4">
-                  <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-purple-400 to-pink-400">
-                    <UserCircle2 className="h-8 w-8 text-white" />
+                <div className="flex items-start gap-3 mb-3">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#0078d4] text-sm font-semibold text-white">
+                    {talent.name?.charAt(0)?.toUpperCase() ?? "T"}
                   </div>
-                  <div className="min-w-0 flex-1">
-                    <p className="truncate font-semibold text-white">{t.stageName}</p>
-                    <p className="truncate text-xs text-white/50">ID: {t._id}</p>
-                    {t.status && (
-                      <AdminBadge
-                        variant={t.status === "ACTIVE" ? "success" : "default"}
-                        className="mt-2"
-                      >
-                        {t.status}
-                      </AdminBadge>
-                    )}
+                  <div className="flex-1 min-w-0">
+                    <h3 className="text-sm font-semibold text-[#323130] truncate">{talent.name}</h3>
+                    <p className="text-xs text-[#605e5c] truncate">{talent.category || "Talent"}</p>
                   </div>
+                  {talent.featured && (
+                    <Star className="h-4 w-4 text-[#ffb900] fill-[#ffb900]" />
+                  )}
+                </div>
+
+                <div className="space-y-2 mb-3">
+                  {talent.email && (
+                    <div className="flex items-center gap-2 text-xs text-[#605e5c]">
+                      <Mail className="h-3 w-3" />
+                      <span className="truncate">{talent.email}</span>
+                    </div>
+                  )}
+                  {talent.phone && (
+                    <div className="flex items-center gap-2 text-xs text-[#605e5c]">
+                      <Phone className="h-3 w-3" />
+                      <span>{talent.phone}</span>
+                    </div>
+                  )}
+                </div>
+
+                <div className="flex items-center justify-between">
+                  <AdminBadge variant={talent.status === "ACTIVE" ? "success" : "default"}>
+                    {talent.status || "ACTIVE"}
+                  </AdminBadge>
+                  <AdminButton size="sm" variant="ghost">
+                    View Profile
+                  </AdminButton>
                 </div>
               </div>
             ))}
           </div>
         )}
       </AdminCard>
+      </AdminPageLayout>
     </AdminPageWrapper>
   )
 }

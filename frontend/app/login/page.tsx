@@ -27,7 +27,7 @@ export default function LoginPage() {
     if (result.ok) {
       const key = email.trim().toLowerCase()
       const demo = DEMO_USERS[key]
-      const defaultPath = demo ? DASHBOARD_PATH[demo.role] : "/superadmin"
+      const defaultPath = demo ? DASHBOARD_PATH[demo.role] : "/admin"
       const path = returnUrl && returnUrl.startsWith("/") ? returnUrl : defaultPath
       router.push(path)
     } else {

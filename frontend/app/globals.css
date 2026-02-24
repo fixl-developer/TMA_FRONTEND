@@ -63,15 +63,27 @@
 }
 
 @layer base {
+
   /* Base font 87.5% (14px) – compact UI without needing to zoom out */
   html {
     font-size: 87.5%;
   }
+
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
+  }
+  
+  /* Admin light theme body background */
+  html.admin-light-theme body {
+    background-color: #f3f4f6;
+  }
+  
+  html.admin-dark-theme body {
+    background: linear-gradient(to bottom right, #1a0b2e, #3d1f47, #6b2d5c);
   }
 }
 
@@ -172,7 +184,7 @@
 /* Ensure light theme classes have higher specificity */
 html.admin-light-theme,
 html.admin-light-theme body {
-  background: linear-gradient(to bottom right, #f8fafc, #ffffff, #f1f5f9);
+  background: #f3f4f6;
 }
 
 html.admin-dark-theme,
@@ -180,95 +192,121 @@ html.admin-dark-theme body {
   background: linear-gradient(to bottom right, #1a0b2e, #3d1f47, #6b2d5c);
 }
 
+/* Admin dashboard & content: crisp text rendering (fixes blur on cards/charts)
+ * Root cause: html font-size 87.5% makes rem = 14px → sub-pixel sizes. Fix: 100% so 1rem = 16px. */
+.admin-dashboard,
+.admin-content {
+  font-size: 100%;
+  -webkit-font-smoothing: subpixel-antialiased;
+  -moz-osx-font-smoothing: auto;
+  text-rendering: optimizeLegibility;
+}
+
+/* Force full opacity and crisp strokes so no text looks washed out or blurry */
+.admin-dashboard p,
+.admin-dashboard span,
+.admin-dashboard h3,
+.admin-dashboard h4,
+.admin-dashboard th,
+.admin-dashboard td,
+.admin-dashboard label {
+  opacity: 1;
+}
+
+
 /* Dashboard-specific light mode overrides for legacy dark classes */
 html.admin-light-theme .admin-dashboard {
-  background: linear-gradient(to bottom right, #f8fafc, #ffffff, #f1f5f9) !important;
+  background: #f3f4f6 !important;
 }
 
 html.admin-light-theme .admin-dashboard .bg-white\/5 {
-  background-color: rgba(255, 255, 255, 0.92) !important;
+  background-color: rgba(255, 255, 255, 1) !important;
+  border: 1px solid #e5e7eb;
 }
 
 html.admin-light-theme .admin-dashboard .bg-white\/10 {
-  background-color: rgba(248, 250, 252, 0.95) !important;
+  background-color: rgba(255, 255, 255, 1) !important;
+  border: 1px solid #e5e7eb;
 }
 
 html.admin-light-theme .admin-dashboard .border-white\/10 {
-  border-color: #e2e8f0 !important;
+  border-color: #e5e7eb !important;
 }
 
 html.admin-light-theme .admin-dashboard .border-white\/20 {
-  border-color: #cbd5e1 !important;
+  border-color: #d1d5db !important;
 }
 
 html.admin-light-theme .admin-dashboard .text-white {
-  color: #0f172a !important;
+  color: #111827 !important;
 }
 
 html.admin-light-theme .admin-dashboard .text-white\/70 {
-  color: #334155 !important;
+  color: #374151 !important;
 }
 
 html.admin-light-theme .admin-dashboard .text-white\/60 {
-  color: #475569 !important;
+  color: #4b5563 !important;
 }
 
 html.admin-light-theme .admin-dashboard .text-white\/50 {
-  color: #64748b !important;
+  color: #6b7280 !important;
 }
 
 /* Global light mode adaptation for all admin page content */
-html.admin-light-theme .admin-content > .min-h-screen {
-  background: linear-gradient(to bottom right, #f8fafc, #ffffff, #f1f5f9) !important;
+html.admin-light-theme .admin-content>.min-h-screen {
+  background: #f3f4f6 !important;
 }
 
 html.admin-light-theme .admin-content .bg-white\/5 {
-  background-color: rgba(255, 255, 255, 0.92) !important;
+  background-color: rgba(255, 255, 255, 1) !important;
+  border: 1px solid #e5e7eb;
 }
 
 html.admin-light-theme .admin-content .bg-white\/10 {
-  background-color: rgba(248, 250, 252, 0.95) !important;
+  background-color: rgba(255, 255, 255, 1) !important;
+  border: 1px solid #e5e7eb;
 }
 
 html.admin-light-theme .admin-content .border-white\/5 {
-  border-color: #e2e8f0 !important;
+  border-color: #f3f4f6 !important;
 }
 
 html.admin-light-theme .admin-content .border-white\/10 {
-  border-color: #e2e8f0 !important;
+  border-color: #e5e7eb !important;
 }
 
 html.admin-light-theme .admin-content .border-white\/20 {
-  border-color: #cbd5e1 !important;
+  border-color: #d1d5db !important;
 }
 
 html.admin-light-theme .admin-content .text-white {
-  color: #0f172a !important;
+  color: #111827 !important;
 }
 
 html.admin-light-theme .admin-content .text-white\/70 {
-  color: #334155 !important;
+  color: #374151 !important;
 }
 
 html.admin-light-theme .admin-content .text-white\/60 {
-  color: #475569 !important;
+  color: #4b5563 !important;
 }
 
 html.admin-light-theme .admin-content .text-white\/50 {
-  color: #64748b !important;
+  color: #6b7280 !important;
 }
 
 html.admin-light-theme .admin-content .text-white\/40 {
-  color: #94a3b8 !important;
+  color: #9ca3af !important;
 }
 
 html.admin-light-theme .admin-content .text-white\/30 {
-  color: #94a3b8 !important;
+  color: #9ca3af !important;
 }
 
 html.admin-light-theme .admin-content .text-white\/80,
 html.admin-light-theme .admin-content .text-white\/90 {
-  color: #1e293b !important;
+  color: #1f2937 !important;
 }
 
 /* Global dark mode adaptation for pages built with light palettes */

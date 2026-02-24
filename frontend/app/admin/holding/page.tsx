@@ -309,7 +309,7 @@ export default function HoldingGroupPage() {
 
       {/* Add Sub-Tenant Dialog */}
       <Dialog open={addOpen} onOpenChange={setAddOpen}>
-        <DialogContent className="border border-white/10 bg-slate-900 text-white">
+        <DialogContent className="border admin-light-theme:border-slate-200 admin-light-theme:bg-white admin-dark-theme:border-white/10 admin-dark-theme:bg-slate-900 admin-light-theme:text-slate-900 admin-dark-theme:text-white">
           <DialogHeader><DialogTitle>Add Sub-Tenant</DialogTitle></DialogHeader>
           <div className="space-y-4">
             <div>

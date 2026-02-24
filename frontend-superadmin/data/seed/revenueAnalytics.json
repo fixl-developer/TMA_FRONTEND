@@ -1,0 +1,150 @@
+{
+  "overview": {
+    "mrr": 487500,
+    "mrrGrowth": 12.3,
+    "arr": 5850000,
+    "arrGrowth": 18.7,
+    "avgLTV": 24500,
+    "churnRate": 3.2,
+    "churnImprovement": 0.8
+  },
+  "forecast": [
+    {
+      "month": "March 2024",
+      "projected": 512000,
+      "growth": 5.0,
+      "confidence": 92
+    },
+    {
+      "month": "April 2024",
+      "projected": 538000,
+      "growth": 5.1,
+      "confidence": 88
+    },
+    {
+      "month": "May 2024",
+      "projected": 565000,
+      "growth": 5.0,
+      "confidence": 84
+    },
+    {
+      "month": "June 2024",
+      "projected": 593000,
+      "growth": 5.0,
+      "confidence": 79
+    },
+    {
+      "month": "July 2024",
+      "projected": 623000,
+      "growth": 5.1,
+      "confidence": 74
+    },
+    {
+      "month": "August 2024",
+      "projected": 654000,
+      "growth": 5.0,
+      "confidence": 69
+    }
+  ],
+  "byBlueprint": [
+    {
+      "name": "Talent Agency",
+      "revenue": 195000,
+      "percentage": 40,
+      "tenants": 45
+    },
+    {
+      "name": "Pageant Organizer",
+      "revenue": 146250,
+      "percentage": 30,
+      "tenants": 28
+    },
+    {
+      "name": "Modelling Agency",
+      "revenue": 97500,
+      "percentage": 20,
+      "tenants": 32
+    },
+    {
+      "name": "Influencer Management",
+      "revenue": 48750,
+      "percentage": 10,
+      "tenants": 18
+    }
+  ],
+  "churn": {
+    "monthly": 3.2,
+    "annual": 32.5,
+    "reasons": [
+      {
+        "reason": "Price too high",
+        "count": 12
+      },
+      {
+        "reason": "Missing features",
+        "count": 8
+      },
+      {
+        "reason": "Poor support",
+        "count": 5
+      },
+      {
+        "reason": "Switched to competitor",
+        "count": 7
+      },
+      {
+        "reason": "Business closed",
+        "count": 4
+      }
+    ]
+  },
+  "subscriptions": {
+    "active": 123,
+    "trialConversion": 68,
+    "byPlan": [
+      {
+        "plan": "Enterprise",
+        "subscribers": 18,
+        "mrr": 180000
+      },
+      {
+        "plan": "Professional",
+        "subscribers": 45,
+        "mrr": 225000
+      },
+      {
+        "plan": "Starter",
+        "subscribers": 60,
+        "mrr": 82500
+      }
+    ]
+  },
+  "ltv": {
+    "bySegment": [
+      {
+        "segment": "Enterprise",
+        "avgLTV": 48000,
+        "avgLifespan": 36,
+        "cac": 8500,
+        "ltvCacRatio": 5.6,
+        "customers": 18
+      },
+      {
+        "segment": "Professional",
+        "avgLTV": 28000,
+        "avgLifespan": 28,
+        "cac": 4200,
+        "ltvCacRatio": 6.7,
+        "customers": 45
+      },
+      {
+        "segment": "Starter",
+        "avgLTV": 12500,
+        "avgLifespan": 18,
+        "cac": 2100,
+        "ltvCacRatio": 6.0,
+        "customers": 60
+      }
+    ]
+  }
+}

@@ -26,7 +26,7 @@ export default function ContentUploadPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#1a0b2e] via-[#3d1f47] to-[#6b2d5c] p-4 sm:p-6 lg:p-8">
+    <div className="min-h-screen bg-gray-50 p-4 sm:p-6 lg:p-8">
       <div className="mx-auto max-w-[1600px]">
         {/* Header */}
         <div className="mb-8 flex items-center gap-4">

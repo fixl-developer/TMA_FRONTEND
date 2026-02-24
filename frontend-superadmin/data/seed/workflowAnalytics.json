@@ -1,0 +1,52 @@
+[
+  {
+    "workflowId": "wf_001",
+    "period": "2025-02",
+    "executionCount": 1240,
+    "successCount": 1180,
+    "failureCount": 60,
+    "avgDurationMs": 4200,
+    "p95DurationMs": 8900,
+    "slaCompliancePercent": 94.2
+  },
+  {
+    "workflowId": "wf_002",
+    "period": "2025-02",
+    "executionCount": 890,
+    "successCount": 845,
+    "failureCount": 45,
+    "avgDurationMs": 186000,
+    "p95DurationMs": 520000,
+    "slaCompliancePercent": 91.3
+  },
+  {
+    "workflowId": "wf_003",
+    "period": "2025-02",
+    "executionCount": 456,
+    "successCount": 440,
+    "failureCount": 16,
+    "avgDurationMs": 7200000,
+    "p95DurationMs": 14400000,
+    "slaCompliancePercent": 96.5
+  },
+  {
+    "workflowId": "wf_004",
+    "period": "2025-02",
+    "executionCount": 320,
+    "successCount": 310,
+    "failureCount": 10,
+    "avgDurationMs": 3600000,
+    "p95DurationMs": 7200000,
+    "slaCompliancePercent": 92.1
+  },
+  {
+    "workflowId": "wf_005",
+    "period": "2025-02",
+    "executionCount": 2100,
+    "successCount": 1980,
+    "failureCount": 120,
+    "avgDurationMs": 144000,
+    "p95DurationMs": 380000,
+    "slaCompliancePercent": 89.8
+  }
+]

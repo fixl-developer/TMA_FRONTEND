@@ -109,7 +109,7 @@ export default function ContentApprovalQueuePage() {
                 key={post._id}
                 className="overflow-hidden rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm transition-all hover:border-white/20 hover:bg-white/10"
               >
-                <div className="aspect-video flex items-center justify-center bg-gradient-to-br from-purple-900/50 to-pink-900/50">
+                <div className="aspect-video flex items-center justify-center bg-slate-100 admin-light-theme:bg-slate-100 admin-dark-theme:bg-slate-800">
                   {post.type === "VIDEO" ? (
                     <Film className="h-12 w-12 text-white/30" />
                   ) : (

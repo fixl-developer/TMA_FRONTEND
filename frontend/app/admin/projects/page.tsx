@@ -2,18 +2,22 @@
 
 import { useEffect, useState } from "react"
 import Link from "next/link"
-import { getProjects, getProjectStatusColor } from "@/shared/services/projectService"
+import { getProjects } from "@/shared/services/projectService"
 import { useTenant } from "@/shared/context/TenantContext"
-import { FolderKanban, ListTodo, CheckSquare, Calendar, Plus } from "lucide-react"
+import { FolderKanban, ListTodo, CheckSquare, Calendar, Plus, ExternalLink } from "lucide-react"
+import { AdminPageWrapper } from "@/shared/components/layout/AdminPageWrapper"
 import {
-  AdminPageWrapper,
-  AdminCard,
-  AdminSectionHeader,
+  AdminPageLayout,
+  AdminStatsGrid,
   AdminStatCard,
+  AdminCard,
+  AdminTable,
+  AdminTableRow,
   AdminButton,
   AdminBadge,
   AdminEmptyState,
-} from "@/shared/components/layout/AdminPageWrapper"
+  AdminSearchBar,
+} from "@/shared/components/admin/AdminPageLayout"
 import { CapabilityGate } from "@/shared/components/ui/CapabilityGate"
 import { getOwnerName } from "@/shared/lib/creator"
 
@@ -27,6 +31,7 @@ export default function ProjectsPage() {
   const { tenantId } = useTenant()
   const [projects, setProjects] = useState<any[]>([])
   const [loading, setLoading] = useState(true)
+  const [searchQuery, setSearchQuery] = useState("")
 
   useEffect(() => {
     getProjects(tenantId).then((data) => {
@@ -39,134 +44,110 @@ export default function ProjectsPage() {
   const planningCount = projects.filter((p) => p.status === "PLANNING").length
   const completedCount = projects.filter((p) => p.status === "COMPLETED").length
 
-  const getProjectBadgeVariant = (status: string) => {
-    switch (status) {
-      case "ACTIVE":
-        return "success"
-      case "PLANNING":
-        return "warning"
-      case "COMPLETED":
-        return "info"
-      case "ON_HOLD":
-        return "default"
-      default:
-        return "default"
-    }
-  }
+  const filteredProjects = projects.filter((p) =>
+    p.name?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    p.description?.toLowerCase().includes(searchQuery.toLowerCase())
+  )
 
   return (
     <AdminPageWrapper>
-      <AdminSectionHeader
+      <AdminPageLayout
         title="Projects"
-        subtitle="Work management, tasks, checklists, run-of-show"
-        action={
-          <div className="flex gap-2">
-            <CapabilityGate capability="jobs.read">
-              <Link href="/admin/events">
-                <AdminButton variant="secondary" size="sm">
-                  Events
-                </AdminButton>
-              </Link>
-            </CapabilityGate>
-            <AdminButton disabled>
-              <Plus className="mr-2 h-4 w-4" />
-              New Project (Soon)
-            </AdminButton>
-          </div>
-        }
-      />
-
-      {/* Stats Cards */}
-      <div className="mb-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        <AdminStatCard
-          title="Total Projects"
-          value={projects.length}
-          subtitle="All projects"
-          icon={FolderKanban}
-          color="purple"
-        />
-        <AdminStatCard
-          title="Active"
-          value={activeCount}
-          subtitle="In progress"
-          icon={CheckSquare}
-          color="green"
-        />
-        <AdminStatCard
-          title="Planning"
-          value={planningCount}
-          subtitle="Not yet started"
-          icon={ListTodo}
-          color="yellow"
-        />
-        <AdminStatCard
-          title="Completed"
-          value={completedCount}
-          subtitle="Finished"
-          icon={CheckSquare}
-          color="blue"
-        />
-      </div>
-
-      {/* Projects List */}
-      <AdminCard>
-        <div className="mb-6 flex items-center justify-between">
-          <h3 className="text-lg font-bold text-white">All Projects</h3>
+        subtitle="Manage work, tasks, checklists, and run-of-show"
+        actions={
+        <div className="flex gap-2">
+          <CapabilityGate capability="jobs.read">
+            <Link href="/admin/events">
+              <AdminButton variant="secondary">
+                Events
+              </AdminButton>
+            </Link>
+          </CapabilityGate>
+          <AdminButton disabled>
+            <Plus className="h-4 w-4" />
+            New Project
+          </AdminButton>
         </div>
+      }
+    >
+      {/* Stats */}
+      <AdminStatsGrid columns={4}>
+        <AdminStatCard label="Total Projects" value={projects.length} icon={FolderKanban} color="purple" />
+        <AdminStatCard label="Active" value={activeCount} icon={CheckSquare} color="green" subtitle="In progress" />
+        <AdminStatCard label="Planning" value={planningCount} icon={ListTodo} color="yellow" subtitle="Not started" />
+        <AdminStatCard label="Completed" value={completedCount} icon={Calendar} color="blue" subtitle="Finished" />
+      </AdminStatsGrid>
+
+      {/* Projects Table */}
+      <AdminCard
+        title="All Projects"
+        actions={<AdminSearchBar value={searchQuery} onChange={setSearchQuery} placeholder="Search projects..." />}
+      >
         {loading ? (
           <div className="space-y-3">
             {[1, 2, 3, 4, 5].map((i) => (
-              <div key={i} className="h-24 animate-pulse rounded-lg bg-white/5" />
+              <div key={i} className="h-16 animate-pulse rounded bg-[#f3f2f1]" />
             ))}
           </div>
-        ) : projects.length === 0 ? (
+        ) : filteredProjects.length === 0 ? (
           <AdminEmptyState
             icon={FolderKanban}
-            title="No projects yet"
-            description="Projects help you manage work, tasks, and run-of-show"
-            action={
-              <AdminButton disabled>
-                <Plus className="mr-2 h-4 w-4" />
-                Create Project (Coming Soon)
-              </AdminButton>
-            }
+            title={searchQuery ? "No projects found" : "No projects yet"}
+            description={searchQuery ? "Try adjusting your search" : "Create your first project to get started"}
           />
         ) : (
-          <div className="space-y-3">
-            {projects.map((p) => (
-              <Link key={p._id} href={`/admin/projects/${p._id}`}>
-                <div className="rounded-xl border border-white/10 bg-white/5 p-4 backdrop-blur-sm transition-all hover:border-white/20 hover:bg-white/10">
-                  <div className="flex items-center justify-between gap-4">
-                    <div className="flex items-center gap-3 flex-1">
-                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-purple-500/10">
-                        <FolderKanban className="h-5 w-5 text-purple-400" />
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <div className="flex items-center gap-2 flex-wrap">
-                          <p className="font-medium text-white">{p.name}</p>
-                          <AdminBadge variant={getProjectBadgeVariant(p.status) as any}>
-                            {p.status}
-                          </AdminBadge>
-                        </div>
-                        <div className="mt-1 flex flex-wrap gap-x-3 gap-y-1 text-xs text-white/60">
-                          <span>{typeLabels[p.type] ?? p.type}</span>
-                          <span className="flex items-center gap-1">
-                            <Calendar className="h-3 w-3" />
-                            {p.startDate} – {p.endDate}
-                          </span>
-                          {p.ownerId && (
-                            <span>Owner: {getOwnerName(p.ownerId) ?? "—"}</span>
-                          )}
-                        </div>
-                      </div>
+          <AdminTable headers={["Project", "Type", "Owner", "Status", "Dates", "Actions"]}>
+            {filteredProjects.map((project) => (
+              <AdminTableRow key={project._id}>
+                <td className="px-6 py-4">
+                  <div className="flex items-center gap-3">
+                    <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded bg-[#8764b8] text-xs font-semibold text-white">
+                      {project.name?.charAt(0)?.toUpperCase()}
+                    </div>
+                    <div>
+                      <p className="text-xs font-semibold text-[#323130]">{project.name}</p>
+                      <p className="text-xs text-[#605e5c] truncate max-w-xs">{project.description}</p>
                     </div>
                   </div>
-                </div>
-              </Link>
+                </td>
+                <td className="px-6 py-4 text-xs text-[#605e5c]">
+                  {typeLabels[project.type] || project.type}
+                </td>
+                <td className="px-6 py-4 text-xs text-[#605e5c]">
+                  {getOwnerName(project.ownerId)}
+                </td>
+                <td className="px-6 py-4">
+                  <AdminBadge
+                    variant={
+                      project.status === "ACTIVE"
+                        ? "success"
+                        : project.status === "PLANNING"
+                        ? "warning"
+                        : project.status === "COMPLETED"
+                        ? "info"
+                        : "default"
+                    }
+                  >
+                    {project.status}
+                  </AdminBadge>
+                </td>
+                <td className="px-6 py-4 text-xs text-[#605e5c]">
+                  {project.startDate ? new Date(project.startDate).toLocaleDateString("en-IN") : "—"}
+                </td>
+                <td className="px-6 py-4">
+                  <Link href={`/admin/projects/${project._id}`}>
+                    <AdminButton size="sm" variant="ghost">
+                      View
+                      <ExternalLink className="h-3 w-3 ml-1" />
+                    </AdminButton>
+                  </Link>
+                </td>
+              </AdminTableRow>
             ))}
-          </div>
+          </AdminTable>
         )}
       </AdminCard>
+      </AdminPageLayout>
     </AdminPageWrapper>
   )
 }

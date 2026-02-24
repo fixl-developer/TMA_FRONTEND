@@ -2,7 +2,7 @@
 
 import * as React from "react"
 
-export type UserRole = "superadmin" | "admin" | "modelling" | "pageant" | "talent-mgmt" | "academy" | "influencer"
+export type UserRole = "admin" | "modelling" | "pageant" | "talent-mgmt" | "academy" | "influencer"
 
 export interface AuthUser {
   email: string
@@ -12,7 +12,7 @@ export interface AuthUser {
 
 // Seed user role mapping
 const SEED_ROLE_MAP: Record<string, UserRole> = {
-  SUPER_ADMIN: "superadmin",
+  SUPER_ADMIN: "admin",
   TENANT_OWNER: "admin",
   ADMIN: "admin",
   AGENT: "modelling",
@@ -20,7 +20,6 @@ const SEED_ROLE_MAP: Record<string, UserRole> = {
 }
 
 const DEMO_USERS: Record<string, { password: string; role: UserRole; name: string }> = {
-  "superadmin@talentos.io": { password: "demo123", role: "superadmin", name: "Super Admin" },
   "admin@talentos.io": { password: "demo123", role: "admin", name: "Tenant Admin" },
   "modelling@talentos.io": { password: "demo123", role: "modelling", name: "Modelling Agency" },
   "pageant@talentos.io": { password: "demo123", role: "pageant", name: "Pageant Organizer" },
@@ -31,7 +30,7 @@ const DEMO_USERS: Record<string, { password: string; role: UserRole; name: strin
   "rajesh@elite-models.com": { password: "demo123", role: "admin", name: "Rajesh Kumar" },
   "meera@miss-india.com": { password: "demo123", role: "pageant", name: "Meera Singh" },
   "arjun@talent-hub.com": { password: "demo123", role: "admin", name: "Arjun Nair" },
-  "admin@talentos.com": { password: "demo123", role: "superadmin", name: "Platform Admin" },
+  "admin@talentos.com": { password: "demo123", role: "admin", name: "Platform Admin" },
   "priya@elite-models.com": { password: "demo123", role: "modelling", name: "Priya Mehta" },
   "anil@elite-models.com": { password: "demo123", role: "admin", name: "Anil Sharma" },
   "vikram@miss-india.com": { password: "demo123", role: "pageant", name: "Vikram Reddy" },
@@ -59,7 +58,6 @@ const DEMO_USERS: Record<string, { password: string; role: UserRole; name: strin
 }
 
 const DASHBOARD_PATH: Record<UserRole, string> = {
-  superadmin: "/superadmin",
   admin: "/admin",
   modelling: "/modelling",
   pageant: "/pageant",

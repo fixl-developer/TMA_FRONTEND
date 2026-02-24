@@ -2,16 +2,18 @@
 
 import { useEffect, useState } from "react"
 import { getTenantCourses } from "@/shared/services/adminService"
-import { GraduationCap, BookOpen } from "lucide-react"
+import { GraduationCap, BookOpen, Plus } from "lucide-react"
+import { AdminPageWrapper } from "@/shared/components/layout/AdminPageWrapper"
 import {
-  AdminPageWrapper,
-  AdminCard,
-  AdminSectionHeader,
+  AdminPageLayout,
+  AdminStatsGrid,
   AdminStatCard,
+  AdminCard,
   AdminButton,
   AdminBadge,
   AdminEmptyState,
-} from "@/shared/components/layout/AdminPageWrapper"
+  AdminLoading,
+} from "@/shared/components/admin/AdminPageLayout"
 
 export default function AdminAcademyPage() {
   const [courses, setCourses] = useState<any[]>([])
@@ -37,79 +39,86 @@ export default function AdminAcademyPage() {
 
   return (
     <AdminPageWrapper>
-      <AdminSectionHeader
+      <AdminPageLayout
         title="Academy"
         subtitle="Courses, mentors, and certifications"
-        action={<AdminButton>New Course</AdminButton>}
-      />
-
-      {/* Stats Cards */}
-      <div className="mb-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        actions={
+        <AdminButton>
+          <Plus className="h-4 w-4" />
+          New Course
+        </AdminButton>
+      }
+    >
+      <AdminStatsGrid columns={4}>
         {loading ? (
           <>
             {[1, 2, 3].map((i) => (
-              <div key={i} className="h-32 animate-pulse rounded-2xl bg-white/5 admin-light-theme:bg-slate-100 transition-colors" />
+              <div key={i} className="h-32 animate-pulse rounded bg-[#f3f2f1]" />
             ))}
           </>
         ) : (
           <>
             <AdminStatCard
-              title="Total Courses"
+              label="Total Courses"
               value={courses.length}
               subtitle="All courses"
               icon={GraduationCap}
               color="purple"
             />
             <AdminStatCard
-              title="Active"
+              label="Active"
               value={activeCount}
               subtitle="Available now"
               icon={BookOpen}
               color="green"
             />
             <AdminStatCard
-              title="Total Enrolled"
+              label="Total Enrolled"
               value={totalEnrolled}
               subtitle="Across all courses"
               icon={GraduationCap}
               color="blue"
             />
+            <AdminStatCard
+              label="Draft"
+              value={courses.filter((c) => c.status === "DRAFT").length}
+              subtitle="In preparation"
+              icon={GraduationCap}
+              color="yellow"
+            />
           </>
         )}
-      </div>
+      </AdminStatsGrid>
 
-      {/* Courses */}
-      <AdminCard>
-        <h3 className="mb-6 text-lg font-bold text-white admin-light-theme:text-slate-900 transition-colors">
-          Courses
-        </h3>
+      <AdminCard title="Courses" subtitle={`${courses.length} total courses`}>
         {loading ? (
-          <div className="space-y-3">
-            {[1, 2, 3, 4, 5].map((i) => (
-              <div key={i} className="h-20 animate-pulse rounded-lg bg-white/5 admin-light-theme:bg-slate-100 transition-colors" />
-            ))}
-          </div>
+          <AdminLoading rows={5} />
         ) : courses.length === 0 ? (
           <AdminEmptyState
             icon={GraduationCap}
             title="No courses yet"
             description="Create courses to train and certify your talent"
-            action={<AdminButton>New Course</AdminButton>}
+            action={
+              <AdminButton>
+                <Plus className="h-4 w-4" />
+                New Course
+              </AdminButton>
+            }
           />
         ) : (
-          <div className="space-y-4">
+          <div className="space-y-2">
             {courses.map((c) => (
               <div
                 key={c._id}
-                className="flex items-center justify-between rounded-xl border p-4 backdrop-blur-sm transition-all hover:border-white/20 admin-light-theme:border-slate-200 admin-light-theme:bg-white admin-light-theme:hover:border-slate-300 admin-light-theme:hover:shadow-md border-white/10 bg-white/5 hover:bg-white/10"
+                className="flex items-center justify-between rounded border border-[#edebe9] bg-white p-4 transition-all hover:bg-[#f3f2f1] hover:shadow-sm"
               >
                 <div className="flex items-center gap-3">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-green-500/10 text-green-400 admin-light-theme:bg-green-100 admin-light-theme:text-green-600 transition-colors">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded bg-[#107c10] text-white">
                     <GraduationCap className="h-5 w-5" />
                   </div>
                   <div>
-                    <p className="font-semibold text-white admin-light-theme:text-slate-900 transition-colors">{c.title}</p>
-                    <p className="text-sm text-white/60 admin-light-theme:text-slate-600 transition-colors">
+                    <p className="text-xs font-semibold text-[#323130]">{c.title}</p>
+                    <p className="text-xs text-[#605e5c]">
                       {c.category} · {c.duration}
                     </p>
                   </div>
@@ -117,12 +126,13 @@ export default function AdminAcademyPage() {
                     {c.status}
                   </AdminBadge>
                 </div>
-                <p className="text-[#d4ff00]">{c.enrolledCount} enrolled</p>
+                <p className="text-xs font-semibold text-[#107c10]">{c.enrolledCount} enrolled</p>
               </div>
             ))}
           </div>
         )}
       </AdminCard>
+      </AdminPageLayout>
     </AdminPageWrapper>
   )
 }

@@ -1,0 +1,7 @@
+[
+  { "id": "acc_platform_escrow", "name": "Platform Escrow", "type": "ASSET", "currency": "INR", "balanceMinor": 125000000 },
+  { "id": "acc_platform_revenue", "name": "Platform Revenue", "type": "REVENUE", "currency": "INR", "balanceMinor": 18500000 },
+  { "id": "acc_tenant_001", "name": "Tenant 001 Wallet", "type": "ASSET", "currency": "INR", "balanceMinor": 3200000, "tenantId": "tenant_001" },
+  { "id": "acc_tenant_002", "name": "Tenant 002 Wallet", "type": "ASSET", "currency": "INR", "balanceMinor": 5600000, "tenantId": "tenant_002" },
+  { "id": "acc_settlement", "name": "Settlement Clearing", "type": "LIABILITY", "currency": "INR", "balanceMinor": 8500000 }
+]

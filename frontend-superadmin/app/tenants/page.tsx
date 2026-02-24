@@ -368,8 +368,8 @@ export default function TenantsDashboard() {
         title="Tenants"
         description="Overview of agencies, pageant organisers, brands and event orgs using the platform. Powered by seed data for this phase."
         badge={
-          <span className="inline-flex items-center gap-1.5 rounded-md border border-slate-200 bg-white px-2.5 py-1 text-xs font-medium text-slate-600">
-            <Building2 className="h-3.5 w-3.5 text-sky-500" />
+          <span className="inline-flex items-center gap-1.5 rounded border border-[#edebe9] bg-white px-2.5 py-1 text-xs font-medium text-[#605e5c]">
+            <Building2 className="h-3.5 w-3.5 text-[#0078d4]" />
             Organization
           </span>
         }
@@ -388,10 +388,10 @@ export default function TenantsDashboard() {
               <CardTitle>Total tenants</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-3xl font-semibold text-slate-800">
+              <p className="text-3xl font-semibold text-[#323130]">
                 {loading ? "—" : metrics.total}
               </p>
-              <p className="mt-1 text-[11px] text-slate-500">
+              <p className="mt-1 text-xs text-[#605e5c]">
                 All seeded organisations across types.
               </p>
             </CardContent>
@@ -401,10 +401,10 @@ export default function TenantsDashboard() {
               <CardTitle>Active</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-3xl font-semibold text-emerald-600">
+              <p className="text-3xl font-semibold text-[#107c10]">
                 {loading ? "—" : metrics.active}
               </p>
-              <p className="mt-1 text-[11px] text-slate-500">
+              <p className="mt-1 text-xs text-[#605e5c]">
                 Eligible to run pageants, campaigns and showcases.
               </p>
             </CardContent>
@@ -414,10 +414,10 @@ export default function TenantsDashboard() {
               <CardTitle>Pending</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-3xl font-semibold text-sky-600">
+              <p className="text-3xl font-semibold text-[#0078d4]">
                 {loading ? "—" : metrics.pending || 0}
               </p>
-              <p className="mt-1 text-[11px] text-slate-500">
+              <p className="mt-1 text-xs text-[#605e5c]">
                 Awaiting Super Admin approval (from signup or manual create).
               </p>
             </CardContent>
@@ -427,10 +427,10 @@ export default function TenantsDashboard() {
               <CardTitle>Suspended</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-3xl font-semibold text-amber-600">
+              <p className="text-3xl font-semibold text-[#ffb900]">
                 {loading ? "—" : metrics.suspended || 0}
               </p>
-              <p className="mt-1 text-[11px] text-slate-500">
+              <p className="mt-1 text-xs text-[#605e5c]">
                 Tenants temporarily disabled.
               </p>
             </CardContent>
@@ -440,10 +440,10 @@ export default function TenantsDashboard() {
               <CardTitle>Countries</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-3xl font-semibold text-sky-600">
+              <p className="text-3xl font-semibold text-[#0078d4]">
                 {loading ? "—" : Object.keys(metrics.byCountry).length || 1}
               </p>
-              <p className="mt-1 text-[11px] text-slate-500">
+              <p className="mt-1 text-xs text-[#605e5c]">
                 Seeded tenants are India-first; global later.
               </p>
             </CardContent>
@@ -457,9 +457,9 @@ export default function TenantsDashboard() {
             <CardHeader>
               <CardTitle>Tenants by type</CardTitle>
             </CardHeader>
-            <CardContent className="space-y-2 text-[11px] text-slate-600">
+            <CardContent className="space-y-2 text-xs text-[#323130]">
               {loading ? (
-                <p className="text-slate-500">Loading…</p>
+                <p className="text-[#605e5c]">Loading…</p>
               ) : (
                 <>
                   <RechartsBar
@@ -477,7 +477,7 @@ export default function TenantsDashboard() {
                       value: count,
                     }))}
                   />
-                  <p className="mt-1 text-[10px] text-slate-500">
+                  <p className="mt-1 text-xs text-[#605e5c]">
                     Distribution of tenant types from seed data.
                   </p>
                 </>
@@ -488,11 +488,11 @@ export default function TenantsDashboard() {
             <CardHeader>
               <CardTitle>Region distribution</CardTitle>
             </CardHeader>
-            <CardContent className="space-y-2 text-[11px] text-slate-600">
+            <CardContent className="space-y-2 text-xs text-[#323130]">
               {loading ? (
-                <p className="text-slate-500">Loading…</p>
+                <p className="text-[#605e5c]">Loading…</p>
               ) : Object.keys(metrics.byCountry).length === 0 ? (
-                <p className="text-[10px] text-slate-500">
+                <p className="text-xs text-[#605e5c]">
                   No country codes in seed. Showing placeholder.
                 </p>
               ) : (
@@ -503,7 +503,7 @@ export default function TenantsDashboard() {
                       value: count,
                     }))}
                   />
-                  <p className="mt-1 text-[10px] text-slate-500">
+                  <p className="mt-1 text-xs text-[#605e5c]">
                     Tenants by country code.
                   </p>
                 </>
@@ -519,13 +519,13 @@ export default function TenantsDashboard() {
             <CardHeader>
               <CardTitle>Tenant types</CardTitle>
             </CardHeader>
-            <CardContent className="space-y-2 text-[11px] text-slate-700">
+            <CardContent className="space-y-2 text-xs text-[#323130]">
               {loading ? (
-                <p className="text-slate-500">Loading seeded tenants…</p>
+                <p className="text-[#605e5c]">Loading seeded tenants…</p>
               ) : metrics.total === 0 ? (
-                <p className="text-slate-500">
+                <p className="text-[#605e5c]">
                   No tenants in the current seed. Update{" "}
-                  <code className="rounded bg-slate-100 px-1.5 py-0.5 text-[10px]">
+                  <code className="rounded bg-[#f3f2f1] px-1.5 py-0.5 text-[11px]">
                     data/seed/tenants.json
                   </code>{" "}
                   to configure tenant mix.
@@ -535,10 +535,10 @@ export default function TenantsDashboard() {
                   {Object.entries(metrics.byType).map(([type, count]) => (
                     <li
                       key={type}
-                      className="flex items-center justify-between gap-2 rounded-xl border border-slate-200/80 bg-slate-50/85 px-3 py-2"
+                      className="flex items-center justify-between gap-2 rounded border border-[#edebe9] bg-[#faf9f8] px-3 py-2"
                     >
                       <div className="space-y-0.5">
-                        <p className="text-[12px] font-semibold text-slate-800">
+                        <p className="text-sm font-semibold text-[#323130]">
                           {type === "AGENCY"
                             ? "Agency"
                             : type === "PAGEANT_ORG"
@@ -549,11 +549,11 @@ export default function TenantsDashboard() {
                             ? "Brand / Sponsor"
                             : "Platform internal"}
                         </p>
-                        <p className="text-[10px] text-slate-500">
+                        <p className="text-[11px] text-[#605e5c]">
                           Type code: {type}
                         </p>
                       </div>
-                      <p className="text-[12px] font-semibold text-sky-600">
+                      <p className="text-sm font-semibold text-[#0078d4]">
                         {count}
                       </p>
                     </li>
@@ -567,13 +567,13 @@ export default function TenantsDashboard() {
             <CardHeader>
               <CardTitle>Region snapshot</CardTitle>
             </CardHeader>
-            <CardContent className="space-y-2 text-[11px] text-slate-700">
+            <CardContent className="space-y-2 text-xs text-[#323130]">
               {loading ? (
-                <p className="text-slate-500">Loading region data…</p>
+                <p className="text-[#605e5c]">Loading region data…</p>
               ) : Object.keys(metrics.byCountry).length === 0 ? (
-                <p className="text-slate-500">
+                <p className="text-[#605e5c]">
                   No explicit country codes in seed. By default, treat all as{" "}
-                  <span className="font-semibold text-sky-600">IN (India)</span>
+                  <span className="font-semibold text-[#0078d4]">IN (India)</span>
                   .
                 </p>
               ) : (
@@ -581,22 +581,22 @@ export default function TenantsDashboard() {
                   {Object.entries(metrics.byCountry).map(([country, count]) => (
                     <li
                       key={country}
-                      className="flex items-center justify-between gap-2 rounded-xl border border-slate-200/80 bg-slate-50/85 px-3 py-2"
+                      className="flex items-center justify-between gap-2 rounded border border-[#edebe9] bg-[#faf9f8] px-3 py-2"
                     >
                       <div className="flex items-center gap-2">
-                        <div className="flex h-8 w-8 items-center justify-center rounded-full bg-slate-100">
-                          <Globe2 className="h-4 w-4 text-sky-300" />
+                        <div className="flex h-8 w-8 items-center justify-center rounded bg-[#f3f2f1]">
+                          <Globe2 className="h-4 w-4 text-[#0078d4]" />
                         </div>
                         <div className="space-y-0.5">
-                          <p className="text-[12px] font-semibold text-slate-800">
+                          <p className="text-sm font-semibold text-[#323130]">
                             {country}
                           </p>
-                          <p className="text-[10px] text-slate-500">
+                          <p className="text-[11px] text-[#605e5c]">
                             Country code
                           </p>
                         </div>
                       </div>
-                      <p className="text-[12px] font-semibold text-sky-600">
+                      <p className="text-sm font-semibold text-[#0078d4]">
                         {count}
                       </p>
                     </li>
@@ -641,8 +641,8 @@ export default function TenantsDashboard() {
           />
 
           <div className="flex items-center justify-between gap-2">
-            <div className="flex flex-wrap items-center gap-2 text-[11px]">
-              <span className="text-slate-500">Status:</span>
+            <div className="flex flex-wrap items-center gap-2 text-xs">
+              <span className="text-[#605e5c]">Status:</span>
               {([
                 { key: "ALL", label: "All" },
                 { key: "PENDING", label: "Pending" },
@@ -656,8 +656,8 @@ export default function TenantsDashboard() {
                   variant={filter === opt.key ? "default" : "outline"}
                   className={
                     filter === opt.key
-                      ? "h-7 px-3 text-[11px]"
-                      : "h-7 px-3 text-[11px] bg-slate-50/70"
+                      ? "h-7 px-3 text-xs"
+                      : "h-7 px-3 text-xs bg-[#faf9f8]"
                   }
                   onClick={() => setFilter(opt.key)}
                 >
@@ -667,7 +667,7 @@ export default function TenantsDashboard() {
               <Button
                 size="sm"
                 variant="outline"
-                className="h-7 px-3 text-[11px] bg-slate-50/70"
+                className="h-7 px-3 text-xs bg-[#faf9f8]"
                 disabled
               >
                 <RefreshCcw className="mr-1.5 h-3.5 w-3.5" />
@@ -676,50 +676,50 @@ export default function TenantsDashboard() {
             </div>
           </div>
 
-          <div className="rounded-2xl border border-slate-200/80 bg-slate-50/70 p-3 shadow-[0_18px_45px_rgba(15,23,42,0.9)] backdrop-blur">
+          <div className="rounded border border-[#edebe9] bg-white p-3">
             {loading ? (
-              <div className="flex items-center justify-center py-14 text-slate-600">
+              <div className="flex items-center justify-center py-14 text-[#605e5c]">
                 <span className="text-sm">
                   Loading tenants from seed for this environment…
                 </span>
               </div>
             ) : filteredTenants.length === 0 ? (
-              <div className="flex flex-col items-center justify-center gap-2 py-14 text-center text-slate-600">
+              <div className="flex flex-col items-center justify-center gap-2 py-14 text-center text-[#605e5c]">
                 <p className="text-sm font-medium">
                   No tenants match this filter in the current seed.
                 </p>
-                <p className="max-w-md text-[11px] text-slate-500">
+                <p className="max-w-md text-xs text-[#605e5c]">
                   Adjust{" "}
-                  <code className="rounded bg-slate-100 px-1.5 py-0.5 text-[10px]">
+                  <code className="rounded bg-[#f3f2f1] px-1.5 py-0.5 text-[11px]">
                     data/seed/tenants.json
                   </code>{" "}
                   to explore different states and mixes.
                 </p>
               </div>
             ) : (
-              <div className="space-y-2 text-[11px] text-slate-700 sm:text-xs">
+              <div className="space-y-2 text-xs text-[#323130]">
                 {filteredTenants.map((tenant) => {
                   const stats = getTenantStats(tenant._id)
                   return (
                     <article
                       key={tenant._id}
-                      className="grid grid-cols-[minmax(0,1.6fr)_minmax(0,1.1fr)_minmax(0,0.9fr)] items-start gap-3 rounded-xl border border-slate-200/80 bg-slate-50/85 px-3 py-2.5 sm:px-4"
+                      className="grid grid-cols-[minmax(0,1.6fr)_minmax(0,1.1fr)_minmax(0,0.9fr)] items-start gap-3 rounded border border-[#edebe9] bg-[#faf9f8] hover:bg-[#f3f2f1] transition-colors px-3 py-2.5 sm:px-4"
                     >
                       <div className="space-y-0.5">
-                        <p className="text-[12px] font-semibold text-slate-800">
+                        <p className="text-sm font-semibold text-[#323130]">
                           {tenant.name}
                         </p>
-                        <p className="text-[10px] text-slate-500">
+                        <p className="text-[11px] text-[#605e5c]">
                           Id{" "}
-                          <span className="font-mono text-slate-600">
+                          <span className="font-mono text-[#323130]">
                             {tenant._id}
                           </span>{" "}
                           · Slug{" "}
-                          <span className="font-mono text-slate-600">
+                          <span className="font-mono text-[#323130]">
                             {tenant.slug}
                           </span>
                         </p>
-                        <p className="text-[10px] text-slate-500">
+                        <p className="text-[11px] text-[#605e5c]">
                           Pageants: {stats.pageants} ({stats.activePageants} active)
                           {(tenant as any).agencyType === "MODELING_AGENCY" && (
                             <> · Talents: {stats.talents} · Bookings: {stats.bookings}</>
@@ -731,7 +731,7 @@ export default function TenantsDashboard() {
                       </div>
 
                       <div className="space-y-0.5">
-                        <p className="text-[11px] text-slate-700">
+                        <p className="text-xs text-[#323130]">
                           {(tenant as any).agencyType
                             ? (tenant as any).agencyType.replace(/_/g, " ")
                             : tenant.type === "AGENCY"
@@ -751,29 +751,29 @@ export default function TenantsDashboard() {
                             {((tenant as any).blueprints as string[]).map((b) => (
                               <span
                                 key={b}
-                                className="rounded border border-slate-200 bg-slate-100 px-1.5 py-0.5 text-[9px] font-mono text-slate-600"
+                                className="rounded border border-[#edebe9] bg-[#f3f2f1] px-1.5 py-0.5 text-[9px] font-mono text-[#323130]"
                               >
                                 {b}
                               </span>
                             ))}
                           </div>
                         )}
-                        <p className="text-[10px] text-slate-500">
+                        <p className="text-[11px] text-[#605e5c]">
                           Timezone: {tenant.timezone || "not set"} · Country:{" "}
                           {tenant.countryCode || "IN"}
                         </p>
                       </div>
 
-                      <div className="flex flex-col items-end gap-2 text-right text-[10px] text-slate-500">
+                      <div className="flex flex-col items-end gap-2 text-right text-[11px] text-[#605e5c]">
                         <span
                           className={
                             tenant.status === "ACTIVE"
-                              ? "rounded-full border border-emerald-500/60 bg-emerald-500/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-emerald-600"
+                              ? "rounded border border-[#107c10] bg-[#dff6dd] px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-[#107c10]"
                               : tenant.status === "SUSPENDED"
-                              ? "rounded-full border border-amber-500/60 bg-amber-500/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-amber-600"
+                              ? "rounded border border-[#ffb900] bg-[#fff4ce] px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-[#797673]"
                               : tenant.status === "PENDING"
-                              ? "rounded-full border border-sky-500/60 bg-sky-500/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-sky-600"
-                              : "rounded-full border border-slate-200 bg-slate-100 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-slate-700"
+                              ? "rounded border border-[#0078d4] bg-[#deecf9] px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-[#0078d4]"
+                              : "rounded border border-[#edebe9] bg-[#f3f2f1] px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-[#605e5c]"
                           }
                         >
                           {tenant.status.toLowerCase()}
@@ -783,7 +783,7 @@ export default function TenantsDashboard() {
                             size="sm"
                             variant="ghost"
                             onClick={() => handleViewDetails(tenant)}
-                            className="h-7 px-2 text-[10px] text-sky-600 hover:bg-sky-500/10"
+                            className="h-7 px-2 text-[10px] text-[#0078d4] hover:bg-[#f3f2f1]"
                           >
                             <Eye className="h-3 w-3" />
                           </Button>
@@ -793,7 +793,7 @@ export default function TenantsDashboard() {
                                 size="sm"
                                 variant="ghost"
                                 onClick={() => handleActivate(tenant)}
-                                className="h-7 px-2 text-[10px] text-emerald-600 hover:bg-emerald-500/10"
+                                className="h-7 px-2 text-[10px] text-[#107c10] hover:bg-[#f3f2f1]"
                                 title="Approve"
                               >
                                 <Shield className="h-3 w-3" />
@@ -802,7 +802,7 @@ export default function TenantsDashboard() {
                                 size="sm"
                                 variant="ghost"
                                 onClick={() => handleReject(tenant)}
-                                className="h-7 px-2 text-[10px] text-red-600 hover:bg-red-500/10"
+                                className="h-7 px-2 text-[10px] text-[#a80000] hover:bg-[#f3f2f1]"
                                 title="Reject"
                               >
                                 <XCircle className="h-3 w-3" />
@@ -813,7 +813,7 @@ export default function TenantsDashboard() {
                               size="sm"
                               variant="ghost"
                               onClick={() => handleSuspend(tenant)}
-                              className="h-7 px-2 text-[10px] text-amber-600 hover:bg-amber-500/10"
+                              className="h-7 px-2 text-[10px] text-[#ffb900] hover:bg-[#f3f2f1]"
                             >
                               <ShieldOff className="h-3 w-3" />
                             </Button>
@@ -822,7 +822,7 @@ export default function TenantsDashboard() {
                               size="sm"
                               variant="ghost"
                               onClick={() => handleActivate(tenant)}
-                              className="h-7 px-2 text-[10px] text-emerald-600 hover:bg-emerald-500/10"
+                              className="h-7 px-2 text-[10px] text-[#107c10] hover:bg-[#f3f2f1]"
                             >
                               <Shield className="h-3 w-3" />
                             </Button>
@@ -851,22 +851,22 @@ export default function TenantsDashboard() {
                 </SheetDescription>
               </SheetHeader>
 
-              <SheetBody className="space-y-4 text-sm text-slate-700">
+              <SheetBody className="space-y-4 text-sm text-[#323130]">
                   {/* Basic Info */}
                   <div className="grid gap-4 md:grid-cols-2">
-                    <div className="rounded-lg border border-slate-200/80 bg-slate-50/80 px-3 py-2.5">
-                      <p className="text-[10px] font-semibold uppercase tracking-wide text-slate-500">
+                    <div className="rounded border border-[#edebe9] bg-[#faf9f8] px-3 py-2.5">
+                      <p className="text-[11px] font-semibold uppercase tracking-wide text-[#605e5c]">
                         Tenant ID
                       </p>
-                      <p className="mt-1 font-mono text-sm text-slate-800">
+                      <p className="mt-1 font-mono text-sm text-[#323130]">
                         {selectedTenant._id}
                       </p>
                     </div>
-                    <div className="rounded-lg border border-slate-200/80 bg-slate-50/80 px-3 py-2.5">
-                      <p className="text-[10px] font-semibold uppercase tracking-wide text-slate-500">
+                    <div className="rounded border border-[#edebe9] bg-[#faf9f8] px-3 py-2.5">
+                      <p className="text-[11px] font-semibold uppercase tracking-wide text-[#605e5c]">
                         Slug
                       </p>
-                      <p className="mt-1 font-mono text-sm text-slate-800">
+                      <p className="mt-1 font-mono text-sm text-[#323130]">
                         {selectedTenant.slug}
                       </p>
                     </div>
@@ -874,11 +874,11 @@ export default function TenantsDashboard() {
 
                   {/* Type, Agency Type & Status */}
                   <div className="grid gap-4 md:grid-cols-2">
-                    <div className="rounded-lg border border-slate-200/80 bg-slate-50/80 px-3 py-2.5">
-                      <p className="text-[10px] font-semibold uppercase tracking-wide text-slate-500">
+                    <div className="rounded border border-[#edebe9] bg-[#faf9f8] px-3 py-2.5">
+                      <p className="text-[11px] font-semibold uppercase tracking-wide text-[#605e5c]">
                         Type
                       </p>
-                      <p className="mt-1 text-sm text-slate-800">
+                      <p className="mt-1 text-sm text-[#323130]">
                         {selectedTenant.type === "AGENCY"
                           ? "Agency"
                           : selectedTenant.type === "PAGEANT_ORG"
@@ -891,25 +891,25 @@ export default function TenantsDashboard() {
                       </p>
                     </div>
                     {(selectedTenant as any).agencyType && (
-                      <div className="rounded-lg border border-slate-200/80 bg-slate-50/80 px-3 py-2.5">
-                        <p className="text-[10px] font-semibold uppercase tracking-wide text-slate-500">
+                      <div className="rounded border border-[#edebe9] bg-[#faf9f8] px-3 py-2.5">
+                        <p className="text-[11px] font-semibold uppercase tracking-wide text-[#605e5c]">
                           Agency Type
                         </p>
-                        <p className="mt-1 text-sm text-slate-800">
+                        <p className="mt-1 text-sm text-[#323130]">
                           {(selectedTenant as any).agencyType.replace(/_/g, " ")}
                         </p>
                       </div>
                     )}
-                    <div className="rounded-lg border border-slate-200/80 bg-slate-50/80 px-3 py-2.5">
-                      <p className="text-[10px] font-semibold uppercase tracking-wide text-slate-500">
+                    <div className="rounded border border-[#edebe9] bg-[#faf9f8] px-3 py-2.5">
+                      <p className="text-[11px] font-semibold uppercase tracking-wide text-[#605e5c]">
                         Status
                       </p>
                       <p className="mt-1">
                         <span
                           className={
                             selectedTenant.status === "ACTIVE"
-                              ? "rounded-full border border-emerald-500/60 bg-emerald-500/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-emerald-600"
-                              : "rounded-full border border-amber-500/60 bg-amber-500/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-amber-600"
+                              ? "rounded border border-[#107c10] bg-[#dff6dd] px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-[#107c10]"
+                              : "rounded border border-[#ffb900] bg-[#fff4ce] px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-[#797673]"
                           }
                         >
                           {selectedTenant.status.toLowerCase()}
@@ -919,17 +919,17 @@ export default function TenantsDashboard() {
                   </div>
 
                   {/* Location */}
-                  <div className="rounded-lg border border-slate-200/80 bg-slate-50/80 px-3 py-2.5">
-                    <p className="text-[10px] font-semibold uppercase tracking-wide text-slate-500">
+                  <div className="rounded border border-[#edebe9] bg-[#faf9f8] px-3 py-2.5">
+                    <p className="text-[11px] font-semibold uppercase tracking-wide text-[#605e5c]">
                       Location & Timezone
                     </p>
-                    <div className="mt-1 grid grid-cols-2 gap-2 text-sm text-slate-800">
+                    <div className="mt-1 grid grid-cols-2 gap-2 text-sm text-[#323130]">
                       <div>
-                        <span className="text-slate-500">Country:</span>{" "}
+                        <span className="text-[#605e5c]">Country:</span>{" "}
                         {selectedTenant.countryCode || "IN"}
                       </div>
                       <div>
-                        <span className="text-slate-500">Timezone:</span>{" "}
+                        <span className="text-[#605e5c]">Timezone:</span>{" "}
                         {selectedTenant.timezone || "not set"}
                       </div>
                     </div>
@@ -937,15 +937,15 @@ export default function TenantsDashboard() {
 
                   {/* Blueprints */}
                   {(selectedTenant as any).blueprints?.length > 0 && (
-                    <div className="rounded-lg border border-slate-200/80 bg-slate-50/80 px-3 py-2.5">
-                      <p className="text-[10px] font-semibold uppercase tracking-wide text-slate-500">
+                    <div className="rounded border border-[#edebe9] bg-[#faf9f8] px-3 py-2.5">
+                      <p className="text-[11px] font-semibold uppercase tracking-wide text-[#605e5c]">
                         Blueprints
                       </p>
                       <div className="mt-1 flex flex-wrap gap-1.5">
                         {((selectedTenant as any).blueprints as string[]).map((b) => (
                           <span
                             key={b}
-                            className="rounded border border-slate-200 bg-slate-100 px-2 py-0.5 text-xs font-mono text-slate-700"
+                            className="rounded border border-[#edebe9] bg-[#f3f2f1] px-2 py-0.5 text-xs font-mono text-[#323130]"
                           >
                             {b}
                           </span>
@@ -956,8 +956,8 @@ export default function TenantsDashboard() {
 
                   {/* B10 Sub-tenants (Holding Company) */}
                   {(selectedTenant as any).blueprints?.includes("B10") && (
-                    <div className="rounded-lg border border-slate-200/80 bg-slate-50/80 px-3 py-2.5">
-                      <p className="text-[10px] font-semibold uppercase tracking-wide text-slate-500">
+                    <div className="rounded border border-[#edebe9] bg-[#faf9f8] px-3 py-2.5">
+                      <p className="text-[11px] font-semibold uppercase tracking-wide text-[#605e5c]">
                         Sub-tenants
                       </p>
                       <div className="mt-2 space-y-1.5">
@@ -968,58 +968,58 @@ export default function TenantsDashboard() {
                             return (
                               <div
                                 key={l.subTenantId}
-                                className="flex items-center justify-between rounded border border-slate-200 bg-white px-2 py-1.5 text-sm"
+                                className="flex items-center justify-between rounded border border-[#edebe9] bg-white px-2 py-1.5 text-sm"
                               >
-                                <span className="font-medium text-slate-800">
+                                <span className="font-medium text-[#323130]">
                                   {sub?.name ?? l.subTenantId}
                                 </span>
-                                <span className="text-[10px] text-slate-500">
+                                <span className="text-[11px] text-[#605e5c]">
                                   {sub?.agencyType?.replace(/_/g, " ") ?? ""}
                                 </span>
                               </div>
                             )
                           })}
                         {seedSubTenantLinks.filter((l) => l.groupId === selectedTenant._id).length === 0 && (
-                          <p className="text-xs text-slate-500">No sub-tenants linked</p>
+                          <p className="text-xs text-[#605e5c]">No sub-tenants linked</p>
                         )}
                       </div>
                     </div>
                   )}
 
                   {/* Quick Stats */}
-                  <div className="rounded-lg border border-slate-200/80 bg-slate-50/80 px-3 py-2.5">
-                    <p className="text-[10px] font-semibold uppercase tracking-wide text-slate-500">
+                  <div className="rounded border border-[#edebe9] bg-[#faf9f8] px-3 py-2.5">
+                    <p className="text-[11px] font-semibold uppercase tracking-wide text-[#605e5c]">
                       Quick Stats
                     </p>
                     <div className="mt-2 grid grid-cols-2 sm:grid-cols-4 gap-3">
                       <div>
-                        <p className="text-[10px] text-slate-500">Pageants</p>
-                        <p className="mt-0.5 text-lg font-semibold text-sky-600">
+                        <p className="text-[11px] text-[#605e5c]">Pageants</p>
+                        <p className="mt-0.5 text-lg font-semibold text-[#0078d4]">
                           {getTenantStats(selectedTenant._id).pageants}
                         </p>
                       </div>
                       <div>
-                        <p className="text-[10px] text-slate-500">Active Pageants</p>
-                        <p className="mt-0.5 text-lg font-semibold text-emerald-600">
+                        <p className="text-[11px] text-[#605e5c]">Active Pageants</p>
+                        <p className="mt-0.5 text-lg font-semibold text-[#107c10]">
                           {getTenantStats(selectedTenant._id).activePageants}
                         </p>
                       </div>
                       <div>
-                        <p className="text-[10px] text-slate-500">Talents</p>
-                        <p className="mt-0.5 text-lg font-semibold text-slate-800">
+                        <p className="text-[11px] text-[#605e5c]">Talents</p>
+                        <p className="mt-0.5 text-lg font-semibold text-[#323130]">
                           {getTenantStats(selectedTenant._id).talents}
                         </p>
                       </div>
                       <div>
-                        <p className="text-[10px] text-slate-500">Staff</p>
-                        <p className="mt-0.5 text-lg font-semibold text-slate-800">
+                        <p className="text-[11px] text-[#605e5c]">Staff</p>
+                        <p className="mt-0.5 text-lg font-semibold text-[#323130]">
                           {getTenantStats(selectedTenant._id).staff}
                         </p>
                       </div>
                       {(selectedTenant as any).agencyType === "MODELING_AGENCY" && (
                         <div>
-                          <p className="text-[10px] text-slate-500">Bookings</p>
-                          <p className="mt-0.5 text-lg font-semibold text-slate-800">
+                          <p className="text-[11px] text-[#605e5c]">Bookings</p>
+                          <p className="mt-0.5 text-lg font-semibold text-[#323130]">
                             {getTenantStats(selectedTenant._id).bookings}
                           </p>
                         </div>
@@ -1029,16 +1029,16 @@ export default function TenantsDashboard() {
 
                   {/* Branding */}
                   {selectedTenant.settings?.branding && (
-                    <div className="rounded-lg border border-slate-200/80 bg-slate-50/80 px-3 py-2.5">
-                      <p className="text-[10px] font-semibold uppercase tracking-wide text-slate-500">
+                    <div className="rounded border border-[#edebe9] bg-[#faf9f8] px-3 py-2.5">
+                      <p className="text-[11px] font-semibold uppercase tracking-wide text-[#605e5c]">
                         Branding
                       </p>
-                      <div className="mt-1 space-y-1 text-sm text-slate-800">
+                      <div className="mt-1 space-y-1 text-sm text-[#323130]">
                         {selectedTenant.settings.branding.primaryColor && (
                           <div className="flex items-center gap-2">
-                            <span className="text-slate-500">Primary Color:</span>
+                            <span className="text-[#605e5c]">Primary Color:</span>
                             <div
-                              className="h-4 w-12 rounded border border-slate-200"
+                              className="h-4 w-12 rounded border border-[#edebe9]"
                               style={{
                                 backgroundColor:
                                   selectedTenant.settings.branding.primaryColor,
@@ -1051,7 +1051,7 @@ export default function TenantsDashboard() {
                         )}
                         {selectedTenant.settings.branding.logo && (
                           <div>
-                            <span className="text-slate-500">Logo:</span>{" "}
+                            <span className="text-[#605e5c]">Logo:</span>{" "}
                             {selectedTenant.settings.branding.logo}
                           </div>
                         )}

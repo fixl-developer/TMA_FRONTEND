@@ -2,65 +2,91 @@
 
 import { useEffect, useState } from "react"
 import Link from "next/link"
-import { PageBanner } from "@/shared/components/ui/PageBanner"
-import { Card, CardHeader, CardTitle, CardContent } from "@/shared/components/ui/card"
-import { Button } from "@/shared/components/ui/button"
 import { getPendingCreatives } from "@/shared/services/adsService"
 import type { AdCreative } from "@/shared/lib/types/ads"
-import { ImageIcon, Film, CheckCircle2, XCircle } from "lucide-react"
-import { AgenciesPage } from "@/shared/components/layout/AgenciesPage"
+import { ImageIcon, Film, CheckCircle2, XCircle, Plus } from "lucide-react"
+import { AdminPageWrapper } from "@/shared/components/layout/AdminPageWrapper"
+import {
+  AdminPageLayout,
+  AdminCard,
+  AdminButton,
+  AdminEmptyState,
+} from "@/shared/components/admin/AdminPageLayout"
 
 const DEMO_TENANT = "tenant_001"
 
 export default function AdApprovalsPage() {
   const [creatives, setCreatives] = useState<AdCreative[]>([])
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    getPendingCreatives(DEMO_TENANT).then(setCreatives)
+    getPendingCreatives(DEMO_TENANT).then((data) => {
+      setCreatives(data)
+      setLoading(false)
+    })
   }, [])
 
   return (
-    <AgenciesPage>
-      <div className="mb-6 flex items-center justify-between">
-          <PageBanner title="Ad approvals" subtitle="Review and approve pending creatives." variant="admin" backgroundImage="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80" />
+    <AdminPageWrapper>
+      <AdminPageLayout
+        title="Ad Approvals"
+        subtitle="Review and approve pending creatives"
+        actions={
           <Link href="/admin/ads/create">
-            <Button className="bg-amber-500 text-slate-900 hover:bg-amber-400">Create campaign</Button>
+            <AdminButton>
+              <Plus className="h-4 w-4" />
+              Create Campaign
+            </AdminButton>
           </Link>
-        </div>
-        <Card>
-          <CardContent className="pt-6">
-            {creatives.length === 0 ? (
-              <div className="py-12 text-center">
-                <p className="text-slate-500">No pending creatives.</p>
+        }
+      >
+        <AdminCard title="Pending Creatives" subtitle={`${creatives.length} awaiting review`}>
+          {loading ? (
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {[1, 2, 3].map((i) => (
+                <div key={i} className="h-64 animate-pulse rounded-xl bg-white/5" />
+              ))}
+            </div>
+          ) : creatives.length === 0 ? (
+            <AdminEmptyState
+              icon={ImageIcon}
+              title="No pending creatives"
+              description="All creatives have been reviewed"
+              action={
                 <Link href="/admin/ads">
-                  <Button variant="outline" className="mt-4 border-slate-200 text-slate-800">View campaigns</Button>
+                  <AdminButton variant="secondary">View Campaigns</AdminButton>
                 </Link>
-              </div>
-            ) : (
-              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                {creatives.map((c) => (
-                  <div key={c._id} className="overflow-hidden rounded-xl border border-[#E7E5E4] bg-white transition-all hover:border-[#B8860B]/40 hover:shadow-md">
-                    <div className="aspect-video flex items-center justify-center bg-slate-900">
-                      {c.format === "VIDEO" ? <Film className="h-12 w-12 text-slate-600" /> : <ImageIcon className="h-12 w-12 text-slate-600" />}
-                    </div>
-                    <div className="p-4">
-                      <h3 className="font-semibold text-slate-800">{c.name}</h3>
-                      <p className="mt-1 text-xs text-slate-500">{c.headline ?? "—"}</p>
-                      <div className="mt-4 flex gap-2">
-                        <Button size="sm" className="flex-1 bg-emerald-600 text-slate-800 hover:bg-emerald-500">
-                          <CheckCircle2 className="mr-1.5 h-4 w-4" /> Approve
-                        </Button>
-                        <Button size="sm" variant="outline" className="flex-1 border-rose-600 text-rose-600 hover:bg-rose-500/10">
-                          <XCircle className="mr-1.5 h-4 w-4" /> Reject
-                        </Button>
-                      </div>
+              }
+            />
+          ) : (
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {creatives.map((c) => (
+                <div key={c._id} className="overflow-hidden rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm transition-all hover:border-white/20 hover:bg-white/10">
+                  <div className="aspect-video flex items-center justify-center bg-black/20">
+                    {c.format === "VIDEO" ? (
+                      <Film className="h-12 w-12 text-white/40" />
+                    ) : (
+                      <ImageIcon className="h-12 w-12 text-white/40" />
+                    )}
+                  </div>
+                  <div className="p-4">
+                    <h3 className="font-semibold text-white">{c.name}</h3>
+                    <p className="mt-1 text-xs text-white/60">{c.headline ?? "—"}</p>
+                    <div className="mt-4 flex gap-2">
+                      <AdminButton size="sm" className="flex-1">
+                        <CheckCircle2 className="mr-1.5 h-4 w-4" /> Approve
+                      </AdminButton>
+                      <AdminButton size="sm" variant="danger" className="flex-1">
+                        <XCircle className="mr-1.5 h-4 w-4" /> Reject
+                      </AdminButton>
                     </div>
                   </div>
-                ))}
-              </div>
-            )}
-          </CardContent>
-        </Card>
-      </AgenciesPage>
+                </div>
+              ))}
+            </div>
+          )}
+        </AdminCard>
+      </AdminPageLayout>
+    </AdminPageWrapper>
   )
 }

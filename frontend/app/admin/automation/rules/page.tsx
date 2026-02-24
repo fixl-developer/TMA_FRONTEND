@@ -251,7 +251,7 @@ export default function AutomationRulesPage() {
 
       {/* Create Rule Dialog */}
       <Dialog open={createOpen} onOpenChange={setCreateOpen}>
-        <DialogContent className="border border-white/10 bg-slate-900 text-white">
+        <DialogContent className="border admin-light-theme:border-slate-200 admin-light-theme:bg-white admin-dark-theme:border-white/10 admin-dark-theme:bg-slate-900 admin-light-theme:text-slate-900 admin-dark-theme:text-white">
           <DialogHeader><DialogTitle>New Automation Rule</DialogTitle></DialogHeader>
           <div className="space-y-4">
             <div>
@@ -296,7 +296,7 @@ export default function AutomationRulesPage() {
 
       {/* Dry Run Results Dialog */}
       <Dialog open={dryRunOpen} onOpenChange={setDryRunOpen}>
-        <DialogContent className="max-w-2xl border border-white/10 bg-slate-900 text-white">
+        <DialogContent className="max-w-2xl border admin-light-theme:border-slate-200 admin-light-theme:bg-white admin-dark-theme:border-white/10 admin-dark-theme:bg-slate-900 admin-light-theme:text-slate-900 admin-dark-theme:text-white">
           <DialogHeader>
             <DialogTitle className="flex items-center gap-2">
               <FlaskConical className="h-5 w-5 text-yellow-400" /> Dry Run Results

@@ -1,5 +1,0 @@
-[
-  { "id": "j1", "eventId": "ev-1", "name": "Dr. Meera Kapoor", "role": "Head Judge", "assigned": true },
-  { "id": "j2", "eventId": "ev-1", "name": "Vikram Singh", "role": "Judge", "assigned": true },
-  { "id": "j3", "eventId": "ev-1", "name": "Anita Desai", "role": "Judge", "assigned": false }
-]

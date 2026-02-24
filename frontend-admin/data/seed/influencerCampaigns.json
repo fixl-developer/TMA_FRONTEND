@@ -1,4 +1,0 @@
-[
-  { "id": "ic-1", "tenantId": "t-demo", "brand": "Brand A", "title": "Summer Collection Launch", "status": "active", "deliverables": 5, "completed": 2 },
-  { "id": "ic-2", "tenantId": "t-demo", "brand": "Brand B", "title": "Product Review Series", "status": "completed", "deliverables": 3, "completed": 3 }
-]

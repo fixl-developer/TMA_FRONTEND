@@ -3,16 +3,20 @@
 import { useEffect, useState } from "react"
 import Link from "next/link"
 import { getTenantCastings } from "@/shared/services/adminService"
-import { Megaphone, Calendar, Users, Plus } from "lucide-react"
+import { Megaphone, Calendar, Users, Plus, ExternalLink } from "lucide-react"
+import { AdminPageWrapper } from "@/shared/components/layout/AdminPageWrapper"
 import {
-  AdminPageWrapper,
-  AdminCard,
-  AdminSectionHeader,
+  AdminPageLayout,
+  AdminStatsGrid,
   AdminStatCard,
+  AdminCard,
+  AdminTable,
+  AdminTableRow,
   AdminButton,
   AdminBadge,
   AdminEmptyState,
-} from "@/shared/components/layout/AdminPageWrapper"
+  AdminSearchBar,
+} from "@/shared/components/admin/AdminPageLayout"
 import { CapabilityGate } from "@/shared/components/ui/CapabilityGate"
 import { getCreatorName } from "@/shared/lib/creator"
 
@@ -23,6 +27,7 @@ function formatDate(iso: string) {
 export default function AdminCastingPage() {
   const [castings, setCastings] = useState<any[]>([])
   const [loading, setLoading] = useState(true)
+  const [searchQuery, setSearchQuery] = useState("")
 
   useEffect(() => {
     getTenantCastings().then((data) => {
@@ -36,133 +41,115 @@ export default function AdminCastingPage() {
   const closedCastings = castings.filter((c) => c.status === "CLOSED")
   const totalSubmissions = castings.reduce((sum, c) => sum + (c.submissionsCount || 0), 0)
 
-  const getStatusBadgeVariant = (status: string) => {
-    switch (status) {
-      case "OPEN":
-        return "success"
-      case "SHORTLISTING":
-        return "warning"
-      case "CLOSED":
-        return "default"
-      default:
-        return "default"
-    }
-  }
+  const filteredCastings = castings.filter((c) =>
+    c.title?.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    c.description?.toLowerCase().includes(searchQuery.toLowerCase())
+  )
 
   return (
     <AdminPageWrapper>
-      <AdminSectionHeader
+      <AdminPageLayout
         title="Castings"
         subtitle="Manage casting calls and auditions"
-        action={
-          <CapabilityGate capability="jobs.write">
-            <Link href="/admin/casting/new">
-              <AdminButton>
-                <Plus className="mr-2 h-4 w-4" />
-                New Casting
-              </AdminButton>
-            </Link>
-          </CapabilityGate>
-        }
-      />
+        actions={
+        <CapabilityGate capability="jobs.write">
+          <Link href="/admin/casting/new">
+            <AdminButton>
+              <Plus className="h-4 w-4" />
+              New Casting
+            </AdminButton>
+          </Link>
+        </CapabilityGate>
+      }
+    >
+      {/* Stats */}
+      <AdminStatsGrid columns={4}>
+        <AdminStatCard label="Total Castings" value={castings.length} icon={Megaphone} color="purple" />
+        <AdminStatCard label="Open" value={openCastings.length} icon={Megaphone} color="green" />
+        <AdminStatCard label="Shortlisting" value={shortlistingCastings.length} icon={Users} color="yellow" />
+        <AdminStatCard label="Submissions" value={totalSubmissions} icon={Users} color="blue" />
+      </AdminStatsGrid>
 
-      {/* Stats Cards */}
-      <div className="mb-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        <AdminStatCard
-          title="Total Castings"
-          value={castings.length}
-          icon={Megaphone}
-          color="purple"
-        />
-        <AdminStatCard
-          title="Open"
-          value={openCastings.length}
-          icon={Megaphone}
-          color="green"
-        />
-        <AdminStatCard
-          title="Shortlisting"
-          value={shortlistingCastings.length}
-          icon={Users}
-          color="yellow"
-        />
-        <AdminStatCard
-          title="Total Submissions"
-          value={totalSubmissions}
-          icon={Users}
-          color="blue"
-        />
-      </div>
-
-      {/* Castings List */}
-      <AdminCard>
-        <div className="mb-6 flex items-center justify-between">
-          <h3 className="text-lg font-bold text-white">All Castings</h3>
-        </div>
+      {/* Castings Table */}
+      <AdminCard
+        title="All Castings"
+        actions={<AdminSearchBar value={searchQuery} onChange={setSearchQuery} placeholder="Search castings..." />}
+      >
         {loading ? (
           <div className="space-y-3">
             {[1, 2, 3, 4, 5].map((i) => (
-              <div key={i} className="h-24 animate-pulse rounded-lg bg-white/5" />
+              <div key={i} className="h-16 animate-pulse rounded bg-[#f3f2f1]" />
             ))}
           </div>
-        ) : castings.length === 0 ? (
+        ) : filteredCastings.length === 0 ? (
           <AdminEmptyState
             icon={Megaphone}
-            title="No castings yet"
-            description="Create your first casting call to get started"
+            title={searchQuery ? "No castings found" : "No castings yet"}
+            description={searchQuery ? "Try adjusting your search" : "Create your first casting call"}
             action={
-              <CapabilityGate capability="jobs.write">
-                <Link href="/admin/casting/new">
-                  <AdminButton>
-                    <Plus className="mr-2 h-4 w-4" />
-                    Create Casting
-                  </AdminButton>
-                </Link>
-              </CapabilityGate>
+              !searchQuery && (
+                <CapabilityGate capability="jobs.write">
+                  <Link href="/admin/casting/new">
+                    <AdminButton>
+                      <Plus className="h-4 w-4" />
+                      New Casting
+                    </AdminButton>
+                  </Link>
+                </CapabilityGate>
+              )
             }
           />
         ) : (
-          <div className="space-y-4">
-            {castings.map((c) => (
-              <div
-                key={c._id}
-                className="rounded-xl border border-white/10 bg-white/5 p-4 backdrop-blur-sm transition-all hover:border-white/20 hover:bg-white/10"
-              >
-                <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
-                  <div className="flex-1">
-                    <div className="flex items-center gap-2 flex-wrap">
-                      <Megaphone className="h-4 w-4 text-purple-400" />
-                      <h3 className="font-semibold text-white">{c.title}</h3>
-                      <AdminBadge variant={getStatusBadgeVariant(c.status) as any}>
-                        {c.status}
-                      </AdminBadge>
+          <AdminTable headers={["Casting", "Status", "Submissions", "Deadline", "Created By", "Actions"]}>
+            {filteredCastings.map((casting) => (
+              <AdminTableRow key={casting._id}>
+                <td className="px-6 py-4">
+                  <div className="flex items-center gap-3">
+                    <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded bg-[#0078d4] text-xs font-semibold text-white">
+                      {casting.title?.charAt(0)?.toUpperCase()}
                     </div>
-                    <p className="mt-1 text-sm text-white/70">{c.client}</p>
-                    {(c.createdByUserId || c.createdBy) && (
-                      <p className="mt-1 text-xs text-white/50">
-                        Created by {getCreatorName(c.createdByUserId || c.createdBy) ?? "—"}
-                      </p>
-                    )}
-                    {c.description && (
-                      <p className="mt-2 text-sm text-white/60 line-clamp-2">{c.description}</p>
-                    )}
+                    <div>
+                      <p className="text-xs font-semibold text-[#323130]">{casting.title}</p>
+                      <p className="text-xs text-[#605e5c] truncate max-w-xs">{casting.description}</p>
+                    </div>
                   </div>
-                  <div className="flex flex-wrap gap-4 text-sm">
-                    <span className="flex items-center gap-1.5 text-white/60">
-                      <Calendar className="h-4 w-4" />
-                      {formatDate(c.deadline)}
-                    </span>
-                    <span className="flex items-center gap-1.5 text-white/60">
-                      <Users className="h-4 w-4" />
-                      {c.submissionsCount} submissions
-                    </span>
-                  </div>
-                </div>
-              </div>
+                </td>
+                <td className="px-6 py-4">
+                  <AdminBadge
+                    variant={
+                      casting.status === "OPEN"
+                        ? "success"
+                        : casting.status === "SHORTLISTING"
+                        ? "warning"
+                        : "default"
+                    }
+                  >
+                    {casting.status}
+                  </AdminBadge>
+                </td>
+                <td className="px-6 py-4 text-xs text-[#605e5c]">
+                  {casting.submissionsCount || 0}
+                </td>
+                <td className="px-6 py-4 text-xs text-[#605e5c]">
+                  {casting.deadline ? formatDate(casting.deadline) : "—"}
+                </td>
+                <td className="px-6 py-4 text-xs text-[#605e5c]">
+                  {getCreatorName(casting.createdBy)}
+                </td>
+                <td className="px-6 py-4">
+                  <Link href={`/admin/casting/${casting._id}`}>
+                    <AdminButton size="sm" variant="ghost">
+                      View
+                      <ExternalLink className="h-3 w-3 ml-1" />
+                    </AdminButton>
+                  </Link>
+                </td>
+              </AdminTableRow>
             ))}
-          </div>
+          </AdminTable>
         )}
       </AdminCard>
+      </AdminPageLayout>
     </AdminPageWrapper>
   )
 }

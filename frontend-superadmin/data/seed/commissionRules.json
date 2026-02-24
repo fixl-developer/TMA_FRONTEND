@@ -1,0 +1,79 @@
+[
+  {
+    "id": "rule-001",
+    "name": "Standard Modelling Agency Commission",
+    "blueprint": "modelling",
+    "roleType": "agency",
+    "commissionType": "percentage",
+    "rate": 20,
+    "currency": "INR",
+    "applicableOn": "booking_value",
+    "minAmount": 0,
+    "maxAmount": null,
+    "status": "active",
+    "createdAt": "2024-01-01T00:00:00Z",
+    "description": "Standard 20% commission on all booking values for modelling agencies"
+  },
+  {
+    "id": "rule-002",
+    "name": "Premium Talent Commission",
+    "blueprint": "modelling",
+    "roleType": "talent",
+    "commissionType": "tiered",
+    "tiers": [
+      { "min": 0, "max": 50000, "rate": 15 },
+      { "min": 50001, "max": 200000, "rate": 12 },
+      { "min": 200001, "max": null, "rate": 10 }
+    ],
+    "currency": "INR",
+    "applicableOn": "booking_value",
+    "status": "active",
+    "createdAt": "2024-01-01T00:00:00Z",
+    "description": "Tiered commission for premium talent based on booking value"
+  },
+  {
+    "id": "rule-003",
+    "name": "Pageant Registration Fee Commission",
+    "blueprint": "pageant",
+    "roleType": "organizer",
+    "commissionType": "percentage",
+    "rate": 15,
+    "currency": "INR",
+    "applicableOn": "registration_fee",
+    "minAmount": 1000,
+    "maxAmount": null,
+    "status": "active",
+    "createdAt": "2024-01-01T00:00:00Z",
+    "description": "15% commission on pageant registration fees"
+  },
+  {
+    "id": "rule-004",
+    "name": "Platform Service Fee",
+    "blueprint": "all",
+    "roleType": "platform",
+    "commissionType": "percentage",
+    "rate": 5,
+    "currency": "INR",
+    "applicableOn": "transaction_value",
+    "minAmount": 0,
+    "maxAmount": null,
+    "status": "active",
+    "createdAt": "2024-01-01T00:00:00Z",
+    "description": "Platform service fee on all transactions"
+  },
+  {
+    "id": "rule-005",
+    "name": "Influencer Campaign Commission",
+    "blueprint": "influencer",
+    "roleType": "agency",
+    "commissionType": "percentage",
+    "rate": 25,
+    "currency": "INR",
+    "applicableOn": "campaign_value",
+    "minAmount": 5000,
+    "maxAmount": null,
+    "status": "active",
+    "createdAt": "2024-01-01T00:00:00Z",
+    "description": "25% commission on influencer campaign values"
+  }
+]

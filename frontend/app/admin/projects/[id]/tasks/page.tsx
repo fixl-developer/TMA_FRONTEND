@@ -3,23 +3,23 @@
 import { useEffect, useState } from "react"
 import { useParams } from "next/navigation"
 import Link from "next/link"
-import { PageBanner } from "@/shared/components/ui/PageBanner"
-import { Card, CardHeader, CardTitle, CardContent } from "@/shared/components/ui/card"
-import { Button } from "@/shared/components/ui/button"
 import {
   getProjectById,
   getTasksByProject,
-  getTaskStatusColor,
 } from "@/shared/services/projectService"
-import { ListTodo, Calendar, User } from "lucide-react"
-import { AgenciesPage } from "@/shared/components/layout/AgenciesPage"
-import { useDashboardTheme } from "@/shared/context/DashboardThemeContext"
+import { ListTodo, Calendar, ArrowLeft } from "lucide-react"
 import { CapabilityGate } from "@/shared/components/ui/CapabilityGate"
+import {
+  AdminPageWrapper,
+  AdminCard,
+  AdminSectionHeader,
+  AdminButton,
+  AdminBadge,
+} from "@/shared/components/layout/AdminPageWrapper"
 
 export default function ProjectTasksPage() {
   const params = useParams()
   const id = params?.id as string
-  const { page } = useDashboardTheme()
   const [project, setProject] = useState<any>(null)
   const [tasks, setTasks] = useState<any[]>([])
   const [loading, setLoading] = useState(true)
@@ -35,11 +35,11 @@ export default function ProjectTasksPage() {
 
   if (loading || !project) {
     return (
-      <AgenciesPage>
+      <AdminPageWrapper>
         <div className="flex min-h-[200px] items-center justify-center">
-          <p className="text-slate-500">Loading…</p>
+          <p className="text-white/60">Loading…</p>
         </div>
-      </AgenciesPage>
+      </AdminPageWrapper>
     )
   }
 
@@ -50,94 +50,84 @@ export default function ProjectTasksPage() {
   }
 
   return (
-    <AgenciesPage>
-      <PageBanner
+    <AdminPageWrapper>
+      <AdminSectionHeader
         title={`Tasks: ${project.name}`}
         subtitle="Task list and assignments"
-        variant="admin"
-        backgroundImage="https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?w=1200&q=80"
+        action={
+          <div className="flex gap-2">
+            <Link href={`/admin/projects/${id}`}>
+              <AdminButton variant="ghost" size="sm">
+                <ArrowLeft className="h-4 w-4" />
+                Project
+              </AdminButton>
+            </Link>
+            <Link href="/admin/projects">
+              <AdminButton variant="ghost" size="sm">All projects</AdminButton>
+            </Link>
+          </div>
+        }
       />
-      <div className="mt-6 flex flex-wrap gap-3">
-        <Link href={`/admin/projects/${id}`}>
-          <Button variant="ghost" size="sm">
-            ← Project
-          </Button>
-        </Link>
-        <Link href="/admin/projects">
-          <Button variant="ghost" size="sm">
-            All projects
-          </Button>
-        </Link>
-      </div>
 
-      <div className="mt-6 grid min-w-0 gap-6 lg:grid-cols-3">
+      <div className="grid gap-6 lg:grid-cols-3">
         <CapabilityGate
           capability="jobs.read"
           fallback={
-            <Card style={{ borderColor: page.border }} className="lg:col-span-3">
-              <CardContent className="py-8 text-center text-sm text-slate-500">
+            <AdminCard className="lg:col-span-3">
+              <p className="py-8 text-center text-sm text-white/60">
                 You do not have permission to view project tasks.
-              </CardContent>
-            </Card>
+              </p>
+            </AdminCard>
           }
         >
           {(["TODO", "IN_PROGRESS", "DONE"] as const).map((status) => (
-            <Card key={status} style={{ borderColor: page.border }}>
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2 text-sm">
-                  <ListTodo className="h-4 w-4" />
+            <AdminCard key={status}>
+              <div className="mb-4 flex items-center gap-2">
+                <ListTodo className="h-4 w-4 text-white/60" />
+                <h2 className="text-sm font-semibold text-white">
                   {status.replace("_", " ")} ({byStatus[status].length})
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                {byStatus[status].length === 0 ? (
-                  <p className="py-4 text-center text-sm text-slate-500">
-                    No tasks
-                  </p>
-                ) : (
-                  <div className="space-y-3">
-                    {byStatus[status].map((t) => (
-                      <div
-                        key={t._id}
-                        className="rounded-lg border p-3"
-                        style={{ borderColor: page.border }}
-                      >
-                        <p className="font-medium text-sm" style={{ color: page.text }}>
-                          {t.title}
+                </h2>
+              </div>
+              {byStatus[status].length === 0 ? (
+                <p className="py-4 text-center text-sm text-white/60">
+                  No tasks
+                </p>
+              ) : (
+                <div className="space-y-3">
+                  {byStatus[status].map((t) => (
+                    <div
+                      key={t._id}
+                      className="rounded-xl border border-white/10 bg-white/5 p-3"
+                    >
+                      <p className="font-medium text-sm text-white">
+                        {t.title}
+                      </p>
+                      {t.description && (
+                        <p className="mt-1 text-xs text-white/60 line-clamp-2">
+                          {t.description}
                         </p>
-                        {t.description && (
-                          <p className="mt-1 text-xs text-slate-500 line-clamp-2">
-                            {t.description}
-                          </p>
+                      )}
+                      <div className="mt-2 flex flex-wrap gap-2 text-xs text-white/50">
+                        {t.dueDate && (
+                          <span className="flex items-center gap-1">
+                            <Calendar className="h-3 w-3" />
+                            {t.dueDate}
+                          </span>
                         )}
-                        <div className="mt-2 flex flex-wrap gap-2 text-xs text-slate-500">
-                          {t.dueDate && (
-                            <span className="flex items-center gap-1">
-                              <Calendar className="h-3 w-3" />
-                              {t.dueDate}
-                            </span>
-                          )}
-                          {t.priority && (
-                            <span
-                              className={`rounded px-1.5 py-0.5 ${
-                                t.priority === "HIGH"
-                                  ? "bg-amber-100 text-amber-700"
-                                  : "bg-slate-100 text-slate-600"
-                              }`}
-                            >
-                              {t.priority}
-                            </span>
-                          )}
-                        </div>
+                        {t.priority && (
+                          <AdminBadge variant={t.priority === "HIGH" ? "warning" : "default"}>
+                            {t.priority}
+                          </AdminBadge>
+                        )}
                       </div>
-                    ))}
-                  </div>
-                )}
-              </CardContent>
-            </Card>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </AdminCard>
           ))}
         </CapabilityGate>
       </div>
-    </AgenciesPage>
+    </AdminPageWrapper>
   )
 }

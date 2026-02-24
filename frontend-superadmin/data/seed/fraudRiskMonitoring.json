@@ -1,0 +1,476 @@
+{
+  "overview": {
+    "totalSignals": 1247,
+    "activeInvestigations": 23,
+    "blockedEntities": 156,
+    "riskScore": 2.8,
+    "falsePositiveRate": 8.5,
+    "avgResponseTime": 1.2,
+    "preventedLoss": 4250000,
+    "flaggedTransactions": 89
+  },
+  "fraudSignals": [
+    {
+      "id": "signal_001",
+      "type": "velocity_check",
+      "severity": "high",
+      "status": "active",
+      "entityType": "user",
+      "entityId": "user_12345",
+      "entityName": "Suspicious User A",
+      "description": "Multiple account creation attempts from same device within 1 hour",
+      "detectedAt": "2025-02-21T08:30:00Z",
+      "indicators": [
+        "5 accounts created in 45 minutes",
+        "Same device fingerprint",
+        "Different email domains",
+        "Rapid profile completion"
+      ],
+      "riskScore": 87,
+      "actionTaken": "Account creation blocked",
+      "assignedTo": "fraud_team_001"
+    },
+    {
+      "id": "signal_002",
+      "type": "payment_anomaly",
+      "severity": "critical",
+      "status": "investigating",
+      "entityType": "transaction",
+      "entityId": "txn_67890",
+      "entityName": "Large Payment Anomaly",
+      "description": "Payment amount 500% higher than user's historical average",
+      "detectedAt": "2025-02-21T07:15:00Z",
+      "indicators": [
+        "Amount: ₹250,000 (avg: ₹45,000)",
+        "New payment method added 2 hours ago",
+        "IP location changed to different country",
+        "Failed 2FA attempts before success"
+      ],
+      "riskScore": 92,
+      "actionTaken": "Transaction held for review",
+      "assignedTo": "fraud_team_002"
+    },
+    {
+      "id": "signal_003",
+      "type": "behavior_anomaly",
+      "severity": "medium",
+      "status": "resolved",
+      "entityType": "user",
+      "entityId": "user_54321",
+      "entityName": "Unusual Login Pattern",
+      "description": "Login from 3 different countries within 6 hours",
+      "detectedAt": "2025-02-20T22:45:00Z",
+      "indicators": [
+        "Login from India at 10:00 AM",
+        "Login from USA at 12:30 PM",
+        "Login from UK at 3:45 PM",
+        "All sessions active simultaneously"
+      ],
+      "riskScore": 68,
+      "actionTaken": "User notified, sessions terminated",
+      "resolvedAt": "2025-02-21T02:30:00Z",
+      "resolution": "Legitimate user traveling with VPN. Account verified via video call.",
+      "assignedTo": "fraud_team_001"
+    },
+    {
+      "id": "signal_004",
+      "type": "device_fingerprint",
+      "severity": "high",
+      "status": "active",
+      "entityType": "device",
+      "entityId": "device_abc123",
+      "entityName": "Suspicious Device Pattern",
+      "description": "Single device associated with 15+ different user accounts",
+      "detectedAt": "2025-02-21T06:00:00Z",
+      "indicators": [
+        "15 accounts linked to device",
+        "All accounts created in last 7 days",
+        "Similar profile patterns",
+        "No legitimate activity on any account"
+      ],
+      "riskScore": 89,
+      "actionTaken": "Device blacklisted, accounts flagged",
+      "assignedTo": "fraud_team_003"
+    },
+    {
+      "id": "signal_005",
+      "type": "content_fraud",
+      "severity": "medium",
+      "status": "investigating",
+      "entityType": "content",
+      "entityId": "profile_98765",
+      "entityName": "Fake Profile Detection",
+      "description": "Profile photos match known stock images and other platform users",
+      "detectedAt": "2025-02-21T05:30:00Z",
+      "indicators": [
+        "3 photos match stock image database",
+        "1 photo belongs to verified user on another platform",
+        "Bio text copied from celebrity profile",
+        "No original content uploaded"
+      ],
+      "riskScore": 75,
+      "actionTaken": "Profile suspended pending verification",
+      "assignedTo": "fraud_team_002"
+    }
+  ],
+  "riskScores": [
+    {
+      "entityId": "user_12345",
+      "entityType": "user",
+      "entityName": "Suspicious User A",
+      "overallScore": 87,
+      "category": "high_risk",
+      "factors": {
+        "accountAge": 15,
+        "activityPattern": 92,
+        "paymentHistory": 78,
+        "deviceTrust": 95,
+        "locationConsistency": 88,
+        "socialValidation": 65
+      },
+      "lastUpdated": "2025-02-21T08:30:00Z",
+      "trend": "increasing",
+      "recommendations": [
+        "Require additional verification",
+        "Limit transaction amounts",
+        "Monitor closely for 30 days"
+      ]
+    },
+    {
+      "entityId": "tenant_001",
+      "entityType": "tenant",
+      "entityName": "Elite Pageants Mumbai",
+      "overallScore": 12,
+      "category": "low_risk",
+      "factors": {
+        "accountAge": 5,
+        "activityPattern": 8,
+        "paymentHistory": 3,
+        "deviceTrust": 10,
+        "locationConsistency": 15,
+        "socialValidation": 7
+      },
+      "lastUpdated": "2025-02-21T06:00:00Z",
+      "trend": "stable",
+      "recommendations": [
+        "Continue standard monitoring",
+        "No additional restrictions needed"
+      ]
+    },
+    {
+      "entityId": "txn_67890",
+      "entityType": "transaction",
+      "entityName": "Large Payment Anomaly",
+      "overallScore": 92,
+      "category": "critical_risk",
+      "factors": {
+        "amountAnomaly": 98,
+        "paymentMethodAge": 95,
+        "locationMatch": 85,
+        "velocityCheck": 88,
+        "userHistory": 90,
+        "timeOfDay": 92
+      },
+      "lastUpdated": "2025-02-21T07:15:00Z",
+      "trend": "increasing",
+      "recommendations": [
+        "Hold transaction for manual review",
+        "Contact user for verification",
+        "Verify payment method ownership"
+      ]
+    }
+  ],
+  "investigations": [
+    {
+      "id": "inv_001",
+      "title": "Coordinated Fake Account Network",
+      "status": "active",
+      "priority": "critical",
+      "openedDate": "2025-02-18T10:00:00Z",
+      "assignedTo": "fraud_team_001",
+      "description": "Network of 25+ fake accounts operating in coordinated manner to manipulate pageant voting",
+      "affectedEntities": {
+        "users": 27,
+        "pageants": 3,
+        "transactions": 156
+      },
+      "estimatedLoss": 850000,
+      "evidence": [
+        "Shared device fingerprints across accounts",
+        "Coordinated voting patterns",
+        "Similar profile creation timestamps",
+        "Payment methods linked to same source"
+      ],
+      "actions": [
+        {
+          "date": "2025-02-18T10:00:00Z",
+          "action": "Investigation opened",
+          "by": "fraud_team_001"
+        },
+        {
+          "date": "2025-02-19T14:30:00Z",
+          "action": "27 accounts identified and flagged",
+          "by": "fraud_team_001"
+        },
+        {
+          "date": "2025-02-20T09:15:00Z",
+          "action": "Voting manipulation confirmed",
+          "by": "fraud_team_001"
+        },
+        {
+          "date": "2025-02-21T08:00:00Z",
+          "action": "Accounts suspended, refunds initiated",
+          "by": "fraud_team_001"
+        }
+      ],
+      "nextSteps": [
+        "Contact affected pageant organizers",
+        "Implement enhanced voting verification",
+        "Report to law enforcement if needed"
+      ]
+    },
+    {
+      "id": "inv_002",
+      "title": "Payment Card Testing Scheme",
+      "status": "active",
+      "priority": "high",
+      "openedDate": "2025-02-20T15:30:00Z",
+      "assignedTo": "fraud_team_002",
+      "description": "Multiple small transactions testing stolen credit card validity",
+      "affectedEntities": {
+        "users": 1,
+        "transactions": 45
+      },
+      "estimatedLoss": 125000,
+      "evidence": [
+        "45 transactions under ₹100 in 2 hours",
+        "Different card numbers, same user",
+        "Sequential card number patterns",
+        "All transactions declined after initial success"
+      ],
+      "actions": [
+        {
+          "date": "2025-02-20T15:30:00Z",
+          "action": "Suspicious pattern detected",
+          "by": "automated_system"
+        },
+        {
+          "date": "2025-02-20T16:00:00Z",
+          "action": "Account suspended",
+          "by": "fraud_team_002"
+        },
+        {
+          "date": "2025-02-21T09:00:00Z",
+          "action": "Payment processor notified",
+          "by": "fraud_team_002"
+        }
+      ],
+      "nextSteps": [
+        "Coordinate with payment processor",
+        "Implement velocity limits on card testing",
+        "Report to card networks"
+      ]
+    },
+    {
+      "id": "inv_003",
+      "title": "Identity Theft - Model Portfolio",
+      "status": "resolved",
+      "priority": "high",
+      "openedDate": "2025-02-15T11:00:00Z",
+      "closedDate": "2025-02-19T16:30:00Z",
+      "assignedTo": "fraud_team_003",
+      "description": "User created profile using stolen photos and identity of professional model",
+      "affectedEntities": {
+        "users": 2,
+        "bookings": 8
+      },
+      "estimatedLoss": 320000,
+      "evidence": [
+        "Photos matched verified model on other platforms",
+        "Reverse image search confirmed theft",
+        "Victim model filed complaint",
+        "Bookings made using stolen identity"
+      ],
+      "actions": [
+        {
+          "date": "2025-02-15T11:00:00Z",
+          "action": "Complaint received from victim",
+          "by": "support_team"
+        },
+        {
+          "date": "2025-02-15T14:00:00Z",
+          "action": "Fake profile identified and suspended",
+          "by": "fraud_team_003"
+        },
+        {
+          "date": "2025-02-16T10:00:00Z",
+          "action": "Affected bookings cancelled, refunds issued",
+          "by": "fraud_team_003"
+        },
+        {
+          "date": "2025-02-19T16:30:00Z",
+          "action": "Case closed, enhanced verification implemented",
+          "by": "fraud_team_003"
+        }
+      ],
+      "resolution": "Fake profile removed, all bookings cancelled, clients refunded. Enhanced photo verification implemented.",
+      "preventiveMeasures": [
+        "Reverse image search on all profile photos",
+        "Mandatory video verification for models",
+        "Enhanced identity document verification"
+      ]
+    }
+  ],
+  "blockedEntities": [
+    {
+      "id": "block_001",
+      "entityType": "user",
+      "entityId": "user_12345",
+      "entityName": "Suspicious User A",
+      "reason": "Multiple fraud signals - velocity check, device fingerprint",
+      "blockedDate": "2025-02-21T08:30:00Z",
+      "blockedBy": "fraud_team_001",
+      "blockType": "permanent",
+      "relatedSignals": ["signal_001", "signal_004"],
+      "appealStatus": "none"
+    },
+    {
+      "id": "block_002",
+      "entityType": "device",
+      "entityId": "device_abc123",
+      "entityName": "Suspicious Device",
+      "reason": "Associated with 15+ fraudulent accounts",
+      "blockedDate": "2025-02-21T06:00:00Z",
+      "blockedBy": "fraud_team_003",
+      "blockType": "permanent",
+      "relatedSignals": ["signal_004"],
+      "appealStatus": "none"
+    },
+    {
+      "id": "block_003",
+      "entityType": "payment_method",
+      "entityId": "card_xyz789",
+      "entityName": "Stolen Card",
+      "reason": "Card testing scheme detected",
+      "blockedDate": "2025-02-20T16:00:00Z",
+      "blockedBy": "fraud_team_002",
+      "blockType": "permanent",
+      "relatedSignals": ["signal_002"],
+      "appealStatus": "none"
+    },
+    {
+      "id": "block_004",
+      "entityType": "ip_address",
+      "entityId": "ip_192.168.1.100",
+      "entityName": "Suspicious IP",
+      "reason": "Multiple account creation attempts",
+      "blockedDate": "2025-02-19T14:20:00Z",
+      "blockedBy": "automated_system",
+      "blockType": "temporary",
+      "expiryDate": "2025-03-21T14:20:00Z",
+      "relatedSignals": ["signal_001"],
+      "appealStatus": "pending"
+    }
+  ],
+  "patterns": [
+    {
+      "id": "pattern_001",
+      "name": "Coordinated Account Creation",
+      "type": "account_abuse",
+      "confidence": 94,
+      "occurrences": 12,
+      "firstDetected": "2025-01-15T10:00:00Z",
+      "lastDetected": "2025-02-21T08:30:00Z",
+      "description": "Multiple accounts created from same device/IP within short timeframe",
+      "indicators": [
+        "Same device fingerprint",
+        "Sequential email patterns",
+        "Similar profile information",
+        "Rapid account creation"
+      ],
+      "affectedEntities": 67,
+      "preventedLoss": 1250000,
+      "status": "active"
+    },
+    {
+      "id": "pattern_002",
+      "name": "Payment Card Testing",
+      "type": "payment_fraud",
+      "confidence": 98,
+      "occurrences": 8,
+      "firstDetected": "2024-12-10T14:00:00Z",
+      "lastDetected": "2025-02-20T15:30:00Z",
+      "description": "Small transactions to test validity of stolen payment cards",
+      "indicators": [
+        "Multiple small transactions",
+        "Different cards, same user",
+        "High decline rate",
+        "Sequential card numbers"
+      ],
+      "affectedEntities": 8,
+      "preventedLoss": 890000,
+      "status": "active"
+    },
+    {
+      "id": "pattern_003",
+      "name": "Profile Photo Theft",
+      "type": "identity_fraud",
+      "confidence": 89,
+      "occurrences": 23,
+      "firstDetected": "2024-11-20T09:00:00Z",
+      "lastDetected": "2025-02-21T05:30:00Z",
+      "description": "Use of stolen or stock photos in user profiles",
+      "indicators": [
+        "Reverse image search matches",
+        "Stock photo database matches",
+        "Photos from other platforms",
+        "No original content"
+      ],
+      "affectedEntities": 45,
+      "preventedLoss": 2100000,
+      "status": "active"
+    }
+  ],
+  "analytics": {
+    "byType": [
+      {
+        "type": "velocity_check",
+        "count": 342,
+        "percentage": 27.4,
+        "avgSeverity": "medium"
+      },
+      {
+        "type": "payment_anomaly",
+        "count": 289,
+        "percentage": 23.2,
+        "avgSeverity": "high"
+      },
+      {
+        "type": "behavior_anomaly",
+        "count": 256,
+        "percentage": 20.5,
+        "avgSeverity": "medium"
+      },
+      {
+        "type": "device_fingerprint",
+        "count": 198,
+        "percentage": 15.9,
+        "avgSeverity": "high"
+      },
+      {
+        "type": "content_fraud",
+        "count": 162,
+        "percentage": 13.0,
+        "avgSeverity": "medium"
+      }
+    ],
+    "monthlyTrend": [
+      { "month": "Sep 2024", "signals": 892, "blocked": 98 },
+      { "month": "Oct 2024", "signals": 1024, "blocked": 112 },
+      { "month": "Nov 2024", "signals": 1156, "blocked": 128 },
+      { "month": "Dec 2024", "signals": 1089, "blocked": 119 },
+      { "month": "Jan 2025", "signals": 1198, "blocked": 134 },
+      { "month": "Feb 2025", "signals": 1247, "blocked": 156 }
+    ]
+  }
+}

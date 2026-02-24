@@ -41,10 +41,10 @@ import { useToast } from "@/shared/components/ui/toast"
 type PageantStatus = Pageant["status"]
 
 const statusColors: Record<PageantStatus, string> = {
-  DRAFT: "bg-slate-100 text-slate-700 border border-slate-200",
-  ACTIVE: "bg-emerald-100 text-emerald-800 border border-emerald-200",
-  COMPLETED: "bg-sky-100 text-sky-800 border border-sky-200",
-  ARCHIVED: "bg-slate-100 text-slate-500 border border-slate-200",
+  DRAFT: "bg-[#f3f2f1] text-[#605e5c] border border-[#8a8886]",
+  ACTIVE: "bg-[#dff6dd] text-[#107c10] border border-[#107c10]",
+  COMPLETED: "bg-[#e3f2fd] text-[#0078d4] border border-[#0078d4]",
+  ARCHIVED: "bg-[#f3f2f1] text-[#a19f9d] border border-[#8a8886]",
 }
 
 export default function PageantsConsole() {
@@ -164,9 +164,9 @@ export default function PageantsConsole() {
       sortable: true,
       render: (value, row) => (
         <div>
-          <p className="font-semibold text-slate-800">{value}</p>
+          <p className="font-semibold text-[#323130]">{value}</p>
           {row.description && (
-            <p className="text-[10px] text-slate-500 line-clamp-1">
+            <p className="text-[11px] text-[#605e5c] line-clamp-1">
               {row.description}
             </p>
           )}
@@ -180,7 +180,7 @@ export default function PageantsConsole() {
       render: (value) => {
         const tenant = tenants.find((t) => t._id === value)
         return (
-          <span className="font-mono text-[11px] text-slate-600">
+          <span className="font-mono text-xs text-[#605e5c]">
             {tenant?.name || value}
           </span>
         )
@@ -192,7 +192,7 @@ export default function PageantsConsole() {
       sortable: true,
       render: (value) => (
         <span
-          className={`rounded-full px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide ${statusColors[value as PageantStatus]}`}
+          className={`rounded px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide ${statusColors[value as PageantStatus]}`}
         >
           {String(value).toLowerCase()}
         </span>
@@ -203,7 +203,7 @@ export default function PageantsConsole() {
       header: "Created By",
       sortable: true,
       render: (value) => (
-        <span className="font-mono text-[11px] text-slate-500">{String(value)}</span>
+        <span className="font-mono text-xs text-[#605e5c]">{String(value)}</span>
       ),
     },
     {
@@ -214,7 +214,7 @@ export default function PageantsConsole() {
         <Button
           variant="ghost"
           size="sm"
-          className="h-7 px-2 text-[11px] text-blue-600 hover:bg-blue-50"
+          className="h-7 px-2 text-xs text-[#0078d4] hover:bg-[#e3f2fd]"
           onClick={() => handleOpenProcess(row)}
         >
           View process
@@ -242,8 +242,8 @@ export default function PageantsConsole() {
         title="Pageants"
         description="Monitor every pageant that tenants are designing and running. Powered by seed data for this phase."
         badge={
-          <span className="inline-flex items-center gap-1.5 rounded-md border border-slate-200 bg-white px-2.5 py-1 text-xs font-medium text-slate-600">
-            <BadgeCheck className="h-3.5 w-3.5 text-blue-500" />
+          <span className="inline-flex items-center gap-1.5 rounded border border-[#e1e1e1] bg-white px-2.5 py-1 text-xs font-medium text-[#605e5c]">
+            <BadgeCheck className="h-3.5 w-3.5 text-[#0078d4]" />
             Content & Events
           </span>
         }
@@ -251,9 +251,9 @@ export default function PageantsConsole() {
           <Button
             variant="outline"
             size="sm"
-            className="border-slate-200 bg-white text-slate-700 hover:bg-slate-50"
+            className="text-[#323130] hover:bg-[#f3f2f1]"
           >
-            <BadgeCheck className="mr-2 h-4 w-4 text-blue-600" />
+            <BadgeCheck className="mr-2 h-4 w-4 text-[#0078d4]" />
             Validation rules (preview)
           </Button>
         }
@@ -266,8 +266,8 @@ export default function PageantsConsole() {
               <CardTitle>Total pageants</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-3xl font-semibold text-slate-800">{total}</p>
-              <p className="mt-1 text-xs text-slate-500">
+              <p className="text-3xl font-semibold text-[#323130]">{total}</p>
+              <p className="mt-1 text-xs text-[#605e5c]">
                 Across all tenants in the current environment.
               </p>
             </CardContent>
@@ -277,10 +277,10 @@ export default function PageantsConsole() {
               <CardTitle>Active</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-3xl font-semibold text-emerald-600">
+              <p className="text-3xl font-semibold text-[#107c10]">
                 {active}
               </p>
-              <p className="mt-1 text-xs text-slate-500">
+              <p className="mt-1 text-xs text-[#605e5c]">
                 Tenant-facing journeys that can accept participants.
               </p>
             </CardContent>
@@ -290,10 +290,10 @@ export default function PageantsConsole() {
               <CardTitle>Draft blueprints</CardTitle>
             </CardHeader>
             <CardContent>
-           <p className="text-3xl font-semibold text-amber-600">
+           <p className="text-3xl font-semibold text-[#ffb900]">
                 {drafts}
               </p>
-              <p className="mt-1 text-xs text-slate-500">
+              <p className="mt-1 text-xs text-[#605e5c]">
                 Processes under design, using the pageant builder spec.
               </p>
             </CardContent>
@@ -307,9 +307,9 @@ export default function PageantsConsole() {
             <CardHeader>
               <CardTitle>Pageants by status</CardTitle>
             </CardHeader>
-            <CardContent className="space-y-2 text-[11px] text-slate-600">
+            <CardContent className="space-y-2 text-xs text-[#605e5c]">
               {loading ? (
-                <p className="text-slate-500">Loading…</p>
+                <p className="text-[#605e5c]">Loading…</p>
               ) : (
                 <>
                   <RechartsBar
@@ -326,7 +326,7 @@ export default function PageantsConsole() {
                       },
                     ]}
                   />
-                  <p className="mt-1 text-[10px] text-slate-500">
+                  <p className="mt-1 text-[11px] text-[#605e5c]">
                     Status distribution from seed data.
                   </p>
                 </>
@@ -337,11 +337,11 @@ export default function PageantsConsole() {
             <CardHeader>
               <CardTitle>Pageants by tenant</CardTitle>
             </CardHeader>
-            <CardContent className="space-y-2 text-[11px] text-slate-600">
+            <CardContent className="space-y-2 text-xs text-[#605e5c]">
               {loading ? (
-                <p className="text-slate-500">Loading…</p>
+                <p className="text-[#605e5c]">Loading…</p>
               ) : tenants.length === 0 ? (
-                <p className="text-[10px] text-slate-500">No tenants in seed.</p>
+                <p className="text-[11px] text-[#605e5c]">No tenants in seed.</p>
               ) : (() => {
                 const pieData = tenants
                   .map((t) => ({
@@ -350,12 +350,12 @@ export default function PageantsConsole() {
                   }))
                   .filter((d) => d.value > 0)
                 if (pieData.length === 0) {
-                  return <p className="text-[10px] text-slate-500">No pageants assigned to tenants yet.</p>
+                  return <p className="text-[11px] text-[#605e5c]">No pageants assigned to tenants yet.</p>
                 }
                 return (
                 <>
                   <RechartsPie data={pieData} />
-                  <p className="mt-1 text-[10px] text-slate-500">
+                  <p className="mt-1 text-[11px] text-[#605e5c]">
                     Pageants per tenant.
                   </p>
                 </>
@@ -405,18 +405,18 @@ export default function PageantsConsole() {
                   size="sm"
                   variant="outline"
                   onClick={handleBulkDelete}
-                  className="h-8 px-3 text-[11px] bg-rose-50 border-rose-200 text-rose-700 hover:bg-rose-100"
+                  className="h-8 px-3 text-xs bg-[#fde7e9] border-[#d13438] text-[#a80000] hover:bg-[#fdd]"
                 >
                   <Trash2 className="h-3.5 w-3.5 mr-1.5" />
                   Delete ({selectedRows.length})
                 </Button>
               )}
-              <div className="flex items-center gap-1 rounded-lg border border-slate-200/80 bg-slate-100/70 p-1">
+              <div className="flex items-center gap-1 rounded border border-[#e1e1e1] bg-[#faf9f8] p-1">
                 <Button
                   size="sm"
                   variant={viewMode === "cards" ? "default" : "ghost"}
                   onClick={() => setViewMode("cards")}
-                  className="h-7 px-2 text-[11px]"
+                  className="h-7 px-2 text-xs"
                 >
                   <LayoutGrid className="h-3.5 w-3.5" />
                 </Button>
@@ -424,7 +424,7 @@ export default function PageantsConsole() {
                   size="sm"
                   variant={viewMode === "table" ? "default" : "ghost"}
                   onClick={() => setViewMode("table")}
-                  className="h-7 px-2 text-[11px]"
+                  className="h-7 px-2 text-xs"
                 >
                   <Table2 className="h-3.5 w-3.5" />
                 </Button>
@@ -433,24 +433,24 @@ export default function PageantsConsole() {
           </div>
 
           {loading ? (
-            <div className="flex items-center justify-center rounded-2xl border border-slate-200/80 bg-slate-50/60 py-16 text-slate-600">
-              <Loader2 className="mr-2 h-5 w-5 animate-spin text-blue-300" />
+            <div className="flex items-center justify-center rounded border border-[#e1e1e1] bg-white py-16 text-[#605e5c]">
+              <Loader2 className="mr-2 h-5 w-5 animate-spin text-[#0078d4]" />
               <span className="text-sm">Loading pageants from seed…</span>
             </div>
           ) : filteredPageants.length === 0 ? (
-            <div className="flex flex-col items-center justify-center gap-2 rounded-2xl border border-slate-200/80 bg-slate-50/60 py-16 text-center text-slate-600">
+            <div className="flex flex-col items-center justify-center gap-2 rounded border border-[#e1e1e1] bg-white py-16 text-center text-[#605e5c]">
               <p className="text-sm font-medium">
                 {pageants.length === 0
                   ? "No pageants in this environment yet."
                   : "No pageants match the current filters."}
               </p>
-              <p className="max-w-md text-xs text-slate-500">
+              <p className="max-w-md text-xs text-[#605e5c]">
                 {pageants.length === 0
                   ? "In a real deployment you'd see tenant-created pageants here. For now, populate "
                   : "Try adjusting your search or filter criteria. "}
                 {pageants.length === 0 && (
                   <>
-                    <code className="rounded bg-slate-100 px-1.5 py-0.5 text-[10px]">
+                    <code className="rounded bg-[#f3f2f1] px-1.5 py-0.5 text-[11px]">
                       data/seed/pageants.json
                     </code>{" "}
                     to change this view.
@@ -470,43 +470,42 @@ export default function PageantsConsole() {
               emptyMessage="No pageants match the current filters"
             />
           ) : (
-            <div className="rounded-2xl border border-slate-200/80 bg-slate-50/60 p-3 shadow-[0_18px_45px_rgba(15,23,42,0.9)] backdrop-blur">
-              <div className="grid gap-3 md:grid-cols-2">
+            <div className="rounded border border-[#e1e1e1] bg-white p-4">
+              <div className="grid gap-4 md:grid-cols-2">
                 {filteredPageants.map((p) => (
                   <article
                     key={p._id}
-                    className="group relative overflow-hidden rounded-2xl border border-slate-200/80 bg-slate-50/80 p-[1px]"
+                    className="group relative overflow-hidden rounded border border-[#e1e1e1] bg-white hover:bg-[#faf9f8] transition-colors"
                   >
-                    <div className="absolute inset-0 -z-10 bg-gradient-to-br from-blue-500/10 via-slate-50 to-rose-500/10 opacity-0 blur-2xl transition-opacity duration-300 group-hover:opacity-100" />
-                    <div className="relative flex h-full flex-col rounded-[1.05rem] bg-slate-50/90 px-4 py-3 sm:px-5 sm:py-4">
-                      <div className="mb-2 flex items-start justify-between gap-2">
-                        <div className="space-y-0.5">
-                          <h3 className="text-sm font-semibold text-slate-800 sm:text-[15px]">
+                    <div className="relative flex h-full flex-col px-5 py-4">
+                      <div className="mb-3 flex items-start justify-between gap-2">
+                        <div className="space-y-1">
+                          <h3 className="text-[15px] font-semibold text-[#323130]">
                             {p.name}
                           </h3>
-                          <p className="text-[11px] text-slate-500">
+                          <p className="text-xs text-[#605e5c]">
                             Tenant ID:{" "}
-                            <span className="font-mono text-slate-600">
+                            <span className="font-mono text-[#605e5c]">
                               {p.tenantId}
                             </span>
                           </p>
                         </div>
                         <span
-                          className={`rounded-full px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide ${statusColors[p.status]}`}
+                          className={`rounded px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide ${statusColors[p.status]}`}
                         >
                           {p.status.toLowerCase()}
                         </span>
                       </div>
 
                       {p.description && (
-                        <p className="mb-3 line-clamp-2 text-[11px] leading-relaxed text-slate-600">
+                        <p className="mb-3 line-clamp-2 text-xs leading-relaxed text-[#605e5c]">
                           {p.description}
                         </p>
                       )}
 
-                      <dl className="mb-3 grid grid-cols-2 gap-3 text-[11px] text-slate-600/90">
-                        <div className="space-y-0.5">
-                          <dt className="text-[10px] uppercase tracking-wide text-slate-500">
+                      <dl className="mb-3 grid grid-cols-2 gap-3 text-xs text-[#605e5c]">
+                        <div className="space-y-1">
+                          <dt className="text-[11px] font-semibold uppercase tracking-wide text-[#605e5c]">
                             Age rules
                           </dt>
                           <dd>
@@ -517,8 +516,8 @@ export default function PageantsConsole() {
                               : "Not specified"}
                           </dd>
                         </div>
-                        <div className="space-y-0.5">
-                          <dt className="text-[10px] uppercase tracking-wide text-slate-500">
+                        <div className="space-y-1">
+                          <dt className="text-[11px] font-semibold uppercase tracking-wide text-[#605e5c]">
                             Guardian consent
                           </dt>
                           <dd>
@@ -531,14 +530,14 @@ export default function PageantsConsole() {
 
                       {Array.isArray(p.rules?.eligibility) &&
                         p.rules?.eligibility.length > 0 && (
-                          <div className="mb-3 rounded-xl border border-slate-200/70 bg-slate-100/70 px-3 py-2">
-                            <p className="mb-1 text-[10px] font-semibold uppercase tracking-wide text-slate-500">
+                          <div className="mb-3 rounded border border-[#e1e1e1] bg-[#faf9f8] px-3 py-2">
+                            <p className="mb-1.5 text-[11px] font-semibold uppercase tracking-wide text-[#605e5c]">
                               Core eligibility
                             </p>
-                            <ul className="space-y-0.5 text-[11px] text-slate-700">
+                            <ul className="space-y-1 text-xs text-[#323130]">
                               {p.rules.eligibility.map((rule: string) => (
-                                <li key={rule} className="flex items-start gap-1.5">
-                                  <span className="mt-[3px] h-1.5 w-1.5 rounded-full bg-blue-400/90" />
+                                <li key={rule} className="flex items-start gap-2">
+                                  <span className="mt-[3px] h-1.5 w-1.5 rounded-full bg-[#0078d4]" />
                                   <span>{rule}</span>
                                 </li>
                               ))}
@@ -546,17 +545,17 @@ export default function PageantsConsole() {
                           </div>
                         )}
 
-                      <div className="mt-auto flex items-center justify-between pt-1">
-                        <p className="text-[10px] text-slate-500">
+                      <div className="mt-auto flex items-center justify-between pt-2 border-t border-[#e1e1e1]">
+                        <p className="text-[11px] text-[#605e5c]">
                           Created by{" "}
-                          <span className="font-mono text-slate-600">
+                          <span className="font-mono text-[#605e5c]">
                             {p.createdByUserId}
                           </span>
                         </p>
                         <Button
                           variant="ghost"
                           size="sm"
-                          className="h-8 px-2 text-[11px] text-blue-200 hover:bg-blue-500/10 hover:text-blue-100"
+                          className="h-8 px-3 text-xs text-[#0078d4] hover:bg-[#e3f2fd]"
                           onClick={() => handleOpenProcess(p)}
                         >
                           View process

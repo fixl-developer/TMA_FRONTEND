@@ -1,0 +1,423 @@
+{
+  "auditEvents": [
+    {
+      "_id": "audit_001",
+      "timestamp": "2024-02-21T10:30:00Z",
+      "tenantId": "tenant_pageant_001",
+      "userId": "user_admin_001",
+      "userEmail": "admin@glamourpageants.com",
+      "action": "USER_CREATED",
+      "resource": "User",
+      "resourceId": "user_talent_045",
+      "category": "USER_MANAGEMENT",
+      "severity": "INFO",
+      "ipAddress": "103.45.67.89",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)",
+      "changes": {
+        "before": null,
+        "after": {
+          "email": "talent@example.com",
+          "role": "TALENT",
+          "status": "ACTIVE"
+        }
+      },
+      "metadata": {
+        "source": "admin_panel",
+        "sessionId": "sess_abc123"
+      }
+    },
+    {
+      "_id": "audit_002",
+      "timestamp": "2024-02-21T09:15:00Z",
+      "tenantId": "tenant_casting_001",
+      "userId": "user_admin_002",
+      "userEmail": "admin@castingpro.com",
+      "action": "ROLE_UPDATED",
+      "resource": "User",
+      "resourceId": "user_talent_023",
+      "category": "SECURITY",
+      "severity": "WARNING",
+      "ipAddress": "192.168.1.100",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)",
+      "changes": {
+        "before": {
+          "role": "TALENT"
+        },
+        "after": {
+          "role": "CASTING_DIRECTOR"
+        }
+      },
+      "metadata": {
+        "reason": "Promotion to casting director",
+        "approvedBy": "user_superadmin_001"
+      }
+    },
+    {
+      "_id": "audit_003",
+      "timestamp": "2024-02-21T08:45:00Z",
+      "tenantId": "tenant_modelling_001",
+      "userId": "user_admin_003",
+      "userEmail": "admin@modelagency.com",
+      "action": "PAYMENT_PROCESSED",
+      "resource": "Transaction",
+      "resourceId": "txn_pay_789",
+      "category": "FINANCIAL",
+      "severity": "INFO",
+      "ipAddress": "45.123.67.200",
+      "userAgent": "Mozilla/5.0 (X11; Linux x86_64)",
+      "changes": {
+        "before": {
+          "status": "PENDING"
+        },
+        "after": {
+          "status": "COMPLETED",
+          "amount": 50000,
+          "currency": "INR"
+        }
+      },
+      "metadata": {
+        "paymentMethod": "bank_transfer",
+        "reference": "REF123456"
+      }
+    },
+    {
+      "_id": "audit_004",
+      "timestamp": "2024-02-21T07:20:00Z",
+      "tenantId": "platform",
+      "userId": "user_superadmin_001",
+      "userEmail": "superadmin@platform.com",
+      "action": "TENANT_SUSPENDED",
+      "resource": "Tenant",
+      "resourceId": "tenant_pageant_005",
+      "category": "COMPLIANCE",
+      "severity": "CRITICAL",
+      "ipAddress": "10.0.0.1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)",
+      "changes": {
+        "before": {
+          "status": "ACTIVE"
+        },
+        "after": {
+          "status": "SUSPENDED",
+          "reason": "Policy violation - multiple fraud reports"
+        }
+      },
+      "metadata": {
+        "violationType": "FRAUD",
+        "reportCount": 5,
+        "suspensionDuration": "30_DAYS"
+      }
+    },
+    {
+      "_id": "audit_005",
+      "timestamp": "2024-02-21T06:10:00Z",
+      "tenantId": "tenant_pageant_001",
+      "userId": "user_admin_001",
+      "userEmail": "admin@glamourpageants.com",
+      "action": "DATA_EXPORTED",
+      "resource": "Report",
+      "resourceId": "report_export_456",
+      "category": "DATA_ACCESS",
+      "severity": "WARNING",
+      "ipAddress": "103.45.67.89",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)",
+      "changes": {
+        "before": null,
+        "after": {
+          "exportType": "TALENT_DATA",
+          "recordCount": 1250,
+          "format": "CSV"
+        }
+      },
+      "metadata": {
+        "dataTypes": ["personal_info", "contact_details", "performance_metrics"],
+        "purpose": "Annual report generation"
+      }
+    },
+    {
+      "_id": "audit_006",
+      "timestamp": "2024-02-20T23:45:00Z",
+      "tenantId": "tenant_casting_001",
+      "userId": "user_admin_002",
+      "userEmail": "admin@castingpro.com",
+      "action": "LOGIN_FAILED",
+      "resource": "Authentication",
+      "resourceId": "auth_attempt_789",
+      "category": "SECURITY",
+      "severity": "WARNING",
+      "ipAddress": "45.67.89.123",
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 14_6 like Mac OS X)",
+      "changes": null,
+      "metadata": {
+        "reason": "Invalid password",
+        "attemptCount": 3,
+        "accountLocked": false
+      }
+    },
+    {
+      "_id": "audit_007",
+      "timestamp": "2024-02-20T22:30:00Z",
+      "tenantId": "platform",
+      "userId": "user_superadmin_002",
+      "userEmail": "superadmin2@platform.com",
+      "action": "FEATURE_FLAG_UPDATED",
+      "resource": "FeatureFlag",
+      "resourceId": "flag_ai_matching",
+      "category": "SYSTEM_CONFIG",
+      "severity": "INFO",
+      "ipAddress": "10.0.0.2",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)",
+      "changes": {
+        "before": {
+          "enabled": false,
+          "rolloutPercentage": 0
+        },
+        "after": {
+          "enabled": true,
+          "rolloutPercentage": 25
+        }
+      },
+      "metadata": {
+        "targetTenants": ["tenant_pageant_001", "tenant_casting_001"],
+        "rolloutStrategy": "GRADUAL"
+      }
+    },
+    {
+      "_id": "audit_008",
+      "timestamp": "2024-02-20T21:15:00Z",
+      "tenantId": "tenant_modelling_001",
+      "userId": "user_talent_067",
+      "userEmail": "model@example.com",
+      "action": "PROFILE_UPDATED",
+      "resource": "TalentProfile",
+      "resourceId": "profile_067",
+      "category": "USER_MANAGEMENT",
+      "severity": "INFO",
+      "ipAddress": "192.168.50.45",
+      "userAgent": "Mozilla/5.0 (Android 11; Mobile)",
+      "changes": {
+        "before": {
+          "height": 170,
+          "weight": 55
+        },
+        "after": {
+          "height": 172,
+          "weight": 56,
+          "measurements": "34-26-36"
+        }
+      },
+      "metadata": {
+        "fieldsUpdated": ["height", "weight", "measurements"]
+      }
+    },
+    {
+      "_id": "audit_009",
+      "timestamp": "2024-02-20T20:00:00Z",
+      "tenantId": "tenant_pageant_002",
+      "userId": "user_admin_004",
+      "userEmail": "admin@beautypageant.com",
+      "action": "CONTENT_MODERATED",
+      "resource": "Post",
+      "resourceId": "post_456",
+      "category": "COMPLIANCE",
+      "severity": "WARNING",
+      "ipAddress": "103.78.90.123",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)",
+      "changes": {
+        "before": {
+          "status": "PUBLISHED"
+        },
+        "after": {
+          "status": "REMOVED",
+          "reason": "Inappropriate content"
+        }
+      },
+      "metadata": {
+        "moderationType": "MANUAL",
+        "violationCategory": "ABUSIVE_CONTENT",
+        "reportCount": 3
+      }
+    },
+    {
+      "_id": "audit_010",
+      "timestamp": "2024-02-20T19:30:00Z",
+      "tenantId": "platform",
+      "userId": "user_superadmin_001",
+      "userEmail": "superadmin@platform.com",
+      "action": "BILLING_PLAN_CHANGED",
+      "resource": "Subscription",
+      "resourceId": "sub_tenant_003",
+      "category": "FINANCIAL",
+      "severity": "INFO",
+      "ipAddress": "10.0.0.1",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)",
+      "changes": {
+        "before": {
+          "plan": "STARTER",
+          "price": 9900
+        },
+        "after": {
+          "plan": "PROFESSIONAL",
+          "price": 29900
+        }
+      },
+      "metadata": {
+        "effectiveDate": "2024-03-01",
+        "prorated": true
+      }
+    }
+  ],
+  "complianceReports": [
+    {
+      "_id": "compliance_001",
+      "reportType": "GDPR_COMPLIANCE",
+      "period": "2024-Q1",
+      "generatedAt": "2024-02-21T00:00:00Z",
+      "status": "COMPLETED",
+      "metrics": {
+        "dataSubjectRequests": 45,
+        "requestsCompleted": 42,
+        "requestsPending": 3,
+        "averageResponseTime": "2.5 days",
+        "breaches": 0,
+        "consentUpdates": 1250
+      },
+      "findings": [
+        "All data subject requests processed within SLA",
+        "No data breaches reported",
+        "Consent management system functioning properly"
+      ]
+    },
+    {
+      "_id": "compliance_002",
+      "reportType": "SOC2_AUDIT",
+      "period": "2024-Annual",
+      "generatedAt": "2024-02-15T00:00:00Z",
+      "status": "IN_PROGRESS",
+      "metrics": {
+        "controlsTested": 87,
+        "controlsPassed": 85,
+        "controlsFailed": 2,
+        "remediationRequired": 2
+      },
+      "findings": [
+        "Access control policies need update",
+        "Encryption at rest implemented correctly",
+        "Incident response procedures documented"
+      ]
+    },
+    {
+      "_id": "compliance_003",
+      "reportType": "FINANCIAL_AUDIT",
+      "period": "2024-Q1",
+      "generatedAt": "2024-02-20T00:00:00Z",
+      "status": "COMPLETED",
+      "metrics": {
+        "transactionsAudited": 15678,
+        "discrepancies": 3,
+        "totalValue": 45678900,
+        "reconciliationRate": "99.98%"
+      },
+      "findings": [
+        "Minor reconciliation discrepancies identified and resolved",
+        "All high-value transactions properly documented",
+        "Escrow management compliant with regulations"
+      ]
+    }
+  ],
+  "exportHistory": [
+    {
+      "_id": "export_001",
+      "exportType": "AUDIT_LOG",
+      "requestedBy": "user_superadmin_001",
+      "requestedAt": "2024-02-21T08:00:00Z",
+      "completedAt": "2024-02-21T08:05:00Z",
+      "status": "COMPLETED",
+      "format": "CSV",
+      "recordCount": 5678,
+      "fileSize": "2.3 MB",
+      "downloadUrl": "/exports/audit_log_20240221.csv",
+      "expiresAt": "2024-02-28T08:05:00Z",
+      "filters": {
+        "dateRange": "2024-01-01 to 2024-02-21",
+        "categories": ["SECURITY", "COMPLIANCE"],
+        "severity": ["WARNING", "CRITICAL"]
+      }
+    },
+    {
+      "_id": "export_002",
+      "exportType": "COMPLIANCE_REPORT",
+      "requestedBy": "user_superadmin_002",
+      "requestedAt": "2024-02-20T15:30:00Z",
+      "completedAt": "2024-02-20T15:35:00Z",
+      "status": "COMPLETED",
+      "format": "PDF",
+      "recordCount": 1,
+      "fileSize": "1.8 MB",
+      "downloadUrl": "/exports/compliance_q1_2024.pdf",
+      "expiresAt": "2024-02-27T15:35:00Z",
+      "filters": {
+        "reportType": "GDPR_COMPLIANCE",
+        "period": "2024-Q1"
+      }
+    },
+    {
+      "_id": "export_003",
+      "exportType": "USER_ACTIVITY",
+      "requestedBy": "user_superadmin_001",
+      "requestedAt": "2024-02-19T10:00:00Z",
+      "completedAt": "2024-02-19T10:15:00Z",
+      "status": "COMPLETED",
+      "format": "JSON",
+      "recordCount": 12345,
+      "fileSize": "5.7 MB",
+      "downloadUrl": "/exports/user_activity_feb2024.json",
+      "expiresAt": "2024-02-26T10:15:00Z",
+      "filters": {
+        "dateRange": "2024-02-01 to 2024-02-19",
+        "tenantId": "tenant_pageant_001"
+      }
+    }
+  ],
+  "securityEvents": [
+    {
+      "_id": "sec_001",
+      "timestamp": "2024-02-21T11:00:00Z",
+      "eventType": "SUSPICIOUS_LOGIN",
+      "severity": "HIGH",
+      "userId": "user_admin_005",
+      "tenantId": "tenant_casting_002",
+      "ipAddress": "45.67.89.100",
+      "location": "Unknown (VPN detected)",
+      "description": "Login attempt from unusual location with VPN",
+      "status": "BLOCKED",
+      "actionTaken": "Account temporarily locked, email notification sent"
+    },
+    {
+      "_id": "sec_002",
+      "timestamp": "2024-02-21T09:30:00Z",
+      "eventType": "RATE_LIMIT_EXCEEDED",
+      "severity": "MEDIUM",
+      "userId": null,
+      "tenantId": "tenant_modelling_002",
+      "ipAddress": "192.168.100.50",
+      "location": "Mumbai, India",
+      "description": "API rate limit exceeded - 1000 requests in 1 minute",
+      "status": "THROTTLED",
+      "actionTaken": "Requests throttled for 15 minutes"
+    },
+    {
+      "_id": "sec_003",
+      "timestamp": "2024-02-20T18:45:00Z",
+      "eventType": "PRIVILEGE_ESCALATION_ATTEMPT",
+      "severity": "CRITICAL",
+      "userId": "user_talent_089",
+      "tenantId": "tenant_pageant_003",
+      "ipAddress": "103.45.67.200",
+      "location": "Delhi, India",
+      "description": "Unauthorized attempt to access admin endpoints",
+      "status": "BLOCKED",
+      "actionTaken": "Access denied, security team notified, account flagged for review"
+    }
+  ]
+}

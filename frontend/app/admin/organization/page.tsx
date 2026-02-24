@@ -1,135 +1,103 @@
 "use client"
 
-import { Building2, Globe2, Palette, MapPin, Phone, Mail } from "lucide-react"
+import { Building2, Globe2, Palette, MapPin, Phone, Mail, Edit } from "lucide-react"
+import { AdminPageWrapper } from "@/shared/components/layout/AdminPageWrapper"
 import {
-  AdminPageWrapper,
-  AdminCard,
-  AdminSectionHeader,
+  AdminPageLayout,
+  AdminStatsGrid,
   AdminStatCard,
-} from "@/shared/components/layout/AdminPageWrapper"
+  AdminCard,
+  AdminButton,
+} from "@/shared/components/admin/AdminPageLayout"
 
 export default function AdminOrganizationPage() {
   return (
     <AdminPageWrapper>
-      <AdminSectionHeader
+      <AdminPageLayout
         title="Organization"
-        subtitle="Profile, branding, subdomain, and contact information"
-      />
-
+        subtitle="Manage your organization profile, branding, and contact information"
+        actions={
+        <AdminButton>
+          <Edit className="h-4 w-4" />
+          Edit Profile
+        </AdminButton>
+      }
+    >
       {/* Stats */}
-      <div className="mb-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        <AdminStatCard
-          title="Organization"
-          value="Active"
-          subtitle="Status"
-          icon={Building2}
-          color="green"
-        />
-        <AdminStatCard
-          title="Subdomain"
-          value="Configured"
-          subtitle="demo.talentos.io"
-          icon={Globe2}
-          color="blue"
-        />
-        <AdminStatCard
-          title="Branding"
-          value="Custom"
-          subtitle="Theme applied"
-          icon={Palette}
-          color="purple"
-        />
-        <AdminStatCard
-          title="Verified"
-          value="Yes"
-          subtitle="Email verified"
-          icon={Mail}
-          color="green"
-        />
-      </div>
+      <AdminStatsGrid columns={4}>
+        <AdminStatCard label="Status" value="Active" icon={Building2} color="green" />
+        <AdminStatCard label="Subdomain" value="Configured" icon={Globe2} color="blue" subtitle="demo.talentos.io" />
+        <AdminStatCard label="Branding" value="Custom" icon={Palette} color="purple" subtitle="Theme applied" />
+        <AdminStatCard label="Verified" value="Yes" icon={Mail} color="green" subtitle="Email verified" />
+      </AdminStatsGrid>
 
       {/* Profile */}
-      <AdminCard className="mb-6">
-        <h3 className="mb-6 text-lg font-bold text-white">Organization Profile</h3>
+      <AdminCard title="Organization Profile" className="mb-6">
         <div className="grid gap-4 sm:grid-cols-2">
-          <div className="flex items-start gap-3 rounded-xl border border-white/10 bg-white/5 p-4 backdrop-blur-sm">
-            <div className="rounded-lg bg-purple-500/10 p-2">
-              <Building2 className="h-5 w-5 text-purple-400" />
-            </div>
+          <div className="flex items-start gap-3 rounded border border-gray-200 bg-gray-50 p-4">
+            <Building2 className="h-5 w-5 text-purple-600 mt-0.5" />
             <div>
-              <p className="text-xs font-medium uppercase tracking-wide text-white/50">Organization Name</p>
-              <p className="mt-1 text-white">Demo Pageant Org</p>
+              <p className="text-xs font-semibold text-gray-600">Organization Name</p>
+              <p className="mt-1 text-sm text-gray-900">Demo Pageant Org</p>
             </div>
           </div>
-          <div className="flex items-start gap-3 rounded-xl border border-white/10 bg-white/5 p-4 backdrop-blur-sm">
-            <div className="rounded-lg bg-blue-500/10 p-2">
-              <Globe2 className="h-5 w-5 text-blue-400" />
-            </div>
+          <div className="flex items-start gap-3 rounded border border-gray-200 bg-gray-50 p-4">
+            <Globe2 className="h-5 w-5 text-blue-600 mt-0.5" />
             <div>
-              <p className="text-xs font-medium uppercase tracking-wide text-white/50">Subdomain</p>
-              <p className="mt-1 text-white">demo.talentos.io</p>
+              <p className="text-xs font-semibold text-gray-600">Subdomain</p>
+              <p className="mt-1 text-sm text-gray-900">demo.talentos.io</p>
             </div>
           </div>
-          <div className="flex items-start gap-3 rounded-xl border border-white/10 bg-white/5 p-4 backdrop-blur-sm">
-            <div className="rounded-lg bg-green-500/10 p-2">
-              <Mail className="h-5 w-5 text-green-400" />
-            </div>
+          <div className="flex items-start gap-3 rounded border border-gray-200 bg-gray-50 p-4">
+            <Mail className="h-5 w-5 text-green-600 mt-0.5" />
             <div>
-              <p className="text-xs font-medium uppercase tracking-wide text-white/50">Contact Email</p>
-              <p className="mt-1 text-white">contact@demo.talentos.io</p>
+              <p className="text-xs font-semibold text-gray-600">Contact Email</p>
+              <p className="mt-1 text-sm text-gray-900">contact@demo.talentos.io</p>
             </div>
           </div>
-          <div className="flex items-start gap-3 rounded-xl border border-white/10 bg-white/5 p-4 backdrop-blur-sm">
-            <div className="rounded-lg bg-yellow-500/10 p-2">
-              <Phone className="h-5 w-5 text-yellow-400" />
-            </div>
+          <div className="flex items-start gap-3 rounded border border-gray-200 bg-gray-50 p-4">
+            <Phone className="h-5 w-5 text-yellow-600 mt-0.5" />
             <div>
-              <p className="text-xs font-medium uppercase tracking-wide text-white/50">Phone</p>
-              <p className="mt-1 text-white">+1 (555) 123-4567</p>
+              <p className="text-xs font-semibold text-gray-600">Phone</p>
+              <p className="mt-1 text-sm text-gray-900">+1 (555) 123-4567</p>
             </div>
           </div>
-          <div className="flex items-start gap-3 rounded-xl border border-white/10 bg-white/5 p-4 backdrop-blur-sm sm:col-span-2">
-            <div className="rounded-lg bg-pink-500/10 p-2">
-              <MapPin className="h-5 w-5 text-pink-400" />
-            </div>
+          <div className="flex items-start gap-3 rounded border border-gray-200 bg-gray-50 p-4 sm:col-span-2">
+            <MapPin className="h-5 w-5 text-red-600 mt-0.5" />
             <div>
-              <p className="text-xs font-medium uppercase tracking-wide text-white/50">Address</p>
-              <p className="mt-1 text-white">123 Business Street, Suite 100, City, State 12345</p>
+              <p className="text-xs font-semibold text-gray-600">Address</p>
+              <p className="mt-1 text-sm text-gray-900">123 Business Street, Suite 100, City, State 12345</p>
             </div>
           </div>
         </div>
       </AdminCard>
 
       {/* Branding */}
-      <AdminCard>
-        <h3 className="mb-6 text-lg font-bold text-white">Branding</h3>
+      <AdminCard title="Branding">
         <div className="grid gap-4 sm:grid-cols-2">
-          <div className="flex items-start gap-3 rounded-xl border border-white/10 bg-white/5 p-4 backdrop-blur-sm">
-            <div className="rounded-lg bg-purple-500/10 p-2">
-              <Palette className="h-5 w-5 text-purple-400" />
-            </div>
+          <div className="flex items-start gap-3 rounded border border-gray-200 bg-gray-50 p-4">
+            <Palette className="h-5 w-5 text-purple-600 mt-0.5" />
             <div className="flex-1">
-              <p className="text-xs font-medium uppercase tracking-wide text-white/50">Primary Color</p>
+              <p className="text-xs font-semibold text-gray-600">Primary Color</p>
               <div className="mt-2 flex items-center gap-3">
-                <div className="h-10 w-10 rounded-lg border border-white/20 bg-[#7C3AED] shadow-lg" />
-                <span className="font-mono text-sm text-white">#7C3AED</span>
+                <div className="h-10 w-10 rounded border border-gray-200 bg-[#7C3AED]" />
+                <span className="font-mono text-xs text-gray-900">#7C3AED</span>
               </div>
             </div>
           </div>
-          <div className="flex items-start gap-3 rounded-xl border border-white/10 bg-white/5 p-4 backdrop-blur-sm">
-            <div className="rounded-lg bg-blue-500/10 p-2">
-              <Palette className="h-5 w-5 text-blue-400" />
-            </div>
+          <div className="flex items-start gap-3 rounded border border-gray-200 bg-gray-50 p-4">
+            <Palette className="h-5 w-5 text-blue-600 mt-0.5" />
             <div className="flex-1">
-              <p className="text-xs font-medium uppercase tracking-wide text-white/50">Secondary Color</p>
+              <p className="text-xs font-semibold text-gray-600">Secondary Color</p>
               <div className="mt-2 flex items-center gap-3">
-                <div className="h-10 w-10 rounded-lg border border-white/20 bg-[#d4ff00] shadow-lg" />
-                <span className="font-mono text-sm text-white">#d4ff00</span>
+                <div className="h-10 w-10 rounded border border-gray-200 bg-[#d4ff00]" />
+                <span className="font-mono text-xs text-gray-900">#d4ff00</span>
               </div>
             </div>
           </div>
         </div>
       </AdminCard>
+      </AdminPageLayout>
     </AdminPageWrapper>
   )
 }

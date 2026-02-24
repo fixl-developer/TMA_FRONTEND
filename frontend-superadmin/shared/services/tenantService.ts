@@ -12,10 +12,27 @@ import type { Tenant } from "@/shared/lib/types/tenants"
 const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms))
 
 const STORAGE_KEY = "talentos_runtime_tenants"
+const BLUEPRINT_OVERRIDES_KEY = "talentos_tenant_blueprint_overrides_v1"
 const TENANTS_UPDATED_EVENT = "talentos_tenants_updated"
 
 // In-memory overrides for tenant status (suspend/activate - persists until refresh)
 const tenantStatusOverrides: Record<string, Tenant["status"]> = {}
+
+function getBlueprintOverridesSync(): Record<string, string[]> {
+  if (typeof window === "undefined") return {}
+  try {
+    const s = localStorage.getItem(BLUEPRINT_OVERRIDES_KEY)
+    if (!s) return {}
+    return JSON.parse(s) as Record<string, string[]>
+  } catch {
+    return {}
+  }
+}
+
+function saveBlueprintOverrides(overrides: Record<string, string[]>) {
+  if (typeof window === "undefined") return
+  localStorage.setItem(BLUEPRINT_OVERRIDES_KEY, JSON.stringify(overrides))
+}
 
 function getRuntimeTenantsSync(): Tenant[] {
   if (typeof window === "undefined") return []
@@ -39,9 +56,12 @@ export const getTenants = async (): Promise<Tenant[]> => {
   const seed = seedTenants as Tenant[]
   const runtime = getRuntimeTenantsSync()
   const all = [...seed, ...runtime]
+  const blueprintOverrides = getBlueprintOverridesSync()
   return all.map((t) => {
     const override = tenantStatusOverrides[t._id]
-    return override ? { ...t, status: override } : t
+    const blueprintOverride = blueprintOverrides[t._id]
+    const statusApplied = override ? { ...t, status: override } : t
+    return blueprintOverride ? { ...statusApplied, blueprints: blueprintOverride } : statusApplied
   })
 }
 
@@ -116,6 +136,17 @@ export const suspendTenant = async (tenantId: string): Promise<void> => {
 export const activateTenant = async (tenantId: string): Promise<void> => {
   await delay(200)
   tenantStatusOverrides[tenantId] = "ACTIVE"
+}
+
+/** Mock: update tenant blueprints (assignment/unassignment). Persists to localStorage. */
+export const setTenantBlueprints = async (tenantId: string, blueprints: string[]): Promise<void> => {
+  await delay(220)
+  const overrides = getBlueprintOverridesSync()
+  overrides[tenantId] = [...blueprints]
+  saveBlueprintOverrides(overrides)
+  if (typeof window !== "undefined") {
+    window.dispatchEvent(new CustomEvent(TENANTS_UPDATED_EVENT))
+  }
 }
 
 /** Subscribe to tenant list updates */

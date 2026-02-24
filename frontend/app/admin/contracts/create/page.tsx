@@ -3,23 +3,24 @@
 import { useEffect, useState } from "react"
 import Link from "next/link"
 import { useRouter, useSearchParams } from "next/navigation"
-import { PageBanner } from "@/shared/components/ui/PageBanner"
-import { Card, CardHeader, CardTitle, CardContent } from "@/shared/components/ui/card"
-import { Button } from "@/shared/components/ui/button"
 import { Input } from "@/shared/components/ui/input"
 import { Label } from "@/shared/components/ui/label"
 import { getContractTemplates, formatCurrency } from "@/shared/services/contractService"
 import { getAccounts, getQuoteById } from "@/shared/services/salesService"
 import { useTenant } from "@/shared/context/TenantContext"
-import { FileSignature } from "lucide-react"
-import { AgenciesPage } from "@/shared/components/layout/AgenciesPage"
-import { useDashboardTheme } from "@/shared/context/DashboardThemeContext"
+import { FileSignature, ArrowLeft } from "lucide-react"
+import { AdminPageWrapper } from "@/shared/components/layout/AdminPageWrapper"
+import {
+  AdminPageLayout,
+  AdminCard,
+  AdminButton,
+  AdminLoading,
+} from "@/shared/components/admin/AdminPageLayout"
 
 export default function ContractCreatePage() {
   const router = useRouter()
   const searchParams = useSearchParams()
   const { tenantId } = useTenant()
-  const { page } = useDashboardTheme()
   const [templates, setTemplates] = useState<any[]>([])
   const [accounts, setAccounts] = useState<any[]>([])
   const [quote, setQuote] = useState<any>(null)
@@ -65,93 +66,103 @@ export default function ContractCreatePage() {
     setSubmitting(false)
   }
 
-  if (loading) {
-    return (
-      <AgenciesPage>
-        <div className="flex min-h-[200px] items-center justify-center">
-          <p className="text-slate-500">Loading…</p>
-        </div>
-      </AgenciesPage>
-    )
-  }
-
   return (
-    <AgenciesPage>
-      <PageBanner
-        title="Create contract"
+    <AdminPageWrapper>
+      <AdminPageLayout
+        title="Create Contract"
         subtitle={quote ? `From quote ${quote.quoteNumber}` : "From template"}
-        variant="admin"
-        backgroundImage="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1200&q=80"
-      />
-      <div className="mt-6 flex flex-wrap gap-3">
-        <Link href="/admin/contracts">
-          <Button variant="ghost" size="sm">← Contracts</Button>
-        </Link>
-        {quote && (
-          <Link href={`/admin/sales/quotes/${quote._id}`}>
-            <Button variant="outline" size="sm">View quote</Button>
-          </Link>
-        )}
-      </div>
-
-      <Card className="mt-6 max-w-2xl" style={{ borderColor: page.border }}>
-        <CardHeader>
-          <CardTitle className="flex items-center gap-2">
-            <FileSignature className="h-5 w-5" />
-            Contract details
-          </CardTitle>
-        </CardHeader>
-        <CardContent className="space-y-6">
-          {quote && (
-            <div className="rounded-lg border p-4 bg-amber-50/50" style={{ borderColor: page.border }}>
-              <p className="text-sm font-medium text-amber-800">From quote: {quote.quoteNumber}</p>
-              <p className="text-sm text-slate-600">Total: {formatCurrency(quote.totalMinor, quote.currency)}</p>
+        actions={
+          <div className="flex gap-2">
+            <Link href="/admin/contracts">
+              <AdminButton variant="ghost">
+                <ArrowLeft className="h-4 w-4" />
+                Contracts
+              </AdminButton>
+            </Link>
+            {quote && (
+              <Link href={`/admin/sales/quotes/${quote._id}`}>
+                <AdminButton variant="secondary">View Quote</AdminButton>
+              </Link>
+            )}
+          </div>
+        }
+      >
+        {loading ? (
+          <AdminCard>
+            <AdminLoading rows={5} />
+          </AdminCard>
+        ) : (
+          <AdminCard title="Contract Details" className="max-w-2xl">
+            <div className="space-y-6">
+              {quote && (
+                <div className="rounded-lg border border-amber-500/20 bg-amber-500/5 p-4">
+                  <p className="text-sm font-medium text-amber-400">From quote: {quote.quoteNumber}</p>
+                  <p className="text-sm text-white/70">Total: {formatCurrency(quote.totalMinor, quote.currency)}</p>
+                </div>
+              )}
+              <div>
+                <Label className="text-white/70">Template</Label>
+                <select
+                  value={selectedTemplate}
+                  onChange={(e) => setSelectedTemplate(e.target.value)}
+                  className="mt-2 w-full rounded-lg border border-white/20 bg-white/5 px-3 py-2 text-white focus:border-[#d4ff00] focus:outline-none"
+                >
+                  <option value="">Select template</option>
+                  {templates.map((t) => (
+                    <option key={t._id} value={t._id}>{t.name}</option>
+                  ))}
+                </select>
+              </div>
+              <div>
+                <Label className="text-white/70">Client / Account</Label>
+                <select
+                  value={selectedAccount}
+                  onChange={(e) => setSelectedAccount(e.target.value)}
+                  className="mt-2 w-full rounded-lg border border-white/20 bg-white/5 px-3 py-2 text-white focus:border-[#d4ff00] focus:outline-none"
+                >
+                  <option value="">Select account</option>
+                  {accounts.map((a) => (
+                    <option key={a._id} value={a._id}>{a.name}</option>
+                  ))}
+                </select>
+              </div>
+              <div>
+                <Label htmlFor="project" className="text-white/70">Project Name</Label>
+                <Input
+                  id="project"
+                  value={projectName}
+                  onChange={(e) => setProjectName(e.target.value)}
+                  placeholder="e.g. Spring Lookbook 2024"
+                  className="mt-2 border-white/20 bg-white/5 text-white placeholder:text-white/40"
+                />
+              </div>
+              <div>
+                <Label htmlFor="amount" className="text-white/70">Amount (₹)</Label>
+                <Input
+                  id="amount"
+                  type="number"
+                  value={amountMinor ? amountMinor / 100 : ""}
+                  onChange={(e) => setAmountMinor(Number(e.target.value) * 100)}
+                  placeholder="150000"
+                  className="mt-2 w-40 border-white/20 bg-white/5 text-white placeholder:text-white/40"
+                />
+              </div>
+              <div className="flex gap-3">
+                <AdminButton
+                  onClick={handleSubmit}
+                  disabled={!selectedTemplate || !projectName || amountMinor <= 0 || submitting}
+                >
+                  <FileSignature className="mr-2 h-4 w-4" />
+                  {submitting ? "Creating…" : "Create Contract"}
+                </AdminButton>
+                <Link href="/admin/contracts">
+                  <AdminButton variant="secondary">Cancel</AdminButton>
+                </Link>
+              </div>
             </div>
-          )}
-          <div>
-            <Label>Template</Label>
-            <select
-              value={selectedTemplate}
-              onChange={(e) => setSelectedTemplate(e.target.value)}
-              className="mt-2 w-full rounded-md border border-slate-200 px-3 py-2"
-            >
-              <option value="">Select template</option>
-              {templates.map((t) => (
-                <option key={t._id} value={t._id}>{t.name}</option>
-              ))}
-            </select>
-          </div>
-          <div>
-            <Label>Client / Account</Label>
-            <select
-              value={selectedAccount}
-              onChange={(e) => setSelectedAccount(e.target.value)}
-              className="mt-2 w-full rounded-md border border-slate-200 px-3 py-2"
-            >
-              <option value="">Select account</option>
-              {accounts.map((a) => (
-                <option key={a._id} value={a._id}>{a.name}</option>
-              ))}
-            </select>
-          </div>
-          <div>
-            <Label htmlFor="project">Project name</Label>
-            <Input id="project" value={projectName} onChange={(e) => setProjectName(e.target.value)} placeholder="e.g. Spring Lookbook 2024" className="mt-2" />
-          </div>
-          <div>
-            <Label htmlFor="amount">Amount (₹)</Label>
-            <Input id="amount" type="number" value={amountMinor ? amountMinor / 100 : ""} onChange={(e) => setAmountMinor(Number(e.target.value) * 100)} placeholder="150000" className="mt-2 w-40" />
-          </div>
-          <div className="flex gap-3">
-            <Button className="bg-amber-500 text-slate-900 hover:bg-amber-400" onClick={handleSubmit} disabled={!selectedTemplate || !projectName || amountMinor <= 0 || submitting}>
-              {submitting ? "Creating…" : "Create contract"}
-            </Button>
-            <Button asChild variant="outline">
-              <Link href="/admin/contracts">Cancel</Link>
-            </Button>
-          </div>
-        </CardContent>
-      </Card>
-    </AgenciesPage>
+          </AdminCard>
+        )}
+      </AdminPageLayout>
+    </AdminPageWrapper>
   )
 }

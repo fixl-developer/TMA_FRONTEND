@@ -3,15 +3,19 @@
 import { useEffect, useState } from "react"
 import Link from "next/link"
 import { getTenantWallet, getTenantTransactions } from "@/shared/services/tenantFinanceService"
-import { Wallet, ArrowDownLeft, ArrowUpRight, CreditCard, TrendingUp, DollarSign } from "lucide-react"
+import { Wallet, ArrowDownLeft, ArrowUpRight, CreditCard, TrendingUp, DollarSign, ExternalLink } from "lucide-react"
+import { AdminPageWrapper } from "@/shared/components/layout/AdminPageWrapper"
 import {
-  AdminPageWrapper,
-  AdminCard,
-  AdminSectionHeader,
+  AdminPageLayout,
+  AdminStatsGrid,
   AdminStatCard,
+  AdminCard,
+  AdminTable,
+  AdminTableRow,
   AdminButton,
   AdminBadge,
-} from "@/shared/components/layout/AdminPageWrapper"
+  AdminEmptyState,
+} from "@/shared/components/admin/AdminPageLayout"
 
 function formatCurrency(amountMinor: number, currency: string) {
   return new Intl.NumberFormat("en-IN", {
@@ -41,165 +45,156 @@ export default function AdminWalletPage() {
     .filter((t) => t.direction === "OUTBOUND")
     .reduce((sum, t) => sum + t.amountMinor, 0)
 
+  const recentTransactions = transactions.slice(0, 10)
+
   return (
     <AdminPageWrapper>
-      <AdminSectionHeader
+      <AdminPageLayout
         title="Wallet"
-        subtitle="Cash balance, credits, and transactions"
-        action={
-          <Link href="/admin/payments/checkout">
-            <AdminButton>
-              <CreditCard className="mr-2 h-4 w-4" />
-              Add Funds
-            </AdminButton>
-          </Link>
-        }
-      />
-
+        subtitle="Manage your cash balance, credits, and transactions"
+        actions={
+        <Link href="/admin/payments/checkout">
+          <AdminButton>
+            <CreditCard className="h-4 w-4" />
+            Add Funds
+          </AdminButton>
+        </Link>
+      }
+    >
       {/* Stats */}
-      <div className="mb-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <AdminStatsGrid columns={4}>
         <AdminStatCard
-          title="Cash Balance"
+          label="Cash Balance"
           value={loading ? "—" : formatCurrency(balance, wallet?.currency ?? "INR")}
-          subtitle="Available funds"
           icon={Wallet}
           color="purple"
+          subtitle="Available funds"
         />
         <AdminStatCard
-          title="Total Inbound"
+          label="Total Inbound"
           value={loading ? "—" : formatCurrency(inboundTotal, "INR")}
-          subtitle="Received"
           icon={ArrowDownLeft}
           color="green"
-          trend="up"
-          trendValue="+24%"
+          subtitle="Received"
+          trend={{ value: "+24%", direction: "up" }}
         />
         <AdminStatCard
-          title="Total Outbound"
+          label="Total Outbound"
           value={loading ? "—" : formatCurrency(outboundTotal, "INR")}
-          subtitle="Spent"
           icon={ArrowUpRight}
           color="blue"
+          subtitle="Spent"
         />
         <AdminStatCard
-          title="Credits"
+          label="Credits"
           value="0"
-          subtitle="Platform credits"
           icon={DollarSign}
           color="yellow"
+          subtitle="Platform credits"
         />
-      </div>
+      </AdminStatsGrid>
 
       {/* Quick Actions */}
       <div className="mb-6 grid gap-4 sm:grid-cols-3">
         <Link href="/admin/payments/checkout">
-          <AdminCard hoverable className="h-full">
+          <div className="group rounded border border-gray-200 bg-white p-4 transition-all hover:border-blue-600 hover:shadow-sm cursor-pointer">
             <div className="flex items-center gap-3">
-              <div className="rounded-lg bg-[#d4ff00]/10 p-3">
-                <CreditCard className="h-6 w-6 text-[#d4ff00]" />
+              <div className="rounded bg-blue-50 p-3">
+                <CreditCard className="h-6 w-6 text-blue-600" />
               </div>
               <div>
-                <p className="font-semibold text-white">Add Funds</p>
-                <p className="text-xs text-white/50">Top up your wallet</p>
+                <p className="text-sm font-semibold text-gray-900">Add Funds</p>
+                <p className="text-xs text-gray-600">Top up your wallet</p>
               </div>
             </div>
-          </AdminCard>
+          </div>
         </Link>
         <Link href="/admin/wallet/transactions">
-          <AdminCard hoverable className="h-full">
+          <div className="group rounded border border-gray-200 bg-white p-4 transition-all hover:border-blue-600 hover:shadow-sm cursor-pointer">
             <div className="flex items-center gap-3">
-              <div className="rounded-lg bg-purple-500/10 p-3">
-                <TrendingUp className="h-6 w-6 text-purple-400" />
+              <div className="rounded bg-green-50 p-3">
+                <TrendingUp className="h-6 w-6 text-green-600" />
               </div>
               <div>
-                <p className="font-semibold text-white">Transactions</p>
-                <p className="text-xs text-white/50">View all activity</p>
+                <p className="text-sm font-semibold text-gray-900">Transactions</p>
+                <p className="text-xs text-gray-600">View all activity</p>
               </div>
             </div>
-          </AdminCard>
+          </div>
         </Link>
-        <Link href="/admin/finance/payouts">
-          <AdminCard hoverable className="h-full">
+        <Link href="/admin/finance/invoices">
+          <div className="group rounded border border-gray-200 bg-white p-4 transition-all hover:border-blue-600 hover:shadow-sm cursor-pointer">
             <div className="flex items-center gap-3">
-              <div className="rounded-lg bg-blue-500/10 p-3">
-                <ArrowUpRight className="h-6 w-6 text-blue-400" />
+              <div className="rounded bg-yellow-50 p-3">
+                <DollarSign className="h-6 w-6 text-yellow-600" />
               </div>
               <div>
-                <p className="font-semibold text-white">Payouts</p>
-                <p className="text-xs text-white/50">Manage payouts</p>
+                <p className="text-sm font-semibold text-gray-900">Invoices</p>
+                <p className="text-xs text-gray-600">View billing history</p>
               </div>
             </div>
-          </AdminCard>
+          </div>
         </Link>
       </div>
 
       {/* Recent Transactions */}
-      <AdminCard>
-        <div className="mb-4 flex items-center justify-between">
-          <h3 className="text-lg font-bold text-white">Recent Transactions</h3>
+      <AdminCard
+        title="Recent Transactions"
+        actions={
           <Link href="/admin/wallet/transactions">
             <AdminButton size="sm" variant="ghost">
               View All
+              <ExternalLink className="h-3 w-3 ml-1" />
             </AdminButton>
           </Link>
-        </div>
+        }
+      >
         {loading ? (
           <div className="space-y-3">
             {[1, 2, 3, 4, 5].map((i) => (
-              <div key={i} className="h-16 animate-pulse rounded-lg bg-white/5" />
+              <div key={i} className="h-16 animate-pulse rounded bg-gray-50" />
             ))}
           </div>
-        ) : transactions.length === 0 ? (
-          <p className="py-8 text-center text-white/50">No transactions yet.</p>
+        ) : recentTransactions.length === 0 ? (
+          <AdminEmptyState
+            icon={Wallet}
+            title="No transactions yet"
+            description="Your transaction history will appear here"
+          />
         ) : (
-          <div className="space-y-3">
-            {transactions.slice(0, 5).map((t) => (
-              <div
-                key={t._id}
-                className="flex items-center justify-between rounded-xl border border-white/10 bg-white/5 p-4 backdrop-blur-sm transition-all hover:border-white/20 hover:bg-white/10"
-              >
-                <div className="flex items-center gap-3">
-                  <div
-                    className={`flex h-10 w-10 items-center justify-center rounded-lg ${
-                      t.direction === "INBOUND"
-                        ? "bg-emerald-500/10"
-                        : "bg-rose-500/10"
-                    }`}
-                  >
-                    {t.direction === "INBOUND" ? (
-                      <ArrowDownLeft className="h-5 w-5 text-emerald-400" />
+          <AdminTable headers={["Date", "Description", "Type", "Amount", "Status"]}>
+            {recentTransactions.map((txn) => (
+              <AdminTableRow key={txn._id}>
+                <td className="px-6 py-4 text-xs text-gray-600">
+                  {new Date(txn.createdAt).toLocaleDateString("en-IN")}
+                </td>
+                <td className="px-6 py-4 text-xs font-semibold text-gray-900">
+                  {txn.description || "Transaction"}
+                </td>
+                <td className="px-6 py-4">
+                  <div className="flex items-center gap-2">
+                    {txn.direction === "INBOUND" ? (
+                      <ArrowDownLeft className="h-4 w-4 text-green-600" />
                     ) : (
-                      <ArrowUpRight className="h-5 w-5 text-rose-400" />
+                      <ArrowUpRight className="h-4 w-4 text-red-600" />
                     )}
+                    <span className="text-xs text-gray-600">{txn.direction}</span>
                   </div>
-                  <div>
-                    <p className="font-medium text-white">{t.description}</p>
-                    <p className="text-xs text-white/50">
-                      {t.type} · {new Date(t.createdAt).toLocaleDateString("en-IN")}
-                    </p>
-                  </div>
-                </div>
-                <div className="text-right">
-                  <p
-                    className={`font-semibold ${
-                      t.direction === "INBOUND" ? "text-emerald-400" : "text-rose-400"
-                    }`}
-                  >
-                    {t.direction === "INBOUND" ? "+" : "-"}
-                    {formatCurrency(t.amountMinor, t.currency)}
-                  </p>
-                  <AdminBadge
-                    variant={t.status === "SETTLED" ? "success" : "warning"}
-                    className="mt-1"
-                  >
-                    {t.status}
+                </td>
+                <td className="px-6 py-4 text-xs font-semibold text-gray-900">
+                  {formatCurrency(txn.amountMinor, txn.currency)}
+                </td>
+                <td className="px-6 py-4">
+                  <AdminBadge variant={txn.status === "COMPLETED" ? "success" : "warning"}>
+                    {txn.status}
                   </AdminBadge>
-                </div>
-              </div>
+                </td>
+              </AdminTableRow>
             ))}
-          </div>
+          </AdminTable>
         )}
       </AdminCard>
+      </AdminPageLayout>
     </AdminPageWrapper>
   )
 }

@@ -1,0 +1,8 @@
+[
+  { "id": "wallet_platform_escrow", "type": "PLATFORM_ESCROW", "ownerId": "platform", "currency": "INR", "balanceMinor": 125000000, "status": "ACTIVE", "frozen": false },
+  { "id": "wallet_platform_revenue", "type": "PLATFORM_REVENUE", "ownerId": "platform", "currency": "INR", "balanceMinor": 18500000, "status": "ACTIVE", "frozen": false },
+  { "id": "wallet_tenant_001", "type": "TENANT", "ownerId": "tenant_001", "tenantId": "tenant_001", "currency": "INR", "balanceMinor": 3200000, "status": "ACTIVE", "frozen": false },
+  { "id": "wallet_tenant_002", "type": "TENANT", "ownerId": "tenant_002", "tenantId": "tenant_002", "currency": "INR", "balanceMinor": 5600000, "status": "ACTIVE", "frozen": false },
+  { "id": "wallet_tenant_003", "type": "TENANT", "ownerId": "tenant_003", "tenantId": "tenant_003", "currency": "INR", "balanceMinor": 2100000, "status": "ACTIVE", "frozen": false },
+  { "id": "wallet_talent_001", "type": "TALENT", "ownerId": "talent_001", "tenantId": "tenant_001", "currency": "INR", "balanceMinor": 450000, "status": "ACTIVE", "frozen": false }
+]

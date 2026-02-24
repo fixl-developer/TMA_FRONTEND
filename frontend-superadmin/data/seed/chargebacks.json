@@ -1,0 +1,167 @@
+[
+  {
+    "id": "cb_001",
+    "caseId": "CB-2024-0421",
+    "transactionId": "txn_9k2m4n5p",
+    "tenant": "Elite Models Agency",
+    "reason": "fraudulent",
+    "amount": 8500,
+    "status": "open",
+    "filedDate": "2024-02-20",
+    "deadline": "2024-03-05"
+  },
+  {
+    "id": "cb_002",
+    "caseId": "CB-2024-0420",
+    "transactionId": "txn_7h8j9k0l",
+    "tenant": "Miss Universe Pageant",
+    "reason": "product_not_received",
+    "amount": 12000,
+    "status": "under_review",
+    "filedDate": "2024-02-19",
+    "deadline": "2024-03-04"
+  },
+  {
+    "id": "cb_003",
+    "caseId": "CB-2024-0419",
+    "transactionId": "txn_5f6g7h8i",
+    "tenant": "Fashion Week Productions",
+    "reason": "product_unacceptable",
+    "amount": 6700,
+    "status": "pending_evidence",
+    "filedDate": "2024-02-18",
+    "deadline": "2024-03-03"
+  },
+  {
+    "id": "cb_004",
+    "caseId": "CB-2024-0418",
+    "transactionId": "txn_3d4e5f6g",
+    "tenant": "Talent Connect Agency",
+    "reason": "duplicate",
+    "amount": 4200,
+    "status": "won",
+    "filedDate": "2024-02-15",
+    "deadline": "2024-02-28"
+  },
+  {
+    "id": "cb_005",
+    "caseId": "CB-2024-0417",
+    "transactionId": "txn_1b2c3d4e",
+    "tenant": "Global Pageant Network",
+    "reason": "credit_not_processed",
+    "amount": 9800,
+    "status": "under_review",
+    "filedDate": "2024-02-17",
+    "deadline": "2024-03-02"
+  },
+  {
+    "id": "cb_006",
+    "caseId": "CB-2024-0416",
+    "transactionId": "txn_9z0a1b2c",
+    "tenant": "Premier Casting Co",
+    "reason": "fraudulent",
+    "amount": 15600,
+    "status": "open",
+    "filedDate": "2024-02-16",
+    "deadline": "2024-03-01"
+  },
+  {
+    "id": "cb_007",
+    "caseId": "CB-2024-0415",
+    "transactionId": "txn_7x8y9z0a",
+    "tenant": "Star Talent Management",
+    "reason": "product_not_received",
+    "amount": 5400,
+    "status": "lost",
+    "filedDate": "2024-02-10",
+    "deadline": "2024-02-23"
+  },
+  {
+    "id": "cb_008",
+    "caseId": "CB-2024-0414",
+    "transactionId": "txn_5v6w7x8y",
+    "tenant": "Runway Models Inc",
+    "reason": "product_unacceptable",
+    "amount": 11200,
+    "status": "won",
+    "filedDate": "2024-02-12",
+    "deadline": "2024-02-25"
+  },
+  {
+    "id": "cb_009",
+    "caseId": "CB-2024-0413",
+    "transactionId": "txn_3t4u5v6w",
+    "tenant": "Elite Models Agency",
+    "reason": "duplicate",
+    "amount": 7800,
+    "status": "under_review",
+    "filedDate": "2024-02-14",
+    "deadline": "2024-02-27"
+  },
+  {
+    "id": "cb_010",
+    "caseId": "CB-2024-0412",
+    "transactionId": "txn_1r2s3t4u",
+    "tenant": "Miss Universe Pageant",
+    "reason": "fraudulent",
+    "amount": 18900,
+    "status": "open",
+    "filedDate": "2024-02-13",
+    "deadline": "2024-02-26"
+  },
+  {
+    "id": "cb_011",
+    "caseId": "CB-2024-0411",
+    "transactionId": "txn_9p0q1r2s",
+    "tenant": "Fashion Week Productions",
+    "reason": "credit_not_processed",
+    "amount": 6300,
+    "status": "won",
+    "filedDate": "2024-02-08",
+    "deadline": "2024-02-21"
+  },
+  {
+    "id": "cb_012",
+    "caseId": "CB-2024-0410",
+    "transactionId": "txn_7n8o9p0q",
+    "tenant": "Talent Connect Agency",
+    "reason": "product_not_received",
+    "amount": 13500,
+    "status": "pending_evidence",
+    "filedDate": "2024-02-11",
+    "deadline": "2024-02-24"
+  },
+  {
+    "id": "cb_013",
+    "caseId": "CB-2024-0409",
+    "transactionId": "txn_5l6m7n8o",
+    "tenant": "Global Pageant Network",
+    "reason": "product_unacceptable",
+    "amount": 8700,
+    "status": "under_review",
+    "filedDate": "2024-02-09",
+    "deadline": "2024-02-22"
+  },
+  {
+    "id": "cb_014",
+    "caseId": "CB-2024-0408",
+    "transactionId": "txn_3j4k5l6m",
+    "tenant": "Premier Casting Co",
+    "reason": "fraudulent",
+    "amount": 21400,
+    "status": "lost",
+    "filedDate": "2024-02-05",
+    "deadline": "2024-02-18"
+  },
+  {
+    "id": "cb_015",
+    "caseId": "CB-2024-0407",
+    "transactionId": "txn_1h2i3j4k",
+    "tenant": "Star Talent Management",
+    "reason": "duplicate",
+    "amount": 4900,
+    "status": "won",
+    "filedDate": "2024-02-07",
+    "deadline": "2024-02-20"
+  }
+]

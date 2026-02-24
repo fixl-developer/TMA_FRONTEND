@@ -1,0 +1,68 @@
+[
+  {
+    "id": "rec-001",
+    "tenantId": "tenant-003",
+    "tenantName": "Star Pageants",
+    "priority": "high",
+    "category": "Automation",
+    "title": "Enable auto-confirmation for verified judges",
+    "description": "Your judge confirmation process takes 2-3 days on average. Enable auto-confirmation for judges with 5+ successful events to save 48 hours per event.",
+    "potentialImpact": "+8 WES points",
+    "estimatedTimeSaving": "48 hours/month",
+    "status": "pending",
+    "createdAt": "2024-02-15T10:00:00Z"
+  },
+  {
+    "id": "rec-002",
+    "tenantId": "tenant-003",
+    "tenantName": "Star Pageants",
+    "priority": "medium",
+    "category": "Communication",
+    "title": "Implement automated participant reminders",
+    "description": "Send automated reminders 48h and 24h before events to reduce no-shows by 30%.",
+    "potentialImpact": "+5 WES points",
+    "estimatedTimeSaving": "12 hours/month",
+    "status": "pending",
+    "createdAt": "2024-02-14T10:00:00Z"
+  },
+  {
+    "id": "rec-003",
+    "tenantId": "tenant-005",
+    "tenantName": "Crown Events",
+    "priority": "high",
+    "category": "Payment Processing",
+    "title": "Enable escrow auto-release on milestone completion",
+    "description": "Manual escrow releases are causing 5-7 day delays. Enable auto-release when all parties confirm milestone completion.",
+    "potentialImpact": "+12 WES points",
+    "estimatedTimeSaving": "72 hours/month",
+    "status": "pending",
+    "createdAt": "2024-02-16T10:00:00Z"
+  },
+  {
+    "id": "rec-004",
+    "tenantId": "tenant-005",
+    "tenantName": "Crown Events",
+    "priority": "high",
+    "category": "Compliance",
+    "title": "Automate document expiry tracking",
+    "description": "You have 12 expired documents in the system. Enable auto-tracking and notifications 30 days before expiry.",
+    "potentialImpact": "+6 WES points",
+    "estimatedTimeSaving": "24 hours/month",
+    "status": "pending",
+    "createdAt": "2024-02-13T10:00:00Z"
+  },
+  {
+    "id": "rec-005",
+    "tenantId": "tenant-001",
+    "tenantName": "Elite Talent Agency",
+    "priority": "low",
+    "category": "Reporting",
+    "title": "Enable automated monthly reports",
+    "description": "Generate and send monthly performance reports automatically to clients.",
+    "potentialImpact": "+3 WES points",
+    "estimatedTimeSaving": "8 hours/month",
+    "status": "implemented",
+    "createdAt": "2024-01-20T10:00:00Z",
+    "implementedAt": "2024-02-10T10:00:00Z"
+  }
+]

@@ -1,0 +1,47 @@
+[
+  {
+    "id": "renewal-001",
+    "contractId": "contract-004",
+    "contractNumber": "CTR-2024-004",
+    "tenantName": "Glamour Models Inc",
+    "currentEndDate": "2024-03-01T00:00:00Z",
+    "daysUntilExpiry": 9,
+    "status": "action_required",
+    "priority": "high",
+    "estimatedValue": 680000,
+    "currency": "INR",
+    "autoRenew": false,
+    "lastContactDate": "2024-02-10T00:00:00Z",
+    "assignedTo": "Contract Manager"
+  },
+  {
+    "id": "renewal-002",
+    "contractId": "contract-001",
+    "contractNumber": "CTR-2024-001",
+    "tenantName": "Elite Talent Agency",
+    "currentEndDate": "2024-08-01T00:00:00Z",
+    "daysUntilExpiry": 162,
+    "status": "scheduled",
+    "priority": "medium",
+    "estimatedValue": 450000,
+    "currency": "INR",
+    "autoRenew": true,
+    "lastContactDate": null,
+    "assignedTo": "Auto-renewal System"
+  },
+  {
+    "id": "renewal-003",
+    "contractId": "contract-003",
+    "contractNumber": "CTR-2024-003",
+    "tenantName": "Fashion Forward Agency",
+    "currentEndDate": "2024-04-15T00:00:00Z",
+    "daysUntilExpiry": 54,
+    "status": "in_negotiation",
+    "priority": "high",
+    "estimatedValue": 950000,
+    "currency": "INR",
+    "autoRenew": false,
+    "lastContactDate": "2024-02-18T00:00:00Z",
+    "assignedTo": "Senior Account Manager"
+  }
+]

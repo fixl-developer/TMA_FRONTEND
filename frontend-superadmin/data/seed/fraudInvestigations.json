@@ -1,0 +1,152 @@
+[
+  {
+    "id": "inv-001",
+    "caseNumber": "FRD-2024-001",
+    "title": "Suspicious booking pattern - User 1234",
+    "status": "open",
+    "priority": "high",
+    "assignedTo": "Fraud Team Lead",
+    "createdAt": "2024-02-20T14:30:00Z",
+    "updatedAt": "2024-02-20T15:45:00Z",
+    "entityType": "user",
+    "entityId": "user-1234",
+    "entityName": "Rajesh Kumar",
+    "description": "User created 15 bookings in 2 hours with different payment methods. Potential account takeover or fraud.",
+    "findings": [
+      "15 bookings created between 14:00-16:00",
+      "3 different payment methods used",
+      "IP address changed 4 times",
+      "Device fingerprint matches known fraud pattern"
+    ],
+    "evidence": [
+      {
+        "type": "transaction_log",
+        "description": "Transaction history for past 7 days",
+        "timestamp": "2024-02-20T14:35:00Z"
+      },
+      {
+        "type": "ip_log",
+        "description": "IP address changes during suspicious period",
+        "timestamp": "2024-02-20T14:40:00Z"
+      }
+    ],
+    "actions": [
+      {
+        "action": "Account temporarily suspended",
+        "timestamp": "2024-02-20T14:35:00Z",
+        "performedBy": "System"
+      },
+      {
+        "action": "Email sent to user for verification",
+        "timestamp": "2024-02-20T14:40:00Z",
+        "performedBy": "Fraud Team"
+      }
+    ],
+    "estimatedLoss": 125000,
+    "currency": "INR"
+  },
+  {
+    "id": "inv-002",
+    "caseNumber": "FRD-2024-002",
+    "title": "Impossible travel detected - User 9012",
+    "status": "resolved",
+    "priority": "critical",
+    "assignedTo": "Senior Investigator",
+    "createdAt": "2024-02-20T08:20:00Z",
+    "updatedAt": "2024-02-20T16:00:00Z",
+    "resolvedAt": "2024-02-20T16:00:00Z",
+    "entityType": "user",
+    "entityId": "user-9012",
+    "entityName": "Amit Patel",
+    "description": "User logged in from Mumbai and London within 45 minutes. Account compromised.",
+    "findings": [
+      "Login from Mumbai at 08:00",
+      "Login from London at 08:45",
+      "Password changed from London IP",
+      "Withdrawal attempt of ₹2,50,000"
+    ],
+    "evidence": [
+      {
+        "type": "login_log",
+        "description": "Login attempts from multiple locations",
+        "timestamp": "2024-02-20T08:25:00Z"
+      },
+      {
+        "type": "geo_data",
+        "description": "Geolocation data showing impossible travel",
+        "timestamp": "2024-02-20T08:30:00Z"
+      }
+    ],
+    "actions": [
+      {
+        "action": "Account locked immediately",
+        "timestamp": "2024-02-20T08:25:00Z",
+        "performedBy": "System"
+      },
+      {
+        "action": "User contacted via registered phone",
+        "timestamp": "2024-02-20T09:00:00Z",
+        "performedBy": "Fraud Team"
+      },
+      {
+        "action": "Password reset and 2FA enabled",
+        "timestamp": "2024-02-20T15:30:00Z",
+        "performedBy": "User with verification"
+      },
+      {
+        "action": "Account unlocked after verification",
+        "timestamp": "2024-02-20T16:00:00Z",
+        "performedBy": "Fraud Team Lead"
+      }
+    ],
+    "estimatedLoss": 0,
+    "currency": "INR",
+    "resolution": "Account compromised. User verified identity, password reset, 2FA enabled. No financial loss."
+  },
+  {
+    "id": "inv-003",
+    "caseNumber": "FRD-2024-003",
+    "title": "Payment failure spike - Tenant 003",
+    "status": "investigating",
+    "priority": "medium",
+    "assignedTo": "Payment Fraud Specialist",
+    "createdAt": "2024-02-19T18:45:00Z",
+    "updatedAt": "2024-02-20T10:00:00Z",
+    "entityType": "tenant",
+    "entityId": "tenant-003",
+    "entityName": "Star Pageants",
+    "description": "Unusual spike in payment failures. Investigating potential card testing or technical issue.",
+    "findings": [
+      "23 failed payment attempts in 24 hours",
+      "12 different users affected",
+      "All failures with same error code",
+      "Payment gateway logs show timeout issues"
+    ],
+    "evidence": [
+      {
+        "type": "payment_logs",
+        "description": "Failed payment transaction logs",
+        "timestamp": "2024-02-19T19:00:00Z"
+      },
+      {
+        "type": "gateway_logs",
+        "description": "Payment gateway error logs",
+        "timestamp": "2024-02-19T19:30:00Z"
+      }
+    ],
+    "actions": [
+      {
+        "action": "Payment gateway team notified",
+        "timestamp": "2024-02-19T19:00:00Z",
+        "performedBy": "Fraud Team"
+      },
+      {
+        "action": "Tenant contacted for technical review",
+        "timestamp": "2024-02-20T09:00:00Z",
+        "performedBy": "Support Team"
+      }
+    ],
+    "estimatedLoss": 0,
+    "currency": "INR"
+  }
+]

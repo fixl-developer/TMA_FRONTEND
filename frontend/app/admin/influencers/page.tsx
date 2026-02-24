@@ -4,16 +4,18 @@ import { useEffect, useState } from "react"
 import Link from "next/link"
 import { getCampaigns, formatCurrency } from "@/shared/services/influencerService"
 import { useTenant } from "@/shared/context/TenantContext"
-import { Sparkles, TrendingUp } from "lucide-react"
+import { Sparkles, TrendingUp, Plus } from "lucide-react"
+import { AdminPageWrapper } from "@/shared/components/layout/AdminPageWrapper"
 import {
-  AdminPageWrapper,
-  AdminCard,
-  AdminSectionHeader,
+  AdminPageLayout,
+  AdminStatsGrid,
   AdminStatCard,
+  AdminCard,
   AdminButton,
   AdminBadge,
   AdminEmptyState,
-} from "@/shared/components/layout/AdminPageWrapper"
+  AdminLoading,
+} from "@/shared/components/admin/AdminPageLayout"
 
 export default function AdminInfluencersPage() {
   const { tenantId } = useTenant()
@@ -41,62 +43,52 @@ export default function AdminInfluencersPage() {
 
   return (
     <AdminPageWrapper>
-      <AdminSectionHeader
+      <AdminPageLayout
         title="Influencers"
         subtitle="Campaigns and creator management"
-        action={
-          <Link href="/admin/influencers/campaigns/new">
-            <AdminButton>New Campaign</AdminButton>
-          </Link>
-        }
-      />
+        actions={
+        <Link href="/admin/influencers/campaigns/new">
+          <AdminButton>
+            <Plus className="h-4 w-4" />
+            New Campaign
+          </AdminButton>
+        </Link>
+      }
+    >
+      <AdminStatsGrid columns={4}>
+        <AdminStatCard
+          label="Total Campaigns"
+          value={campaigns.length}
+          subtitle="All campaigns"
+          icon={Sparkles}
+          color="purple"
+        />
+        <AdminStatCard
+          label="Active"
+          value={activeCount}
+          subtitle="Running now"
+          icon={TrendingUp}
+          color="green"
+        />
+        <AdminStatCard
+          label="Completed"
+          value={completedCount}
+          subtitle="Finished"
+          icon={Sparkles}
+          color="blue"
+        />
+        <AdminStatCard
+          label="Draft"
+          value={campaigns.filter((c) => c.status === "DRAFT").length}
+          subtitle="In planning"
+          icon={Sparkles}
+          color="yellow"
+        />
+      </AdminStatsGrid>
 
-      {/* Stats Cards */}
-      <div className="mb-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <AdminCard title="Campaigns" subtitle={`${campaigns.length} total campaigns`}>
         {loading ? (
-          <>
-            {[1, 2, 3].map((i) => (
-              <div key={i} className="h-32 animate-pulse rounded-2xl bg-white/5 admin-light-theme:bg-slate-100 transition-colors" />
-            ))}
-          </>
-        ) : (
-          <>
-            <AdminStatCard
-              title="Total Campaigns"
-              value={campaigns.length}
-              subtitle="All campaigns"
-              icon={Sparkles}
-              color="purple"
-            />
-            <AdminStatCard
-              title="Active"
-              value={activeCount}
-              subtitle="Running now"
-              icon={TrendingUp}
-              color="green"
-            />
-            <AdminStatCard
-              title="Completed"
-              value={completedCount}
-              subtitle="Finished"
-              icon={Sparkles}
-              color="blue"
-            />
-          </>
-        )}
-      </div>
-
-      {/* Campaigns */}
-      <AdminCard>
-        <h3 className="mb-6 text-lg font-bold text-white admin-light-theme:text-slate-900 transition-colors">
-          Campaigns
-        </h3>
-        {loading ? (
-          <div className="space-y-3">
-            {[1, 2, 3, 4, 5].map((i) => (
-              <div key={i} className="h-24 animate-pulse rounded-lg bg-white/5 admin-light-theme:bg-slate-100 transition-colors" />
-            ))}
-          </div>
+          <AdminLoading rows={5} />
         ) : campaigns.length === 0 ? (
           <AdminEmptyState
             icon={Sparkles}
@@ -104,30 +96,33 @@ export default function AdminInfluencersPage() {
             description="Create influencer campaigns to work with creators"
             action={
               <Link href="/admin/influencers/campaigns/new">
-                <AdminButton>New Campaign</AdminButton>
+                <AdminButton>
+                  <Plus className="h-4 w-4" />
+                  New Campaign
+                </AdminButton>
               </Link>
             }
           />
         ) : (
-          <div className="space-y-4">
+          <div className="space-y-2">
             {campaigns.map((c) => (
               <Link key={c._id} href={`/admin/influencers/campaigns/${c._id}`}>
-                <div className="flex items-center justify-between rounded-xl border p-4 backdrop-blur-sm transition-all hover:border-white/20 admin-light-theme:border-slate-200 admin-light-theme:bg-white admin-light-theme:hover:border-slate-300 admin-light-theme:hover:shadow-md border-white/10 bg-white/5 hover:bg-white/10">
+                <div className="flex items-center justify-between rounded border border-[#edebe9] bg-white p-4 transition-all hover:bg-[#f3f2f1] hover:shadow-sm">
                   <div className="flex items-center gap-3">
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-pink-500/10 text-pink-400 admin-light-theme:bg-pink-100 admin-light-theme:text-pink-600 transition-colors">
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded bg-[#8764b8] text-white">
                       <Sparkles className="h-5 w-5" />
                     </div>
                     <div>
-                      <p className="font-semibold text-white admin-light-theme:text-slate-900 transition-colors">{c.name}</p>
-                      <p className="text-sm text-white/60 admin-light-theme:text-slate-600 transition-colors">{c.brand}</p>
+                      <p className="text-xs font-semibold text-[#323130]">{c.name}</p>
+                      <p className="text-xs text-[#605e5c]">{c.brand}</p>
                     </div>
                     <AdminBadge variant={getStatusVariant(c.status)}>
                       {c.status}
                     </AdminBadge>
                   </div>
                   <div className="text-right">
-                    <p className="font-semibold text-[#d4ff00]">{formatCurrency(c.budgetMinor, c.currency)}</p>
-                    <p className="text-xs text-white/50 admin-light-theme:text-slate-500 transition-colors">
+                    <p className="text-xs font-semibold text-[#107c10]">{formatCurrency(c.budgetMinor, c.currency)}</p>
+                    <p className="text-xs text-[#605e5c]">
                       {c.startDate} – {c.endDate}
                     </p>
                   </div>
@@ -137,6 +132,7 @@ export default function AdminInfluencersPage() {
           </div>
         )}
       </AdminCard>
+      </AdminPageLayout>
     </AdminPageWrapper>
   )
 }

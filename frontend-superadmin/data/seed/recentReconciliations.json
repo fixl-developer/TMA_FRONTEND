@@ -1,0 +1,66 @@
+[
+  {
+    "id": "rec_001",
+    "date": "2024-02-21",
+    "tenant": "Elite Models Agency",
+    "status": "matched",
+    "amount": 145800,
+    "transactions": 87
+  },
+  {
+    "id": "rec_002",
+    "date": "2024-02-21",
+    "tenant": "Miss Universe Pageant",
+    "status": "matched",
+    "amount": 298500,
+    "transactions": 142
+  },
+  {
+    "id": "rec_003",
+    "date": "2024-02-21",
+    "tenant": "Fashion Week Productions",
+    "status": "discrepancy",
+    "amount": 87200,
+    "transactions": 56
+  },
+  {
+    "id": "rec_004",
+    "date": "2024-02-20",
+    "tenant": "Talent Connect Agency",
+    "status": "matched",
+    "amount": 234700,
+    "transactions": 118
+  },
+  {
+    "id": "rec_005",
+    "date": "2024-02-20",
+    "tenant": "Global Pageant Network",
+    "status": "pending",
+    "amount": 156900,
+    "transactions": 94
+  },
+  {
+    "id": "rec_006",
+    "date": "2024-02-20",
+    "tenant": "Premier Casting Co",
+    "status": "matched",
+    "amount": 189400,
+    "transactions": 103
+  },
+  {
+    "id": "rec_007",
+    "date": "2024-02-19",
+    "tenant": "Star Talent Management",
+    "status": "investigating",
+    "amount": 67800,
+    "transactions": 45
+  },
+  {
+    "id": "rec_008",
+    "date": "2024-02-19",
+    "tenant": "Runway Models Inc",
+    "status": "matched",
+    "amount": 312500,
+    "transactions": 167
+  }
+]

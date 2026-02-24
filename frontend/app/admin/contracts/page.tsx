@@ -5,19 +5,21 @@ import Link from "next/link"
 import { getContracts, getObligations, formatCurrency } from "@/shared/services/contractService"
 import { useTenant } from "@/shared/context/TenantContext"
 import { useToast } from "@/shared/components/ui/toast"
-import { FileSignature, AlertCircle, Plus, Download, Search } from "lucide-react"
+import { FileSignature, AlertCircle, Plus, Download } from "lucide-react"
+import { AdminPageWrapper } from "@/shared/components/layout/AdminPageWrapper"
 import {
-  AdminPageWrapper,
-  AdminCard,
-  AdminSectionHeader,
+  AdminPageLayout,
+  AdminStatsGrid,
   AdminStatCard,
+  AdminCard,
   AdminTable,
   AdminTableRow,
   AdminButton,
   AdminBadge,
   AdminEmptyState,
-} from "@/shared/components/layout/AdminPageWrapper"
-import { Input } from "@/shared/components/ui/input"
+  AdminSearchBar,
+  AdminLoading,
+} from "@/shared/components/admin/AdminPageLayout"
 import {
   Select,
   SelectContent,
@@ -119,39 +121,42 @@ export default function ContractsPage() {
 
   return (
     <AdminPageWrapper>
-      <AdminSectionHeader
-        title="Contracts (CLM)"
-        subtitle="Contract lifecycle: DRAFTED → NEGOTIATION → APPROVAL → SENT → SIGNED → ACTIVE"
-        action={
-          <div className="flex gap-2">
-            <AdminButton variant="secondary" onClick={() => exportCsv(contracts)}>
-              <Download className="mr-2 h-4 w-4" />
-              Export
+      <AdminPageLayout
+        title="Contracts"
+        subtitle="Contract lifecycle management: DRAFTED → NEGOTIATION → APPROVAL → SENT → SIGNED → ACTIVE"
+        actions={
+        <>
+          <AdminButton variant="secondary" onClick={() => exportCsv(contracts)}>
+            <Download className="h-4 w-4" />
+            Export
+          </AdminButton>
+          <Link href="/admin/contracts/create">
+            <AdminButton>
+              <Plus className="h-4 w-4" />
+              New Contract
             </AdminButton>
-            <Link href="/admin/contracts/create">
-              <AdminButton>
-                <Plus className="mr-2 h-4 w-4" />
-                New Contract
-              </AdminButton>
-            </Link>
-          </div>
-        }
-      />
-
-      <div className="mb-8 grid grid-cols-1 gap-4 sm:grid-cols-4">
-        <AdminStatCard title="Total Contracts" value={contracts.length} subtitle="All statuses" icon={FileSignature} color="purple" />
-        <AdminStatCard title="Active" value={signedCount} subtitle="Signed / active" icon={FileSignature} color="green" />
-        <AdminStatCard title="Expiring Soon" value={expiringCount} subtitle="Within 30 days" icon={AlertCircle} color="yellow" />
-        <AdminStatCard title="Pending Obligations" value={pendingObligations} subtitle="Action required" icon={AlertCircle} color="blue" />
-      </div>
+          </Link>
+        </>
+      }
+    >
+      <AdminStatsGrid columns={4}>
+        <AdminStatCard label="Total Contracts" value={contracts.length} subtitle="All statuses" icon={FileSignature} color="purple" />
+        <AdminStatCard label="Active" value={signedCount} subtitle="Signed / active" icon={FileSignature} color="green" />
+        <AdminStatCard label="Expiring Soon" value={expiringCount} subtitle="Within 30 days" icon={AlertCircle} color="yellow" />
+        <AdminStatCard label="Pending Obligations" value={pendingObligations} subtitle="Action required" icon={AlertCircle} color="blue" />
+      </AdminStatsGrid>
 
       {/* Tabs */}
-      <div className="mb-6 flex gap-1 rounded-xl border border-white/10 bg-white/5 p-1">
+      <div className="mb-6 flex gap-2 border-b border-[#edebe9]">
         {(["contracts", "obligations"] as const).map((tab) => (
           <button
             key={tab}
             onClick={() => setActiveTab(tab)}
-            className={`flex-1 rounded-lg px-4 py-2 text-sm font-semibold transition-all capitalize ${activeTab === tab ? "bg-[#d4ff00] text-black" : "text-white/60 hover:text-white"}`}
+            className={`px-4 py-2 text-xs font-semibold capitalize transition-colors ${
+              activeTab === tab
+                ? "border-b-2 border-[#0078d4] text-[#0078d4]"
+                : "text-[#605e5c] hover:text-[#323130]"
+            }`}
           >
             {tab === "contracts" ? `Contracts (${contracts.length})` : `Obligations (${obligations.length})`}
           </button>
@@ -159,47 +164,62 @@ export default function ContractsPage() {
       </div>
 
       {activeTab === "contracts" && (
-        <AdminCard>
-          <div className="mb-4 flex flex-wrap items-center gap-3">
-            <Input
-              placeholder="Search contracts…"
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-              className="max-w-xs border-white/20 bg-white/5 text-white placeholder:text-white/30"
-            />
-            <Select value={statusFilter} onValueChange={setStatusFilter}>
-              <SelectTrigger className="w-[160px] border-white/20 bg-white/5 text-white">
-                <SelectValue />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="ALL">All statuses</SelectItem>
-                {Object.entries(STATUS_LABELS).map(([k, v]) => (
-                  <SelectItem key={k} value={k}>{v}</SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-          </div>
-
+        <AdminCard
+          title="All Contracts"
+          subtitle={`${filtered.length} of ${contracts.length} contracts`}
+          actions={
+            <div className="flex items-center gap-3">
+              <AdminSearchBar value={search} onChange={setSearch} placeholder="Search contracts..." />
+              <Select value={statusFilter} onValueChange={setStatusFilter}>
+                <SelectTrigger className="h-8 w-[160px] border-[#edebe9] bg-white text-xs">
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="ALL">All statuses</SelectItem>
+                  {Object.entries(STATUS_LABELS).map(([k, v]) => (
+                    <SelectItem key={k} value={k}>{v}</SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
+          }
+        >
           {loading ? (
-            <div className="space-y-3">{[1,2,3,4].map((i) => <div key={i} className="h-16 animate-pulse rounded-lg bg-white/5" />)}</div>
+            <AdminLoading rows={5} />
           ) : filtered.length === 0 ? (
-            <AdminEmptyState icon={FileSignature} title="No contracts" action={<Link href="/admin/contracts/create"><AdminButton>New Contract</AdminButton></Link>} />
+            <AdminEmptyState
+              icon={FileSignature}
+              title="No contracts found"
+              description="Try adjusting your search or add a new contract"
+              action={
+                <Link href="/admin/contracts/create">
+                  <AdminButton>
+                    <Plus className="h-4 w-4" />
+                    New Contract
+                  </AdminButton>
+                </Link>
+              }
+            />
           ) : (
             <AdminTable headers={["Contract", "Client", "Value", "Effective", "Expires", "Status", "Actions"]}>
               {filtered.map((c) => (
                 <AdminTableRow key={c._id}>
                   <td className="px-6 py-4">
                     <Link href={`/admin/contracts/${c._id}`}>
-                      <p className="font-medium text-white hover:text-purple-300 transition-colors">{c.title || c._id}</p>
+                      <p className="text-xs font-semibold text-[#0078d4] hover:underline">{c.title || c._id}</p>
                     </Link>
-                    <p className="text-xs text-white/40">{c._id}</p>
+                    <p className="text-xs text-[#a19f9d]">{c._id}</p>
                   </td>
-                  <td className="px-6 py-4 text-sm text-white/70">{c.clientName || c.partyAName || "—"}</td>
-                  <td className="px-6 py-4 text-sm font-medium text-white">
+                  <td className="px-6 py-4 text-xs text-[#605e5c]">{c.clientName || c.partyAName || "—"}</td>
+                  <td className="px-6 py-4 text-xs font-semibold text-[#323130]">
                     {c.valueMinor ? formatCurrency(c.valueMinor, c.currency || "INR") : "—"}
                   </td>
-                  <td className="px-6 py-4 text-xs text-white/50">{c.effectiveDate ? format(new Date(c.effectiveDate), "MMM d, yyyy") : "—"}</td>
-                  <td className="px-6 py-4 text-xs text-white/50">{c.expiresAt ? format(new Date(c.expiresAt), "MMM d, yyyy") : "—"}</td>
+                  <td className="px-6 py-4 text-xs text-[#605e5c]">
+                    {c.effectiveDate ? format(new Date(c.effectiveDate), "MMM d, yyyy", { locale: undefined }) : "—"}
+                  </td>
+                  <td className="px-6 py-4 text-xs text-[#605e5c]">
+                    {c.expiresAt ? format(new Date(c.expiresAt), "MMM d, yyyy", { locale: undefined }) : "—"}
+                  </td>
                   <td className="px-6 py-4">
                     <AdminBadge variant={STATUS_VARIANT[c.status] ?? "default"}>
                       {STATUS_LABELS[c.status] ?? c.status}
@@ -227,22 +247,26 @@ export default function ContractsPage() {
       )}
 
       {activeTab === "obligations" && (
-        <AdminCard>
+        <AdminCard title="Contract Obligations" subtitle={`${obligations.length} total obligations`}>
           {loading ? (
-            <div className="space-y-3">{[1,2,3].map((i) => <div key={i} className="h-14 animate-pulse rounded-lg bg-white/5" />)}</div>
+            <AdminLoading rows={4} />
           ) : obligations.length === 0 ? (
-            <AdminEmptyState icon={AlertCircle} title="No obligations" description="Contract obligations are tracked here." />
+            <AdminEmptyState
+              icon={AlertCircle}
+              title="No obligations"
+              description="Contract obligations are tracked here."
+            />
           ) : (
             <AdminTable headers={["Obligation", "Contract", "Due Date", "Status"]}>
               {obligations.map((o) => (
                 <AdminTableRow key={o._id}>
                   <td className="px-6 py-4">
-                    <p className="font-medium text-white">{o.title}</p>
-                    <p className="text-xs text-white/40">{o.description}</p>
+                    <p className="text-xs font-semibold text-[#323130]">{o.title}</p>
+                    <p className="text-xs text-[#605e5c]">{o.description}</p>
                   </td>
-                  <td className="px-6 py-4 text-sm text-white/60">{o.contractId}</td>
-                  <td className="px-6 py-4 text-sm text-white/60">
-                    {o.dueDate ? format(new Date(o.dueDate), "MMM d, yyyy") : "—"}
+                  <td className="px-6 py-4 text-xs text-[#605e5c]">{o.contractId}</td>
+                  <td className="px-6 py-4 text-xs text-[#605e5c]">
+                    {o.dueDate ? format(new Date(o.dueDate), "MMM d, yyyy", { locale: undefined }) : "—"}
                   </td>
                   <td className="px-6 py-4">
                     <AdminBadge variant={o.status === "FULFILLED" ? "success" : o.status === "OVERDUE" ? "danger" : "warning"}>
@@ -255,6 +279,6 @@ export default function ContractsPage() {
           )}
         </AdminCard>
       )}
-    </AdminPageWrapper>
+    </AdminPageLayout>
   )
 }

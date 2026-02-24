@@ -1,5 +1,0 @@
-[
-  { "id": "r1", "eventId": "ev-1", "contestantName": "Priya Sharma", "email": "priya@example.com", "status": "paid", "amountMinor": 5000, "currency": "INR", "registeredAt": "2025-02-01" },
-  { "id": "r2", "eventId": "ev-1", "contestantName": "Ananya Singh", "email": "ananya@example.com", "status": "paid", "amountMinor": 5000, "currency": "INR", "registeredAt": "2025-02-05" },
-  { "id": "r3", "eventId": "ev-1", "contestantName": "Meera Patel", "email": "meera@example.com", "status": "pending", "amountMinor": 5000, "currency": "INR", "registeredAt": "2025-02-10" }
-]

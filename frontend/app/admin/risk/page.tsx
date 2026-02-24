@@ -4,13 +4,15 @@ import { useEffect, useState } from "react"
 import { getTenantRisk } from "@/shared/services/adminService"
 import { useTenant } from "@/shared/context/TenantContext"
 import { ShieldCheck, CheckCircle, AlertTriangle, ShieldAlert } from "lucide-react"
+import { AdminPageWrapper } from "@/shared/components/layout/AdminPageWrapper"
 import {
-  AdminPageWrapper,
-  AdminCard,
-  AdminSectionHeader,
+  AdminPageLayout,
+  AdminStatsGrid,
   AdminStatCard,
+  AdminCard,
   AdminBadge,
-} from "@/shared/components/layout/AdminPageWrapper"
+  AdminLoading,
+} from "@/shared/components/admin/AdminPageLayout"
 
 export default function AdminRiskPage() {
   const { tenantId } = useTenant()
@@ -52,44 +54,42 @@ export default function AdminRiskPage() {
 
   return (
     <AdminPageWrapper>
-      <AdminSectionHeader
+      <AdminPageLayout
         title="Risk View"
         subtitle="Tenant risk assessment and security factors"
-      />
-
-      {/* Stats Cards */}
-      <div className="mb-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      >
+      <AdminStatsGrid columns={4}>
         {loading ? (
           <>
             {[1, 2, 3, 4].map((i) => (
-              <div key={i} className="h-32 animate-pulse rounded-2xl bg-white/5" />
+              <div key={i} className="h-32 animate-pulse rounded bg-[#f3f2f1]" />
             ))}
           </>
         ) : risk ? (
           <>
             <AdminStatCard
-              title="Risk Level"
+              label="Risk Level"
               value={risk.level}
               subtitle="Current assessment"
               icon={risk.level === "LOW" ? ShieldCheck : risk.level === "HIGH" ? ShieldAlert : AlertTriangle}
               color={getRiskColor(risk.level) as any}
             />
             <AdminStatCard
-              title="Risk Score"
+              label="Risk Score"
               value={`${risk.score}/100`}
               subtitle="Overall score"
               icon={ShieldCheck}
               color="blue"
             />
             <AdminStatCard
-              title="Factors Checked"
+              label="Factors Checked"
               value={risk.factors.length}
               subtitle="Security factors"
               icon={CheckCircle}
               color="purple"
             />
             <AdminStatCard
-              title="Status"
+              label="Status"
               value={risk.factors.filter((f) => f.status === "OK").length}
               subtitle="Passed checks"
               icon={CheckCircle}
@@ -97,32 +97,27 @@ export default function AdminRiskPage() {
             />
           </>
         ) : null}
-      </div>
+      </AdminStatsGrid>
 
       {/* Risk Assessment Details */}
-      <AdminCard>
-        <h3 className="mb-6 text-lg font-bold text-white">Risk Assessment</h3>
+      <AdminCard title="Risk Assessment">
         {loading ? (
-          <div className="space-y-3">
-            {[1, 2, 3].map((i) => (
-              <div key={i} className="h-16 animate-pulse rounded-lg bg-white/5" />
-            ))}
-          </div>
+          <AdminLoading rows={3} />
         ) : risk ? (
           <div className="space-y-6">
             {/* Risk Level Summary */}
-            <div className="flex items-center gap-4 rounded-xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm">
-              <div className="flex h-16 w-16 items-center justify-center rounded-xl bg-purple-500/10">
-                <ShieldCheck className="h-8 w-8 text-purple-400" />
+            <div className="flex items-center gap-4 rounded border border-[#edebe9] bg-white p-6">
+              <div className="flex h-16 w-16 items-center justify-center rounded bg-[#8764b8] text-white">
+                <ShieldCheck className="h-8 w-8" />
               </div>
               <div className="flex-1">
                 <div className="flex items-center gap-3">
-                  <p className="text-lg font-semibold text-white">Risk Level:</p>
+                  <p className="text-base font-semibold text-[#323130]">Risk Level:</p>
                   <AdminBadge variant={getRiskBadgeVariant(risk.level) as any}>
                     {risk.level}
                   </AdminBadge>
                 </div>
-                <p className="mt-1 text-sm text-white/60">
+                <p className="mt-1 text-xs text-[#605e5c]">
                   Overall risk score: {risk.score}/100
                 </p>
               </div>
@@ -130,20 +125,20 @@ export default function AdminRiskPage() {
 
             {/* Risk Factors */}
             <div>
-              <h4 className="mb-4 text-sm font-semibold uppercase tracking-wide text-white/50">
+              <h4 className="mb-4 text-xs font-semibold uppercase tracking-wide text-[#605e5c]">
                 Security Factors
               </h4>
-              <div className="space-y-3">
+              <div className="space-y-2">
                 {risk.factors.map((factor) => (
                   <div
                     key={factor.name}
-                    className="flex items-center justify-between rounded-xl border border-white/10 bg-white/5 p-4 backdrop-blur-sm transition-all hover:border-white/20 hover:bg-white/10"
+                    className="flex items-center justify-between rounded border border-[#edebe9] bg-white p-4 transition-all hover:bg-[#f3f2f1]"
                   >
                     <div className="flex items-center gap-3">
-                      <div className="rounded-lg bg-emerald-500/10 p-2">
-                        <CheckCircle className="h-5 w-5 text-emerald-400" />
+                      <div className="rounded bg-[#107c10] p-2 text-white">
+                        <CheckCircle className="h-5 w-5" />
                       </div>
-                      <span className="font-medium text-white">{factor.name}</span>
+                      <span className="text-xs font-semibold text-[#323130]">{factor.name}</span>
                     </div>
                     <AdminBadge variant="success">{factor.status}</AdminBadge>
                   </div>
@@ -153,6 +148,7 @@ export default function AdminRiskPage() {
           </div>
         ) : null}
       </AdminCard>
+      </AdminPageLayout>
     </AdminPageWrapper>
   )
 }

@@ -1,0 +1,24 @@
+{
+  "activeCount": 6,
+  "totalReach": 38294,
+  "engagementRate": 18.7,
+  "scheduledCount": 4,
+  "audienceBreakdown": [
+    {
+      "type": "All Users",
+      "percentage": 65
+    },
+    {
+      "type": "Tenant Owners",
+      "percentage": 20
+    },
+    {
+      "type": "Admins Only",
+      "percentage": 10
+    },
+    {
+      "type": "Specific Groups",
+      "percentage": 5
+    }
+  ]
+}

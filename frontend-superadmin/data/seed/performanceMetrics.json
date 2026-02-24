@@ -1,0 +1,33 @@
+{
+  "timestamp": "2024-02-21T10:45:00Z",
+  "apiLatency": {
+    "p50": 85,
+    "p95": 245,
+    "p99": 580,
+    "avg": 145
+  },
+  "throughput": {
+    "requestsPerSecond": 1247,
+    "requestsPerMinute": 74820
+  },
+  "errorRates": {
+    "http4xx": 2.3,
+    "http5xx": 0.08,
+    "total": 2.38
+  },
+  "database": {
+    "queryTime": 42,
+    "connectionPool": 85,
+    "slowQueries": 12
+  },
+  "cache": {
+    "hitRate": 94.5,
+    "missRate": 5.5,
+    "evictions": 234
+  },
+  "resources": {
+    "cpuUsage": 58,
+    "memoryUsage": 72,
+    "diskUsage": 64
+  }
+}

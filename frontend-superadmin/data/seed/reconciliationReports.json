@@ -1,0 +1,133 @@
+{
+  "summary": {
+    "monthlyVolume": 78450000,
+    "reconciliationRate": 98.2,
+    "chargebackRate": 0.18
+  },
+  "monthlyTrends": [
+    {
+      "month": "February 2024",
+      "volume": 78450000,
+      "transactions": 34567,
+      "reconciled": 98.2
+    },
+    {
+      "month": "January 2024",
+      "volume": 69870000,
+      "transactions": 31245,
+      "reconciled": 97.8
+    },
+    {
+      "month": "December 2023",
+      "volume": 82340000,
+      "transactions": 36892,
+      "reconciled": 98.5
+    },
+    {
+      "month": "November 2023",
+      "volume": 71230000,
+      "transactions": 32156,
+      "reconciled": 97.6
+    },
+    {
+      "month": "October 2023",
+      "volume": 68950000,
+      "transactions": 30987,
+      "reconciled": 98.1
+    },
+    {
+      "month": "September 2023",
+      "volume": 73680000,
+      "transactions": 33421,
+      "reconciled": 97.9
+    }
+  ],
+  "topTenants": [
+    {
+      "tenantId": "tenant_001",
+      "name": "Elite Models Agency",
+      "volume": 12450000,
+      "transactions": 5678,
+      "reconciled": 99.1
+    },
+    {
+      "tenantId": "tenant_002",
+      "name": "Miss Universe Pageant",
+      "volume": 10890000,
+      "transactions": 4892,
+      "reconciled": 98.7
+    },
+    {
+      "tenantId": "tenant_003",
+      "name": "Runway Models Inc",
+      "volume": 9870000,
+      "transactions": 4321,
+      "reconciled": 98.9
+    },
+    {
+      "tenantId": "tenant_004",
+      "name": "Fashion Week Productions",
+      "volume": 8650000,
+      "transactions": 3987,
+      "reconciled": 97.4
+    },
+    {
+      "tenantId": "tenant_005",
+      "name": "Talent Connect Agency",
+      "volume": 7890000,
+      "transactions": 3654,
+      "reconciled": 98.3
+    },
+    {
+      "tenantId": "tenant_006",
+      "name": "Global Pageant Network",
+      "volume": 6780000,
+      "transactions": 3210,
+      "reconciled": 98.6
+    }
+  ],
+  "availableReports": [
+    {
+      "id": "report_001",
+      "name": "Daily Reconciliation Summary",
+      "description": "Complete daily reconciliation with transaction details",
+      "period": "Daily",
+      "lastGenerated": "2024-02-21"
+    },
+    {
+      "id": "report_002",
+      "name": "Weekly Variance Report",
+      "description": "Weekly analysis of discrepancies and variances",
+      "period": "Weekly",
+      "lastGenerated": "2024-02-19"
+    },
+    {
+      "id": "report_003",
+      "name": "Monthly Financial Summary",
+      "description": "Comprehensive monthly financial reconciliation",
+      "period": "Monthly",
+      "lastGenerated": "2024-02-01"
+    },
+    {
+      "id": "report_004",
+      "name": "Chargeback Analysis",
+      "description": "Detailed chargeback trends and win rate analysis",
+      "period": "Monthly",
+      "lastGenerated": "2024-02-01"
+    },
+    {
+      "id": "report_005",
+      "name": "Tenant Performance Report",
+      "description": "Per-tenant reconciliation performance metrics",
+      "period": "Monthly",
+      "lastGenerated": "2024-02-01"
+    },
+    {
+      "id": "report_006",
+      "name": "Dispute Resolution Report",
+      "description": "Payment dispute resolution statistics and trends",
+      "period": "Weekly",
+      "lastGenerated": "2024-02-19"
+    }
+  ]
+}

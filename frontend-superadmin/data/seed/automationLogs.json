@@ -1,0 +1,12 @@
+[
+  { "id": "log_001", "ruleId": "rule_001", "ruleName": "Intake auto-route by type", "status": "SUCCESS", "startedAt": "2025-02-16T10:00:00.000Z", "completedAt": "2025-02-16T10:00:00.045Z", "durationMs": 45, "tenantId": "T1", "entityId": "int_101", "entityType": "intake" },
+  { "id": "log_002", "ruleId": "rule_002", "ruleName": "Assignment round-robin", "status": "SUCCESS", "startedAt": "2025-02-16T10:25:00.000Z", "completedAt": "2025-02-16T10:25:00.120Z", "durationMs": 120, "tenantId": "T1" },
+  { "id": "log_003", "ruleId": "rule_006", "ruleName": "Contract signed → Create escrow", "status": "SUCCESS", "startedAt": "2025-02-16T08:30:00.000Z", "completedAt": "2025-02-16T08:30:00.200Z", "durationMs": 200, "tenantId": "T2", "entityId": "esc_501", "entityType": "escrow" },
+  { "id": "log_004", "ruleId": "rule_019", "ruleName": "Spam filter on submit", "status": "FAILED", "startedAt": "2025-02-16T10:28:00.000Z", "completedAt": "2025-02-16T10:28:00.032Z", "durationMs": 32, "tenantId": "T3", "errorMessage": "Filter service timeout" },
+  { "id": "log_005", "ruleId": "rule_004", "ruleName": "Parallel approval chain", "status": "SUCCESS", "startedAt": "2025-02-16T09:30:00.000Z", "completedAt": "2025-02-16T09:30:00.055Z", "durationMs": 55, "tenantId": "T1", "entityId": "apr_201", "entityType": "approval" },
+  { "id": "log_006", "ruleId": "rule_008", "ruleName": "Payment reminder 7 days before due", "status": "SUCCESS", "startedAt": "2025-02-16T09:00:00.000Z", "completedAt": "2025-02-16T09:00:00.100Z", "durationMs": 100, "tenantId": "T2" },
+  { "id": "log_007", "ruleId": "rule_015", "ruleName": "No-show detection", "status": "SUCCESS", "startedAt": "2025-02-16T10:15:00.000Z", "completedAt": "2025-02-16T10:15:00.070Z", "durationMs": 70, "tenantId": "T1" },
+  { "id": "log_008", "ruleId": "rule_021", "ruleName": "Shipment tracking update", "status": "SUCCESS", "startedAt": "2025-02-16T09:45:00.000Z", "completedAt": "2025-02-16T09:45:00.075Z", "durationMs": 75, "tenantId": "T4", "entityType": "shipment" },
+  { "id": "log_009", "ruleId": "rule_010", "ruleName": "Cancellation → Release escrow", "status": "FAILED", "startedAt": "2025-02-13T16:00:00.000Z", "completedAt": "2025-02-13T16:00:00.150Z", "durationMs": 150, "tenantId": "T2", "errorMessage": "Escrow already released" },
+  { "id": "log_010", "ruleId": "rule_011", "ruleName": "Access expiry → Revoke", "status": "SUCCESS", "startedAt": "2025-02-16T00:00:00.000Z", "completedAt": "2025-02-16T00:00:00.250Z", "durationMs": 250, "tenantId": "T1" }
+]

@@ -1,0 +1,77 @@
+[
+  {
+    "id": "exec_001",
+    "workflowId": "wf_001",
+    "status": "COMPLETED",
+    "currentState": "confirmed",
+    "startedAt": "2025-02-16T10:28:00.000Z",
+    "completedAt": "2025-02-16T10:30:00.000Z",
+    "durationMs": 120000,
+    "tenantId": "tenant_001",
+    "entityId": "book_101",
+    "entityType": "booking",
+    "stepCount": 4
+  },
+  {
+    "id": "exec_002",
+    "workflowId": "wf_001",
+    "status": "RUNNING",
+    "currentState": "hold",
+    "startedAt": "2025-02-16T10:35:00.000Z",
+    "tenantId": "tenant_004",
+    "entityId": "book_102",
+    "entityType": "booking",
+    "stepCount": 3
+  },
+  {
+    "id": "exec_003",
+    "workflowId": "wf_002",
+    "status": "COMPLETED",
+    "currentState": "onboarded",
+    "startedAt": "2025-02-16T08:00:00.000Z",
+    "completedAt": "2025-02-16T09:15:00.000Z",
+    "durationMs": 4500000,
+    "tenantId": "tenant_001",
+    "entityId": "talent_201",
+    "entityType": "talent",
+    "stepCount": 4
+  },
+  {
+    "id": "exec_004",
+    "workflowId": "wf_002",
+    "status": "FAILED",
+    "currentState": "review",
+    "startedAt": "2025-02-16T09:00:00.000Z",
+    "completedAt": "2025-02-16T09:22:00.000Z",
+    "durationMs": 1320000,
+    "tenantId": "tenant_006",
+    "entityId": "talent_202",
+    "entityType": "talent",
+    "errorMessage": "Validation failed: missing required document",
+    "stepCount": 2
+  },
+  {
+    "id": "exec_005",
+    "workflowId": "wf_003",
+    "status": "COMPLETED",
+    "currentState": "released",
+    "startedAt": "2025-02-15T12:00:00.000Z",
+    "completedAt": "2025-02-16T08:00:00.000Z",
+    "durationMs": 72000000,
+    "tenantId": "tenant_001",
+    "entityId": "escrow_301",
+    "entityType": "escrow",
+    "stepCount": 4
+  },
+  {
+    "id": "exec_006",
+    "workflowId": "wf_005",
+    "status": "RUNNING",
+    "currentState": "l2_review",
+    "startedAt": "2025-02-16T10:40:00.000Z",
+    "tenantId": "tenant_001",
+    "entityId": "approval_401",
+    "entityType": "approval",
+    "stepCount": 3
+  }
+]

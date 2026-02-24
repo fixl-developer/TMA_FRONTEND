@@ -1,0 +1,66 @@
+[
+  {
+    "id": "act_001",
+    "action": "Role 'Pageant Director' assigned to user",
+    "user": "admin@example.com",
+    "role": "Pageant Director",
+    "timestamp": "2024-01-15T10:30:00Z",
+    "type": "role_assigned"
+  },
+  {
+    "id": "act_002",
+    "action": "Permission 'manage_finances' updated",
+    "user": "superadmin@platform.com",
+    "role": "Finance Manager",
+    "timestamp": "2024-01-15T09:15:00Z",
+    "type": "permission_changed"
+  },
+  {
+    "id": "act_003",
+    "action": "Policy 'Talent Access Control' updated",
+    "user": "admin@example.com",
+    "role": "System Admin",
+    "timestamp": "2024-01-14T16:45:00Z",
+    "type": "policy_updated"
+  },
+  {
+    "id": "act_004",
+    "action": "Role 'Casting Director' assigned to user",
+    "user": "casting@agency.com",
+    "role": "Casting Director",
+    "timestamp": "2024-01-14T14:20:00Z",
+    "type": "role_assigned"
+  },
+  {
+    "id": "act_005",
+    "action": "Permission 'view_analytics' added to role",
+    "user": "superadmin@platform.com",
+    "role": "Analytics Viewer",
+    "timestamp": "2024-01-14T11:00:00Z",
+    "type": "permission_changed"
+  },
+  {
+    "id": "act_006",
+    "action": "Policy 'Event Management' created",
+    "user": "admin@example.com",
+    "role": "System Admin",
+    "timestamp": "2024-01-13T15:30:00Z",
+    "type": "policy_updated"
+  },
+  {
+    "id": "act_007",
+    "action": "Role 'Talent Manager' assigned to user",
+    "user": "talent@agency.com",
+    "role": "Talent Manager",
+    "timestamp": "2024-01-13T10:15:00Z",
+    "type": "role_assigned"
+  },
+  {
+    "id": "act_008",
+    "action": "Permission 'manage_bookings' updated",
+    "user": "superadmin@platform.com",
+    "role": "Booking Manager",
+    "timestamp": "2024-01-12T16:00:00Z",
+    "type": "permission_changed"
+  }
+]

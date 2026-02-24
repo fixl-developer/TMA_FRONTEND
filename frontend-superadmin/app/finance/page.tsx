@@ -22,6 +22,7 @@ import type {
   WalletSnapshot,
 } from "@/shared/lib/types/finance"
 import { Button } from "@/shared/components/ui/button"
+import Link from "next/link"
 import {
   Card,
   CardContent,
@@ -144,6 +145,14 @@ export default function FinanceDashboard() {
           </span>
         }
       />
+
+      {/* Phase 1 quick links */}
+      <div className="mb-4 flex flex-wrap gap-2">
+        <Link href="/finance/wallets"><Button variant="outline" size="sm">Wallets</Button></Link>
+        <Link href="/finance/escrow"><Button variant="outline" size="sm">Escrow</Button></Link>
+        <Link href="/finance/ledger"><Button variant="outline" size="sm">Ledger</Button></Link>
+        <Link href="/finance/commissions"><Button variant="outline" size="sm">Commissions</Button></Link>
+      </div>
 
       {/* Tabs */}
       <div className="mb-6 flex gap-1 rounded-lg border border-slate-200 bg-white p-1">
@@ -580,7 +589,7 @@ export default function FinanceDashboard() {
                             </td>
                             <td className="py-3 pr-4 text-slate-600">{p.tenantCount}</td>
                             <td className="py-3">
-                              <span className="inline-flex rounded border border-emerald-200 bg-emerald-50 px-2 py-0.5 text-xs font-medium text-emerald-800">
+                              <span className="inline-flex rounded border border-[#107c10] bg-[#107c10] px-2 py-0.5 text-xs font-medium text-white">
                                 {p.status}
                               </span>
                             </td>
@@ -746,9 +755,9 @@ export default function FinanceDashboard() {
                             <td className="py-3 pr-4 text-slate-600">{formatCurrency(e.amountMinor, e.currency)}</td>
                             <td className="py-3">
                               <span className={`inline-flex rounded border px-2 py-0.5 text-xs font-medium ${
-                                e.status === "SETTLED" ? "bg-emerald-100 text-emerald-800 border-emerald-200" :
-                                e.status === "IN_DISPUTE" ? "bg-rose-100 text-rose-800 border-rose-200" :
-                                "bg-amber-100 text-amber-800 border-amber-200"
+                                e.status === "SETTLED" ? "bg-[#107c10] text-white border-[#107c10]" :
+                                e.status === "IN_DISPUTE" ? "bg-[#d13438] text-white border-[#d13438]" :
+                                "bg-[#ffb900] text-[#323130] border-[#ffb900]"
                               }`}>
                                 {e.status}
                               </span>
@@ -792,9 +801,9 @@ export default function FinanceDashboard() {
                           </div>
                         </div>
                         <span className={`shrink-0 rounded border px-2.5 py-1 text-xs font-medium ${
-                          r.status === "OPEN" ? "bg-amber-100 text-amber-800 border-amber-200" :
-                          r.status === "RESOLVED" ? "bg-emerald-100 text-emerald-800 border-emerald-200" :
-                          "bg-slate-100 text-slate-600 border-slate-200"
+                          r.status === "OPEN" ? "bg-[#ffb900] text-[#323130] border-[#ffb900]" :
+                          r.status === "RESOLVED" ? "bg-[#107c10] text-white border-[#107c10]" :
+                          "bg-[#a19f9d] text-white border-[#a19f9d]"
                         }`}>
                           {r.status}
                         </span>

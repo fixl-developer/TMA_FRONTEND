@@ -1,0 +1,113 @@
+[
+  {
+    "id": "settlement-001",
+    "tenantId": "tenant-001",
+    "tenantName": "Elite Talent Agency",
+    "period": "2024-02",
+    "periodLabel": "February 2024",
+    "status": "completed",
+    "totalTransactions": 45,
+    "totalRevenue": 2850000,
+    "totalCommission": 570000,
+    "platformFee": 142500,
+    "netPayable": 427500,
+    "currency": "INR",
+    "generatedAt": "2024-03-01T00:00:00Z",
+    "paidAt": "2024-03-05T10:30:00Z",
+    "paymentMethod": "bank_transfer",
+    "breakdown": {
+      "bookingCommissions": 450000,
+      "platformFees": 120000,
+      "adjustments": 0
+    }
+  },
+  {
+    "id": "settlement-002",
+    "tenantId": "tenant-002",
+    "tenantName": "Glamour Models Inc",
+    "period": "2024-02",
+    "periodLabel": "February 2024",
+    "status": "pending_approval",
+    "totalTransactions": 62,
+    "totalRevenue": 4200000,
+    "totalCommission": 840000,
+    "platformFee": 210000,
+    "netPayable": 630000,
+    "currency": "INR",
+    "generatedAt": "2024-03-01T00:00:00Z",
+    "paidAt": null,
+    "paymentMethod": null,
+    "breakdown": {
+      "bookingCommissions": 720000,
+      "platformFees": 120000,
+      "adjustments": 0
+    }
+  },
+  {
+    "id": "settlement-003",
+    "tenantId": "tenant-003",
+    "tenantName": "Star Pageants",
+    "period": "2024-02",
+    "periodLabel": "February 2024",
+    "status": "pending_approval",
+    "totalTransactions": 28,
+    "totalRevenue": 1680000,
+    "totalCommission": 252000,
+    "platformFee": 84000,
+    "netPayable": 168000,
+    "currency": "INR",
+    "generatedAt": "2024-03-01T00:00:00Z",
+    "paidAt": null,
+    "paymentMethod": null,
+    "breakdown": {
+      "registrationCommissions": 180000,
+      "platformFees": 72000,
+      "adjustments": 0
+    }
+  },
+  {
+    "id": "settlement-004",
+    "tenantId": "tenant-001",
+    "tenantName": "Elite Talent Agency",
+    "period": "2024-01",
+    "periodLabel": "January 2024",
+    "status": "completed",
+    "totalTransactions": 38,
+    "totalRevenue": 2280000,
+    "totalCommission": 456000,
+    "platformFee": 114000,
+    "netPayable": 342000,
+    "currency": "INR",
+    "generatedAt": "2024-02-01T00:00:00Z",
+    "paidAt": "2024-02-05T10:30:00Z",
+    "paymentMethod": "bank_transfer",
+    "breakdown": {
+      "bookingCommissions": 380000,
+      "platformFees": 76000,
+      "adjustments": 0
+    }
+  },
+  {
+    "id": "settlement-005",
+    "tenantId": "tenant-004",
+    "tenantName": "Fashion Forward Agency",
+    "period": "2024-02",
+    "periodLabel": "February 2024",
+    "status": "disputed",
+    "totalTransactions": 52,
+    "totalRevenue": 3640000,
+    "totalCommission": 728000,
+    "platformFee": 182000,
+    "netPayable": 546000,
+    "currency": "INR",
+    "generatedAt": "2024-03-01T00:00:00Z",
+    "paidAt": null,
+    "paymentMethod": null,
+    "disputeReason": "Incorrect commission calculation on 3 bookings",
+    "breakdown": {
+      "bookingCommissions": 620000,
+      "platformFees": 108000,
+      "adjustments": 0
+    }
+  }
+]
