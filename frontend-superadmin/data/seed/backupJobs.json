@@ -1,0 +1,63 @@
+[
+  {
+    "_id": "bkp_2025_02_24_0200",
+    "type": "SCHEDULED",
+    "status": "PENDING",
+    "scheduledAt": "2025-02-24T02:00:00.000Z",
+    "startedAt": null,
+    "completedAt": null,
+    "snapshotId": null,
+    "sizeGb": null,
+    "durationSeconds": null,
+    "error": null
+  },
+  {
+    "_id": "bkp_2025_02_23_0200",
+    "type": "SCHEDULED",
+    "status": "SUCCESS",
+    "scheduledAt": "2025-02-23T02:00:00.000Z",
+    "startedAt": "2025-02-23T02:00:15.000Z",
+    "completedAt": "2025-02-23T02:08:17.000Z",
+    "snapshotId": "snap_2025_02_23",
+    "sizeGb": 126.4,
+    "durationSeconds": 482,
+    "error": null
+  },
+  {
+    "_id": "bkp_2025_02_22_0200",
+    "type": "SCHEDULED",
+    "status": "SUCCESS",
+    "scheduledAt": "2025-02-22T02:00:00.000Z",
+    "startedAt": "2025-02-22T02:00:18.000Z",
+    "completedAt": "2025-02-22T02:07:50.000Z",
+    "snapshotId": "snap_2025_02_22",
+    "sizeGb": 124.9,
+    "durationSeconds": 452,
+    "error": null
+  },
+  {
+    "_id": "bkp_2025_02_21_0200",
+    "type": "SCHEDULED",
+    "status": "FAILED",
+    "scheduledAt": "2025-02-21T02:00:00.000Z",
+    "startedAt": "2025-02-21T02:00:11.000Z",
+    "completedAt": "2025-02-21T02:02:05.000Z",
+    "snapshotId": null,
+    "sizeGb": 32.1,
+    "durationSeconds": 114,
+    "error": "S3 timeout in ap-south-1"
+  },
+  {
+    "_id": "bkp_2025_02_16_manual",
+    "type": "MANUAL",
+    "status": "SUCCESS",
+    "scheduledAt": "2025-02-16T09:00:00.000Z",
+    "startedAt": "2025-02-16T09:00:02.000Z",
+    "completedAt": "2025-02-16T09:06:40.000Z",
+    "snapshotId": "snap_2025_02_16_manual",
+    "sizeGb": 118.3,
+    "durationSeconds": 398,
+    "error": null
+  }
+]
+

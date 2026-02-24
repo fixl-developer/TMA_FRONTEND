@@ -1,0 +1,37 @@
+{
+  "period": "Last 30 days",
+  "overview": {
+    "totalSent": 125420,
+    "deliveryRate": 97.2,
+    "openRate": 42.5,
+    "clickRate": 12.8,
+    "bounceRate": 1.2,
+    "failureRate": 1.6
+  },
+  "byChannel": [
+    { "channel": "email", "sent": 45230, "delivered": 43980, "opened": 18520, "clicked": 5620, "bounced": 890, "failed": 360 },
+    { "channel": "sms", "sent": 38520, "delivered": 37890, "opened": null, "clicked": null, "bounced": 420, "failed": 210 },
+    { "channel": "push", "sent": 32450, "delivered": 32100, "opened": 14850, "clicked": 4120, "bounced": null, "failed": 350 },
+    { "channel": "in-app", "sent": 9220, "delivered": 9210, "opened": 6150, "clicked": 2100, "bounced": null, "failed": 10 }
+  ],
+  "topTemplates": [
+    { "templateId": "ntpl_006", "templateName": "New Message Alert", "channel": "push", "sent": 45230, "deliveryRate": 99.1 },
+    { "templateId": "ntpl_001", "templateName": "Welcome Email", "channel": "email", "sent": 15420, "deliveryRate": 97.8 },
+    { "templateId": "ntpl_004", "templateName": "OTP Verification", "channel": "sms", "sent": 24567, "deliveryRate": 98.5 },
+    { "templateId": "ntpl_003", "templateName": "Booking Confirmation", "channel": "email", "sent": 8912, "deliveryRate": 98.2 }
+  ],
+  "dailyTrend": [
+    { "date": "2024-02-18", "sent": 4200, "delivered": 4080 },
+    { "date": "2024-02-19", "sent": 4580, "delivered": 4450 },
+    { "date": "2024-02-20", "sent": 5120, "delivered": 4980 },
+    { "date": "2024-02-21", "sent": 3890, "delivered": 3780 },
+    { "date": "2024-02-22", "sent": 4250, "delivered": 4120 },
+    { "date": "2024-02-23", "sent": 4610, "delivered": 4480 },
+    { "date": "2024-02-24", "sent": 4850, "delivered": 4720 }
+  ],
+  "tenantUsage": [
+    { "tenantId": "tnt_001", "tenantName": "Model Agency Pro", "sent": 32450, "percentage": 25.9 },
+    { "tenantId": "tnt_002", "tenantName": "Casting Direct", "sent": 28560, "percentage": 22.8 },
+    { "tenantId": "tnt_003", "tenantName": "Pageant Events Inc", "sent": 21230, "percentage": 16.9 }
+  ]
+}

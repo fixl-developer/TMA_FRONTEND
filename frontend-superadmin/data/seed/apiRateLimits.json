@@ -1,0 +1,87 @@
+[
+  {
+    "_id": "rl_001",
+    "scope": "tenant",
+    "tenantId": "tenant_001",
+    "endpoint": "*",
+    "method": "*",
+    "windowSeconds": 60,
+    "limit": 600,
+    "burst": 120,
+    "status": "ACTIVE",
+    "notes": "Default tenant limit"
+  },
+  {
+    "_id": "rl_002",
+    "scope": "tenant",
+    "tenantId": "tenant_002",
+    "endpoint": "*",
+    "method": "*",
+    "windowSeconds": 60,
+    "limit": 450,
+    "burst": 90,
+    "status": "ACTIVE",
+    "notes": "Stricter limits due to higher error rate"
+  },
+  {
+    "_id": "rl_003",
+    "scope": "endpoint",
+    "tenantId": null,
+    "endpoint": "/v1/payments/webhooks",
+    "method": "POST",
+    "windowSeconds": 60,
+    "limit": 3000,
+    "burst": 600,
+    "status": "ACTIVE",
+    "notes": "Allow higher throughput for gateway callbacks"
+  },
+  {
+    "_id": "rl_004",
+    "scope": "endpoint",
+    "tenantId": null,
+    "endpoint": "/v1/auth/*",
+    "method": "*",
+    "windowSeconds": 60,
+    "limit": 1200,
+    "burst": 240,
+    "status": "ACTIVE",
+    "notes": "Protect auth endpoints"
+  },
+  {
+    "_id": "rl_005",
+    "scope": "tenant",
+    "tenantId": "tenant_004",
+    "endpoint": "*",
+    "method": "*",
+    "windowSeconds": 60,
+    "limit": 800,
+    "burst": 160,
+    "status": "ACTIVE",
+    "notes": "Approved higher-tier contract"
+  },
+  {
+    "_id": "rl_006",
+    "scope": "endpoint",
+    "tenantId": "tenant_001",
+    "endpoint": "/v1/jobs",
+    "method": "POST",
+    "windowSeconds": 60,
+    "limit": 120,
+    "burst": 30,
+    "status": "ACTIVE",
+    "notes": "Reduce job creation spam"
+  },
+  {
+    "_id": "rl_007",
+    "scope": "tenant",
+    "tenantId": "tenant_003",
+    "endpoint": "*",
+    "method": "*",
+    "windowSeconds": 60,
+    "limit": 300,
+    "burst": 60,
+    "status": "DISABLED",
+    "notes": "Tenant temporarily paused"
+  }
+]
+

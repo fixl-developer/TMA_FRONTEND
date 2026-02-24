@@ -1,0 +1,51 @@
+{
+  "period": "Last 30 days",
+  "totals": {
+    "requests": 1285400,
+    "errors": 18450,
+    "errorRatePercent": 1.44,
+    "p50LatencyMs": 120,
+    "p95LatencyMs": 640,
+    "p99LatencyMs": 980
+  },
+  "timeseries": [
+    { "date": "2025-02-10", "requests": 40210, "errors": 620, "p95LatencyMs": 680 },
+    { "date": "2025-02-11", "requests": 41890, "errors": 590, "p95LatencyMs": 650 },
+    { "date": "2025-02-12", "requests": 44120, "errors": 710, "p95LatencyMs": 720 },
+    { "date": "2025-02-13", "requests": 39980, "errors": 540, "p95LatencyMs": 610 },
+    { "date": "2025-02-14", "requests": 46310, "errors": 820, "p95LatencyMs": 760 },
+    { "date": "2025-02-15", "requests": 48770, "errors": 930, "p95LatencyMs": 820 },
+    { "date": "2025-02-16", "requests": 45220, "errors": 740, "p95LatencyMs": 700 }
+  ],
+  "topEndpoints": [
+    { "method": "GET", "path": "/v1/talents", "requests": 245600, "errorRatePercent": 0.9, "p95LatencyMs": 520 },
+    { "method": "GET", "path": "/v1/bookings", "requests": 192340, "errorRatePercent": 1.2, "p95LatencyMs": 610 },
+    { "method": "POST", "path": "/v1/jobs", "requests": 88420, "errorRatePercent": 2.7, "p95LatencyMs": 740 },
+    { "method": "POST", "path": "/v1/payments/webhooks", "requests": 62110, "errorRatePercent": 0.4, "p95LatencyMs": 320 },
+    { "method": "GET", "path": "/v1/pageants", "requests": 51200, "errorRatePercent": 1.8, "p95LatencyMs": 680 }
+  ],
+  "byTenant": [
+    {
+      "tenantId": "tenant_001",
+      "tenantName": "Elite Model Management",
+      "requests": 412300,
+      "errorRatePercent": 1.1,
+      "p95LatencyMs": 610
+    },
+    {
+      "tenantId": "tenant_002",
+      "tenantName": "Miss India Pageants",
+      "requests": 318900,
+      "errorRatePercent": 1.6,
+      "p95LatencyMs": 690
+    },
+    {
+      "tenantId": "tenant_004",
+      "tenantName": "Talent Hub Agency",
+      "requests": 284100,
+      "errorRatePercent": 1.2,
+      "p95LatencyMs": 640
+    }
+  ]
+}
+

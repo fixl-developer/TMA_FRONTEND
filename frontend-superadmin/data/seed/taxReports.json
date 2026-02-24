@@ -1,0 +1,33 @@
+[
+  {
+    "_id": "tax_2025_01_IN",
+    "jurisdiction": "IN",
+    "period": "Jan 2025",
+    "outputTax": 485000,
+    "inputTax": 192000,
+    "netTax": 293000,
+    "status": "DRAFT",
+    "generatedAt": "2025-02-01T08:00:00.000Z"
+  },
+  {
+    "_id": "tax_2025_01_EU",
+    "jurisdiction": "EU",
+    "period": "Jan 2025",
+    "outputTax": 132000,
+    "inputTax": 45000,
+    "netTax": 87000,
+    "status": "FILED",
+    "generatedAt": "2025-02-05T09:30:00.000Z"
+  },
+  {
+    "_id": "tax_2024_12_IN",
+    "jurisdiction": "IN",
+    "period": "Dec 2024",
+    "outputTax": 462000,
+    "inputTax": 181000,
+    "netTax": 281000,
+    "status": "FILED",
+    "generatedAt": "2025-01-05T09:00:00.000Z"
+  }
+]
+

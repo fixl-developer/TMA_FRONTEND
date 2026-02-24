@@ -114,6 +114,21 @@ export default function IntegrationsPage() {
           </Card>
           <Card>
             <CardHeader>
+              <CardTitle className="text-sm font-semibold">Payments</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-3xl font-semibold text-[#323130]">
+                —
+              </p>
+              <p className="mt-1 text-xs text-[#605e5c]">
+                <Link href="/integrations/payments" className="text-[#0078d4] hover:text-[#106ebe]">
+                  View payment gateways
+                </Link>
+              </p>
+            </CardContent>
+          </Card>
+          <Card>
+            <CardHeader>
               <CardTitle className="text-sm font-semibold">Active webhooks</CardTitle>
             </CardHeader>
             <CardContent>

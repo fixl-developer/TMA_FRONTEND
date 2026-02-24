@@ -1,0 +1,22 @@
+{
+  "policyName": "TalentOS Default",
+  "frequency": "daily",
+  "timeOfDay": "02:00",
+  "timezone": "UTC",
+  "retentionDays": 35,
+  "retentionMonthlySnapshots": 12,
+  "retentionYearlySnapshots": 3,
+  "storageProvider": "aws-s3",
+  "storageRegion": "ap-south-1",
+  "storageBucket": "talentos-backups-prod",
+  "encryptionEnabled": true,
+  "encryptionKmsKey": "arn:aws:kms:ap-south-1:123456789012:key/talentos-backups",
+  "compression": "zstd",
+  "includeTenants": "all",
+  "excludeTenants": ["tenant_003"],
+  "lastBackupAt": "2025-02-23T02:03:21.000Z",
+  "lastBackupStatus": "SUCCESS",
+  "lastBackupDurationSeconds": 482,
+  "lastBackupSizeGb": 126.4
+}
+

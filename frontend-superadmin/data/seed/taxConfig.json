@@ -1,0 +1,45 @@
+{
+  "defaultJurisdiction": "IN",
+  "jurisdictions": [
+    {
+      "code": "IN",
+      "name": "India (GST)",
+      "type": "GST",
+      "standardRatePercent": 18,
+      "reducedRatePercent": 5,
+      "zeroRatePercent": 0,
+      "exemptCategories": ["education", "healthcare"],
+      "destinationBased": true,
+      "includedTenants": ["tenant_001", "tenant_002", "tenant_004", "tenant_005", "tenant_006"]
+    },
+    {
+      "code": "EU",
+      "name": "European Union (VAT)",
+      "type": "VAT",
+      "standardRatePercent": 21,
+      "reducedRatePercent": 9,
+      "zeroRatePercent": 0,
+      "exemptCategories": ["financial_services"],
+      "destinationBased": true,
+      "includedTenants": ["tenant_008", "tenant_019"]
+    },
+    {
+      "code": "US",
+      "name": "United States (Sales Tax)",
+      "type": "SALES_TAX",
+      "standardRatePercent": 8.5,
+      "reducedRatePercent": 0,
+      "zeroRatePercent": 0,
+      "exemptCategories": ["b2b_services"],
+      "destinationBased": true,
+      "includedTenants": ["tenant_003", "tenant_020"]
+    }
+  ],
+  "compliance": {
+    "storeAuditTrailYears": 7,
+    "lockInvoicingAfterDays": 30,
+    "roundingMode": "BANKERS",
+    "taxInclusivePricingDefault": false
+  }
+}
+

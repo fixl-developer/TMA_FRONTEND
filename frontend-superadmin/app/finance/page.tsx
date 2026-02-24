@@ -146,12 +146,17 @@ export default function FinanceDashboard() {
         }
       />
 
-      {/* Phase 1 quick links */}
+      {/* Phase 1 + Phase 3 quick links */}
       <div className="mb-4 flex flex-wrap gap-2">
         <Link href="/finance/wallets"><Button variant="outline" size="sm">Wallets</Button></Link>
         <Link href="/finance/escrow"><Button variant="outline" size="sm">Escrow</Button></Link>
         <Link href="/finance/ledger"><Button variant="outline" size="sm">Ledger</Button></Link>
         <Link href="/finance/commissions"><Button variant="outline" size="sm">Commissions</Button></Link>
+        <Link href="/finance/currencies"><Button variant="outline" size="sm">Currencies</Button></Link>
+        <Link href="/finance/exchange-rates"><Button variant="outline" size="sm">FX rates</Button></Link>
+        <Link href="/finance/conversions"><Button variant="outline" size="sm">Conversions</Button></Link>
+        <Link href="/finance/tax/config"><Button variant="outline" size="sm">Tax config</Button></Link>
+        <Link href="/finance/tax/reports"><Button variant="outline" size="sm">Tax reports</Button></Link>
       </div>
 
       {/* Tabs */}
