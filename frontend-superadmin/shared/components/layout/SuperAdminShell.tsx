@@ -52,13 +52,19 @@ interface SuperAdminShellProps {
   children: React.ReactNode
 }
 
-interface NavSection {
+interface NavItem {
   label: string
-  items: {
+  href?: string
+  icon: React.ComponentType<{ className?: string }>
+  children?: {
     label: string
     href: string
-    icon: React.ComponentType<{ className?: string }>
   }[]
+}
+
+interface NavSection {
+  label: string
+  items: NavItem[]
 }
 
 const navSections: NavSection[] = [
@@ -71,8 +77,26 @@ const navSections: NavSection[] = [
   {
     label: "Organization",
     items: [
-      { label: "Tenants", href: "/tenants", icon: Building2 },
-      { label: "Users", href: "/users", icon: UserCircle2 },
+      { 
+        label: "Tenants", 
+        icon: Building2,
+        children: [
+          { label: "Overview", href: "/tenants" },
+          { label: "Lifecycle", href: "/tenants/lifecycle" },
+          { label: "Configuration", href: "/tenants/configuration" },
+          { label: "Risk", href: "/tenants/risk" },
+        ]
+      },
+      { 
+        label: "Users", 
+        icon: UserCircle2,
+        children: [
+          { label: "Overview", href: "/users" },
+          { label: "Identity", href: "/users/identity" },
+          { label: "Roles", href: "/users/roles" },
+          { label: "Abuse", href: "/users/abuse" },
+        ]
+      },
       { label: "Blueprints", href: "/blueprints/catalog", icon: Layers },
       { label: "Templates", href: "/templates", icon: FileStack },
     ],
@@ -81,50 +105,110 @@ const navSections: NavSection[] = [
     label: "Platform Configuration",
     items: [
       { label: "Workflows", href: "/workflows", icon: Workflow },
-      { label: "Automation", href: "/automation", icon: Zap },
+      { 
+        label: "Automation", 
+        icon: Zap,
+        children: [
+          { label: "Overview", href: "/automation" },
+          { label: "Workflows", href: "/automation/workflows" },
+          { label: "Policies", href: "/automation/policies" },
+          { label: "Controls", href: "/automation/controls" },
+        ]
+      },
       { label: "RBAC", href: "/rbac/roles", icon: Shield },
-      { label: "Features", href: "/features", icon: Flag },
+      { 
+        label: "Features", 
+        icon: Flag,
+        children: [
+          { label: "Overview", href: "/features" },
+          { label: "Flags", href: "/features/flags" },
+          { label: "Rollouts", href: "/features/rollouts" },
+          { label: "Config", href: "/features/config" },
+        ]
+      },
       { label: "Governance", href: "/governance", icon: Lock },
     ],
   },
   {
-    label: "Finance",
+    label: "Finance & Revenue",
     items: [
       { label: "Finance", href: "/finance", icon: Wallet2 },
-      { label: "Revenue", href: "/finance/revenue", icon: TrendingUp },
+      { 
+        label: "Revenue", 
+        icon: TrendingUp,
+        children: [
+          { label: "Overview", href: "/finance/revenue" },
+          { label: "Billing", href: "/revenue/billing" },
+          { label: "Fees", href: "/revenue/fees" },
+          { label: "Reports", href: "/revenue/reports" },
+        ]
+      },
       { label: "Commissions", href: "/commissions", icon: DollarSign },
       { label: "Reconciliation", href: "/reconciliation", icon: FileText },
+      { 
+        label: "Payments", 
+        icon: Wallet2,
+        children: [
+          { label: "Wallets", href: "/payments/wallets" },
+          { label: "Escrow", href: "/payments/escrow" },
+          { label: "Risk", href: "/payments/risk" },
+        ]
+      },
     ],
   },
   {
-    label: "Fraud Detection",
+    label: "Trust & Safety",
     items: [
-      { label: "Dashboard", href: "/fraud/dashboard", icon: ShieldAlert },
-      { label: "Signals", href: "/fraud/signals", icon: Activity },
-      { label: "Models", href: "/fraud/models", icon: Gauge },
-      { label: "Patterns", href: "/fraud/patterns", icon: TrendingUp },
-      { label: "Responses", href: "/fraud/responses", icon: Zap },
-      { label: "Thresholds", href: "/fraud/thresholds", icon: BarChart3 },
+      { 
+        label: "Fraud Detection", 
+        icon: ShieldAlert,
+        children: [
+          { label: "Dashboard", href: "/fraud/dashboard" },
+          { label: "Signals", href: "/fraud/signals" },
+          { label: "Models", href: "/fraud/models" },
+          { label: "Patterns", href: "/fraud/patterns" },
+          { label: "Responses", href: "/fraud/responses" },
+          { label: "Thresholds", href: "/fraud/thresholds" },
+        ]
+      },
+      { 
+        label: "Moderation", 
+        icon: Shield,
+        children: [
+          { label: "Queue", href: "/moderation/queue" },
+          { label: "Rules", href: "/moderation/rules" },
+          { label: "Appeals", href: "/moderation/appeals" },
+          { label: "Moderators", href: "/moderation/moderators" },
+          { label: "Analytics", href: "/moderation/analytics" },
+        ]
+      },
     ],
   },
   {
     label: "Analytics & Monitoring",
     items: [
       { label: "System Health", href: "/health", icon: Activity },
-      { label: "Platform", href: "/analytics/platform", icon: BarChart3 },
-      { label: "Tenants", href: "/analytics/tenants", icon: Users },
-      { label: "Revenue", href: "/analytics/revenue", icon: DollarSign },
-      { label: "Reports", href: "/analytics/reports", icon: FileText },
-    ],
-  },
-  {
-    label: "WES (Workflow Execution)",
-    items: [
-      { label: "Dashboard", href: "/wes", icon: Gauge },
-      { label: "Executions", href: "/wes/executions", icon: Activity },
-      { label: "Analytics", href: "/wes/analytics", icon: BarChart3 },
-      { label: "Bottlenecks", href: "/wes/bottlenecks", icon: ShieldAlert },
-      { label: "KPIs", href: "/wes/kpis", icon: TrendingUp },
+      { 
+        label: "Analytics", 
+        icon: BarChart3,
+        children: [
+          { label: "Platform", href: "/analytics/platform" },
+          { label: "Tenants", href: "/analytics/tenants" },
+          { label: "Revenue", href: "/analytics/revenue" },
+          { label: "Reports", href: "/analytics/reports" },
+        ]
+      },
+      { 
+        label: "WES", 
+        icon: Gauge,
+        children: [
+          { label: "Dashboard", href: "/wes" },
+          { label: "Executions", href: "/wes/executions" },
+          { label: "Analytics", href: "/wes/analytics" },
+          { label: "Bottlenecks", href: "/wes/bottlenecks" },
+          { label: "KPIs", href: "/wes/kpis" },
+        ]
+      },
     ],
   },
   {
@@ -150,24 +234,31 @@ const navSections: NavSection[] = [
     items: [
       { label: "DSR Requests", href: "/compliance/dsr", icon: ShieldCheck },
       { label: "Legal Holds", href: "/compliance/legal-holds", icon: Lock },
-      { label: "Retention", href: "/compliance/retention/policies", icon: Clock },
-    ],
-  },
-  {
-    label: "Content Moderation",
-    items: [
-      { label: "Queue", href: "/moderation/queue", icon: Shield },
-      { label: "Rules", href: "/moderation/rules", icon: FileText },
-      { label: "Appeals", href: "/moderation/appeals", icon: Scale },
-      { label: "Moderators", href: "/moderation/moderators", icon: Users },
-      { label: "Analytics", href: "/moderation/analytics", icon: BarChart3 },
+      { 
+        label: "Retention", 
+        icon: Clock,
+        children: [
+          { label: "Policies", href: "/compliance/retention/policies" },
+          { label: "Schedules", href: "/compliance/retention/schedules" },
+          { label: "Lifecycle", href: "/compliance/retention/lifecycle" },
+        ]
+      },
     ],
   },
   {
     label: "Operations & Integrations",
     items: [
       { label: "Operations", href: "/operations", icon: Workflow },
-      { label: "Integrations", href: "/integrations", icon: Plug2 },
+      { 
+        label: "Integrations", 
+        icon: Plug2,
+        children: [
+          { label: "Overview", href: "/integrations" },
+          { label: "APIs", href: "/integrations/api/usage" },
+          { label: "Webhooks", href: "/integrations/webhooks" },
+          { label: "Payments", href: "/integrations/payments" },
+        ]
+      },
       { label: "CLM", href: "/clm", icon: FileText },
     ],
   },
@@ -179,6 +270,7 @@ export function SuperAdminShell({ children }: SuperAdminShellProps) {
   const [expandedSections, setExpandedSections] = React.useState<Set<string>>(
     new Set(navSections.map((s) => s.label))
   )
+  const [expandedParents, setExpandedParents] = React.useState<Set<string>>(new Set())
 
   React.useEffect(() => {
     const stored = localStorage.getItem("sidebarCollapsed")
@@ -191,6 +283,15 @@ export function SuperAdminShell({ children }: SuperAdminShellProps) {
 
   const toggleSection = (label: string) => {
     setExpandedSections((prev) => {
+      const next = new Set(prev)
+      if (next.has(label)) next.delete(label)
+      else next.add(label)
+      return next
+    })
+  }
+
+  const toggleParent = (label: string) => {
+    setExpandedParents((prev) => {
       const next = new Set(prev)
       if (next.has(label)) next.delete(label)
       else next.add(label)
@@ -288,40 +389,115 @@ export function SuperAdminShell({ children }: SuperAdminShellProps) {
                     <ul className="space-y-0.5">
                       {section.items.map((item) => {
                         const Icon = item.icon
-                        const active =
+                        const hasChildren = item.children && item.children.length > 0
+                        const isParentExpanded = expandedParents.has(item.label)
+                        
+                        // Check if any child is active
+                        const isChildActive = hasChildren && item.children?.some(child => 
+                          pathname === child.href || pathname.startsWith(child.href + "/")
+                        )
+                        
+                        const isDirectActive = item.href && (
                           pathname === item.href ||
                           (item.href !== "/" && pathname.startsWith(item.href + "/"))
+                        )
 
-                        return (
-                          <li key={item.href}>
-                            <Link
-                              href={item.href}
-                              title={collapsed ? item.label : undefined}
-                              className={cn(
-                                "group relative flex items-center gap-3 px-3 py-2 text-sm transition-colors",
-                                active
-                                  ? "bg-[#e3f2fd] font-semibold text-[#0078d4]"
-                                  : "text-[#605e5c] hover:bg-[#e1dfdd] hover:text-[#323130]"
-                              )}
-                              aria-current={active ? "page" : undefined}
-                            >
-                              {active && (
-                                <span className="absolute left-0 top-0 h-full w-1 bg-[#0078d4]" />
-                              )}
-                              <span
+                        if (hasChildren) {
+                          // Parent item with children
+                          return (
+                            <li key={item.label}>
+                              <button
+                                type="button"
+                                onClick={() => toggleParent(item.label)}
                                 className={cn(
-                                  "flex h-5 w-5 shrink-0 items-center justify-center",
-                                  active ? "text-[#0078d4]" : "text-[#605e5c]"
+                                  "group relative flex w-full items-center gap-3 px-3 py-2 text-sm transition-colors",
+                                  isChildActive
+                                    ? "bg-[#e3f2fd] font-semibold text-[#0078d4]"
+                                    : "text-[#605e5c] hover:bg-[#e1dfdd] hover:text-[#323130]"
                                 )}
                               >
-                                <Icon className="h-5 w-5" />
-                              </span>
-                              {!collapsed && (
-                                <span className="truncate">{item.label}</span>
+                                {isChildActive && (
+                                  <span className="absolute left-0 top-0 h-full w-1 bg-[#0078d4]" />
+                                )}
+                                <span
+                                  className={cn(
+                                    "flex h-5 w-5 shrink-0 items-center justify-center",
+                                    isChildActive ? "text-[#0078d4]" : "text-[#605e5c]"
+                                  )}
+                                >
+                                  <Icon className="h-5 w-5" />
+                                </span>
+                                {!collapsed && (
+                                  <>
+                                    <span className="flex-1 truncate">{item.label}</span>
+                                    <ChevronRight
+                                      className={cn(
+                                        "h-3.5 w-3.5 transition-transform",
+                                        isParentExpanded && "rotate-90"
+                                      )}
+                                    />
+                                  </>
+                                )}
+                              </button>
+                              {!collapsed && isParentExpanded && (
+                                <ul className="ml-8 mt-0.5 space-y-0.5 border-l-2 border-[#d1d1d1] pl-2">
+                                  {item.children?.map((child) => {
+                                    const isActive = pathname === child.href || 
+                                      (child.href !== "/" && pathname.startsWith(child.href + "/"))
+                                    
+                                    return (
+                                      <li key={child.href}>
+                                        <Link
+                                          href={child.href}
+                                          className={cn(
+                                            "block rounded px-3 py-1.5 text-sm transition-colors",
+                                            isActive
+                                              ? "bg-[#e3f2fd] font-semibold text-[#0078d4]"
+                                              : "text-[#605e5c] hover:bg-[#e1dfdd] hover:text-[#323130]"
+                                          )}
+                                        >
+                                          {child.label}
+                                        </Link>
+                                      </li>
+                                    )
+                                  })}
+                                </ul>
                               )}
-                            </Link>
-                          </li>
-                        )
+                            </li>
+                          )
+                        } else {
+                          // Regular item without children
+                          return (
+                            <li key={item.href}>
+                              <Link
+                                href={item.href!}
+                                title={collapsed ? item.label : undefined}
+                                className={cn(
+                                  "group relative flex items-center gap-3 px-3 py-2 text-sm transition-colors",
+                                  isDirectActive
+                                    ? "bg-[#e3f2fd] font-semibold text-[#0078d4]"
+                                    : "text-[#605e5c] hover:bg-[#e1dfdd] hover:text-[#323130]"
+                                )}
+                                aria-current={isDirectActive ? "page" : undefined}
+                              >
+                                {isDirectActive && (
+                                  <span className="absolute left-0 top-0 h-full w-1 bg-[#0078d4]" />
+                                )}
+                                <span
+                                  className={cn(
+                                    "flex h-5 w-5 shrink-0 items-center justify-center",
+                                    isDirectActive ? "text-[#0078d4]" : "text-[#605e5c]"
+                                  )}
+                                >
+                                  <Icon className="h-5 w-5" />
+                                </span>
+                                {!collapsed && (
+                                  <span className="truncate">{item.label}</span>
+                                )}
+                              </Link>
+                            </li>
+                          )
+                        }
                       })}
                     </ul>
                   )}
