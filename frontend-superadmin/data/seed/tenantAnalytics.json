@@ -1,0 +1,7 @@
+[
+  {"tenantId": "tenant_001", "name": "Elite Model Management", "blueprint": "B1", "revenue": 245000, "healthScore": 92, "churnRisk": "low", "usersCount": 45, "transactionCount": 1200, "lastActivity": "2025-02-23T08:00:00.000Z"},
+  {"tenantId": "tenant_002", "name": "Miss India Pageants", "blueprint": "B3", "revenue": 189000, "healthScore": 88, "churnRisk": "low", "usersCount": 89, "transactionCount": 3400, "lastActivity": "2025-02-23T07:30:00.000Z"},
+  {"tenantId": "tenant_003", "name": "Fashion Forward Brands", "blueprint": "B4", "revenue": 156000, "healthScore": 78, "churnRisk": "medium", "usersCount": 23, "transactionCount": 890, "lastActivity": "2025-02-22T18:00:00.000Z"},
+  {"tenantId": "tenant_004", "name": "Talent Hub Agency", "blueprint": "B1", "revenue": 134000, "healthScore": 85, "churnRisk": "low", "usersCount": 34, "transactionCount": 1100, "lastActivity": "2025-02-23T06:00:00.000Z"},
+  {"tenantId": "tenant_005", "name": "Showcase Events India", "blueprint": "B6", "revenue": 98000, "healthScore": 72, "churnRisk": "medium", "usersCount": 56, "transactionCount": 2100, "lastActivity": "2025-02-22T14:00:00.000Z"}
+]

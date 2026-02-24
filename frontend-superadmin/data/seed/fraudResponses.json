@@ -1,0 +1,42 @@
+[
+  {
+    "id": "resp_001",
+    "name": "High-risk transaction hold",
+    "triggerType": "risk_score",
+    "severityThreshold": 90,
+    "action": "HOLD_TRANSACTION",
+    "status": "active",
+    "executionCount": 234,
+    "lastTriggered": "2025-02-21T08:45:00.000Z"
+  },
+  {
+    "id": "resp_002",
+    "name": "Critical velocity block",
+    "triggerType": "velocity_check",
+    "severityThreshold": 95,
+    "action": "BLOCK_ACCOUNT",
+    "status": "active",
+    "executionCount": 45,
+    "lastTriggered": "2025-02-21T07:30:00.000Z"
+  },
+  {
+    "id": "resp_003",
+    "name": "Device blacklist",
+    "triggerType": "device_fingerprint",
+    "severityThreshold": 85,
+    "action": "BLACKLIST_DEVICE",
+    "status": "active",
+    "executionCount": 67,
+    "lastTriggered": "2025-02-20T22:15:00.000Z"
+  },
+  {
+    "id": "resp_004",
+    "name": "Geo anomaly alert",
+    "triggerType": "geo_anomaly",
+    "severityThreshold": 80,
+    "action": "ALERT_AND_HOLD",
+    "status": "active",
+    "executionCount": 12,
+    "lastTriggered": "2025-02-21T06:00:00.000Z"
+  }
+]

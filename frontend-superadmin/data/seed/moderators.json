@@ -1,0 +1,74 @@
+[
+  {
+    "_id": "moderator_001",
+    "userId": "user_mod_001",
+    "name": "Sarah Johnson",
+    "email": "sarah.johnson@example.com",
+    "status": "ACTIVE",
+    "assignedTenants": ["tenant_001", "tenant_002"],
+    "performanceMetrics": {
+      "itemsReviewed": 1245,
+      "averageResponseTime": 4.5,
+      "accuracyRate": 0.94
+    },
+    "trainingStatus": {
+      "completed": true,
+      "lastTraining": "2025-01-15T00:00:00.000Z",
+      "certifications": ["Content Moderation", "Hate Speech Detection"]
+    }
+  },
+  {
+    "_id": "moderator_002",
+    "userId": "user_mod_002",
+    "name": "Michael Chen",
+    "email": "michael.chen@example.com",
+    "status": "ACTIVE",
+    "assignedTenants": ["tenant_001", "tenant_003"],
+    "performanceMetrics": {
+      "itemsReviewed": 987,
+      "averageResponseTime": 3.2,
+      "accuracyRate": 0.96
+    },
+    "trainingStatus": {
+      "completed": true,
+      "lastTraining": "2025-02-01T00:00:00.000Z",
+      "certifications": ["Content Moderation", "Image Analysis"]
+    }
+  },
+  {
+    "_id": "moderator_003",
+    "userId": "user_mod_003",
+    "name": "Emily Rodriguez",
+    "email": "emily.rodriguez@example.com",
+    "status": "TRAINING",
+    "assignedTenants": ["tenant_002"],
+    "performanceMetrics": {
+      "itemsReviewed": 156,
+      "averageResponseTime": 6.8,
+      "accuracyRate": 0.87
+    },
+    "trainingStatus": {
+      "completed": false,
+      "lastTraining": "2025-02-10T00:00:00.000Z",
+      "certifications": ["Content Moderation"]
+    }
+  },
+  {
+    "_id": "moderator_004",
+    "userId": "user_mod_004",
+    "name": "David Kim",
+    "email": "david.kim@example.com",
+    "status": "ACTIVE",
+    "assignedTenants": ["tenant_003"],
+    "performanceMetrics": {
+      "itemsReviewed": 2103,
+      "averageResponseTime": 2.9,
+      "accuracyRate": 0.98
+    },
+    "trainingStatus": {
+      "completed": true,
+      "lastTraining": "2025-01-20T00:00:00.000Z",
+      "certifications": ["Content Moderation", "Spam Detection", "Brand Safety"]
+    }
+  }
+]

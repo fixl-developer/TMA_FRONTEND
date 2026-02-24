@@ -1,108 +1,69 @@
-/**
- * Fraud Pattern Detection
- *
- * AI-powered fraud pattern analysis and trend detection.
- */
-
 "use client"
 
-import { ArrowLeft, TrendingUp, Activity } from "lucide-react"
+import { useEffect, useMemo, useState } from "react"
 import Link from "next/link"
+import { GitBranch, ArrowRight } from "lucide-react"
+import { useAppDispatch, useAppSelector } from "@/shared/state/hooks"
+import { fetchFraudPatterns } from "@/shared/state/fraudSlice"
+import type { FraudPattern } from "@/shared/lib/types/fraud"
+import { PageLayout, PageHeader, PageSection, MetricsGrid } from "@/shared/components/layout/PageLayout"
 import { Card, CardContent, CardHeader, CardTitle } from "@/shared/components/ui/card"
-import { PageLayout, PageHeader, PageSection } from "@/shared/components/layout/PageLayout"
+import { Button } from "@/shared/components/ui/button"
+import { DataTable, type Column } from "@/shared/components/ui/data-table"
 
 export default function FraudPatternsPage() {
-  const patterns = [
-    {
-      id: 1,
-      name: "Card Testing Pattern",
-      description: "Multiple small transactions followed by large withdrawal attempts",
-      occurrences: 12,
-      trend: "increasing",
-      severity: "high"
-    },
-    {
-      id: 2,
-      name: "Account Takeover",
-      description: "Sudden change in login patterns with password resets",
-      occurrences: 8,
-      trend: "stable",
-      severity: "critical"
-    },
-    {
-      id: 3,
-      name: "Velocity Abuse",
-      description: "Unusually high transaction frequency in short time windows",
-      occurrences: 15,
-      trend: "decreasing",
-      severity: "medium"
-    }
-  ]
+  const dispatch = useAppDispatch()
+  const { patterns, loadingPatterns } = useAppSelector((s) => s.fraud)
+
+  useEffect(() => {
+    if (!patterns.length) dispatch(fetchFraudPatterns())
+  }, [dispatch, patterns.length])
+
+  const metrics = useMemo(() => {
+    const totalOccurrences = patterns.reduce((s, p) => s + (p.occurrences ?? 0), 0)
+    const totalPrevented = patterns.reduce((s, p) => s + (p.preventedLoss ?? 0), 0)
+    return { count: patterns.length, totalOccurrences, totalPrevented }
+  }, [patterns])
+
+  const columns: Column<FraudPattern>[] = useMemo(
+    () => [
+      { key: "id", header: "Pattern ID", render: (v) => <span className="font-mono text-xs">{String(v)}</span> },
+      { key: "name", header: "Name", render: (v) => <span className="text-sm font-medium">{String(v)}</span> },
+      { key: "type", header: "Type", render: (v) => <span className="text-sm">{String(v)}</span> },
+      { key: "confidence", header: "Confidence", render: (v) => <span className="font-medium">{Number(v)}%</span> },
+      { key: "occurrences", header: "Occurrences", render: (v) => <span>{Number(v ?? 0).toLocaleString()}</span> },
+      { key: "affectedEntities", header: "Affected", render: (v) => <span>{Number(v ?? 0).toLocaleString()}</span> },
+      { key: "preventedLoss", header: "Prevented loss", render: (v) => v != null ? `₹${Number(v).toLocaleString()}` : "—" },
+      { key: "status", header: "Status", render: (v) => <span className="rounded border border-[#107c10] bg-[#dff6dd] px-2 py-0.5 text-xs">{String(v)}</span> },
+    ],
+    []
+  )
 
   return (
     <PageLayout>
       <PageHeader
-        title="Fraud Pattern Detection"
-        description="AI-powered analysis of fraud patterns and trends"
-        badge={
-          <span className="inline-flex items-center gap-1.5 rounded-md border border-slate-200 bg-white px-2.5 py-1 text-xs font-medium text-slate-600">
-            <Activity className="h-3.5 w-3.5 text-violet-500" />
-            Pattern Analysis
-          </span>
-        }
+        title="Pattern analysis"
+        description="Detected patterns, types, frequency, affected entities. Seed data only."
+        badge={<span className="inline-flex items-center gap-1.5 rounded border border-[#edebe9] bg-white px-2.5 py-1 text-xs font-medium text-[#605e5c]"><GitBranch className="h-3.5 w-3.5 text-[#0078d4]" />Patterns</span>}
         actions={
-          <Link
-            href="/superadmin/fraud"
-            className="inline-flex items-center gap-2 rounded-md border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50"
-          >
-            <ArrowLeft className="h-4 w-4" />
-            Back
-          </Link>
+          <div className="flex flex-wrap gap-2">
+            <Link href="/fraud/dashboard"><Button variant="outline" size="sm">Dashboard</Button></Link>
+            <Link href="/fraud/signals"><Button variant="outline" size="sm">Signals</Button></Link>
+            <Link href="/fraud/models"><Button variant="outline" size="sm">Models</Button></Link>
+          </div>
         }
       />
-
-      <PageSection title="Detected patterns">
-        <div className="space-y-4">
-          {patterns.map((pattern) => (
-            <Card key={pattern.id} className="hover:border-blue-300 transition-colors">
-              <CardHeader>
-                <div className="flex items-start justify-between">
-                  <div>
-                    <CardTitle className="text-lg">{pattern.name}</CardTitle>
-                    <p className="text-sm text-slate-600 mt-1">{pattern.description}</p>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className={`px-3 py-1 rounded-full text-xs font-medium ${
-                      pattern.severity === "critical" ? "bg-rose-100 text-rose-700" :
-                      pattern.severity === "high" ? "bg-orange-100 text-orange-700" :
-                      "bg-amber-100 text-amber-700"
-                    }`}>
-                      {pattern.severity}
-                    </span>
-                  </div>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-4">
-                    <div>
-                      <p className="text-xs text-slate-500">Occurrences</p>
-                      <p className="text-2xl font-bold text-slate-800">{pattern.occurrences}</p>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <TrendingUp className={`h-5 w-5 ${
-                        pattern.trend === "increasing" ? "text-rose-500" :
-                        pattern.trend === "decreasing" ? "text-emerald-500" :
-                        "text-slate-400"
-                      }`} />
-                      <span className="text-sm text-slate-600 capitalize">{pattern.trend}</span>
-                    </div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
+      <PageSection title="Overview">
+        <MetricsGrid>
+          <Card><CardHeader><CardTitle>Patterns</CardTitle></CardHeader><CardContent><p className="text-3xl font-semibold text-[#323130]">{loadingPatterns ? "—" : metrics.count}</p></CardContent></Card>
+          <Card><CardHeader><CardTitle>Total occurrences</CardTitle></CardHeader><CardContent><p className="text-3xl font-semibold text-[#323130]">{loadingPatterns ? "—" : metrics.totalOccurrences}</p></CardContent></Card>
+          <Card><CardHeader><CardTitle>Prevented loss</CardTitle></CardHeader><CardContent><p className="text-2xl font-semibold text-[#107c10]">{loadingPatterns ? "—" : `₹${(metrics.totalPrevented / 100000).toFixed(1)}L`}</p></CardContent></Card>
+        </MetricsGrid>
+      </PageSection>
+      <PageSection title="Patterns">
+        <Card><CardContent className="p-0">
+          {loadingPatterns ? <div className="flex items-center justify-center py-12 text-sm text-[#605e5c]">Loading…</div> : <DataTable data={patterns} columns={columns} pageSize={10} exportable exportFileName="fraud-patterns" emptyMessage="No patterns in seed." />}
+        </CardContent></Card>
       </PageSection>
     </PageLayout>
   )

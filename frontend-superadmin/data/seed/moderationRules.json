@@ -1,0 +1,77 @@
+[
+  {
+    "_id": "rule_001",
+    "name": "Hate speech detection",
+    "description": "Automatically flag content containing hate speech keywords",
+    "triggerType": "KEYWORD",
+    "triggerConditions": {
+      "keywords": ["hate", "discrimination", "offensive"],
+      "caseSensitive": false
+    },
+    "actions": ["QUARANTINE", "STRIKE"],
+    "status": "ACTIVE",
+    "priority": 1,
+    "executionCount": 145,
+    "successRate": 0.92
+  },
+  {
+    "_id": "rule_002",
+    "name": "Spam pattern detection",
+    "description": "Detect spam patterns using ML model",
+    "triggerType": "ML_MODEL",
+    "triggerConditions": {
+      "modelId": "spam_detector_v2",
+      "threshold": 0.85
+    },
+    "actions": ["REJECT", "WARN"],
+    "status": "ACTIVE",
+    "priority": 2,
+    "executionCount": 523,
+    "successRate": 0.88
+  },
+  {
+    "_id": "rule_003",
+    "name": "Image content analysis",
+    "description": "Analyze images for inappropriate content",
+    "triggerType": "IMAGE_ANALYSIS",
+    "triggerConditions": {
+      "categories": ["nudity", "violence", "weapons"],
+      "confidence": 0.9
+    },
+    "actions": ["QUARANTINE", "DELETE"],
+    "status": "ACTIVE",
+    "priority": 1,
+    "executionCount": 312,
+    "successRate": 0.95
+  },
+  {
+    "_id": "rule_004",
+    "name": "Brand safety check",
+    "description": "Ensure content meets brand safety standards",
+    "triggerType": "PATTERN",
+    "triggerConditions": {
+      "patterns": ["brand_unsafe_patterns"],
+      "severity": "HIGH"
+    },
+    "actions": ["REJECT", "QUARANTINE"],
+    "status": "ACTIVE",
+    "priority": 3,
+    "executionCount": 89,
+    "successRate": 0.91
+  },
+  {
+    "_id": "rule_005",
+    "name": "Behavioral anomaly detection",
+    "description": "Detect unusual posting patterns",
+    "triggerType": "BEHAVIORAL",
+    "triggerConditions": {
+      "postingFrequency": "abnormal",
+      "contentSimilarity": "high"
+    },
+    "actions": ["WARN", "STRIKE"],
+    "status": "DRAFT",
+    "priority": 4,
+    "executionCount": 0,
+    "successRate": 0
+  }
+]

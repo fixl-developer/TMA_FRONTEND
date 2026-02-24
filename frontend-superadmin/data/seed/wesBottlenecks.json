@@ -1,0 +1,33 @@
+[
+  {
+    "id": "bn_001",
+    "tenantId": "tenant_003",
+    "stage": "Approval Queue",
+    "description": "Manual approval bottleneck - avg 48h wait time",
+    "impact": "high",
+    "avgDelayHours": 48,
+    "affectedExecutions": 156,
+    "status": "identified",
+    "recommendation": "Enable auto-approval for low-risk bookings"
+  },
+  {
+    "id": "bn_002",
+    "stage": "Document Verification",
+    "description": "Document verification taking 72h on average",
+    "impact": "medium",
+    "avgDelayHours": 72,
+    "affectedExecutions": 89,
+    "status": "resolving",
+    "recommendation": "Implement automated document validation"
+  },
+  {
+    "id": "bn_003",
+    "stage": "Escrow Release",
+    "description": "Manual escrow release causing 5-7 day delays",
+    "impact": "high",
+    "avgDelayHours": 120,
+    "affectedExecutions": 45,
+    "status": "identified",
+    "recommendation": "Enable milestone-based auto-release"
+  }
+]

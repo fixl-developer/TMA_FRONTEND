@@ -1,0 +1,34 @@
+[
+  {
+    "id": "thresh_001",
+    "name": "Critical risk threshold",
+    "metric": "risk_score",
+    "value": 90,
+    "action": "AUTO_BLOCK",
+    "status": "active"
+  },
+  {
+    "id": "thresh_002",
+    "name": "High risk threshold",
+    "metric": "risk_score",
+    "value": 75,
+    "action": "MANUAL_REVIEW",
+    "status": "active"
+  },
+  {
+    "id": "thresh_003",
+    "name": "Transaction velocity limit",
+    "metric": "transactions_per_hour",
+    "value": 10,
+    "action": "FLAG",
+    "status": "active"
+  },
+  {
+    "id": "thresh_004",
+    "name": "Account creation velocity",
+    "metric": "accounts_per_device_per_day",
+    "value": 3,
+    "action": "BLOCK",
+    "status": "active"
+  }
+]
