@@ -36,35 +36,35 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# Progress tracking and temporary documentation files
-*PLAN*.md
-*PROGRESS*.md
-*STATUS*.md
-*SUMMARY*.md
-*GUIDE*.md
-*TEMPLATE*.md
-*INSTRUCTIONS*.md
-*COMPARISON*.md
-*ANALYSIS*.md
-*MAPPING*.md
-*TRACKER*.md
-*UPDATE*.md
-*CHEATSHEET*.md
-*START*.md
-*REPORT*.md
-*OPTIMIZATIONS*.md
-*FIX*.md
-*CONVERSION*.md
-*REDESIGN*.md
-*IMPLEMENTATION*.md
-NEXT-*.md
-REMAINING_*.md
-overall.md
-overall2.md
-overall3.md
-work.md
-updated.md
-microsoft.md
+# Progress tracking and temporary documentation files (ROOT LEVEL ONLY)
+# Using / prefix to only block files at repository root, not in subdirectories
+/*PLAN*.md
+/*PROGRESS*.md
+/*STATUS*.md
+/*SUMMARY*.md
+/*GUIDE*.md
+/*TEMPLATE*.md
+/*INSTRUCTIONS*.md
+/*COMPARISON*.md
+/*MAPPING*.md
+/*TRACKER*.md
+/*CHEATSHEET*.md
+/*START*.md
+/*REPORT*.md
+/*OPTIMIZATIONS*.md
+/*FIX*.md
+/*CONVERSION*.md
+/*REDESIGN*.md
+/NEXT-*.md
+/REMAINING_*.md
+/overall.md
+/overall2.md
+/overall3.md
+/microsoft.md
+
+# Keep important superadmin documentation
+!SUPERADMIN_*.md
+!GITIGNORE_*.md
 
 # Temporary images
 *.png
