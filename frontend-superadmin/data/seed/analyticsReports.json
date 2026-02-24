@@ -1,0 +1,7 @@
+[
+  {"id": "rpt_001", "name": "Monthly Revenue Summary", "type": "scheduled", "schedule": "1st of month", "lastRun": "2025-02-01T00:00:00.000Z", "status": "active"},
+  {"id": "rpt_002", "name": "Tenant Health Dashboard", "type": "scheduled", "schedule": "Weekly", "lastRun": "2025-02-18T00:00:00.000Z", "status": "active"},
+  {"id": "rpt_003", "name": "Transaction Volume Report", "type": "scheduled", "schedule": "Daily", "lastRun": "2025-02-23T00:00:00.000Z", "status": "active"},
+  {"id": "rpt_004", "name": "Churn Risk Analysis", "type": "adhoc", "lastRun": "2025-02-15T10:00:00.000Z", "status": "active"},
+  {"id": "rpt_005", "name": "Commission Breakdown", "type": "template", "status": "draft"}
+]

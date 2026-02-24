@@ -1,0 +1,85 @@
+{
+  "queueHealth": {
+    "totalPending": 12,
+    "averageWaitTime": 2.5,
+    "oldestPendingAge": 8.3
+  },
+  "responseTimes": {
+    "average": 3.8,
+    "p50": 2.5,
+    "p95": 8.2,
+    "p99": 12.5
+  },
+  "actionDistribution": {
+    "APPROVE": 1245,
+    "REJECT": 523,
+    "QUARANTINE": 312,
+    "DELETE": 89,
+    "WARN": 267,
+    "STRIKE": 145
+  },
+  "moderatorPerformance": [
+    {
+      "moderatorId": "moderator_001",
+      "itemsReviewed": 1245,
+      "averageResponseTime": 4.5,
+      "accuracyRate": 0.94
+    },
+    {
+      "moderatorId": "moderator_002",
+      "itemsReviewed": 987,
+      "averageResponseTime": 3.2,
+      "accuracyRate": 0.96
+    },
+    {
+      "moderatorId": "moderator_003",
+      "itemsReviewed": 156,
+      "averageResponseTime": 6.8,
+      "accuracyRate": 0.87
+    },
+    {
+      "moderatorId": "moderator_004",
+      "itemsReviewed": 2103,
+      "averageResponseTime": 2.9,
+      "accuracyRate": 0.98
+    }
+  ],
+  "trends": [
+    {
+      "date": "2025-02-15",
+      "itemsQueued": 45,
+      "itemsResolved": 42,
+      "averageResponseTime": 3.5
+    },
+    {
+      "date": "2025-02-16",
+      "itemsQueued": 52,
+      "itemsResolved": 48,
+      "averageResponseTime": 3.8
+    },
+    {
+      "date": "2025-02-17",
+      "itemsQueued": 38,
+      "itemsResolved": 41,
+      "averageResponseTime": 3.2
+    },
+    {
+      "date": "2025-02-18",
+      "itemsQueued": 61,
+      "itemsResolved": 55,
+      "averageResponseTime": 4.1
+    },
+    {
+      "date": "2025-02-19",
+      "itemsQueued": 48,
+      "itemsResolved": 52,
+      "averageResponseTime": 3.6
+    },
+    {
+      "date": "2025-02-20",
+      "itemsQueued": 35,
+      "itemsResolved": 38,
+      "averageResponseTime": 3.4
+    }
+  ]
+}

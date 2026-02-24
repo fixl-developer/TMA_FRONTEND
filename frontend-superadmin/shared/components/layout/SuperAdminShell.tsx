@@ -15,6 +15,7 @@ import {
   LayoutDashboard,
   Crown,
   Users2,
+  Users,
   UserCircle2,
   PlaySquare,
   Wallet2,
@@ -35,6 +36,13 @@ import {
   TrendingUp,
   Layers,
   FileStack,
+  BarChart3,
+  Gauge,
+  Building2,
+  Lock,
+  ShieldCheck,
+  Clock,
+  Scale,
 } from "lucide-react"
 import { Button } from "@/shared/components/ui/button"
 import { GlobalSearchBar } from "@/shared/components/search/GlobalSearchBar"
@@ -61,40 +69,106 @@ const navSections: NavSection[] = [
     ],
   },
   {
-    label: "Content & Events",
-    items: [
-      { label: "Pageants", href: "/pageants", icon: Crown },
-      { label: "Talent Showcase", href: "/talent-showcase", icon: PlaySquare },
-    ],
-  },
-  {
     label: "Organization",
     items: [
-      { label: "Tenants", href: "/tenants", icon: Users2 },
+      { label: "Tenants", href: "/tenants", icon: Building2 },
+      { label: "Users", href: "/users", icon: UserCircle2 },
       { label: "Blueprints", href: "/blueprints/catalog", icon: Layers },
       { label: "Templates", href: "/templates", icon: FileStack },
-      { label: "Users", href: "/users", icon: UserCircle2 },
     ],
   },
   {
-    label: "Platform",
+    label: "Platform Configuration",
     items: [
       { label: "Workflows", href: "/workflows", icon: Workflow },
       { label: "Automation", href: "/automation", icon: Zap },
+      { label: "RBAC", href: "/rbac/roles", icon: Shield },
+      { label: "Features", href: "/features", icon: Flag },
+      { label: "Governance", href: "/governance", icon: Lock },
+    ],
+  },
+  {
+    label: "Finance",
+    items: [
       { label: "Finance", href: "/finance", icon: Wallet2 },
       { label: "Revenue", href: "/finance/revenue", icon: TrendingUp },
       { label: "Commissions", href: "/commissions", icon: DollarSign },
       { label: "Reconciliation", href: "/reconciliation", icon: FileText },
-      { label: "Fraud & Risk", href: "/fraud", icon: ShieldAlert },
-      { label: "CLM", href: "/clm", icon: FileText },
-      { label: "RBAC", href: "/rbac/roles", icon: Shield },
+    ],
+  },
+  {
+    label: "Fraud Detection",
+    items: [
+      { label: "Dashboard", href: "/fraud/dashboard", icon: ShieldAlert },
+      { label: "Signals", href: "/fraud/signals", icon: Activity },
+      { label: "Models", href: "/fraud/models", icon: Gauge },
+      { label: "Patterns", href: "/fraud/patterns", icon: TrendingUp },
+      { label: "Responses", href: "/fraud/responses", icon: Zap },
+      { label: "Thresholds", href: "/fraud/thresholds", icon: BarChart3 },
+    ],
+  },
+  {
+    label: "Analytics & Monitoring",
+    items: [
       { label: "System Health", href: "/health", icon: Activity },
-      { label: "Features", href: "/features", icon: Flag },
-      { label: "Governance", href: "/governance", icon: ShieldAlert },
-      { label: "Operations", href: "/operations", icon: Workflow },
-      { label: "WES Dashboard", href: "/wes", icon: Zap },
+      { label: "Platform", href: "/analytics/platform", icon: BarChart3 },
+      { label: "Tenants", href: "/analytics/tenants", icon: Users },
+      { label: "Revenue", href: "/analytics/revenue", icon: DollarSign },
+      { label: "Reports", href: "/analytics/reports", icon: FileText },
+    ],
+  },
+  {
+    label: "WES (Workflow Execution)",
+    items: [
+      { label: "Dashboard", href: "/wes", icon: Gauge },
+      { label: "Executions", href: "/wes/executions", icon: Activity },
+      { label: "Analytics", href: "/wes/analytics", icon: BarChart3 },
+      { label: "Bottlenecks", href: "/wes/bottlenecks", icon: ShieldAlert },
+      { label: "KPIs", href: "/wes/kpis", icon: TrendingUp },
+    ],
+  },
+  {
+    label: "Content & Events",
+    items: [
+      { label: "Pageants", href: "/pageants", icon: Crown },
+      { label: "Talent Showcase", href: "/talent-showcase", icon: PlaySquare },
       { label: "Announcements", href: "/announcements", icon: Megaphone },
+    ],
+  },
+  {
+    label: "Collaboration",
+    items: [
+      { label: "Requests", href: "/collaboration/requests", icon: Users },
+      { label: "Rooms", href: "/collaboration/rooms", icon: Building2 },
+      { label: "Contracts", href: "/collaboration/contracts", icon: FileText },
+      { label: "Escrow", href: "/collaboration/escrow", icon: Shield },
+      { label: "Analytics", href: "/collaboration/analytics", icon: BarChart3 },
+    ],
+  },
+  {
+    label: "Compliance & Legal",
+    items: [
+      { label: "DSR Requests", href: "/compliance/dsr", icon: ShieldCheck },
+      { label: "Legal Holds", href: "/compliance/legal-holds", icon: Lock },
+      { label: "Retention", href: "/compliance/retention/policies", icon: Clock },
+    ],
+  },
+  {
+    label: "Content Moderation",
+    items: [
+      { label: "Queue", href: "/moderation/queue", icon: Shield },
+      { label: "Rules", href: "/moderation/rules", icon: FileText },
+      { label: "Appeals", href: "/moderation/appeals", icon: Scale },
+      { label: "Moderators", href: "/moderation/moderators", icon: Users },
+      { label: "Analytics", href: "/moderation/analytics", icon: BarChart3 },
+    ],
+  },
+  {
+    label: "Operations & Integrations",
+    items: [
+      { label: "Operations", href: "/operations", icon: Workflow },
       { label: "Integrations", href: "/integrations", icon: Plug2 },
+      { label: "CLM", href: "/clm", icon: FileText },
     ],
   },
 ]
@@ -126,7 +200,6 @@ export function SuperAdminShell({ children }: SuperAdminShellProps) {
 
   return (
     <div className="flex min-h-screen flex-col bg-[#f5f5f5] text-[#323130]">
-      {/* Top header - Full width Microsoft blue style */}
       <header className="sticky top-0 z-30 flex h-14 shrink-0 items-center justify-between gap-4 bg-[#0078d4] px-4 sm:px-6">
         <div className="flex flex-1 items-center gap-4 min-w-0">
           <h1 className="text-sm font-semibold text-white whitespace-nowrap">TalentOS Super Admin</h1>
@@ -171,7 +244,6 @@ export function SuperAdminShell({ children }: SuperAdminShellProps) {
       </header>
 
       <div className="flex flex-1 min-h-0">
-        {/* Sidebar - Microsoft style with light gray background */}
         <aside
           className={cn(
             "fixed left-0 top-14 z-20 flex h-[calc(100vh-3.5rem)] flex-col border-r border-[#d1d1d1] bg-[#edebe9] transition-[width] duration-200",
@@ -179,7 +251,6 @@ export function SuperAdminShell({ children }: SuperAdminShellProps) {
           )}
           aria-label="Main navigation"
         >
-          {/* Collapse button at top of sidebar */}
           <div className="flex h-12 shrink-0 items-center border-b border-[#d1d1d1] px-3">
             <Button
               variant="ghost"
@@ -192,110 +263,104 @@ export function SuperAdminShell({ children }: SuperAdminShellProps) {
             </Button>
           </div>
 
-        {/* Nav sections */}
-        <nav className="flex-1 overflow-y-auto overflow-x-hidden py-3 scrollbar-hide" aria-label="Navigation menu">
-          {navSections.map((section) => {
-            const isExpanded = collapsed || expandedSections.has(section.label)
+          <nav className="flex-1 overflow-y-auto overflow-x-hidden py-3 scrollbar-hide" aria-label="Navigation menu">
+            {navSections.map((section) => {
+              const isExpanded = collapsed || expandedSections.has(section.label)
 
-            return (
-              <div key={section.label} className="mb-1">
-                {!collapsed && (
-                  <button
-                    type="button"
-                    onClick={() => toggleSection(section.label)}
-                    className="flex w-full items-center justify-between px-4 py-2 text-left text-[11px] font-semibold uppercase tracking-wider text-[#605e5c] hover:bg-[#e1dfdd]"
-                  >
-                    {section.label}
-                    <ChevronRight
-                      className={cn(
-                        "h-3.5 w-3.5 transition-transform",
-                        isExpanded && "rotate-90"
-                      )}
-                    />
-                  </button>
-                )}
-                {isExpanded && (
-                  <ul className="space-y-0.5">
-                    {section.items.map((item) => {
-                      const Icon = item.icon
-                      // More precise active matching - exact match or child route
-                      const active =
-                        pathname === item.href ||
-                        (item.href !== "/" && pathname.startsWith(item.href + "/"))
+              return (
+                <div key={section.label} className="mb-1">
+                  {!collapsed && (
+                    <button
+                      type="button"
+                      onClick={() => toggleSection(section.label)}
+                      className="flex w-full items-center justify-between px-4 py-2 text-left text-[11px] font-semibold uppercase tracking-wider text-[#605e5c] hover:bg-[#e1dfdd]"
+                    >
+                      {section.label}
+                      <ChevronRight
+                        className={cn(
+                          "h-3.5 w-3.5 transition-transform",
+                          isExpanded && "rotate-90"
+                        )}
+                      />
+                    </button>
+                  )}
+                  {isExpanded && (
+                    <ul className="space-y-0.5">
+                      {section.items.map((item) => {
+                        const Icon = item.icon
+                        const active =
+                          pathname === item.href ||
+                          (item.href !== "/" && pathname.startsWith(item.href + "/"))
 
-                      return (
-                        <li key={item.href}>
-                          <Link
-                            href={item.href}
-                            title={collapsed ? item.label : undefined}
-                            className={cn(
-                              "group relative flex items-center gap-3 px-3 py-2 text-sm transition-colors",
-                              active
-                                ? "bg-[#e3f2fd] font-semibold text-[#0078d4]"
-                                : "text-[#605e5c] hover:bg-[#e1dfdd] hover:text-[#323130]"
-                            )}
-                            aria-current={active ? "page" : undefined}
-                          >
-                            {/* Blue left border for active item */}
-                            {active && (
-                              <span className="absolute left-0 top-0 h-full w-1 bg-[#0078d4]" />
-                            )}
-                            <span
+                        return (
+                          <li key={item.href}>
+                            <Link
+                              href={item.href}
+                              title={collapsed ? item.label : undefined}
                               className={cn(
-                                "flex h-5 w-5 shrink-0 items-center justify-center",
-                                active ? "text-[#0078d4]" : "text-[#605e5c]"
+                                "group relative flex items-center gap-3 px-3 py-2 text-sm transition-colors",
+                                active
+                                  ? "bg-[#e3f2fd] font-semibold text-[#0078d4]"
+                                  : "text-[#605e5c] hover:bg-[#e1dfdd] hover:text-[#323130]"
                               )}
+                              aria-current={active ? "page" : undefined}
                             >
-                              <Icon className="h-5 w-5" />
-                            </span>
-                            {!collapsed && (
-                              <span className="truncate">{item.label}</span>
-                            )}
-                          </Link>
-                        </li>
-                      )
-                    })}
-                  </ul>
-                )}
+                              {active && (
+                                <span className="absolute left-0 top-0 h-full w-1 bg-[#0078d4]" />
+                              )}
+                              <span
+                                className={cn(
+                                  "flex h-5 w-5 shrink-0 items-center justify-center",
+                                  active ? "text-[#0078d4]" : "text-[#605e5c]"
+                                )}
+                              >
+                                <Icon className="h-5 w-5" />
+                              </span>
+                              {!collapsed && (
+                                <span className="truncate">{item.label}</span>
+                              )}
+                            </Link>
+                          </li>
+                        )
+                      })}
+                    </ul>
+                  )}
+                </div>
+              )
+            })}
+          </nav>
+
+          <div className="shrink-0 border-t border-[#d1d1d1] px-4 py-3">
+            {!collapsed && (
+              <div className="flex items-center gap-2 text-[11px] text-[#605e5c] hover:text-[#323130] cursor-pointer">
+                <Settings className="h-4 w-4" />
+                <span>Settings</span>
               </div>
-            )
-          })}
-        </nav>
+            )}
+            {collapsed && (
+              <Button
+                variant="ghost"
+                size="icon"
+                className="h-8 w-8 text-[#605e5c] hover:bg-[#e1dfdd]"
+                title="Settings"
+              >
+                <Settings className="h-4 w-4" />
+              </Button>
+            )}
+          </div>
+        </aside>
 
-        {/* Footer */}
-        <div className="shrink-0 border-t border-[#d1d1d1] px-4 py-3">
-          {!collapsed && (
-            <div className="flex items-center gap-2 text-[11px] text-[#605e5c] hover:text-[#323130] cursor-pointer">
-              <Settings className="h-4 w-4" />
-              <span>Settings</span>
-            </div>
+        <div
+          className={cn(
+            "flex min-h-0 flex-1 flex-col transition-[margin] duration-200",
+            collapsed ? "ml-[72px]" : "ml-64"
           )}
-          {collapsed && (
-            <Button
-              variant="ghost"
-              size="icon"
-              className="h-8 w-8 text-[#605e5c] hover:bg-[#e1dfdd]"
-              title="Settings"
-            >
-              <Settings className="h-4 w-4" />
-            </Button>
-          )}
-        </div>
-      </aside>
-
-      {/* Main content */}
-      <div
-        className={cn(
-          "flex min-h-0 flex-1 flex-col transition-[margin] duration-200",
-          collapsed ? "ml-[72px]" : "ml-64"
-        )}
-      >
-        {/* Page content */}
-        <div className="min-h-0 flex-1 overflow-y-auto overflow-x-hidden">
-          {children}
+        >
+          <div className="min-h-0 flex-1 overflow-y-auto overflow-x-hidden">
+            {children}
+          </div>
         </div>
       </div>
-    </div>
     </div>
   )
 }

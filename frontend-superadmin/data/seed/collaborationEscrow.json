@@ -1,0 +1,4 @@
+[
+  { "id": "escrow_collab_001", "roomId": "room_001", "contractId": "contract_collab_001", "tenantIds": ["tenant_001", "tenant_002"], "amountMinor": 2500000, "currency": "INR", "status": "FUNDED", "fundedAt": "2025-02-12T11:00:00.000Z", "createdAt": "2025-02-11T16:30:00.000Z" },
+  { "id": "escrow_collab_002", "roomId": "room_003", "contractId": "contract_collab_003", "tenantIds": ["tenant_002", "tenant_004"], "amountMinor": 1500000, "currency": "INR", "status": "SETTLED", "fundedAt": "2024-11-05T15:00:00.000Z", "releasedAt": "2024-12-15T19:00:00.000Z", "createdAt": "2024-11-01T11:00:00.000Z" }
+]

@@ -13,6 +13,24 @@ export default function WESDashboard() {
   const analytics = wesAnalytics
   const rules = automationRules
 
+  // Group rules by packId for display
+  const rulesByPack = rules.reduce((acc: any, rule: any) => {
+    if (!acc[rule.packId]) {
+      acc[rule.packId] = { rules: [], active: 0 }
+    }
+    acc[rule.packId].rules.push(rule)
+    if (rule.status === 'ACTIVE') acc[rule.packId].active++
+    return acc
+  }, {})
+
+  const topPacks = Object.entries(rulesByPack)
+    .map(([packId, data]: [string, any]) => ({
+      name: packId.replace('pack_', '').replace(/_/g, ' '),
+      ruleCount: data.rules.length,
+      activeCount: data.active,
+    }))
+    .slice(0, 4)
+
   const getScoreColor = (score: number) => {
     if (score >= 85) return "text-[#107c10]"
     if (score >= 70) return "text-[#ffb900]" 
@@ -37,12 +55,20 @@ export default function WESDashboard() {
     <PageLayout>
       <PageHeader
         title="Workflow Efficiency Score (WES)"
-        subtitle="AI-driven workflow optimization and automation insights across all tenants"
+        description="AI-driven workflow optimization and automation insights across all tenants"
         badge={
           <span className="inline-flex items-center gap-1.5 rounded border border-[#edebe9] bg-white px-2.5 py-1 text-xs font-medium text-[#605e5c]">
             <Zap className="h-3.5 w-3.5 text-[#0078d4]" />
             AI-Powered
           </span>
+        }
+        actions={
+          <div className="flex flex-wrap gap-2">
+            <Link href="/wes/executions"><Button variant="outline" size="sm">Executions</Button></Link>
+            <Link href="/wes/analytics"><Button variant="outline" size="sm">Analytics</Button></Link>
+            <Link href="/wes/bottlenecks"><Button variant="outline" size="sm">Bottlenecks</Button></Link>
+            <Link href="/wes/kpis"><Button variant="outline" size="sm">KPIs</Button></Link>
+          </div>
         }
       />
 
@@ -223,18 +249,18 @@ export default function WESDashboard() {
           </CardHeader>
           <CardContent>
             <div className="space-y-3">
-              {rules.categories.slice(0, 4).map((category: any) => (
-                <div key={category.name} className="flex items-center justify-between rounded border border-[#edebe9] bg-[#faf9f8] px-3 py-2">
+              {topPacks.map((pack: any) => (
+                <div key={pack.name} className="flex items-center justify-between rounded border border-[#edebe9] bg-[#faf9f8] px-3 py-2">
                   <div>
-                    <p className="text-xs font-medium text-[#323130]">{category.name}</p>
-                    <p className="text-xs text-[#605e5c]">{category.description}</p>
+                    <p className="text-xs font-medium text-[#323130] capitalize">{pack.name}</p>
+                    <p className="text-xs text-[#605e5c]">Automation pack</p>
                   </div>
                   <div className="text-right">
                     <p className="text-xs font-semibold text-[#323130]">
-                      {category.activeCount}/{category.ruleCount}
+                      {pack.activeCount}/{pack.ruleCount}
                     </p>
                     <p className="text-xs text-[#605e5c]">
-                      {Math.round((category.activeCount / category.ruleCount) * 100)}% active
+                      {Math.round((pack.activeCount / pack.ruleCount) * 100)}% active
                     </p>
                   </div>
                 </div>

@@ -1,0 +1,11 @@
+{
+  "period": "Last 30 days",
+  "totalRooms": 3,
+  "activeRooms": 2,
+  "totalRequests": 8,
+  "approvedRequests": 5,
+  "rejectionRatePercent": 37.5,
+  "totalRevenueMinor": 4000000,
+  "tenantParticipationCount": 5,
+  "avgRoomDurationDays": 45
+}

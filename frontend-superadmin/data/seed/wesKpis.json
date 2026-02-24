@@ -1,0 +1,55 @@
+[
+  {
+    "id": "kpi_001",
+    "name": "Stage Flow Efficiency",
+    "metric": "stage_flow_efficiency",
+    "targetValue": 90,
+    "unit": "%",
+    "thresholdWarning": 85,
+    "thresholdCritical": 75,
+    "status": "active",
+    "weight": 25
+  },
+  {
+    "id": "kpi_002",
+    "name": "SLA Compliance",
+    "metric": "sla_compliance",
+    "targetValue": 95,
+    "unit": "%",
+    "thresholdWarning": 90,
+    "thresholdCritical": 80,
+    "status": "active",
+    "weight": 15
+  },
+  {
+    "id": "kpi_003",
+    "name": "Approval Velocity",
+    "metric": "approval_velocity",
+    "targetValue": 24,
+    "unit": "hours",
+    "thresholdWarning": 36,
+    "thresholdCritical": 48,
+    "status": "active",
+    "weight": 10
+  },
+  {
+    "id": "kpi_004",
+    "name": "Queue Hygiene",
+    "metric": "queue_hygiene",
+    "targetValue": 95,
+    "unit": "%",
+    "status": "active",
+    "weight": 10
+  },
+  {
+    "id": "kpi_005",
+    "name": "Cash Conversion Cycle",
+    "metric": "cash_conversion_days",
+    "targetValue": 14,
+    "unit": "days",
+    "thresholdWarning": 21,
+    "thresholdCritical": 30,
+    "status": "active",
+    "weight": 20
+  }
+]

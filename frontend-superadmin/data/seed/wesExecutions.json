@@ -1,0 +1,42 @@
+[
+  {
+    "id": "exec_001",
+    "tenantId": "tenant_001",
+    "workflowId": "wf_001",
+    "workflowName": "Booking Approval",
+    "status": "running",
+    "startedAt": "2025-02-23T08:15:00.000Z",
+    "stage": "Pending approval",
+    "duration": 45
+  },
+  {
+    "id": "exec_002",
+    "tenantId": "tenant_002",
+    "workflowId": "wf_002",
+    "workflowName": "Escrow Release",
+    "status": "completed",
+    "startedAt": "2025-02-22T14:00:00.000Z",
+    "completedAt": "2025-02-22T14:32:00.000Z",
+    "duration": 32
+  },
+  {
+    "id": "exec_003",
+    "tenantId": "tenant_003",
+    "workflowId": "wf_003",
+    "workflowName": "Participant Onboarding",
+    "status": "queued",
+    "startedAt": "2025-02-23T09:00:00.000Z",
+    "stage": "Queued"
+  },
+  {
+    "id": "exec_004",
+    "tenantId": "tenant_001",
+    "workflowId": "wf_004",
+    "workflowName": "Payment Processing",
+    "status": "failed",
+    "startedAt": "2025-02-23T07:30:00.000Z",
+    "completedAt": "2025-02-23T07:45:00.000Z",
+    "error": "Payment gateway timeout",
+    "duration": 15
+  }
+]

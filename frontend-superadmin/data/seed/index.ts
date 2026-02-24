@@ -59,6 +59,29 @@ import rolesData from "./roles.json"
 import policiesData from "./policies.json"
 import permissionMatrixData from "./permissionMatrix.json"
 import rbacAuditData from "./rbacAudit.json"
+import collaborationRequestsData from "./collaborationRequests.json"
+import collaborationRoomsData from "./collaborationRooms.json"
+import collaborationContractsData from "./collaborationContracts.json"
+import collaborationEscrowData from "./collaborationEscrow.json"
+import collaborationAnalyticsData from "./collaborationAnalytics.json"
+import moderationQueueData from "./moderationQueue.json"
+import moderationRulesData from "./moderationRules.json"
+import moderatorsData from "./moderators.json"
+import moderationAnalyticsData from "./moderationAnalytics.json"
+import fraudRiskMonitoringData from "./fraudRiskMonitoring.json"
+import fraudModelsData from "./fraudModels.json"
+import fraudResponsesData from "./fraudResponses.json"
+import fraudThresholdsData from "./fraudThresholds.json"
+import wesAnalyticsData from "./wesAnalytics.json"
+import wesScoresData from "./wesScores.json"
+import wesRecommendationsData from "./wesRecommendations.json"
+import wesExecutionsData from "./wesExecutions.json"
+import wesBottlenecksData from "./wesBottlenecks.json"
+import wesKpisData from "./wesKpis.json"
+import platformAnalyticsData from "./platformAnalytics.json"
+import tenantAnalyticsData from "./tenantAnalytics.json"
+import analyticsReportsData from "./analyticsReports.json"
+import revenueAnalyticsData from "./revenueAnalytics.json"
 
 // Type assertions - keep simple for now
 export const seedPageants = pageantsData as any[]
@@ -115,6 +138,29 @@ export const seedRoles = rolesData as any[]
 export const seedPolicies = policiesData as any[]
 export const seedPermissionMatrix = permissionMatrixData as any[]
 export const seedRbacAudit = rbacAuditData as any[]
+export const seedCollaborationRequests = collaborationRequestsData as any[]
+export const seedCollaborationRooms = collaborationRoomsData as any[]
+export const seedCollaborationContracts = collaborationContractsData as any[]
+export const seedCollaborationEscrow = collaborationEscrowData as any[]
+export const seedCollaborationAnalytics = collaborationAnalyticsData as any
+export const seedModerationQueue = moderationQueueData as any[]
+export const seedModerationRules = moderationRulesData as any[]
+export const seedModerators = moderatorsData as any[]
+export const seedModerationAnalytics = moderationAnalyticsData as any
+export const seedFraudRiskMonitoring = fraudRiskMonitoringData as any
+export const seedFraudModels = fraudModelsData as any[]
+export const seedFraudResponses = fraudResponsesData as any[]
+export const seedFraudThresholds = fraudThresholdsData as any[]
+export const seedWesAnalytics = wesAnalyticsData as any
+export const seedWesScores = wesScoresData as any[]
+export const seedWesRecommendations = wesRecommendationsData as any[]
+export const seedWesExecutions = wesExecutionsData as any[]
+export const seedWesBottlenecks = wesBottlenecksData as any[]
+export const seedWesKpis = wesKpisData as any[]
+export const seedPlatformAnalytics = platformAnalyticsData as any
+export const seedTenantAnalytics = tenantAnalyticsData as any[]
+export const seedAnalyticsReports = analyticsReportsData as any[]
+export const seedRevenueAnalytics = revenueAnalyticsData as any
 
 export const getAllSeedData = () => ({
   pageants: seedPageants,
