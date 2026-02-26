@@ -42,8 +42,6 @@ import {
   TrendingUp,
   Layers,
   FileStack,
-  BarChart3,
-  Gauge,
   Building2,
   Lock,
   ShieldCheck,
@@ -84,26 +82,8 @@ const navSections: NavSection[] = [
   {
     label: "Organization",
     items: [
-      { 
-        label: "Tenants", 
-        icon: Building2,
-        children: [
-          { label: "Overview", href: "/tenants" },
-          { label: "Lifecycle", href: "/tenants/lifecycle" },
-          { label: "Configuration", href: "/tenants/configuration" },
-          { label: "Risk", href: "/tenants/risk" },
-        ]
-      },
-      { 
-        label: "Users", 
-        icon: UserCircle2,
-        children: [
-          { label: "Overview", href: "/users" },
-          { label: "Identity", href: "/users/identity" },
-          { label: "Roles", href: "/users/roles" },
-          { label: "Abuse", href: "/users/abuse" },
-        ]
-      },
+      { label: "Tenants", href: "/tenants", icon: Building2 },
+      { label: "Users", href: "/users", icon: UserCircle2 },
       { label: "Blueprints", href: "/blueprints/catalog", icon: Layers },
       { label: "Templates", href: "/templates", icon: FileStack },
     ],
@@ -117,22 +97,14 @@ const navSections: NavSection[] = [
         icon: Zap,
         children: [
           { label: "Overview", href: "/automation" },
-          { label: "Workflows", href: "/automation/workflows" },
-          { label: "Policies", href: "/automation/policies" },
-          { label: "Controls", href: "/automation/controls" },
+          { label: "Packs", href: "/automation/packs" },
+          { label: "Rules", href: "/automation/rules" },
+          { label: "Logs", href: "/automation/logs" },
+          { label: "Analytics", href: "/automation/analytics" },
         ]
       },
       { label: "RBAC", href: "/rbac/roles", icon: Shield },
-      { 
-        label: "Features", 
-        icon: Flag,
-        children: [
-          { label: "Overview", href: "/features" },
-          { label: "Flags", href: "/features/flags" },
-          { label: "Rollouts", href: "/features/rollouts" },
-          { label: "Config", href: "/features/config" },
-        ]
-      },
+      { label: "Features", href: "/features", icon: Flag },
       { label: "Governance", href: "/governance", icon: Lock },
     ],
   },
@@ -156,9 +128,8 @@ const navSections: NavSection[] = [
         label: "Payments", 
         icon: Wallet2,
         children: [
-          { label: "Wallets", href: "/payments/wallets" },
-          { label: "Escrow", href: "/payments/escrow" },
-          { label: "Risk", href: "/payments/risk" },
+          { label: "Wallets", href: "/finance/wallets" },
+          { label: "Escrow", href: "/finance/escrow" },
         ]
       },
     ],
@@ -218,11 +189,6 @@ const navSections: NavSection[] = [
       },
     ],
   },
-  {
-    label: "Content & Events",
-    items: [
-      { label: "Pageants", href: "/pageants", icon: Crown },
-      { label: "Talent Showcase", href: "/talent-showcase", icon: PlaySquare },
   {
     label: "Content & Events",
     items: [
@@ -313,7 +279,7 @@ export function SuperAdminShell({ children }: SuperAdminShellProps) {
   const pathname = usePathname()
   const [collapsed, setCollapsed] = React.useState(false)
   const [expandedSections, setExpandedSections] = React.useState<Set<string>>(
-    new Set(navSections.map((s) => s.label))
+    new Set(["Overview"]) // Start with only Overview expanded
   )
   const [expandedParents, setExpandedParents] = React.useState<Set<string>>(new Set())
 
@@ -328,10 +294,14 @@ export function SuperAdminShell({ children }: SuperAdminShellProps) {
 
   const toggleSection = (label: string) => {
     setExpandedSections((prev) => {
-      const next = new Set(prev)
-      if (next.has(label)) next.delete(label)
-      else next.add(label)
-      return next
+      // Accordion behavior: only one section open at a time
+      if (prev.has(label)) {
+        // If clicking the open section, close it
+        return new Set()
+      } else {
+        // If clicking a closed section, open it and close others
+        return new Set([label])
+      }
     })
   }
 
@@ -455,7 +425,7 @@ export function SuperAdminShell({ children }: SuperAdminShellProps) {
                                 type="button"
                                 onClick={() => toggleParent(item.label)}
                                 className={cn(
-                                  "group relative flex w-full items-center gap-3 px-3 py-2 text-sm transition-colors",
+                                  "group relative flex w-full items-center gap-3 px-3 py-2 text-sm text-left transition-colors",
                                   isChildActive
                                     ? "bg-[#e3f2fd] font-semibold text-[#0078d4]"
                                     : "text-[#605e5c] hover:bg-[#e1dfdd] hover:text-[#323130]"
@@ -485,17 +455,22 @@ export function SuperAdminShell({ children }: SuperAdminShellProps) {
                                 )}
                               </button>
                               {!collapsed && isParentExpanded && (
-                                <ul className="ml-8 mt-0.5 space-y-0.5 border-l-2 border-[#d1d1d1] pl-2">
-                                  {item.children?.map((child) => {
+                                <ul className="relative ml-8 mt-0.5 space-y-0.5 pl-2">
+                                  {/* Vertical line connecting all children */}
+                                  <div className="absolute left-0 top-0 bottom-0 w-px bg-[#d1d1d1]" />
+                                  {item.children?.map((child, childIndex) => {
                                     const isActive = pathname === child.href || 
                                       (child.href !== "/" && pathname.startsWith(child.href + "/"))
+                                    const isLastChild = childIndex === item.children!.length - 1
                                     
                                     return (
-                                      <li key={child.href}>
+                                      <li key={child.href} className="relative">
+                                        {/* Horizontal line connecting to vertical line */}
+                                        <div className="absolute left-0 top-1/2 w-2 h-px bg-[#d1d1d1] -translate-y-1/2" />
                                         <Link
                                           href={child.href}
                                           className={cn(
-                                            "block rounded px-3 py-1.5 text-sm transition-colors",
+                                            "block rounded px-3 py-1.5 text-sm transition-colors ml-2",
                                             isActive
                                               ? "bg-[#e3f2fd] font-semibold text-[#0078d4]"
                                               : "text-[#605e5c] hover:bg-[#e1dfdd] hover:text-[#323130]"

@@ -386,27 +386,26 @@ export default function TalentShowcaseDashboard() {
             </div>
           </div>
 
-          <div className="rounded border border-[#edebe9] bg-white p-3">
-            {loading ? (
-              <div className="flex items-center justify-center py-14 text-[#605e5c]">
-                <span className="text-sm">Loading showcase posts from seed…</span>
-              </div>
-            ) : filteredPosts.length === 0 ? (
-              <div className="flex flex-col items-center justify-center gap-2 py-14 text-center text-[#605e5c]">
-                <p className="text-sm font-medium">
-                  No posts match this filter in the current seed.
-                </p>
-                <p className="max-w-md text-xs text-[#605e5c]">
-                  Update{" "}
-                  <code className="rounded bg-[#f3f2f1] px-1.5 py-0.5 text-[11px]">
-                    data/seed/contentPosts.json
-                  </code>{" "}
-                  to simulate different showcase patterns.
-                </p>
-              </div>
-            ) : (
-              <div className="grid gap-3 md:grid-cols-2">
-                {filteredPosts.map((post) => (
+          {loading ? (
+            <div className="flex items-center justify-center py-14 text-[#605e5c]">
+              <span className="text-sm">Loading showcase posts from seed…</span>
+            </div>
+          ) : filteredPosts.length === 0 ? (
+            <div className="flex flex-col items-center justify-center gap-2 py-14 text-center text-[#605e5c]">
+              <p className="text-sm font-medium">
+                No posts match this filter in the current seed.
+              </p>
+              <p className="max-w-md text-xs text-[#605e5c]">
+                Update{" "}
+                <code className="rounded bg-[#f3f2f1] px-1.5 py-0.5 text-[11px]">
+                  data/seed/contentPosts.json
+                </code>{" "}
+                to simulate different showcase patterns.
+              </p>
+            </div>
+          ) : (
+            <div className="grid gap-3 md:grid-cols-2">
+              {filteredPosts.map((post) => (
                   <article
                     key={post._id}
                     className="group relative overflow-hidden rounded border border-[#edebe9] bg-[#faf9f8] hover:bg-[#f3f2f1] transition-colors"
@@ -536,9 +535,8 @@ export default function TalentShowcaseDashboard() {
                     </div>
                   </article>
                 ))}
-              </div>
-            )}
-          </div>
+            </div>
+          )}
         </div>
       </PageSection>
 

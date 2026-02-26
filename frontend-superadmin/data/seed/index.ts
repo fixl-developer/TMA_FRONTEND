@@ -65,7 +65,6 @@ import rolesData from "./roles.json"
 import policiesData from "./policies.json"
 import permissionMatrixData from "./permissionMatrix.json"
 import rbacAuditData from "./rbacAudit.json"
-import rbacAuditData from "./rbacAudit.json"
 import collaborationRequestsData from "./collaborationRequests.json"
 import collaborationRoomsData from "./collaborationRooms.json"
 import collaborationContractsData from "./collaborationContracts.json"
@@ -162,7 +161,6 @@ export const seedCommissionSettlements = commissionSettlementsData as any[]
 export const seedRoles = rolesData as any[]
 export const seedPolicies = policiesData as any[]
 export const seedPermissionMatrix = permissionMatrixData as any[]
-export const seedRbacAudit = rbacAuditData as any[]
 export const seedRbacAudit = rbacAuditData as any[]
 export const seedCollaborationRequests = collaborationRequestsData as any[]
 export const seedCollaborationRooms = collaborationRoomsData as any[]
